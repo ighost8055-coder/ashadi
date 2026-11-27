@@ -8,3 +8,9 @@
 # OS / editor noise
 .DS_Store
 Thumbs.db
+
+
+tools/logs/*.log
+.env
+.env.*
+node_modules/
