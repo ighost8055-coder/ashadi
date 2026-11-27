@@ -1,0 +1,178 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#340A5C",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A deep Kapruka-purple poster: a bold white headline at the top with one yellow accent word, one hero product group centred below it, a short supporting line near the bottom, logo top centre.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.5,
+      "bottom": 7.5,
+      "left": 9.5
+    },
+    "alignment_axes": [
+      "everything is centred on the page"
+    ],
+    "whitespace": [
+      "clear purple space around the hero"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 15,
+      "y": 34,
+      "w": 70,
+      "h": 50
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside an inset left column (x=9.5% to 39%, y=10% to 82.5%), a clean vertical tiered arrangement of three real fragrance bottles drawn exactly as they appear on the attached product sheet, matching identical bottle shapes, colours, caps, packaging, and printed details. On the top matte #340A5C geometric riser stands the Dolce And Gabbana The Only One Edp Perfume For Women 100ml; on the middle matte #340A5C riser sits the Hugo Boss Bottled Unlimited Edt Perfume 100ml with its white box; on the lower matte #340A5C riser rests the Hawas Elixir Perfume with its gold box. All bottles, risers, and soft grounded contact shadows stay fully inside the inset bounding box. Clean, even studio lighting gives crisp glass reflections and a warm gifting mood, with no logos, wordmarks, or text.",
+    "composition": "centred hero group",
+    "camera": "eye-level studio product shot",
+    "lighting": "soft key light from the upper right, gentle rim light, soft contact shadow",
+    "palette": [
+      "#340A5C",
+      "#FFFFFF",
+      "#FFC107"
+    ],
+    "negative_space": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 32
+      },
+      {
+        "x": 0,
+        "y": 86,
+        "w": 100,
+        "h": 14
+      }
+    ],
+    "prompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside an inset left column (x=9.5% to 39%, y=10% to 82.5%), a clean vertical tiered arrangement of three real fragrance bottles drawn exactly as they appear on the attached product sheet, matching identical bottle shapes, colours, caps, packaging, and printed details. On the top matte #340A5C geometric riser stands the Dolce And Gabbana The Only One Edp Perfume For Women 100ml; on the middle matte #340A5C riser sits the Hugo Boss Bottled Unlimited Edt Perfume 100ml with its white box; on the lower matte #340A5C riser rests the Hawas Elixir Perfume with its gold box. All bottles, risers, and soft grounded contact shadows stay fully inside the inset bounding box. Clean, even studio lighting gives crisp glass reflections and a warm gifting mood, with no logos, wordmarks, or text.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "role": "logo",
+      "on": "dark",
+      "box": {
+        "x": 36,
+        "y": 7.5,
+        "w": 28,
+        "h": 5
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "They never treat",
+      "box": {
+        "x": 9.5,
+        "y": 16,
+        "w": 81,
+        "h": 6
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 76,
+        "cap_height_px": 55,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "themselves.",
+      "box": {
+        "x": 9.5,
+        "y": 23,
+        "w": 81,
+        "h": 7
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 88,
+        "cap_height_px": 64,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFC107",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "tagline",
+      "text": "Delivered to their door, island-wide.",
+      "box": {
+        "x": 9.5,
+        "y": 87,
+        "w": 81,
+        "h": 4
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 44,
+        "cap_height_px": 32,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3"
+  ],
+  "hierarchy": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "logo"
+  ],
+  "changes": [
+    "no reference: built from the strategist brief (Remind local adult children that their parents always put everyone else first and never buy themselves a real bottle of perfume, so sending one straight to their door is an effortless, thoughtful surprise.)"
+  ],
+  "claims_used": []
+}

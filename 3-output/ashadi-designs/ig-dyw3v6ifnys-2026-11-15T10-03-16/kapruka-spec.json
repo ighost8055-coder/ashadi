@@ -1,0 +1,265 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A pure white poster split diagonally: a tilted globe bleeding off the top-left corner melts at its lowest point into a rope of gold satin ribbon that pours straight down into a plain purple Kapruka gift bag in the lower-left quadrant, while a four-line title lockup stacks in the right half between 31% and 55% height. A single gold tagline sits centred on the very bottom edge, leaving a large empty band of white between the title and that line.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 9,
+      "bottom": 1.4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "WORLD and IN A BAG share a left edge at x=47.0%",
+      "WORLD (x=89.3%) and IN A BAG (x=90.9%) are optically flush on the right, ~90%",
+      "the four title lines are optically centred on a vertical axis at x≈68.7%",
+      "the bottom tagline is centred on the canvas centreline x=50.0%",
+      "the bag's vertical centre (x≈24.5%) sits on the same axis as the pouring ribbon and the globe's melt point above it",
+      "the globe's lowest point, the ribbon stream and the bag form one continuous vertical column in the left third (x=14%-36%)"
+    ],
+    "whitespace": [
+      "entire right half above the title is empty: x 40-100%, y 0-31%",
+      "13% empty band between the bag/shadow bottom (y=82.5%) and the tagline cap-top (y=95.1%)",
+      "large empty quadrant right of the bag and below the title: x 40-100%, y 55-94%",
+      "3.2% gap between THE baseline (34.0%) and WORLD cap-top (34.5%) is near-zero; 2.7% gap between WORLD baseline (41.7%) and FITS cap-top (44.4%); 1.6% gap between FITS baseline (47.3%) and IN A BAG cap-top (49.0%)",
+      "bottom margin is almost nil (1.4%) — the tagline is deliberately pinned to the edge",
+      "left edge has zero margin: the globe is cropped hard off-canvas"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36.5,
+      "h": 72.5
+    },
+    "kind": "photoreal-composite",
+    "framing": "cutout-on-ground",
+    "subject": "A tilted desk globe — deep purple oceans, warm cream landmasses, real printed-paper and brushed-metal materials — cropped off the left edge of the frame, its top curve rising to the right. Its lowest point does not end in a stand: it softens and stretches downward into a single taut rope of glossy gold satin ribbon that splits into three slender tapering tails just above an open matte purple paper gift bag with white twisted-rope handles. The bag stands upright below, completely plain and unprinted, its mouth flooded with the same gold ribbon which loops in heavy folds down the front and right side of the bag and coils in a small pool on the ground at the bag's right foot. Cresting the bag's rim are three real, finished gifts, large and clearly separated: a fresh flower bouquet head, a wristwatch, and a pair of over-ear headphones. A crisp faint contact shadow sits beneath the bag.",
+    "composition": "Occupies only the left third of the canvas. The globe reads top-left, angled roughly 35° with its top curve reaching x=36%, y=11% and the body cropped at the left edge between y=28% and y=45%. The melting ribbon stream runs vertically at x≈23-25% from y=40% to y=55%. The bag is centred at x≈24.5%, standing from y=55.5% to y=82%, about 21% of canvas width wide. Scale is exaggerated: the globe reads about twice the bag's size, making a heavy top-left mass that balances the type on the right.",
+    "camera": "Straight-on product viewpoint at the bag's mid-height, slight downward tilt so the bag's open mouth reads as a shallow ellipse; long-lens/orthographic feel with no perspective distortion; everything tack-sharp front to back, no depth-of-field falloff.",
+    "lighting": "Clean studio lighting: a large soft key from the upper right plus a broad fill from upper left, producing long specular streaks down the satin ribbon and soft highlights on every fold. Neutral white light, no colour cast; a soft grey contact shadow directly under the bag and a faint one under the melt point. Nothing else grounds the objects — they float on pure white.",
+    "palette": [
+      "#FFFFFF",
+      "#4B2386",
+      "#340A5C",
+      "#241044",
+      "#D9A441",
+      "#F6C96A",
+      "#F5F4EB",
+      "#E8E8E8",
+      "#C9C9C9"
+    ],
+    "negative_space": [
+      "x 40-100%, y 0-30% (title sits in the lower part of this field)",
+      "x 40-100%, y 56-94%",
+      "x 0-100%, y 83-94% (the band above the tagline)"
+    ],
+    "prompt": "A 4:5 portrait image on a pure flat white background, objects cut out on the page with no picture edge, frame or vignette. Upper left, cropped hard off the left edge: a tilted desk globe with deep matte purple oceans and warm cream landmasses, real printed-paper and brushed-metal materials, angled about 35 degrees, its top curve reaching toward the upper middle. Its lowest point softens and stretches downward into one taut rope of glossy gold satin ribbon running straight down the left third, splitting into three tapering tails just above an open matte purple paper gift bag with white twisted-rope handles. The bag is completely plain and unprinted, its flat front face clean, unobstructed and evenly lit. Gold ribbon floods the bag's mouth, loops in heavy folds down its front and right side, and coils in a small pool at its right foot. Cresting the rim, large and clearly separated: a fresh flower bouquet head, a wristwatch, a pair of over-ear headphones. Clean studio light, large soft key upper right, broad fill upper left, neutral white, soft grey contact shadows under bag and ribbon. Long lens, straight on at bag mid-height, slight downward tilt, tack sharp throughout. Real photographic materials, real fabric sheen, no plastic or CG sheen. Keep these areas empty flat white: x45-93% y31-55%, x7-93% y94-99%, x40-100% y0-31%; keep the bag front face at x17-27% y65-68% flat and plain. Absolutely no text, letters, numbers, words, logos, labels, signage, watermarks or UI anywhere, including on the bag, the gifts, the globe and the background.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 31.3,
+        "w": 12.5,
+        "h": 2.8
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 54,
+        "cap_height_px": 38,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "WORLD",
+      "box": {
+        "x": 47,
+        "y": 34.5,
+        "w": 42.3,
+        "h": 7.2
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 138,
+        "cap_height_px": 97,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "FITS",
+      "box": {
+        "x": 61.7,
+        "y": 44.4,
+        "w": 15.6,
+        "h": 2.9
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 56,
+        "cap_height_px": 39,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "IN A BAG",
+      "box": {
+        "x": 47,
+        "y": 49,
+        "w": 43.9,
+        "h": 5.4
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 104,
+        "cap_height_px": 73,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "A world of choices",
+      "box": {
+        "x": 25,
+        "y": 95.1,
+        "w": 50,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 52,
+        "cap_height_px": 36,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "logo",
+      "brand": "Kapruka — white wordmark + yellow smile, placed in Canva on the blank purple bag face (one logo in the frame)",
+      "box": {
+        "x": 17,
+        "y": 65.3,
+        "w": 10.3,
+        "h": 2.8
+      },
+      "on": "dark",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "canvas background",
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5",
+    "e6 (composited on the bag face)"
+  ],
+  "hierarchy": [
+    "scene (globe, top-left mass)",
+    "e2",
+    "e4",
+    "scene (gift bag, lower-left)",
+    "e5",
+    "e1",
+    "e3",
+    "e6"
+  ],
+  "why_it_works": [
+    "The purple globe and the purple type sit on opposite diagonals of a pure white field, so the eye crosses the frame once and lands on the headline — the white is doing all the work no shape or scrim would.",
+    "The melting globe is the whole idea in one read: the world becomes the gift that pours into the bag, and the type only names the thought rather than explaining it.",
+    "Three gold accents (ribbon, THE/FITS, the bottom line) and two purple words form a strict two-colour system, which lets a high-contrast serif survive against a heavy glossy render without any box, rule or badge."
+  ],
+  "changes": [
+    "Visual device kept, subject swapped: the stiletto melting into the spread jar becomes a globe melting into a gold ribbon stream that pours into a Kapruka gift bag — same crop, same vertical column at x=14-36%, same overflow-and-pool at the foot.",
+    "The jar's product overflow becomes three real, finished gifts cresting the bag rim — bouquet, wristwatch, headphones — three departments, kept to three so the frame stays calm at thumbnail size.",
+    "Copy rebuilt line for line at matched character counts: THE (3/3), WORLD (5/5), FITS (4/4), IN A BAG (8 vs 7, +14%). Plain spoken, no wordplay, no claim.",
+    "Colour roles mapped: the reference's near-black big words become Retail Purple #340A5C; the secondary red (small lines + bottom line) becomes Luxury Gold #D9A441. Yellow #FFC107 was rejected for type because the ground is white and a stroke on yellow type is banned.",
+    "Type set in Playfair Display 700 and Poppins 700 from the approved list. Poppins alone would not hold 7-8 caps inside the measured 42-44% boxes at the fixed 138/104px, so the reference's high-contrast serif character is kept for the lockup — the layout depends on it — with Poppins (the brand face) on the tagline. Weight moves 400 to 700 per the Canva two-weight rule.",
+    "Bottom line is the brand tagline 'A world of choices', used on its own and never extended — so it runs ~50% wide instead of the reference's 86.2%, still centred on the canvas centreline and still pinned to the bottom edge. This is the one deliberate break from the ±15% character rule.",
+    "The devil-tail arrow grafted onto the I of DEVIL is removed — no ornaments as shapes or elements — and dropped from z_order.",
+    "The bag is painted plain blank matte purple #4B2386 with white twisted-rope handles, no printing of any kind; the single Kapruka logo goes on in Canva in the reference logo's box on the bag's dark front face. scene.attach is empty."
+  ],
+  "claims_used": [
+    "'A world of choices' — the default brand-level tagline confirmed in 1-foundation/references/brand-assets/_brand-assets.md (human decision 2026-07-18); used verbatim and on its own.",
+    "'THE WORLD FITS IN A BAG' — a breadth statement, not a performance claim. Supported by 01-business-context.md §1 (Kapruka is Sri Lanka's largest locally-owned e-commerce and gifting platform running three lines) and §2 Line C (electronics, groceries, household, fashion, books as real catalogue categories).",
+    "Three gifts from three departments in frame (flowers, watch, headphones) — supported by 01-business-context.md §6 confirmed top gifting categories (flowers) and §2 Line C's named self-purchase categories (fashion/jewellery, electronics). Core Rule 12 requires more than one department in any multi-product frame.",
+    "No delivery claim is made anywhere in the copy. The confirmed facts in 01-business-context.md §1 (23+ years, island-wide, same-day Colombo / next-day island-wide, millions of gifts delivered, world to Sri Lanka) are deliberately unused — the fixed line lengths cannot carry a delivery promise accurately, and a partial one would overstate it.",
+    "No price, offer, SKU or discount appears — 01-business-context.md §2 Line C: no product/offer advertising until the human flags it."
+  ]
+}

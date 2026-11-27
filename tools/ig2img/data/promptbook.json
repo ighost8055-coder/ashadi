@@ -1,0 +1,1413 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-15T07-50-51#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-15T07-50-51",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.815Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "",
+   "subject": "A glossy deep-purple patent-leather women's court shoe, angled toe-up to the upper right, whose slim stiletto heel tapers downward and becomes three falling strands of muted antique-gold satin ribbon that spill into the open mouth of a squat matte purple gift bag; ribbon overflows the rim, runs down",
+   "scenePrompt": "A 4:5 portrait studio still life on a pure white seamless background, shot as a real product photograph, never a 3D render. Left third: a glossy deep-purple patent-leather women's court shoe enters from the top-left corner, cropped by the left edge, angled toe-up to the upper right, filling the diagonal from the left edge at 50% height up to 36% width at 10% height. Its slim stiletto heel tapers downward and becomes three falling strands of muted antique-gold satin ribbon, centred at 29% width, pouring into the open mouth of a squat matte purple gift bag standing upright between 15-41% width and 65-82% height. The bag is completely plain: flat matte purple, white twisted-rope handles, blank smooth front face, no printing or marking of any kind. Ribbon overflows the rim, runs down one side and pools at the base beside a small clear glass perfume bottle. Straight-on near eye-level view, long lens, no perspective distortion, sharp front to back. Soft broad key from the upper left, one bright specular highlight along the shoe's vamp, cooler fill from the right, very soft real contact shadows. Keep these areas plain empty white and completely uncluttered: x 46-90% / y 29-62%; x 58-78% / y 71-77%; x 7-93% / y 92-97%. Real leather grain, real satin sheen, real glass, fine natural film grain, no plastic sheen. Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage or UI anywhere in the image, including on the bag, the shoe and the bottle.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "WORLD",
+    "IN A",
+    "Gift Bag",
+    "A world of choices, delivered across Sri Lanka."
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Visible photo box: grey image panel edges against white page, hard seam at right/top/bottom"
+    },
+    {
+     "severity": "high",
+     "what": "Shoe clipped at left frame edge; heel cut off, losing reference's complete floating silhouette"
+    },
+    {
+     "severity": "medium",
+     "what": "Reference's melt device lost; ribbon replaces heel-into-product link, so idea doesn't read"
+    },
+    {
+     "severity": "medium",
+     "what": "\"IN A\" sits too close above \"Gift Bag\"; ascenders nearly collide"
+    },
+    {
+     "severity": "medium",
+     "what": "Dead white band under photo (y~1105-1250) leaves layout bottom-heavy and unfinished"
+    },
+    {
+     "severity": "medium",
+     "what": "Clear empty unlabelled glass bottle reads as prop, not a sellable gift product"
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-15T09-43-43#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-15T09-43-43",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.822Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A glossy deep-purple patent-leather women's handbag, lying tilted with its body up at the top right of the column and its base running down to the left off the canvas edge. Its shoulder strap stretches downward and turns liquid, splitting into three smooth curved golden strands that plunge into the ",
+   "scenePrompt": "Photorealistic studio product render on a pure white seamless background, 4:5 portrait. In the left third: a deep-purple glossy patent-leather women's handbag lies tilted, its body at the upper right of that column, its base running down-left and cropped hard by the left frame edge. Its shoulder strap stretches downward, turns into thick molten golden liquid and splits into three smooth curved strands that pour into the open mouth of a matte deep-purple paper gift bag standing below with white twisted-rope handles. The bag is completely plain and unprinted, no pattern or marking of any kind, its front panel flat, clean and fully visible. Warm honey-gold liquid wells over the bag's rim, coats the top edge, runs down the left side in heavy drips and pools at the base; a steel wristwatch and a small clear perfume bottle rest half-submerged in the gold at the rim. Light: one broad soft key from upper left plus a hard specular raking the handbag and a kicker on the bag's right, neutral white, sharp front to back, no depth-of-field falloff, faint grey contact shadows only. Leave pure empty white, low detail and uncluttered: x 71-91% / y 3-9%, x 46-91% / y 31-55%, x 25-75% / y 92-96%, and the entire right half below y 56%. Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage or UI anywhere, including on packaging, products and background. Real materials, one consistent light direction, real contact shadows, no plastic AI sheen.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "GIFTS",
+    "THAT",
+    "ARRIVE",
+    "A world of choices"
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Two Kapruka logos in frame — one on handbag, one on gift bag"
+    },
+    {
+     "severity": "high",
+     "what": "Logo painted onto a handbag, a sellable product, not Kapruka packaging"
+    },
+    {
+     "severity": "high",
+     "what": "Gold 'THE' and 'THAT' on white are near-invisible at thumbnail size"
+    },
+    {
+     "severity": "medium",
+     "what": "'THE' and 'THAT' align to no axis — not left, not centred"
+    },
+    {
+     "severity": "medium",
+     "what": "Handbag logo sits perfectly horizontal on a tilted bag — reads as sticker"
+    },
+    {
+     "severity": "medium",
+     "what": "Six pour strands versus reference's one — busier, weaker figure/ground"
+    }
+   ],
+   "rounds": 0,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-15T10-31-22#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-15T10-31-22",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.842Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A deep purple patent-leather structured handbag, a real sellable gift, seen dead side-on in profile, tilted top-up toward the upper right so its opening and front face turn toward the viewer's left. The bag's slim shoulder strap does not end — it stretches downward into a long tapering curve that ch",
+   "scenePrompt": "A single still-life composition on a pure white seamless background, 4:5 portrait, 1080x1350. Upper left: a deep purple patent-leather handbag, structured and rectangular, photographed dead side-on in profile, tilted so its opening faces up and to the right; the left third of the bag is cropped hard off the left edge of the frame. Its slim shoulder strap does not end — it descends in one long tapering curve down the centre of the left column and partway down it stops being purple patent leather and becomes thick glossy antique-gold satin ribbon, muted and desaturated old gold, never bright yellow. The ribbon splits into three tapering tails that dip into the open mouth of a squat, plain, completely unprinted matte purple gift box standing upright below. More gold ribbon has overflowed the box, pouring in heavy glossy folds over the rim, running down the sides and pooling on the white ground. Bag and box stack on one vertical axis and form a single top-left to bottom-centre-left diagonal. Bright even studio light from the front upper left, one large soft source, strong speculars on patent leather and satin, shadows almost fully suppressed apart from one faint contact shadow under the box. Straight-on eye-level long-lens product view, no perspective distortion, deep focus, sharp front to back. Real leather grain, real satin weave, one consistent light direction, photographic realism, no plastic AI sheen. Keep these areas completely empty flat white: x 46-94% / y 28-56%; x 73-94% / y 4-9%; x 7-94% / y 92-97%. The entire right half of the frame is empty white. ABSOLUTELY NO text, letters, numbers, words, logos, watermarks, labels, signage, tags, printed packaging or UI anywhere in the image, including on the bag and the box.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "GIFTS",
+    "COME",
+    "WRAPPED",
+    "Delivered island-wide, same day in Colombo."
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Huge dead white gap: artwork ends ~48% height, caption at 94% — unbalanced, reference fills frame"
+    },
+    {
+     "severity": "high",
+     "what": "Handbag is clipped by the top edge; reference shoe has clear top margin"
+    },
+    {
+     "severity": "high",
+     "what": "Headline mixes serif (THE GIFTS COME) with bold sans (WRAPPED); reference lockup is one typeface"
+    },
+    {
+     "severity": "medium",
+     "what": "Straight horizontal cut across cutout shadow under box — visible image box edge"
+    },
+    {
+     "severity": "medium",
+     "what": "Ribbon tails from bag strap float; join into the bow reads broken, not poured"
+    },
+    {
+     "severity": "medium",
+     "what": "No accent colour in headline; reference uses red THE/EATS to build hierarchy"
+    }
+   ],
+   "rounds": 0,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-17T05-12-07#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-17T05-12-07",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.866Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A high-gloss metallic-gold patent leather handbag, a real finished sellable gift, angled up toward the top-right and cropped off the left edge of the frame, with a slim gold chain strap and real grained leather sheen. Its lower corner does not end in a seam — it liquefies, stretching downward into a",
+   "scenePrompt": "Photographic product still life, 4:5 portrait, on a pure flat white seamless background with no horizon and no cast ground shadow. Everything sits in the left third of the frame. Top left, cropped off the left edge of the frame, a glossy metallic-gold patent leather handbag angled up toward the top right, real grained leather with a polished sheen and a slim gold chain strap. Its lower corner liquefies: the leather turns into a thick viscous rope of molten warm gold that stretches straight down, splits into three slender tapering strands, and plunges into the open mouth of a squat matte deep-purple paper gift bag below. That bag is completely plain and unprinted, with white twisted-rope handles and a flat, clearly visible, evenly lit front face. Molten gold brims over its rim, slumps over one shoulder, ribbons down the right side and pools in a small puddle with a trailing drip at the base. Bright high-key light, large soft key from upper left with a second fill from upper right, long speculars, glossy wet gold, true clean colour, a real contact shadow only where the bag meets the ground, no plastic sheen. Sharp front to back, 85-105mm, straight-on eye level. Keep pure empty white and completely uncluttered: x 36-100% y 0-92%, and x 0-100% y 83-100%. Keep the bag's front face at x 15-33% y 65-73% flat, blank and softly lit. Absolutely no text, letters, numbers, words, logos, labels, signage, watermarks or UI anywhere in the image, including on the bag, the handbag and the background.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "WHOLE",
+    "LIST",
+    "ONE BAG",
+    "A world of choices"
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Second ghost Kapruka wordmark faintly visible below the bag — two logos in frame"
+    },
+    {
+     "severity": "high",
+     "what": "Headline set in a serif face, not bold Poppins as brand requires"
+    },
+    {
+     "severity": "high",
+     "what": "Large dead white zone from y~850 to the tagline; composition top-heavy, unbalanced"
+    },
+    {
+     "severity": "medium",
+     "what": "'THE WHOLE / LIST / ONE BAG' doesn't parse in one second; 'LIST' orphaned"
+    },
+    {
+     "severity": "medium",
+     "what": "Gold pour runs down the bag's front face and pools outside — reads as spill"
+    },
+    {
+     "severity": "medium",
+     "what": "Handbag cropped hard by both top and left edges; reference kept top breathing room"
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-17T05-12-07#1",
+   "runId": "ig-dyw3v6ifnys-2026-11-17T05-12-07",
+   "variant": 1,
+   "at": "2026-11-22T04:31:17.870Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A high-gloss metallic-gold patent leather handbag, a real finished sellable gift, angled up toward the top-right and cropped off the left edge of the frame, with a slim gold chain strap and real grained leather sheen. Its lower corner does not end in a seam — it liquefies, stretching downward into a",
+   "scenePrompt": "Photographic product still life, 4:5 portrait, on a pure flat white seamless background with no horizon and no cast ground shadow. Everything sits in the left third of the frame. Top left, cropped off the left edge of the frame, a glossy metallic-gold patent leather handbag angled up toward the top right, real grained leather with a polished sheen and a slim gold chain strap. Its lower corner liquefies: the leather turns into a thick viscous rope of molten warm gold that stretches straight down, splits into three slender tapering strands, and plunges into the open mouth of a squat matte deep-purple paper gift bag below. That bag is completely plain and unprinted, with white twisted-rope handles and a flat, clearly visible, evenly lit front face. Molten gold brims over its rim, slumps over one shoulder, ribbons down the right side and pools in a small puddle with a trailing drip at the base. Bright high-key light, large soft key from upper left with a second fill from upper right, long speculars, glossy wet gold, true clean colour, a real contact shadow only where the bag meets the ground, no plastic sheen. Sharp front to back, 85-105mm, straight-on eye level. Keep pure empty white and completely uncluttered: x 36-100% y 0-92%, and x 0-100% y 83-100%. Keep the bag's front face at x 15-33% y 65-73% flat, blank and softly lit. Absolutely no text, letters, numbers, words, logos, labels, signage, watermarks or UI anywhere in the image, including on the bag, the handbag and the background.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "WHOLE",
+    "LIST",
+    "ONE BAG",
+    "A world of choices"
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Hero image missing — grey placeholder box instead of the product visual"
+    },
+    {
+     "severity": "high",
+     "what": "Placeholder box bleeds off left and top edges, breaking reference margins"
+    },
+    {
+     "severity": "high",
+     "what": "Kapruka logo renders as near-white ghost, only the yellow arc visible"
+    },
+    {
+     "severity": "high",
+     "what": "Logo sits orphaned mid-canvas over empty white, no anchor"
+    },
+    {
+     "severity": "medium",
+     "what": "Headline block not in bold Poppins — it is a serif face"
+    },
+    {
+     "severity": "medium",
+     "what": "Headline right edge nearly touches canvas edge; no right margin"
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-17T05-28-00#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-17T05-28-00",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.875Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A vintage desk globe — matte deep-purple oceans, raised warm-gold landmasses in genuine relief, completely unmarked — tilted and cropped so its left side runs off the left edge of the page; its slender antique-brass meridian arc runs down from the globe's base and partway down stops being metal and ",
+   "scenePrompt": "High-key product still life on a pure white seamless studio ground. 4:5 portrait. Left column only. Upper left: a vintage desk globe, tilted, cropped so its left side runs off the left edge — matte deep-purple oceans, raised warm-gold landmasses in genuine relief with no markings, borders or engraving, and a slender antique-brass meridian arc curving down from its base. Partway down the arc stops being metal and becomes a thick molten stream of warm liquid gold that forks into three pointed prongs and falls into the open mouth of a squat matte purple paper shopping bag with white twisted-rope handles, upright and frontal in the lower left. The bag is plain and unprinted, no marks, pattern or decoration, its flat front panel clean and clearly visible; gold slumps over the rim and runs down only the far left and right edges, pooling in one small blob beside the base. Rising from the bag's mouth: fresh red roses and a gold-cased wristwatch hooked over the rim. Light: bright, even, high-key; key high and slightly front-left, broad fill from the right; no cast shadow except a faint contact shadow under the bag. Long lens, straight-on, eye-level, deep focus, every edge sharp. Real brass, paper, petals and metal; real contact shadows; fine natural grain; no plastic sheen, no CG look. Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage or UI anywhere, including on the bag, globe and products. Keep empty and calm white: x 36-100% / y 0-31%; x 47-91% / y 31-55%; x 36-100% / y 55-92%; full width y 92-100%.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "GIFTS",
+    "THAT",
+    "ARRIVE",
+    "A world of choices"
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Kapruka wordmark on bag looks AI-painted — uneven cap heights, irregular letterforms"
+    },
+    {
+     "severity": "medium",
+     "what": "Globe clipped hard at top edge; reference keeps full white margin above subject"
+    },
+    {
+     "severity": "medium",
+     "what": "Bag purple reads muted grey-violet, off brand #4B2386"
+    },
+    {
+     "severity": "medium",
+     "what": "Uneven headline rhythm — gap above THAT roughly three times the others"
+    },
+    {
+     "severity": "low",
+     "what": "Gold watch at bag rim reads as unidentifiable half-melted object"
+    },
+    {
+     "severity": "low",
+     "what": "Gold puddle crowds the bottom tagline; reference has more clearance"
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 50,
+   "score": 50
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-17T08-50-34#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-17T08-50-34",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.884Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A Sri Lankan mother in her late 50s, wearing a simple cotton house dress, leans in from the left edge. Her shoulder and back are cropped by the edge, and her face is in three-quarter profile turned right. One hand is raised palm-out in a firm 'no, no, why did you spend money' gesture as she frowns a",
+   "scenePrompt": "Photographic cutout poster, 4:5 portrait, on a flat seamless warm-cream ground (#F5F4EB) with no room, no horizon and no backdrop texture. A Sri Lankan mother in her late fifties, in a simple muted-marigold cotton house dress, leans in from the left edge. Her shoulder and back are cropped by the frame, and her face is visible in three-quarter profile turned right, at about 4–21% across and 15–33% down. Mid-protest, she raises one palm high in a firm 'no' (fingertips near 36% across, 10% down) and frowns at someone off-frame to the right. Caught out, her other forearm drops straight down at about 24% across and pushes a dessert fork into a real chocolate cake. One slice is clearly gone, and a little icing is smudged at the corner of her lips. The cake sits in an open cake box, lid pushed back, at 14–35% across and 56–82% down. The box is matte purple #4B2386 and completely unprinted, with its flat front face fully visible. Soft daylight comes from the upper left, with one consistent light direction, a real soft contact shadow under the box, true skin texture and real fabric weave, and no plastic sheen. Straight-on long-lens view, everything sharp. Keep these areas empty, flat cream and detail-free: 46–91% across, 31–56% down; 7–93% across, 92–96% down; the box front at 15–31% across, 65–75% down. Absolutely no text, letters, numbers, logos, labels, patterns or watermarks anywhere.",
+   "attached": [],
+   "copy": [
+    "NO\nGIFTS\nSAID\nAMMA",
+    "NO",
+    "GIFTS",
+    "SAID",
+    "AMMA",
+    "Send it anyway. Delivered island-wide by Kapruka."
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Photo's rectangular edge shows on the left as a lighter strip from about y215 to y1045 against the cream background."
+    },
+    {
+     "severity": "medium",
+     "what": "Amma looks genuinely furious and mid-shout, not mock-protesting. That reads as scolding and breaks the happy gifting mood."
+    },
+    {
+     "severity": "medium",
+     "what": "Headline is set in a high-contrast serif, not bold Poppins as the brand check requires."
+    },
+    {
+     "severity": "medium",
+     "what": "The cake-and-fork payoff is small and tucked bottom-left. The joke, that she's already eating it, reads late at thumbnail size."
+    },
+    {
+     "severity": "medium",
+     "what": "The Kapruka mark on the box is AI-painted, and the box purple is brighter than the brand's #4B2386."
+    },
+    {
+     "severity": "low",
+     "what": "Large empty bands above and below the photo. The composition sits low compared with the reference's top-anchored hero."
+    }
+   ],
+   "rounds": 2,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 38,
+   "score": 38
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-17T09-27-59#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-17T09-27-59",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.892Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A glossy red patent stiletto pump floats at a diagonal with its whole toe visible. Its stiletto heel melts into a thin red liquid stream that ends in a three-pronged pitchfork. The tines pierce the top of a real, whole Kapruka chocolate fudge cake on a plain white cake stand. Thick, glossy dark choc",
+   "scenePrompt": "Photoreal studio product image, 4:5 portrait (1080x1350), pure white seamless background (#FFFFFF), deep focus, long lens, no perspective distortion. In the left third only: a glossy red patent-leather stiletto pump (#D0141C with deep #8E0A10 shadows) floats at a rising diagonal. The whole shoe stays inside the frame: the toe is at lower left around x 10%, y 50%, and the heel counter is at upper right around x 30%, y 10%. Its stiletto heel melts into a thin glossy red liquid stream that drops straight down at x 24.5% and turns into a slim three-pronged red pitchfork. The tines pierce the top of a real, whole round chocolate fudge cake on a plain white cake stand (cake and stand at x 14.5-35%, y 56-82.5%). Thick, glossy dark chocolate ganache wells up around the tines, spills over the top edge, runs down the sides in heavy drips and pools on the stand. Soft, bright key light from the top left, crisp specular highlights on the patent leather and the wet ganache, and one soft, real contact shadow under the stand. True-to-life colour, real materials, appetising cake texture, no plastic sheen. Keep these areas pure, empty white: x 46-91% / y 31-56%, x 58-79% / y 6-12%, x 38-100% / y 56-90%, x 9-91% / y 88-92%. Nothing within 100px of any edge. Absolutely no text, letters, numbers, logos, labels, watermarks or markings anywhere, including on the shoe sole, the cake or the stand.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "DEVIL",
+    "EATS",
+    "CAKE",
+    "A world of choices"
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Faint grey rectangular patches and ghost texture visible behind shoe and cake (x≈70–730, y≈200–1100); image box edges show."
+    },
+    {
+     "severity": "high",
+     "what": "adapt: the reference's devil-tail arrow on the V of DEVIL is missing, so the type loses its visual device."
+    },
+    {
+     "severity": "high",
+     "what": "adapt: the reference shoe is huge, cropped and enters from the top-left. Here it's a small, whole shoe floating mid-frame."
+    },
+    {
+     "severity": "high",
+     "what": "adapt: the reference type hierarchy uses colour contrast (accent THE/EATS against dark DEVIL/BISCOFF). Here THE/EATS are a thin, pale purple"
+    },
+    {
+     "severity": "medium",
+     "what": "adapt: the support line changed job. The reference is a spoken punchline; 'A world of choices' is a short tagline."
+    },
+    {
+     "severity": "medium",
+     "what": "Cake plate left edge (~103px) and shoe toe (~105px) sit right at the 100px margin limit."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-21T17-06-41#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-21T17-06-41",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.896Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A glossy deep Kapruka purple (#340A5C) stiletto heel with a three-pronged trident tip dipping into a rich, round dark chocolate ganache cake, with thick chocolate ganache overflowing and dripping down the right side.",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait orientation on a pure flat white (#FFFFFF) background with cutout-on-ground framing. Positioned strictly within the left third of the frame (x=9.5% to 38.5%, y=10% to 82.5%), a glossy deep purple (#340A5C) patent-leather stiletto shoe with a sleek three-pronged purple trident heel angles upward and dips its trident tip straight down into the top of a rich, compact round dark chocolate ganache cake resting at the lower left. Where the trident pierces the cake, thick, gleaming dark chocolate ganache overflows and drips naturally down the right side of the cake, pooling slightly onto the white ground. Real photographic materials throughout: authentic patent-leather reflections and crisp specular highlights on the stiletto, velvety dark chocolate ganache with realistic viscosity, subtle moist sponge texture, bright soft studio lighting from a single consistent upper-left direction, sharp focus throughout, and a natural soft contact shadow beneath the cake with zero plastic AI sheen. Keep the entire remainder of the canvas pure, uninterrupted flat white (#FFFFFF), completely calm and uncluttered for overlaid typography and logo: top-right logo zone (x=71.5% to 90.5%, y=7.5% to 12%), right-side title zone (x=46% to 90.5%, y=31% to 55.5%), bottom tagline zone (x=9.5% to 90.5%, y=88.5% to 92%), and outer 100px margins (x<9.3%, x>90.7%, y<7.4%, y>92.6%). Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage, plates with markings, or UI anywhere in the image.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "DEVIL",
+    "EATS",
+    "CAKE",
+    "Don't be silly, everybody wants a Kapruka cake."
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "adapt: Purple heel is rotated toe-up with a stubby pitchfork, breaking the reference's sleek downward-stepping stiletto silhouette."
+    },
+    {
+     "severity": "medium",
+     "what": "Visible hard vertical crop edge cuts off the soft grey shadow on the left side of the cake."
+    },
+    {
+     "severity": "low",
+     "what": "Kapruka logo is aligned top-right instead of the brand guideline's top-center placement for social posts."
+    }
+   ],
+   "rounds": 1,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 18,
+   "score": 18
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-21T17-06-41#1",
+   "runId": "ig-dyw3v6ifnys-2026-11-21T17-06-41",
+   "variant": 1,
+   "at": "2026-11-22T04:31:17.896Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A glossy deep Kapruka purple (#340A5C) stiletto heel with a three-pronged trident tip dipping into a rich, round dark chocolate ganache cake, with thick chocolate ganache overflowing and dripping down the right side.",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait orientation on a pure flat white (#FFFFFF) background with cutout-on-ground framing. Positioned strictly within the left third of the frame (x=9.5% to 38.5%, y=10% to 82.5%), a glossy deep purple (#340A5C) patent-leather stiletto shoe with a sleek three-pronged purple trident heel angles upward and dips its trident tip straight down into the top of a rich, compact round dark chocolate ganache cake resting at the lower left. Where the trident pierces the cake, thick, gleaming dark chocolate ganache overflows and drips naturally down the right side of the cake, pooling slightly onto the white ground. Real photographic materials throughout: authentic patent-leather reflections and crisp specular highlights on the stiletto, velvety dark chocolate ganache with realistic viscosity, subtle moist sponge texture, bright soft studio lighting from a single consistent upper-left direction, sharp focus throughout, and a natural soft contact shadow beneath the cake with zero plastic AI sheen. Keep the entire remainder of the canvas pure, uninterrupted flat white (#FFFFFF), completely calm and uncluttered for overlaid typography and logo: top-right logo zone (x=71.5% to 90.5%, y=7.5% to 12%), right-side title zone (x=46% to 90.5%, y=31% to 55.5%), bottom tagline zone (x=9.5% to 90.5%, y=88.5% to 92%), and outer 100px margins (x<9.3%, x>90.7%, y<7.4%, y>92.6%). Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage, plates with markings, or UI anywhere in the image.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "DEVIL",
+    "EATS",
+    "CAKE",
+    "Don't be silly, everybody wants a Kapruka cake."
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "adapt: visual device is broken; stiletto heel sticks out sideways while a separate trident grows from the sole."
+    },
+    {
+     "severity": "high",
+     "what": "Purple shoe has obvious AI distortion and warped anatomy, undermining Kapruka's premium visual standard."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 9,
+   "score": 9
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-21T17-32-50#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-21T17-32-50",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.901Z",
+   "engine": "Meta AI",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A glossy crimson red patent-leather high-heeled pump (#C90E13, deep shadow #8E0508) angled upward from the left edge, its stiletto heel morphing into a glossy three-pronged red metal pitchfork dipping into the top of a tall round chocolate fudge cake overflowing with thick glossy chocolate-caramel g",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, pure solid white (#FFFFFF) background with a cutout-on-ground framing and no visible horizon or picture edge. Positioned in the left third of the frame (x=0% to 36%, y=10% to 82.5%), a glossy crimson red patent-leather high-heeled stiletto pump (#C90E13, deep shadow #8E0508) enters from the left edge (cropped between y=41% and 52.5%) angled sharply upward, its slender red stiletto heel morphing seamlessly into a glossy three-pronged red metal pitchfork. The three red prongs dip directly into the top of a small, tall, round chocolate fudge cake grounded at the lower left (x=14.5% to 35%, y=55.5% to 82.5%), coated in thick, rich glossy chocolate-caramel ganache overflowing the rim with a heavy, lustrous drip running down the right side of the cake onto the white surface. Shot with a normal-to-short-telephoto lens and deep focus keeping the patent leather, red trident prongs, and moist cake ganache tack-sharp. Bright, soft studio lighting from the upper right casts crisp white specular highlights along the red shoe and glossy ganache, with a soft diffused contact shadow falling to the bottom-left of the cake. Real materials, natural photographic realism, no plastic AI sheen. Keep the rest of the frame pure, completely uncluttered flat white (#FFFFFF) negative space for typography and logo overlays at x=72%–90.5% y=7.5%–12%, x=46%–90.5% y=30.5%–55.5%, and x=9.5%–90.5% y=89%–92.5%. Strictly no text, letters, numbers, words, logos, labels, watermarks, or signage anywhere.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "DEVIL",
+    "BUYS",
+    "KAPRUKA",
+    "Don't be silly, everybody wants this."
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "adapt: Hero shoe-and-cake graphic is much smaller and flatter than reference's tall, dramatic composition."
+    },
+    {
+     "severity": "medium",
+     "what": "Left edge of the red shoe sits closer than 100px to the left canvas margin."
+    },
+    {
+     "severity": "low",
+     "what": "Large empty vertical gap between hero block and bottom tagline weakens visual cohesion."
+    }
+   ],
+   "rounds": 2,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 53,
+   "score": 53
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-21T17-32-50#1",
+   "runId": "ig-dyw3v6ifnys-2026-11-21T17-32-50",
+   "variant": 1,
+   "at": "2026-11-22T04:31:17.901Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": false,
+   "framing": "cutout-on-ground",
+   "subject": "A glossy crimson red patent-leather high-heeled pump (#C90E13, deep shadow #8E0508) angled upward from the left edge, its stiletto heel morphing into a glossy three-pronged red metal pitchfork dipping into the top of a tall round chocolate fudge cake overflowing with thick glossy chocolate-caramel g",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, pure solid white (#FFFFFF) background with a cutout-on-ground framing and no visible horizon or picture edge. Positioned in the left third of the frame (x=0% to 36%, y=10% to 82.5%), a glossy crimson red patent-leather high-heeled stiletto pump (#C90E13, deep shadow #8E0508) enters from the left edge (cropped between y=41% and 52.5%) angled sharply upward, its slender red stiletto heel morphing seamlessly into a glossy three-pronged red metal pitchfork. The three red prongs dip directly into the top of a small, tall, round chocolate fudge cake grounded at the lower left (x=14.5% to 35%, y=55.5% to 82.5%), coated in thick, rich glossy chocolate-caramel ganache overflowing the rim with a heavy, lustrous drip running down the right side of the cake onto the white surface. Shot with a normal-to-short-telephoto lens and deep focus keeping the patent leather, red trident prongs, and moist cake ganache tack-sharp. Bright, soft studio lighting from the upper right casts crisp white specular highlights along the red shoe and glossy ganache, with a soft diffused contact shadow falling to the bottom-left of the cake. Real materials, natural photographic realism, no plastic AI sheen. Keep the rest of the frame pure, completely uncluttered flat white (#FFFFFF) negative space for typography and logo overlays at x=72%–90.5% y=7.5%–12%, x=46%–90.5% y=30.5%–55.5%, and x=9.5%–90.5% y=89%–92.5%. Strictly no text, letters, numbers, words, logos, labels, watermarks, or signage anywhere.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "DEVIL",
+    "BUYS",
+    "KAPRUKA",
+    "Don't be silly, everybody wants this."
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Left edge of red shoe is harshly sliced off vertically inside the canvas."
+    },
+    {
+     "severity": "low",
+     "what": "Secondary text uses off-palette medium purple instead of brand Retail Purple or Yellow."
+    }
+   ],
+   "rounds": 2,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 56,
+   "score": 56
+  },
+  {
+   "id": "ig-dyw3v6ifnys-2026-11-22T03-26-32#0",
+   "runId": "ig-dyw3v6ifnys-2026-11-22T03-26-32",
+   "variant": 0,
+   "at": "2026-11-22T04:31:17.904Z",
+   "engine": "Meta AI",
+   "relation": "indirect",
+   "kind": "reference",
+   "target": "Hugo Boss Bottled Unlimited Edt Perfume 100ml, Dolce And Gabbana The Only One Edp Perfume For Women 100ml, Hawas Elixir Perfume",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "Three real perfume bottles drawn exactly as in the attached product sheet — Hugo Boss Bottled Unlimited Edt Perfume 100ml, Dolce And Gabbana The Only One Edp Perfume For Women 100ml, and Hawas Elixir Perfume — arranged in a tall vertical tiered studio composition on minimal matte white risers.",
+   "scenePrompt": "Minimalist 4:5 portrait studio product photograph on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border. Occupying the left vertical column (x=9.5% to 39%, y=11% to 82.5%), a refined vertical tiered arrangement of three real fragrance bottles drawn exactly as in the attached product sheet — identical bottle shapes, colours, caps, packaging, and printed details: Hugo Boss Bottled Unlimited Edt Perfume 100ml, Dolce And Gabbana The Only One Edp Perfume For Women 100ml, and Hawas Elixir Perfume. The bottles are balanced in a tall, clean editorial vertical stack on minimal matte white geometric risers that blend softly into the ground, echoing a sleek poster silhouette. Eye-level camera, crisp focus front-to-back with deep depth of field. Bright, clean studio lighting from the right and front-right creates crisp natural specular highlights on real glass, metal caps, and liquid, casting soft contact shadows to the left. Photographic realism with authentic materials and zero plastic AI sheen or gimmicky props. Every printed word on the real products must be spelled exactly as on the product sheet: BOSS, HUGO, UNLIMITED, BOTTER, UNLIMI, DOLCE, GABBANA, The, Only, One, هوس, HAWAS, ELIXIR, 100, ML, EAU, DE, PARFUM, 3.38, FL, الرصاصي. No other text, letters, numbers, logos, watermarks, price tags, or stickers anywhere. Keep pure empty white space over x=70%-90.5%, y=7.5%-12%; x=46%-90.5%, y=30.5%-55.5%; and x=9.5%-90.5%, y=89%-92.5%.",
+   "attached": [],
+   "copy": [
+    "THE",
+    "SCENT",
+    "THAT",
+    "LINGERS",
+    "Keep it, or send it island-wide."
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "medium",
+     "what": "Off-white background deviates from Kapruka's dominant Retail Purple (#340A5C) brand palette."
+    },
+    {
+     "severity": "low",
+     "what": "Kapruka logo is placed top-right instead of the brand-standard top-center position."
+    }
+   ],
+   "rounds": 1,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 66,
+   "score": 66
+  },
+  {
+   "id": "upload-ref-2026-11-22T04-32-49#0",
+   "runId": "upload-ref-2026-11-22T04-32-49",
+   "variant": 0,
+   "at": "2026-11-22T05:00:08.903Z",
+   "engine": "Gemini",
+   "relation": "none",
+   "kind": "persona",
+   "target": "Hugo Boss Bottled Unlimited Edt Perfume 100ml, Dolce And Gabbana The Only One Edp Perfume For Women 100ml, Hawas Elixir Perfume",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside an inset left column (x=9.5% to 39%, y=10% to 82.5%), ",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside an inset left column (x=9.5% to 39%, y=10% to 82.5%), a clean vertical tiered arrangement of three real fragrance bottles drawn exactly as they appear on the attached product sheet, matching identical bottle shapes, colours, caps, packaging, and printed details. On the top matte #340A5C geometric riser stands the Dolce And Gabbana The Only One Edp Perfume For Women 100ml; on the middle matte #340A5C riser sits the Hugo Boss Bottled Unlimited Edt Perfume 100ml with its white box; on the lower matte #340A5C riser rests the Hawas Elixir Perfume with its gold box. All bottles, risers, and soft grounded contact shadows stay fully inside the inset bounding box. Clean, even studio lighting gives crisp glass reflections and a warm gifting mood, with no logos, wordmarks, or text.",
+   "attached": [
+    "a plain LAYOUT DIAGRAM, not a style reference: every object ",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "They never treat",
+    "themselves.",
+    "Delivered to their door, island-wide."
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Visible rectangular seam where the lighter purple product photo meets the darker background."
+    },
+    {
+     "severity": "high",
+     "what": "AI-garbled text on Hugo Boss box ('BOTTER UNLIMIT') and blurry Dolce & Gabbana label."
+    },
+    {
+     "severity": "medium",
+     "what": "Canvas background is darker than Retail Purple (#340A5C), increasing contrast against product photo."
+    },
+    {
+     "severity": "low",
+     "what": "Logo top edge sits slightly closer than 100px to the top canvas edge."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": true,
+   "painted": [
+    "Rasasi Arabic logo on bottle"
+   ],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "promo-mother-s-day-cakes-2026-11-22T11-17-43#0",
+   "runId": "promo-mother-s-day-cakes-2026-11-22T11-17-43",
+   "variant": 0,
+   "at": "2026-11-22T11:42:43.669Z",
+   "engine": "Gemini",
+   "relation": "none",
+   "kind": "promote",
+   "target": "Christmas Tropical Pineapple Custard Delight Loaf, White Christmas Chocolate Yule Log with ornament, Christmas Winter Wonderland Village Ribbon Cake with 4 christmas candles",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside the centered hero bounding box (x=15% to 85%, y=32% to",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside the centered hero bounding box (x=15% to 85%, y=32% to 84%), a clean studio tabletop arrangement of the three real cakes drawn exactly as they appear on the attached product sheet — matching every exact shape, frosting texture, fruit garnish, ribbon, snow-globe ornament, and printed topper detail without alteration: the rectangular white-frosted fruit loaf on the left, the chocolate Swiss-roll yule log with white bark icing in the center, and the pale-blue round ribbon cake on the right. The three cakes rest cleanly on a minimal matte white studio plinth surface that blends softly into the #FFFFFF ground, bathed in soft, warm morning-toned directional studio light (#F6C96A highlight warmth) with gentle, fully contained contact shadows beneath each base inside the inset box. Clean, appetizing editorial food photography with no Kapruka logos, no ad typography, and no extra props.",
+   "attached": [
+    "a plain LAYOUT DIAGRAM, not a style reference: every object ",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "Make her morning",
+    "feel special",
+    "Send a fresh cake straight to her door"
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Mother's Day ad features Christmas cakes with 'Merry Christmas' toppers, Santas, and snowmen."
+    },
+    {
+     "severity": "medium",
+     "what": "Two words ('feel special') are highlighted in yellow; guidelines state highlight no more than one word/phrase."
+    },
+    {
+     "severity": "medium",
+     "what": "Product group extends close to the left and right edges, violating the 100px safe margin."
+    }
+   ],
+   "rounds": 1,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 16,
+   "score": 16
+  },
+  {
+   "id": "promo-mother-s-day-cakes-2026-11-22T11-52-17#0",
+   "runId": "promo-mother-s-day-cakes-2026-11-22T11-52-17",
+   "variant": 0,
+   "at": "2026-11-22T12:18:37.884Z",
+   "engine": "Gemini",
+   "relation": "none",
+   "kind": "promote",
+   "target": "Christmas Tropical Pineapple Custard Delight Loaf, White Christmas Chocolate Yule Log with ornament, Christmas Winter Wonderland Village Ribbon Cake with 4 christmas candles",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside the centered hero bounding box (x=18% to 82%, y=34% to",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside the centered hero bounding box (x=18% to 82%, y=34% to 83%), a clean tabletop studio presentation featuring the real rectangular white-frosted fruit and cream cake on the left of the attached product sheet — drawn with its exact white piped frosting, fresh sliced oranges, strawberries, red cherries, green leaves, and white square cake board, while omitting all Christmas toppers, Santas, snowmen, and holiday ornaments as requested. The cake rests on a minimal matte white circular riser that blends softly into the pure white ground, illuminated by soft, warm directional morning light from the upper left that creates gentle highlights on the glossy cherries and citrus slices. Its soft, natural contact shadow stays completely contained inside the x=18% to 82% and y=34% to 83% bounds with generous safe margins and zero text, logos, or watermarks.",
+   "attached": [
+    "a plain LAYOUT DIAGRAM, not a style reference: every object ",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "A sweet surprise for",
+    "her morning",
+    "Delivered fresh to her door on time"
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "medium",
+     "what": "No clear call-to-action (CTA) included to drive clicks or orders."
+    },
+    {
+     "severity": "low",
+     "what": "Mother's Day occasion is missing from the copy, making it feel generic."
+    },
+    {
+     "severity": "low",
+     "what": "Subline sits slightly close to the 100px bottom margin and lacks visual hierarchy contrast."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 65,
+   "score": 65
+  },
+  {
+   "id": "upload-ref-1-2026-11-23T03-18-49#0",
+   "runId": "upload-ref-1-2026-11-23T03-18-49",
+   "variant": 0,
+   "at": "2026-11-23T03:34:22.702Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "Coach Dreams By Coach Edp Perfume 60ml For Women - Women`S Perfumes",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "Two graceful brown-skinned hands adorned with textured gold rings cradling the real Coach Dreams Eau de Parfum 60ml perfume bottle (rounded clear glass flask filled with pale blush-pink fragrance, silver floral-petal spray cap with silver ring collar, and engraved black front lettering), set against",
+   "scenePrompt": "Eye-level medium close-up studio product photograph in 4:5 portrait orientation, full-bleed framing on a seamless solid deep Retail Purple (#340A5C) background with rich Deep Purple (#241044) shadow falloff and no frame borders. Centered along the vertical axis (x=28.5% to x=68.5%, spanning y=11.5% to y=100%), two graceful brown-skinned hands adorned with textured Luxury Gold (#D9A441) rings enter from the bottom edge and delicately cradle a slightly clockwise-tilted perfume bottle in the upper center. The perfume bottle is drawn exactly as in the attached product sheet for Coach Dreams By Coach Eau de Parfum 60ml: exact rounded glass bottle silhouette, pale blush-pink liquid inside, silver floral-petal spray cap with silver collar ring, and exact printed words spelled faithfully as 'COACH', 'DREAMS', 'EAD DESPERITITE', and '1000MM SLTF OFZ' on the front glass. Soft directional studio key lighting from the left casts warm specular highlights across the skin contours, gold rings, metallic silver cap, and curved glass edges with realistic contact shadows between fingers and glass. Keep the upper-left corner (x=9.3% to x=27.8%, y=7.4% to y=13.0%) and wide lateral margins calm, clean, and uncluttered for logo placement. Zero added text, overlays, watermarks, or logos anywhere in the scene; crisp photographic realism with 50-85mm lens depth of field.",
+   "attached": [
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "product: bottle label misses required lines 'EAD DESPERITITE' and '1000MM SLTF OFZ' below Coach carriage graphic."
+    },
+    {
+     "severity": "medium",
+     "what": "Logo top margin is ~100px, placing it slightly tight against the perfume bottle cap below."
+    },
+    {
+     "severity": "low",
+     "what": "Hands and wrists bleed off the bottom edge instead of staying inside the 100px safe margin."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 18,
+   "score": 18
+  },
+  {
+   "id": "upload-ref-1-2026-11-23T03-42-38#0",
+   "runId": "upload-ref-1-2026-11-23T03-42-38",
+   "variant": 0,
+   "at": "2026-11-23T03:56:49.069Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "Coach Dreams By Coach Edp Perfume 60ml For Women - Women`S Perfumes",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "Two graceful Sri Lankan brown-skinned hands wearing delicate textured gold rings on the index and ring fingers, reaching upward from the bottom frame to cradle the Coach Dreams Eau de Parfum 60ml glass fragrance bottle drawn exactly as in the attached product sheet.",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, smooth flat Retail Purple (#340A5C) studio backdrop transitioning gently into Deep Purple (#241044) vignette falloff at the outer corners. Two graceful Sri Lankan brown-skinned hands with natural skin texture and delicate textured gold (#D9A441) rings on the index and ring fingers rise vertically from the bottom edge (y=100%) through the central vertical column (x=28.5% to x=68.5%, rising to y=11.5%) to gently cradle a real Coach Dreams By Coach Eau de Parfum 60ml bottle tilted slightly clockwise. Draw the Coach Dreams perfume bottle and packaging EXACTLY as shown in the attached product sheet — exact bottle silhouette, colour, metallic silver/floral-style spray cap, neck ring, and exact printed words spelled faithfully: 'COACH', 'DREAMS', 'EAD', 'DESPERITITE', '1000MM', 'SLTF.', 'OFZ.'. Directional soft studio key light from the front-left creates clean specular highlights along the left edge of the glass bottle, cap, gold rings, and fingers, with warm fill and soft natural shadow falloff toward the right. Keep the top-left corner (x=9.2% to x=28.0%, y=7.4% to y=13.5%), left column (x=0% to x=28.5%), right column (x=68.5% to x=100%), and top headroom (y=0% to y=11.5%) completely empty, low-detail, and uncluttered for overlaid logo and typography. Photographic realism, crisp 85mm lens focus, real glass refraction, zero overlaid text, zero Kapruka logos, zero watermarks, zero extra props.",
+   "attached": [
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "medium",
+     "what": "Top margin violation: Kapruka logo top edge sits at roughly 96px instead of at least 100px."
+    },
+    {
+     "severity": "low",
+     "what": "Subtle radial background gradient behind the hands instead of a flat #340A5C Retail Purple fill."
+    }
+   ],
+   "rounds": 2,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 66,
+   "score": 66
+  },
+  {
+   "id": "upload-ref-1-2026-11-23T04-08-46#0",
+   "runId": "upload-ref-1-2026-11-23T04-08-46",
+   "variant": 0,
+   "at": "2026-11-23T04:20:23.689Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "Coach Dreams By Coach Edp Perfume 60ml For Women - Women`S Perfumes",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "Two manicured hands with gold rings cradling the real Coach Dreams by Coach Eau de Parfum 60ml glass bottle exactly as shown in the attached product sheet, emerging from the bottom frame against a solid Kapruka Retail Purple (#340A5C) studio backdrop.",
+   "scenePrompt": "Eye-level medium close-up studio product photograph in 4:5 portrait aspect ratio on a seamless, pure flat Retail Purple (#340A5C) background with subtle deep purple (#241044) studio shadow falloff on the right. Recreating the exact central vertical composition, hand pose, and slight clockwise tilt of the reference, two graceful manicured hands with delicate gold rings emerge from the bottom edge (y=100%) cradling the exact Coach Dreams By Coach Eau de Parfum 60ml bottle drawn strictly as shown in the attached product sheet (same bottle shape, silver/floral cap, pale blush-pink liquid, and exact packaging/printed words spelled 'COACH', 'DREAMS', 'EAD', 'DESPERTITE', '1000MM', 'SLTF.', 'OFZ.'). The central subject occupies x=28.5% to 68% and rises from y=100% up to y=15%. Warm directional studio key light from the front-left creates crisp natural highlights on the skin, gold rings, and glass edges with realistic contact shadows between the fingers and glass. Keep the upper headroom (x=39.5% to 60.5%, y=7.4% to 11.5%) and wide left and right margins (x=0% to 28.5% and x=68% to 100%) completely calm, uniform #340A5C, and uncluttered so the Kapruka logo sits cleanly at top center. Real photographic materials, ~85mm lens sharpness, zero external logos, watermarks, price tags, stickers, or text outside the real bottle print.",
+   "attached": [
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "product: Bottle label omits required printed words EAD, DESPERTITE, 1000MM, SLTF., and OFZ. below the carriage emblem."
+    },
+    {
+     "severity": "medium",
+     "what": "Background uses a radial purple-to-black gradient instead of a flat #340A5C Retail Purple vector fill."
+    },
+    {
+     "severity": "low",
+     "what": "Ad has zero copy or CTA, leaving the visual without a message or clear action."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 18,
+   "score": 18
+  },
+  {
+   "id": "promo-checkout-2026-11-23T04-21-05#0",
+   "runId": "promo-checkout-2026-11-23T04-21-05",
+   "variant": 0,
+   "at": "2026-11-23T04:29:13.170Z",
+   "engine": "Gemini",
+   "relation": "none",
+   "kind": "promote",
+   "target": "Personalized Earbuds Pro And 2nd Generation Leather Case, The Randy- Real Puppy - Labrador Puppies- Home For A Puppy- Gift For Dog Lovers, Purple Twilight Chrysanthemum Bouquet",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, pure flat Retail Purple (#340A5C) studio backdrop with no vignette, no horizon line, and no panel seams. Centered strictly inside the hero bounding box (x=18% to 82%, y=34% to 82%), a clean tabletop studio presentation f",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, pure flat Retail Purple (#340A5C) studio backdrop with no vignette, no horizon line, and no panel seams. Centered strictly inside the hero bounding box (x=18% to 82%, y=34% to 82%), a clean tabletop studio presentation featuring a structured matte Retail Purple (#340A5C) paper shopping bag with black twisted rope handles and crisp tissue paper folds alongside the real Purple Twilight Chrysanthemum Bouquet and the real black leather Personalized Earbuds Pro case drawn directly from the attached product sheet. Draw the bouquet and leather earbuds case with exact fidelity to the attached sheet — preserving the purple and white chrysanthemum blooms, white inner wrap, woven mesh outer wrap, white ribbon bow, and the stitched black matte leather case with gunmetal clasp and gold stamped lettering, while omitting the red promo arrow badge and human model. Both gifts and the unbranded purple bag rest cleanly on a smooth flat surface with soft, fully contained contact shadows, lit by gentle directional studio lighting for a warm, trustworthy gifting mood, with zero logos, wordmarks, or ad typography.",
+   "attached": [
+    "a plain LAYOUT DIAGRAM, not a style reference: every object ",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "Gift ready in seconds.",
+    "Zero stress.",
+    "Fast checkout. Handled with care."
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Painted AI logo overlaps the black leather pouch product and clashes with stamped text."
+    },
+    {
+     "severity": "medium",
+     "what": "No clear call-to-action button or action phrase per brand guidelines."
+    },
+    {
+     "severity": "medium",
+     "what": "Mixed product cluster lacks a single clear hero product focus."
+    },
+    {
+     "severity": "low",
+     "what": "Visible lighting vignette/gradient around product base instead of flat #340A5C background."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 15,
+   "score": 15
+  },
+  {
+   "id": "promo-reliable-whatsapp-updates-2026-11-25T08-58-08#0",
+   "runId": "promo-reliable-whatsapp-updates-2026-11-25T08-58-08",
+   "variant": 0,
+   "at": "2026-11-25T09:16:50.110Z",
+   "engine": "Gemini",
+   "relation": "none",
+   "kind": "promote",
+   "target": "",
+   "hasProducts": false,
+   "framing": "full-bleed",
+   "subject": "Eye-level medium close-up photograph in 4:5 portrait orientation, set in a quiet, dimly lit Sri Lankan apartment kitchen late at night. Seated at a smooth dark teak table in the center-lower frame (x=22% to 78%, y=35% to 92%), a Sri Lankan man in his early thirties wearing a casual soft heather-grey",
+   "scenePrompt": "Eye-level medium close-up photograph in 4:5 portrait orientation, set in a quiet, dimly lit Sri Lankan apartment kitchen late at night. Seated at a smooth dark teak table in the center-lower frame (x=22% to 78%, y=35% to 92%), a Sri Lankan man in his early thirties wearing a casual soft heather-grey cotton t-shirt looks down at the smartphone held naturally in his right hand, caught mid-smile with genuine, relaxed relief. His left hand rests warmly around a matte off-white ceramic mug on the table, alongside a small unbranded white gift ribbon tied neatly around a plain cream envelope. Warm, soft golden-amber light from the smartphone screen illuminates his face, natural skin texture, and hands, contrasting gently against a deep, smooth Retail Purple (#340A5C) ambient room shadow in the background. The upper third of the frame (y=0% to 32%) consists of an out-of-focus, smooth deep purple-toned plaster wall kept completely clean, dark, and low-detail for typography. Soft, even low-key lighting with gentle falloff and no harsh shadows. Keep the frame free of any logos, text, lettering, UI graphics, phone screen details, watermarks, or edge cropping.",
+   "attached": [],
+   "copy": [
+    "Stop guessing if",
+    "it arrived",
+    "Real-time Kapruka updates on WhatsApp"
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "medium",
+     "what": "Bottom subline extends close to left/right edges, violating 100px safe margins."
+    },
+    {
+     "severity": "medium",
+     "what": "Bottom subline is white instead of yellow/soft white and lacks contrast over the hand and mug."
+    },
+    {
+     "severity": "low",
+     "what": "Background is dark moody violet rather than flat Retail Purple #340A5C."
+    }
+   ],
+   "rounds": 2,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 58,
+   "score": 58
+  },
+  {
+   "id": "upload-ref-1-2026-11-25T09-36-51#0",
+   "runId": "upload-ref-1-2026-11-25T09-36-51",
+   "variant": 0,
+   "at": "2026-11-25T09:51:40.360Z",
+   "engine": "Gemini",
+   "relation": "indirect",
+   "kind": "reference",
+   "target": "Purple Petals Birthday Surprise Combo With Loaf Ribbon Cake And Bouquet, ``I`ll Always Care`` Pocket Hug Greeting Card With ``I Love You`` Teddy Bear Ornament, Calvin Klein Ck One Shock Edt Perfume Fo",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "Smiling South Asian woman in a white embroidered cotton top placing a gift parcel into an unprinted matte purple (#4B2386) cardboard shipping box on a marble kitchen counter, surrounded by the Purple Petals Birthday Surprise Combo (purple floral bouquet, mini birthday hat, 'Happy Birthday' topper, r",
+   "scenePrompt": "Eye-level medium lifestyle photograph, 4:5 portrait, matching the exact lighting, camera angle, and kitchen setting of the reference photo. On the right (x=35% to 92%, y=15% to 88%), a smiling South Asian woman in a white embroidered cotton top leans gently over a marble kitchen counter, carefully packing a gift parcel into a large, completely plain and unprinted matte Kapruka purple (#4B2386) open cardboard shipping box with zero logos, text, or markings on the box. Arranged cleanly across the marble counter foreground (x=8% to 92%, y=60% to 92%) are the exact real products from the attached product sheet, drawn identically in shape, color, packaging, and crisp front-facing printed spelling: the Purple Petals Birthday Surprise Combo featuring a fresh purple flower bouquet with a mini party hat, a 'Happy Birthday' cake topper, and a ribboned loaf cake box; the Pocket Hug greeting card showing 'ocket Hu' alongside a small teddy bear holding a heart reading 'I LOVE YOU'; and the Calvin Klein perfume box and bottle clearly reading 'ck', 'one', 'SHOCK', 'for her', 'Calvin Klein', 'eau de', 'spray', and '100ml e'. Soft natural window daylight from the left casts realistic contact shadows on the marble surface with natural skin texture and shallow depth of field. Keep the upper-left bright off-white blurred kitchen wall (x=0% to 68%, y=0% to 45%) and top-right corner (x=70% to 95%, y=4% to 12%) completely empty, smooth, and free of any text, signage, watermarks, or logos.",
+   "attached": [
+    "a MOOD REFERENCE ONLY: match its lighting and overall feel; ",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "Send love home",
+    "Island-wide birthday gifts",
+    "delivered on time",
+    "Shop gifts now"
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Errant white Kapruka logo layer overlaps greeting card, teddy bear, and CK perfume box"
+    },
+    {
+     "severity": "high",
+     "what": "product: Greeting card text reads 'ocket Hu' instead of full 'Pocket Hug' and is obscured by bear/logo"
+    },
+    {
+     "severity": "high",
+     "what": "product: CK One Shock box and bottle are missing required 'one', 'eau de', and 'spray' printed text"
+    },
+    {
+     "severity": "medium",
+     "what": "Bouquet ribbon and party hat are closer than 100px to the left canvas edge"
+    },
+    {
+     "severity": "medium",
+     "what": "Third headline line 'delivered on time' lacks yellow highlight contrast and violates single-highlight rule"
+    },
+    {
+     "severity": "low",
+     "what": "Top-right Kapruka logo sits over bright window frame with low contrast on the yellow smile"
+    }
+   ],
+   "rounds": 1,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "upload-ref-1-2026-11-23T04-03-18#0",
+   "runId": "upload-ref-1-2026-11-23T04-03-18",
+   "variant": 0,
+   "at": "2026-11-25T10:08:18.885Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "Coach Dreams By Coach Edp Perfume 60ml For Women - Women`S Perfumes",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "Two warm-toned South Asian hands with glossy neutral nails and delicate gold-toned rings cradling a Coach Dreams Eau de Parfum 60ml perfume bottle drawn exactly as in the attached product sheet, featuring its silver tea-rose spray cap, clear rounded rectangular glass flacon with blush-pink fragrance",
+   "scenePrompt": "Eye-level studio product photograph, 4:5 portrait aspect ratio, full-bleed seamless Retail Purple (#340A5C) studio backdrop with subtle natural lighting falloff into Deep Purple (#241044) and no vignette, border, or panel seams. Centered vertically between x=28.5% and x=68.0%, rising cleanly from the bottom edge at y=100% up to y=11.5%, two warm-toned South Asian female hands with natural skin texture, glossy neutral nails, and delicate gold (#D9A441) rings gently cradle a Coach Dreams Eau de Parfum 60ml perfume bottle. The perfume bottle is drawn strictly and exactly as shown in the attached product sheet—matching its exact rounded clear glass bottle shape, blush-pink liquid, silver tea-rose shaped spray cap, leather-trimmed silver neck ring, and front-facing label—with all printed words clearly legible and spelled exactly: 'COACH DREAMS', 'COACH', 'DREAMS', 'EAD DESPERITITE', and '1000MM SLTF OFZ'. Directional warm-neutral key light from the front-left creates realistic specular highlights on the glass edges, silver cap, gold rings, and skin with soft natural shadows. Keep the upper-left corner (x=0% to x=30%, y=0% to y=16%) and the entire left and right flanks calm, smooth, and uncluttered for logo placement. Strictly no Kapruka logos, watermarks, headlines, price tags, stickers, or any text outside the exact printed product label.",
+   "attached": [
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "product: Missing required printed words 'EAD DESPERITITE' and '1000MM SLTF OFZ' on bottle label."
+    },
+    {
+     "severity": "medium",
+     "what": "Kapruka logo top edge sits slightly below the 110px top margin threshold."
+    },
+    {
+     "severity": "medium",
+     "what": "No headline, subtext, or CTA copy present; design lacks Kapruka messaging hierarchy."
+    }
+   ],
+   "rounds": 0,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 16,
+   "score": 16
+  },
+  {
+   "id": "upload-ref-1-2026-11-25T10-08-25#0",
+   "runId": "upload-ref-1-2026-11-25T10-08-25",
+   "variant": 0,
+   "at": "2026-11-25T10:53:10.412Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "Purple Petals Birthday Surprise Combo With Loaf Ribbon Cake And Bouquet, Crimson Lily Red White Rose Flower Arrangement Online for flowers, Blush Royale 18 Pink With White-Shaded Roses 4 KitKat Gift A",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "A joyful Sri Lankan woman in a white embroidered top smiling down while lifting the lid of a plain matte Kapruka purple (#4B2386) cardboard gift box on a white marble countertop, arranged alongside the exact three floral and chocolate gift products from the attached product sheet: Purple Petals Birt",
+   "scenePrompt": "Eye-level medium studio lifestyle photograph, 4:5 portrait aspect ratio. In a bright, sunlit modern kitchen with an expansive, clean, uncluttered off-white (#F9FAFC) upper wall area spanning x=0% to 68% and y=0% to 45%, a joyful Sri Lankan woman in her late twenties wearing a crisp white embroidered cotton top smiles warmly as she lifts the lid of a plain, unprinted matte purple (#4B2386) cardboard gift box on a white marble kitchen counter. Arranged clearly on the marble counter beside and in front of the box (kept inside x=9.3% to 90.7%, y=51.5% to 91% with soft natural contact shadows) are the exact three gift arrangements drawn faithfully as shown in the attached product sheet: the Purple Petals Birthday Surprise Combo with loaf ribbon cake and purple floral bouquet featuring exact spelled labels 'Happy Birthday' and 'Kapruka', the Crimson Lily Red White Rose Flower Arrangement in its red box labeled 'For you', and the Blush Royale 18 pink-and-white shaded roses over a red drawer box with four 'Nestle' 'KitKat' bars. All packaging labels from the product sheet are crisp, front-facing, and spelled identically; the purple cardboard delivery box itself is completely blank matte #4B2386 with zero logos or text. Soft natural daylight from an upper-left window, ~50mm lens, shallow depth of field softly blurring the sunlit kitchen background. Keep x=0% to 68%, y=0% to 45% and x=71% to 91%, y=7% to 12% completely clear and low-detail for overlaid type and logo; no ad text, watermarks, or logos anywhere in the image.",
+   "attached": [
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "From Australia",
+    "Send birthday gifts home",
+    "Made simple now",
+    "Shop now"
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "adapt: Floating white Kapruka logo hovers awkwardly over the pink roses instead of being printed on the purple box."
+    },
+    {
+     "severity": "high",
+     "what": "adapt: Headline 'From Australia' is much smaller than the reference's bold hero headline, weakening visual hierarchy."
+    },
+    {
+     "severity": "high",
+     "what": "product: KitKat wrappers on the box and pink rose gift box show garbled, distorted text instead of crisp 'KitKat'."
+    },
+    {
+     "severity": "medium",
+     "what": "Third text line 'Made simple now' is muted purple instead of vibrant yellow highlight like the reference."
+    },
+    {
+     "severity": "medium",
+     "what": "Products and purple gift bouquet sit closer than 100px to the left, right, and bottom canvas edges."
+    },
+    {
+     "severity": "low",
+     "what": "Top-right Kapruka logo is slightly misaligned and sits too close to the right edge compared to reference."
+    }
+   ],
+   "rounds": 3,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  },
+  {
+   "id": "ig-dcxh6ovkipl-2026-11-26T07-00-38#0",
+   "runId": "ig-dcxh6ovkipl-2026-11-26T07-00-38",
+   "variant": 0,
+   "at": "2026-11-26T07:15:17.393Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "An isolated product cutout of the Royal Chocolate Berry Gateaux Chocolate Cake drawn exactly as shown on the attached product sheet, centered inside the cranial cavity of a hand-drawn white monoline head profile on a seamless flat Retail Purple (#340A5C) background.",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, completely flat solid Retail Purple (#340A5C) background with zero vignette, gradient, texture, or borders. Centered inside the inset bounding box at x=22.5% to 77.5% and y=35% to 79.5% is a clean white (#FFFFFF) hand-drawn monoline illustration of a human head in left profile featuring a cutaway cranial window. Positioned directly inside that cranial window at x=42% to 67% and y=44.5% to 57% is the Royal Chocolate Berry Gateaux Chocolate Cake, drawn exactly as shown in the attached product sheet with identical shape, colours, chocolate finish, berry decorations, and exact spelling of any printed product details on its packaging or topper, with no alterations. Even, soft studio lighting illuminates the cake cleanly so its textures stand out clearly against the flat #340A5C ground, with no stray drop shadows bleeding outside the cutout. Keep the top 35% of the frame (x=0% to 100%, y=0% to 35%) and bottom 20% of the frame (x=0% to 100%, y=80% to 100%) completely empty solid #340A5C purple for overlaid logo and typography. Strictly no headlines, watermarks, price tags, or Kapruka brand logos painted anywhere in the image.",
+   "attached": [
+    "a plain LAYOUT DIAGRAM, not a style reference: every object ",
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "Why so quiet?\nWhat's on your mind?",
+    "kapruka.com"
+   ],
+   "verdict": "production-ready",
+   "issues": [],
+   "rounds": 1,
+   "regenerated": false,
+   "painted": [],
+   "human": null,
+   "baseScore": 100,
+   "score": 100
+  },
+  {
+   "id": "upload-ref-1-2026-11-26T07-42-27#0",
+   "runId": "upload-ref-1-2026-11-26T07-42-27",
+   "variant": 0,
+   "at": "2026-11-26T07:55:25.611Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "Fantech Shooter Ii Gp13 Gaming Controller, Havit G180bt Android IOS Windows PS3 PS4 all Compatible Wireless Gaming controller, PS4 Sony DualShock Controller High Quality Official Product Singapore",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "First-person POV photograph of a player's hands wearing metal-link watches holding the exact Fantech Shooter II GP13 gaming controller (matte black dual-stick wired/wireless controller with red and white accents and exact 'FANTECH' branding as shown on the attached product sheet), facing a large fla",
+   "scenePrompt": "Full-bleed eye-level first-person POV studio photograph in 4:5 portrait aspect ratio set in a dimly lit living room bathed in deep Retail Purple (#340A5C) ambient wall light. In the foreground, a player's hands wearing silver metal-link watches enter cleanly from the bottom frame edges (y=75% to 100%), holding the exact Fantech Shooter II GP13 gaming controller drawn exactly as in the attached product sheet (matching its exact ergonomic black body, thumbstick layout, face buttons, red accent details, and crisp 'FANTECH' printed wordmark on the front, unobstructed and sharply in focus at x=30% to 70%, y=56.5% to 78%). Facing the player at mid-ground (x=16% to 84%, y=24% to 53%) is a large sleek black flat-screen television resting on a dark wood media console, displaying a warm golden-amber (#F6C96A) sunset scene of a lone adventurer walking toward a grand domed palace, flanked by softly blurred framed wall art and shelves. The upper Retail Purple (#340A5C) wall zone (x=15% to 85%, y=0% to 23%) is completely smooth, uncluttered, and dark with zero neon signs, letters, or graphics so the Kapruka logo and headline can be placed cleanly later. Shallow depth of field, natural skin texture, warm screen glow against #340A5C purple shadows and subtle cool rim light on the hands, realistic contact shadows, zero text, logos, price tags, stickers, or watermarks anywhere except the exact 'FANTECH' print on the controller.",
+   "attached": [
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "GAME ON"
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "medium",
+     "what": "Brand guidelines require Poppins ExtraBold/Bold for headlines and a clear CTA, which is missing here."
+    },
+    {
+     "severity": "low",
+     "what": "Kapruka logo top edge sits slightly high near the 110px threshold on the 1080x1350 canvas."
+    },
+    {
+     "severity": "low",
+     "what": "FANTECH wordmark on the controller is slightly soft from AI rendering."
+    }
+   ],
+   "rounds": 1,
+   "regenerated": true,
+   "painted": [],
+   "human": null,
+   "baseScore": 60,
+   "score": 60
+  },
+  {
+   "id": "sithiji-98-2026-11-26T07-55-49#0",
+   "runId": "sithiji-98-2026-11-26T07-55-49",
+   "variant": 0,
+   "at": "2026-11-26T08:19:57.054Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "Three isolated Kapruka products arranged side-by-side: VOI SCRUB AND WASH COFFEE 400ML bottle, Kandy Myst By Cinnamon Chocolate Fudge Brownie cake, and Choco Land Chocolate Loaded Gateaux.",
+   "scenePrompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless flat pure white #FFFFFF background for cutout-on-ground placement, with no border, horizon line, vignette, or panel seams. Inside an explicit inset horizontal row spanning x=16.5% to 81.0% and y=51.0% to 74.5%, three real sellable products are arranged side-by-side along a shared horizontal baseline: on the left, the VOI SCRUB AND WASH COFFEE 400ML bottle; in the center, the Kandy Myst By Cinnamon Chocolate Fudge Brownie cake; on the right, the Choco Land Chocolate Loaded Gateaux. Every product is drawn exactly as shown in the attached product sheet with identical shape, colour, packaging, frosting, and front-facing unobstructed printed words spelled exactly 'Voi', 'COFFEE', and 'SCRUB & WASH'. Bright, even studio product lighting from a consistent upper-front direction with natural specular highlights on bottle surfaces and rich chocolate textures, and soft, compact contact shadows strictly contained beneath each item inside the bounding box. Keep all surrounding space completely empty and uncluttered, especially x=81.0% to 90.7%, y=7.5% to 19.5%; x=47.5% to 83.5%, y=30.5% to 37.5%; and x=15.5% to 35.0%, y=40.0% to 43.5%. No Kapruka logos, watermarks, headlines, captions, or price tags.",
+   "attached": [
+    "a plain LAYOUT DIAGRAM, not a style reference: every object ",
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "sorry i have plans.",
+    "the plans:"
+   ],
+   "verdict": "minor-fixes",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "adapt: iMessage bubble lacks the bottom-right pointer tail seen in the reference image."
+    },
+    {
+     "severity": "medium",
+     "what": "brand: Kapruka logo is tiny at the top of the purple block instead of centered and properly sized."
+    }
+   ],
+   "rounds": 3,
+   "regenerated": true,
+   "painted": [
+    "NATURAL FRUIT SEEDS Cleanses & exfoliates for glowing skin Alcohol free WHITENING EFFECT"
+   ],
+   "human": null,
+   "baseScore": 44,
+   "score": 44
+  },
+  {
+   "id": "sithiji-19-2026-11-26T10-53-59#0",
+   "runId": "sithiji-19-2026-11-26T10-53-59",
+   "variant": 0,
+   "at": "2026-11-26T11:28:40.282Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "",
+   "hasProducts": true,
+   "framing": "cutout-on-ground",
+   "subject": "An orange-and-cream ginger tabby kitten lying flat on its back with eyes squinted shut in a dramatic faint pose, surrounded symmetrically by three real Kapruka fresh flower bouquets from the attached product sheet.",
+   "scenePrompt": "High-angle overhead studio product photograph, 4:5 portrait aspect ratio, on a completely seamless, flat solid Retail Purple (#340A5C) background with zero gradients, no radial vignette, no horizon line, and no rectangular seams. Inside an explicit inset placement box spanning x=9.3% to 90.7% and y=21.5% to 78.0% (leaving generous open purple margins around all four edges), arrange a clean studio cutout scene: in the center (x=37.5% to 62.5%, y=26.0% to 73.0%), a sleepy ginger-and-cream tabby kitten lies flat on its back with eyes squinted shut, chin tilted up, paws tucked neatly at its sides, and tail extending downward in a dramatic faint pose. Flanking the kitten symmetrically inside the same inset bounds are the three real flower bouquets drawn exactly as shown in the attached product sheet, preserving their exact shapes, flower varieties, petal colours, wrapping papers, ribbons, and any printed words on the products themselves: Veloura Red Rose Mixed Bouquet at upper-left (x=9.3% to 35.5%, y=22.0% to 47.5%), Pink White Tiger Lily Charm Bouquet at lower-left (x=9.3% to 36.0%, y=53.5% to 78.0%), and Purple Twilight Chrysanthemum Bouquet on the right (x=64.0% to 90.7%, y=32.0% to 68.0%). Keep the top zone (y=0% to 21.5%) and bottom center zone (x=25% to 75%, y=74% to 100%) completely clear, calm, and uncluttered for vector logo and typography overlay. Soft, even overhead studio lighting with subtle, tightly contained contact shadows under the kitten and bouquets, photographic realism with natural fur and fresh petal textures, strictly no Kapruka logos, no headlines, no captions, no price tags, and no watermarks.",
+   "attached": [
+    "a plain LAYOUT DIAGRAM, not a style reference: every object ",
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [
+    "CAUSE OF DEATH:",
+    "NO FLOWERS",
+    "Same-day flower delivery in Colombo. Next-day island-wide."
+   ],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "Heavy purple smudge/halo artefacts surround the purple bouquet and kitten inside the grey card."
+    },
+    {
+     "severity": "high",
+     "what": "Grey rounded box contradicts the intended clean Retail Purple (#340A5C) open-margin studio cutout concept."
+    },
+    {
+     "severity": "medium",
+     "what": "Product mismatch: purple chrysanthemum bouquet replaces the requested bright sunflower bouquet."
+    },
+    {
+     "severity": "medium",
+     "what": "Kapruka logo top edge sits slightly below the 110px top-margin threshold and looks slightly small."
+    }
+   ],
+   "rounds": 1,
+   "regenerated": true,
+   "painted": [],
+   "human": {
+    "rating": "bad",
+    "note": "",
+    "at": "2026-11-26T11:54:26.807Z"
+   },
+   "baseScore": 3,
+   "score": 0
+  },
+  {
+   "id": "upload-ref-1-2026-11-27T04-37-42#0",
+   "runId": "upload-ref-1-2026-11-27T04-37-42",
+   "variant": 0,
+   "at": "2026-11-27T04:49:45.002Z",
+   "engine": "Gemini",
+   "relation": "direct",
+   "kind": "reference",
+   "target": "GIORDANO COUPLE WATCHES GD 1207 22, GIORDANO ANALOG WATCH FOR MEN GD 1193 11",
+   "hasProducts": true,
+   "framing": "full-bleed",
+   "subject": "A studio set with a flat matte Deep Purple #241044 L-shaped wall and a flat matte Retail Purple #340A5C rectangular panel. The device is unchanged: a vertical grab pole with a charcoal #3A3D44 diamond-knurled grip, a smooth glossy cyan #2BA6D8 sleeve, and one round glossy red #D3312C stop button. Si",
+   "scenePrompt": "Eye-level, straight-on studio photograph, 4:5 portrait. Long lens with an orthographic feel and deep depth of field. Set: a flat matte Deep Purple #241044 wall in an L shape (left column x=0–24.5% at full height, plus a bottom band at y=69.5–100%), and a flat matte Retail Purple #340A5C panel filling x=24.5–100%, y=0–69.5%. Clean seams, no gradient, no vignette. A perfectly vertical bus grab pole with a charcoal #3A3D44 diamond-knurled grip runs top to bottom at x=47.5–52.5%. It carries a smooth glossy cyan #2BA6D8 sleeve at y=49–65.5% with one round glossy red #D3312C stop button at y=56%. Forearms with diverse natural skin tones reach in from alternating sides and grip the pole. Top right: a green tailored jacket, wearing the GIORDANO GD 1193 11 men's analog watch. Left: a pink wool coat, bare wrist. Right: a navy crane-print jacket, bare wrist. Left, at y=53.5–62%: a purple-and-lilac polka-dot sleeve, whose red-manicured index finger points at the button; it wears the ladies' watch of the GIORDANO GD 1207 22 couple set. Right, at y=65–82%: a black-and-white gingham coat, wearing that set's men's watch. Bottom left: a navy jacket with a white cuff and a floral-tattooed hand, bare wrist. Draw all three watches exactly as in the attached product sheet, dials facing the camera, with \"GIORDANO\" spelled exactly, fully inside x=10–90%, y=8–92%. Soft, even, high-key front light, small speculars on the crystals, real contact shadows, natural skin texture, no plastic sheen. Keep x=9–25%, y=7–13% and x=60–91%, y=47–64% calm and empty. No text, letters, numbers, logos or signage except the dial print.",
+   "attached": [
+    "the REFERENCE AD: recreate its composition, camera angle, li",
+    "a sheet of the REAL PRODUCTS: draw every product exactly as "
+   ],
+   "copy": [],
+   "verdict": "not-ready",
+   "issues": [
+    {
+     "severity": "high",
+     "what": "product: watches are generic light-blue dials, not the real Giordano GD 1207 22 / GD 1193 11"
+    },
+    {
+     "severity": "high",
+     "what": "adapt: reference shows 7 watches; pink-sleeve and floral-sleeve wrists, and the tattooed wrist, now have none"
+    },
+    {
+     "severity": "high",
+     "what": "adapt: all watches identical, which loses the reference's variety (a different watch on every wrist)"
+    },
+    {
+     "severity": "high",
+     "what": "Logo sits on top of the pole and the top hand's knuckles, so the logo and photo collide"
+    },
+    {
+     "severity": "medium",
+     "what": "Canvas appears taller than 1080x1350, with a stray solid purple strip along the bottom edge"
+    },
+    {
+     "severity": "medium",
+     "what": "adapt: the two-tone colour-block device is weak because both purples are near-identical in value"
+    }
+   ],
+   "rounds": 1,
+   "regenerated": true,
+   "painted": [
+    "watch dial brand wordmark, logo mark and printed numerals/indices (top-right watch, green-sleeve arm)",
+    "watch dial brand wordmark, small printed text and numerals (left watch, pointing arm)",
+    "watch dial brand wordmark, small printed text, numerals and date window (bottom-right watch, plaid-sleeve arm)"
+   ],
+   "human": null,
+   "baseScore": 0,
+   "score": 0
+  }
+ ],
+ "lessons": {
+  "version": 2,
+  "updatedAt": "2026-11-23T04:22:55.349Z",
+  "basedOn": 19,
+  "style_rules": [
+   "Match the prompt backdrop to the final layout ground — either pure flat #FFFFFF seamless white for cutout-on-ground or full-bleed flat Retail Purple (#340A5C) with no gradient — so pasted cutouts never show rectangular photo-box seams.",
+   "Anchor the hero subject inside explicit inset coordinates (e.g., x=9.5% to 39% for left-column layouts or x=18% to 82% for centered layouts, spanning y=10% to 82.5%) to protect the 100px top and side margins while preventing dead bottom gaps.",
+   "Attach a real product sheet whenever possible and instruct the model to match exact bottle shapes, colours, caps, packaging, and printed details, keeping labels front-facing and unobstructed.",
+   "Keep the entire hero subject and its soft contact shadow strictly inside the inset bounding box, or ground hands/stems cleanly at y=100% in full-bleed shots so nothing gets sliced mid-canvas.",
+   "Include exact brand hex codes alongside material finish and lighting (e.g., Retail Purple #340A5C, gold #D9A441, glossy patent #C90E13, eye-level studio product photograph) so purples and accents stay on-palette.",
+   "Describe clear, physically plausible studio orientations (such as tiered vertical placement, tabletop presentation, or hands cradling a product) rather than surreal object-to-object morphs.",
+   "When prompting human subjects, specify natural skin texture, warm expressions, and gentle gestures explicitly so the model preserves an upbeat gifting mood.",
+   "Omit all Kapruka logos, wordmarks, headlines, and ad typography from the image prompt so they are added cleanly in layout rather than AI-painted."
+  ],
+  "avoid": [
+   "Never use a pure white (#FFFFFF) cutout ground when the final ad canvas is Retail Purple (#340A5C), and never use tinted cream (#F5F4EB) or radial vignettes, which expose visible rectangular photo-box seams.",
+   "Never instruct objects to enter from x=0% or be cropped hard off the left or top frame edge, which causes harsh vertical slices, clipped silhouettes, and top-margin violations.",
+   "Never ask the model to paint Kapruka wordmarks or logos onto bags, products, or the background, which causes uneven letterforms, ghost duplicates, or logos on sellable goods.",
+   "Avoid rendering tiny, intricate printed brand text on small or distant product labels without clear front-facing framing, which causes AI-garbled lettering.",
+   "Avoid complex object-to-object morphing devices (such as heels, straps, or globe arcs turning into molten liquid, prongs, or ribbons), which trigger warped shapes, missing elements, and broken composition scale.",
+   "Never let soft ground shadows bleed past the cutout bounds, which produces visible straight horizontal or vertical cuts across the shadow.",
+   "Avoid vague floating compositions or omitting clear surface grounding, which correlates with grey rectangular ghost patches and placeholder boxes.",
+   "Do not end hero artwork high on the canvas (around 48% to 65% height) or tuck the payoff small in a corner, which creates top-heavy dead white zones and unreadable thumbnails.",
+   "Do not rely on generic colour names like deep purple without hex values, which frequently render as off-brand grey-violet.",
+   "Avoid negative action words like frown or protest for human subjects, as models exaggerate them into genuine anger or shouting."
+  ],
+  "structure": "Open with shot type (eye-level studio product photograph), 4:5 portrait aspect ratio, and a seamless flat ground matching the layout canvas (#FFFFFF for cutout-on-ground with no border, horizon, or panel seams, or full-bleed flat #340A5C Retail Purple with no vignette). Define an explicit inset placement box (e.g., x=9.5%–39% or x=18%–82%, y=10%–82.5%) and specify physically plausible subject orientation, real-product-sheet fidelity with clear front-facing labels, exact hex colours, material finish, and a fully contained contact shadow. Close with clean studio lighting and warm mood cues while strictly excluding any Kapruka logos, ad typography, edge-cropping, or shape-morphing gimmicks.",
+  "history": [
+   {
+    "v": 1,
+    "at": "2026-11-22T04:35:59.235Z",
+    "what": "first version"
+   },
+   {
+    "v": 2,
+    "at": "2026-11-23T04:22:55.349Z",
+    "what": "Updated the backdrop and layout rules to require matching the prompt ground to the ad's actual background (#FFFFFF for white layouts or flat #340A5C full-bleed without vignette for purple layouts) to eliminate rectangular photo-box seams, added centered bounding-box and y=100% full-bleed hand grounding options, and warned against garbled small label text on product sheets."
+   }
+  ]
+ },
+ "lessonsEntryCount": 19,
+ "ratedSinceLessons": 1,
+ "updatedAt": "2026-11-27T04:49:45.003Z"
+}

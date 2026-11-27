@@ -1,0 +1,42 @@
+{
+  "text_or_logos": [
+    {
+      "what": "small garbled brand wordmark printed on the watch dial (reads like a 4-6 letter logo)",
+      "box": {
+        "x": 40,
+        "y": 57,
+        "w": 4,
+        "h": 2
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "bag",
+      "face": {
+        "x": 10,
+        "y": 63,
+        "w": 46,
+        "h": 33
+      },
+      "surface": "dark",
+      "angle": "front"
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 70,
+    "h": 98.5
+  },
+  "notes": "Watch dial carries a tiny printed brand mark — must be cleaned or the watch re-rendered with a blank dial. Otherwise no text, labels or signage anywhere: globe continents are flat gold shapes with no country names, bag face is blank, headphones have no brand mark. Bag handle rope passes oddly — the left rope end disappears behind the ribbon with no visible anchor point. Bag's top-right corner geometry is slightly inconsistent with the front face plane (the opening tilts more than the body). Headphone right earcup overlaps the bag edge with a soft, slightly melted contact edge. Lower-right ribbon coil is a loose spiral with ends that do not resolve.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

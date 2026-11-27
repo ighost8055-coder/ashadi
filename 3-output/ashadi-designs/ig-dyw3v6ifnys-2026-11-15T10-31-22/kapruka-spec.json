@@ -1,0 +1,277 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A tall two-column poster on pure white: a deep purple patent handbag bleeds off the upper-left corner and its shoulder strap melts downward into antique-gold satin ribbon that pours into a plain purple Kapruka gift box in the lower-left, while a stacked film-title typographic lockup occupies the right half at mid-height. One Kapruka logo sits in the empty upper-right. A single full-width purple one-liner sits as a footer band at the very bottom, centred on the canvas.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 6.9,
+      "bottom": 3.2,
+      "left": 0
+    },
+    "alignment_axes": [
+      "'GIFTS' and 'WRAPPED' share a left edge at x=46.8%",
+      "'GIFTS' and 'WRAPPED' share an optical right edge at x≈90% (89.4% / 91.2%)",
+      "'COME' is centred on the title-block centre axis at x≈68.5%, as is the whole GIFTS/WRAPPED lockup",
+      "'THE' is deliberately NOT centred on the lockup — it is pushed left (centre x≈57.9%), kept as the reference's optical, felt-not-computed placement rather than a formula centre",
+      "The logo's right edge sits on the same 93.1% margin line as the title block's outer limit",
+      "The footer line is centred on the canvas centre axis x=50%",
+      "The handbag strap, the three ribbon tails and the gift-box centre all stack on a single vertical axis at x≈24%",
+      "Scene right edge (35.5%) and title left edge (46.8%) form a clean vertical gutter"
+    ],
+    "whitespace": [
+      "11.3% empty vertical gutter between the scene and the title block (x=35.5%→46.8%, full height of the title)",
+      "A large empty quadrant occupies the lower right: x=36%→100%, y=57%→92% (~22% of the canvas) with nothing in it",
+      "9.5% empty band between the bottom of the gift box (y≈83.5%) and the cap-top of the footer line (y≈92.9%)",
+      "10% empty band across the top of the canvas above the handbag, broken only by the small logo at the far right",
+      "Empty upper-right block x=40%→100%, y=9%→31% above the title",
+      "3.2% clear band below the footer line to the bottom edge"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 35.5,
+      "h": 73.5
+    },
+    "kind": "photographic-still-life",
+    "framing": "cutout-on-ground",
+    "subject": "A deep purple patent-leather structured handbag, a real sellable gift, seen dead side-on in profile, tilted top-up toward the upper right so its opening and front face turn toward the viewer's left. The bag's slim shoulder strap does not end — it stretches downward into a long tapering curve that changes material partway, turning from purple patent leather into thick glossy antique-gold satin ribbon, and splits into three downward-pointing tapered tails. The tails dip into the open mouth of a squat, plain, completely unprinted matte purple gift box standing upright below; the gold ribbon has overflowed, pouring in heavy glossy folds over the box rim and down its sides, with a few thick lengths running to the base and pooling on the ground.",
+    "composition": "Handbag occupies the upper-left and is cropped hard by the left canvas edge — roughly a third of the bag (its back panel and part of the base) runs off-frame. The body tilts up-right and nearly touches the 35% vertical. The strap/ribbon falls through the vertical centre of the left column at x≈24% and lands on the gift box, which is centred on the same axis and scaled to about a fifth of the canvas width. Bag and box together form a single top-left to bottom-centre-left diagonal; nothing crosses into the right half.",
+    "camera": "Straight-on eye-level product view, long-lens feel with no perspective distortion, deep focus — everything is sharp front to back, no depth-of-field falloff.",
+    "lighting": "Bright, even studio lighting from the front-upper-left with a large soft source; strong specular highlights run along the patent leather's top curve and the satin ribbon folds. Shadows are almost entirely suppressed — only a faint soft contact shadow under the gift box — so the objects read as cut-outs floating on white.",
+    "palette": [
+      "#FFFFFF",
+      "#4B2386",
+      "#340A5C",
+      "#241044",
+      "#D9A441",
+      "#F6C96A",
+      "#F5F4EB"
+    ],
+    "negative_space": [
+      "Right half below the title: x=36%→100%, y=57%→92% — fully empty white",
+      "Upper right: x=40%→100%, y=9%→31% — empty white the title sits beneath",
+      "Band x=0%→100%, y=84%→92% — empty white the footer line sits on"
+    ],
+    "prompt": "A single still-life composition on a pure white seamless background, 4:5 portrait, 1080x1350. Upper left: a deep purple patent-leather handbag, structured and rectangular, photographed dead side-on in profile, tilted so its opening faces up and to the right; the left third of the bag is cropped hard off the left edge of the frame. Its slim shoulder strap does not end — it descends in one long tapering curve down the centre of the left column and partway down it stops being purple patent leather and becomes thick glossy antique-gold satin ribbon, muted and desaturated old gold, never bright yellow. The ribbon splits into three tapering tails that dip into the open mouth of a squat, plain, completely unprinted matte purple gift box standing upright below. More gold ribbon has overflowed the box, pouring in heavy glossy folds over the rim, running down the sides and pooling on the white ground. Bag and box stack on one vertical axis and form a single top-left to bottom-centre-left diagonal. Bright even studio light from the front upper left, one large soft source, strong speculars on patent leather and satin, shadows almost fully suppressed apart from one faint contact shadow under the box. Straight-on eye-level long-lens product view, no perspective distortion, deep focus, sharp front to back. Real leather grain, real satin weave, one consistent light direction, photographic realism, no plastic AI sheen. Keep these areas completely empty flat white: x 46-94% / y 28-56%; x 73-94% / y 4-9%; x 7-94% / y 92-97%. The entire right half of the frame is empty white. ABSOLUTELY NO text, letters, numbers, words, logos, watermarks, labels, signage, tags, printed packaging or UI anywhere in the image, including on the bag and the box.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 50.9,
+        "y": 31.3,
+        "w": 13.9,
+        "h": 3.1
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 48,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": 5,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "GIFTS",
+      "box": {
+        "x": 46.8,
+        "y": 34.6,
+        "w": 42.6,
+        "h": 8
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 150,
+        "cap_height_px": 105,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#241044",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "COME",
+      "box": {
+        "x": 61,
+        "y": 44.3,
+        "w": 16.8,
+        "h": 3.4
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 64,
+        "cap_height_px": 45,
+        "line_height": 1.1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "WRAPPED",
+      "box": {
+        "x": 46.8,
+        "y": 48.5,
+        "w": 44.4,
+        "h": 6.1
+      },
+      "font": {
+        "family_guess": "Playfair Display — set to the reference's small-caps rhythm: initial W at full cap height (82px), remaining letters at ~82% cap height (67px)",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 118,
+        "cap_height_px": 82,
+        "line_height": 1,
+        "letter_spacing_px": 1.5,
+        "case": "upper",
+        "italic": false,
+        "color": "#241044",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Delivered island-wide, same day in Colombo.",
+      "box": {
+        "x": 7.2,
+        "y": 92.9,
+        "w": 85.9,
+        "h": 3.9
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 58,
+        "cap_height_px": 42,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "logo",
+      "role": "logo",
+      "text": "Kapruka logo (mark + wordmark, no tagline, no divider, no descriptor)",
+      "on": "light",
+      "box": {
+        "x": 73.1,
+        "y": 4.4,
+        "w": 20,
+        "h": 4.3
+      },
+      "font": null,
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Three-tailed ribbon fork formed where the handbag strap meets the gift box — part of the rendered scene, not a drawn shape: the antique-gold satin stem splits into three short tapered downward tails entering the box mouth.",
+      "box": {
+        "x": 18.5,
+        "y": 54.5,
+        "w": 12,
+        "h": 6.5
+      }
+    }
+  ],
+  "z_order": [
+    "canvas-background",
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e6",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e3",
+    "e1",
+    "e5",
+    "e6"
+  ],
+  "why_it_works": [
+    "The borrowed film-title frame survives intact — tracked small line, huge serif noun, small accent verb, huge serif noun — so the poster reads as a poster before a single word is read, and the sentence it spells is plain speech with no pun in it.",
+    "Left half carries the image, right half carries the type, with the same clean 11% gutter and nothing crossing it; the eye never has to separate figure from ground.",
+    "The purple handbag, the purple gift box, the purple type and the purple footer lock the entire page to a single brand hue against pure white, with antique gold as the only second note, so the near-black Deep Purple of GIFTS / WRAPPED reads as the hardest contrast in frame.",
+    "The melt device is kept and re-found rather than copied: a shoulder strap, a satin ribbon and a pour are all long slender curving strands, so the material change is a found join, not a Photoshop one — and what it pours into is the wrapped gift the headline names."
+  ],
+  "changes": [
+    "Scene subject swapped from a red stiletto + Biscoff jar to a deep purple patent handbag + plain purple Kapruka gift box, keeping the exact crop, profile tilt, descending stem, mid-stem material change, three-prong fork, overflow down the sides and pool on the ground — the handbag is a real sellable Kapruka gift (fashion department, 300+ handbags), not a prop.",
+    "Packaging rule applied: the gift box is painted plain, blank, matte Kapruka purple #4B2386 with no logo, wordmark, text, smile arc or pattern, front face flat and clear so the real logo can be placed in Canva afterwards. scene.attach is empty.",
+    "Colour mapped by role: the reference's black (hardest contrast) becomes Deep Purple #241044; its red accent (THE / EATS / footer) becomes Retail Purple #340A5C; the caramel becomes Luxury Gold #D9A441 (muted antique gold, never collapsing into #FFC107); the white ground is kept because the whole layout's figure/ground and cut-out read depend on it.",
+    "Copy rebuilt with a 1:1 character match on every lockup line — THE (3/3), GIFTS (5/5), COME (4/4), WRAPPED (7/7) — so the fixed boxes, the shared left edge at 46.8% and the optical right edge at ~90% all hold without reflowing.",
+    "The devil-tail arrow ornament replacing the 'I' in DEVIL was removed, per the no-added-ornaments rule. 'THE' keeps its reference box at x=50.9 (pushed left of the lockup centre) as an optical, human-feeling placement rather than being re-centred by formula.",
+    "Type: Playfair Display 700 for the lockup, because the film-title read is the one thing the layout genuinely depends on and it needs a high-contrast Didone-class serif — Playfair is the only one on the approved Canva list that holds that character. Poppins 700 (the brand headline face) carries the footer, matching the reference's geometric-sans ExtraBold footer. Both are 700, the only bold weight Canva gives imported text.",
+    "The footer slot is written as a plain support line (43 chars vs the reference's 44) rather than the brand tagline. 'A world of choices' is 18 characters and would leave the full-width footer band two-fifths empty, breaking the one piece of rhythm that band exists for; the instruction also forbids extending the tagline to fill it, so the band carries a direct, verifiable moat line instead and the tagline is left for a layout built for it.",
+    "A single Kapruka logo was added (the reference has none) in the calmest corner — the empty upper-right block, right edge on the same 93.1% margin line as the title, 216px wide (inside the brand's 190–230px range), on light, with nothing beneath it."
+  ],
+  "claims_used": [
+    "'Delivered island-wide' — 01-business-context.md §1, CONFIRMED PROOF approved for ad use 2026-07-04: 'Island-wide delivery — anywhere in Sri Lanka.'",
+    "'same day in Colombo' — 01-business-context.md §1, CONFIRMED PROOF: 'Same-day delivery within the Colombo region; next-day island-wide.' The line states only the Colombo half, so it does not over-reach the island-wide case.",
+    "'THE GIFTS COME WRAPPED' — ⚠ FLAGGED FOR SIGN-OFF. 01-business-context.md supports the Gifting line and names its proof as 'it arrived, on the day, looked great' (§3), but it does not state that every order is gift-wrapped. The claim rests on Kapruka's real, documented gift-packaging asset in 1-foundation/references/brand-assets/_brand-assets.md ('premium gifting — wrapped/ribboned, gift card'), which is actual Kapruka packaging, not an invented service. If gift wrapping is not standard on every order, swap the line to 'THE GIFTS COME ON TIME' (7 characters, same box, backed by the dated-delivery proof in 01 §1).",
+    "No price, offer, SKU, discount, delivery date or percentage appears anywhere in the creative — the scope bar on product/offer advertising is respected."
+  ]
+}

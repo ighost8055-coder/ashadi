@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "white line-art silhouette of a head profile",
+      "box": {
+        "x": 22.5,
+        "y": 34.5,
+        "w": 55,
+        "h": 44
+      }
+    },
+    {
+      "what": "chocolate cake topped with berries and chocolate discs inside the head",
+      "box": {
+        "x": 41,
+        "y": 39,
+        "w": 27,
+        "h": 19.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 22.5,
+    "y": 34.5,
+    "w": 55,
+    "h": 44
+  },
+  "notes": "",
+  "size": {
+    "w": 1840,
+    "h": 2304
+  }
+}

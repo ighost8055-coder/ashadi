@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "dark purple high-heeled shoe with trident heel",
+      "box": {
+        "x": 6,
+        "y": 6,
+        "w": 56.5,
+        "h": 64
+      }
+    },
+    {
+      "what": "chocolate cake with dripping ganache, puddle, and shadow",
+      "box": {
+        "x": 2,
+        "y": 66.5,
+        "w": 65.5,
+        "h": 28
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 2,
+    "y": 6,
+    "w": 65.5,
+    "h": 88.5
+  },
+  "notes": "",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

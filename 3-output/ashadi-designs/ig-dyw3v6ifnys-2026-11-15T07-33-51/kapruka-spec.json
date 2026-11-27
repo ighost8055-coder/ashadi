@@ -1,0 +1,278 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#F5F4EB",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A two-column poster: a bleeding-off-the-left-edge product scene (a tipped Kapruka gift box pouring twisted gold ribbon into a Kapruka shopping bag) occupies the left third from 10% to 84% height, while a four-line centred title lockup sits in the right half between 31% and 55% height. One Kapruka logo sits alone in the calm upper-right field on the lockup's own axis. A single centred gold tagline closes the frame at the bottom, with a large empty cream band separating it from everything above.",
+  "grid": {
+    "margins_pct": {
+      "top": 9.5,
+      "right": 6.5,
+      "bottom": 4.2,
+      "left": 0
+    },
+    "alignment_axes": [
+      "'GIFTS' (x=47.0%) and 'ON TIME' (x=47.5%) share an optical left edge at x≈47%",
+      "'GIFTS' (right 89.0%) and 'ON TIME' (right 90.5%) share an optical right edge at x≈90% — the two long words are tracked to the same measure",
+      "'THE', 'COME', the ribbon-tail stroke and the logo all centre on the title block's vertical axis at x≈68.5%",
+      "The gift box's lower corner, the three gold ribbon strands and the bag's vertical centre all stack on one axis at x≈24%",
+      "The bottom tagline is centred on the canvas centre axis x=50%",
+      "The scene's left edge and the canvas left edge are the same line (x=0 full bleed)"
+    ],
+    "whitespace": [
+      "Upper-right quadrant empty apart from the small logo: x 36–100%, y 0–30%",
+      "12% empty vertical gutter between the bag's right edge (x≈35%) and the title's left edge (x=47%)",
+      "Large empty right column below the title: x 36–100%, y 56–92% — the single biggest calm area",
+      "9% empty horizontal band between the bag base/shadow (y≈84%) and the tagline cap-top (y≈92.5%)",
+      "Title block sits in a 2.5–3% tall gap stack: THE→GIFTS ≈0.5%, GIFTS→COME ≈2.5%, COME→ON TIME ≈2%",
+      "4.2% clear strip below the tagline descender to the canvas bottom"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 9.5,
+      "w": 35.5,
+      "h": 74.5
+    },
+    "kind": "3d-render",
+    "subject": "The real Kapruka gift packaging — a deep purple gift box with its lid lifted — angled diagonally down to the left with its open corner low and to the right, cropped off the left canvas edge. From that open corner, three twisted ropes of glossy gold satin ribbon pour down into the open mouth of the real Kapruka shopping bag standing below. The ribbon overflows the bag's rim, folds over the handle area and runs in heavy glossy droplets down the bag's sides, with one long rope sagging off the right shoulder of the bag and puddling at its base. The bag keeps its own printed Kapruka branding and icon pattern exactly as supplied. A faint soft shadow pools under the bag.",
+    "composition": "Diagonal top-right-to-bottom-left gift box occupying the upper-left quadrant, cropped hard at the left edge so roughly a third of it is off-canvas; the ribbon pour forms a vertical spine at x≈24% linking box to bag; the bag is a stable vertical block in the lower-left, about 21% of canvas width and 27% of height. Product scale is large and poster-like — the box reads as a monumental object, not a handled one.",
+    "camera": "Straight-on eye-level product view, long-lens feel with flattened perspective and no visible convergence; everything in sharp focus edge to edge, no depth-of-field falloff. Subject fully isolated with no horizon or surface line.",
+    "lighting": "Bright, even high-key studio light from front-upper-left with large soft sources; hard specular highlights ride the satin ribbon and the box edge, while the cream ground is blown to clean flat paper with only a whisper of contact shadow under the bag. Neutral-to-slightly-warm colour temperature.",
+    "palette": [
+      "#F5F4EB",
+      "#4B2386",
+      "#340A5C",
+      "#241044",
+      "#D9A441",
+      "#F6C96A",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "x 36–100%, y 0–30% (upper-right cream field)",
+      "x 36–100%, y 56–91% (lower-right cream field)",
+      "x 0–100%, y 84–92% (band above tagline)"
+    ],
+    "prompt": "A 4:5 portrait still life on a flat, unbroken soft cream #F5F4EB ground — no horizon, no table, no surface line, no props. On the left, a deep purple Kapruka gift box with its lid lifted is tipped on a diagonal running from upper right down to lower left, cropped hard by the left edge of the frame so about a third of it sits off canvas. From its open lower corner, three thick twisted ropes of glossy gold satin ribbon pour straight down as one vertical spine into the open mouth of a Kapruka shopping bag standing below. The ribbon overflows the bag's rim, folds over the handle area and runs in heavy glossy droplets down the sides; one long rope sags off the bag's right shoulder and puddles at its base. A faint soft contact shadow pools under the bag. Use the attached Kapruka gift packaging and the attached Kapruka shopping bag exactly as provided — do not redraw or recolour them. Bright even high-key studio light from the front upper left, large soft sources, hard speculars on the satin, ground blown to clean flat cream. Straight-on eye-level long-lens view, flattened perspective, sharp edge to edge, no depth-of-field falloff. Purple, gold and cream only. Keep these areas completely empty, flat and low-detail: x 36–100% across the full height; the full-width band from y 84–100%; and x 0–36% above y 9%. Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage or UI anywhere in the image, the single exception being the branding already printed on the attached real assets, which must not be altered.",
+    "attach": [
+      "kapruka-gift-packaging.png",
+      "kapruka-bag-packaging.png"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 31,
+        "w": 13,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 600,
+        "size_px": 56,
+        "cap_height_px": 40,
+        "line_height": 1,
+        "letter_spacing_px": 5,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "GIFTS",
+      "box": {
+        "x": 47,
+        "y": 34.5,
+        "w": 42,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 138,
+        "cap_height_px": 98,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "COME",
+      "box": {
+        "x": 61.5,
+        "y": 44.5,
+        "w": 16,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 600,
+        "size_px": 55,
+        "cap_height_px": 40,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "ON TIME",
+      "box": {
+        "x": 47.5,
+        "y": 49.5,
+        "w": 43,
+        "h": 5.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 104,
+        "cap_height_px": 74,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e5",
+      "type": "shape",
+      "shape": "line",
+      "box": {
+        "x": 77.5,
+        "y": 30.5,
+        "w": 4.5,
+        "h": 11.5
+      },
+      "fill": "#340A5C",
+      "opacity": 1,
+      "radius_px": 0,
+      "confidence": "medium"
+    },
+    {
+      "id": "e6",
+      "type": "text",
+      "role": "tagline",
+      "text": "A world of choices",
+      "box": {
+        "x": 30,
+        "y": 92.5,
+        "w": 40,
+        "h": 3.3
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 46,
+        "cap_height_px": 33,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e7",
+      "type": "logo",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 59,
+        "y": 10,
+        "w": 19,
+        "h": 4.5
+      },
+      "notes": "One Kapruka logo only — the real asset composited flat, purple wordmark version for a light ground, centred on the title block's x≈68.5% axis. Nothing beneath it: no tagline, no divider, no descriptor.",
+      "confidence": "high"
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e4",
+    "e5",
+    "e3",
+    "e6",
+    "e7"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e5",
+    "e4",
+    "e1",
+    "e3",
+    "e6",
+    "e7"
+  ],
+  "why_it_works": [
+    "The borrowed title lockup (tiny gold article, huge purple noun, tiny gold verb, huge purple payoff) is recognised as a rhythm before a single word is read, so the claim lands in under a second.",
+    "A hard left/right split — full-bleed product scene against an untouched cream right field — gives the type a perfectly calm ground and makes the two gold accents (ribbon and tagline) bracket the frame top-left to bottom-centre.",
+    "The gold ribbon is a single vertical spine at x≈24% that forces the eye from the gift box straight down into the Kapruka bag, so the product does the pointing and the headline only has to state the fact."
+  ],
+  "changes": [
+    "Copy rebuilt to the same four-line title rhythm with identical character counts (THE 3, GIFTS 5, COME 4, ON TIME 7 vs THE 3, DEVIL 5, EATS 4, BISCOFF 7); the film-parody line became a plain direct statement of Kapruka's delivery reliability — no pun, no double meaning.",
+    "Tagline replaced with the brand tagline 'A world of choices'. It is far shorter than the reference line, so the type scale, baseline and centre axis are kept and the box narrows to x 30–70% rather than enlarging the type to fill the width (brand rule: never enlarge to fill canvas).",
+    "Ground changed from pure white to Soft Cream #F5F4EB — warmer and Kapruka's documented light background, while keeping the same flat, edge-to-edge, high-key field the layout depends on.",
+    "Colour roles mapped: reference black (big words) → Retail Purple #340A5C; reference red (small accent lines, the stroke's host colour, tagline) → Luxury Gold #D9A441, a muted antique gold with no outline or stroke, never allowed to collapse into bright yellow.",
+    "Typeface changed from Didot/Gilroy to Poppins throughout (ExtraBold for the two large lines, SemiBold for the two small lines and the tagline) — the brand's headline face. The lockup's character comes from size and colour alternation, not from a serif, so nothing the layout depends on is lost.",
+    "The arrow growing out of the 'I' became a small gold-ribbon tail stroke rising out of the 'T' of GIFTS — same box, same size, same off-centre top-right position, now a gifting tell instead of a devil horn.",
+    "Scene swapped to Kapruka subjects with the same crop, diagonal, pour-spine at x≈24%, camera, lighting and container block: the real Kapruka gift packaging tipped and cropped off the left edge pouring three twisted gold satin ribbons into the real Kapruka shopping bag. Both are attached assets, used as provided, never redrawn or recoloured.",
+    "The reference carries no logo, so one Kapruka logo was added in the calmest corner — the empty upper-right field, centred on the title block's existing x≈68.5% axis and inside the 9.5% top / 6.5% right margins. It costs a small part of that quadrant's whitespace; every other empty region is kept intact."
+  ],
+  "claims_used": [
+    "'THE GIFTS COME ON TIME' — supported by 01-business-context.md §1, The moat: 'Reliable, island-wide delivery ... on a date the buyer chooses, backed by 23+ years of operation', and the CONFIRMED PROOF block: 'Same-day delivery within the Colombo region; next-day island-wide.' Stated generally, with no specific time, date, route or price promised.",
+    "'A world of choices' — the brand-level tagline mandated by _brand-assets.md (human decision 2026-07-18); it is a brand line about catalogue breadth, which 01-business-context.md §1 supports ('Sri Lanka's largest locally-owned e-commerce and gifting platform'), not a delivery or price claim.",
+    "No price, offer, SKU, discount, speed figure or market claim appears anywhere in the creative — 01-business-context.md §2 bars product/offer advertising until the human flags it."
+  ]
+}

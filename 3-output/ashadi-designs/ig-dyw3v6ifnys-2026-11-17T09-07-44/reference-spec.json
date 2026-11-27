@@ -1,0 +1,252 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A two-column poster on pure white. On the left, a glossy red stiletto bleeds off the left edge; its heel melts into a drip that ends in a pitchfork stuck into a Biscoff jar. On the right, a four-line stacked serif title parodies a film logo, and one centred line of red rounded-sans dialogue sits across the bottom.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 9,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "The stiletto heel drip, the pitchfork and the jar's centre share one vertical axis at x≈24.5%",
+      "The left edges of 'DEVIL' and 'BISCOFF' line up at x≈46.5%, and their right edges at x≈90%",
+      "The bottom tagline is centred on the canvas centre line, x=50%",
+      "The baseline of 'BISCOFF' (y≈55.5%) lines up with the pitchfork tips and the jar's top rim (y≈55–56%)",
+      "The title block's top (y≈31%) is level with the top of the heel's arch, where the stiletto shaft starts at y≈31–33%"
+    ],
+    "whitespace": [
+      "≈10% empty horizontal gutter between the scene's right extent (x≈36%) and the title block (x≈46.5%)",
+      "Large empty lower-right field, x 40–100%, y 56–91%, which balances the heavy jar on the left",
+      "≈10% empty band between the jar's bottom (y≈82.5%) and the tagline cap-top (y≈92.5%)",
+      "Empty top-right field above the title, x 40–100%, y 0–30%; the shoe toe reaches only y≈10% at x≈29–36%",
+      "Top 10% of the canvas is completely empty"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy lacquered red high-heel stiletto seen in side profile, its toe pointing up and right. The stiletto heel turns into a long thin red liquid drip that ends in a small red three-pronged pitchfork. The pitchfork's prongs stab down into the open top of a glass jar of smooth caramel-brown cookie spread with a red label. Spread oozes over the rim and runs down the sides, and one thick drip pools at the jar's base on the right. The label's printed branding belongs to the real product packshot.",
+    "composition": "The shoe is cropped off the left edge. Its sole runs diagonally from the bottom-left (x0, y≈52%) to the toe tip at the top (x≈29%, y≈10%), and the heel cup bulges to x≈36% at y≈20–25%. The stiletto shaft falls straight down at x≈24% from y≈33% to y≈48%. The pitchfork spans x≈21.5–27.5%, y≈48–55.5%. The jar spans x≈14.5–35%, y≈56–82.5% and sits roughly 2.5x taller than its width in the frame. Shoe and jar make one continuous vertical object, stacked down the left third.",
+    "camera": "Straight-on product view at roughly jar-label height, long-lens feel with no perspective distortion, everything in sharp focus, no depth-of-field falloff",
+    "lighting": "Soft, bright studio light from the upper left. Strong specular highlights streak along the red lacquer and the wet spread, with a faint soft contact shadow under the jar. Neutral white light with no colour cast.",
+    "palette": [
+      "#C8141E",
+      "#8E0A12",
+      "#E8403A",
+      "#B5702E",
+      "#D08A3E",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      {
+        "x": 44,
+        "y": 29,
+        "w": 50,
+        "h": 28,
+        "note": "the title block sits here"
+      },
+      {
+        "x": 40,
+        "y": 57,
+        "w": 60,
+        "h": 34,
+        "note": "deliberately empty"
+      },
+      {
+        "x": 5,
+        "y": 90,
+        "w": 90,
+        "h": 8,
+        "note": "the tagline band"
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 31,
+        "w": 12,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Bodoni Moda (didone / Times-style high-contrast serif)",
+        "category": "serif",
+        "weight": 600,
+        "size_px": 60,
+        "cap_height_px": 42,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.7
+      },
+      "font": {
+        "family_guess": "Bodoni Moda (didone / Times-style high-contrast serif)",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 148,
+        "cap_height_px": 102,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#0A0A0A",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.7
+      },
+      "font": {
+        "family_guess": "Bodoni Moda (didone / Times-style high-contrast serif)",
+        "category": "serif",
+        "weight": 600,
+        "size_px": 70,
+        "cap_height_px": 49,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "Biscoff",
+      "box": {
+        "x": 46.3,
+        "y": 47.2,
+        "w": 44.5,
+        "h": 8.3
+      },
+      "font": {
+        "family_guess": "Bodoni Moda set in SMALL CAPS (large initial B, small caps ISCOFF)",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 160,
+        "cap_height_px": 111,
+        "line_height": 1,
+        "letter_spacing_px": -1,
+        "case": "upper",
+        "italic": false,
+        "color": "#0A0A0A",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don’t be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Baloo 2 / Nunito ExtraBold (rounded friendly sans, Biscoff-brand style)",
+        "category": "humanist sans",
+        "weight": 800,
+        "size_px": 44,
+        "cap_height_px": 31,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#C41E26",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "A devil's-tail arrow built into the 'V' of DEVIL. The V's right stroke rises as a thin black line past the cap height, curving slightly, and ends in a small solid arrowhead pointing up and right. Same black as the type.",
+      "box": {
+        "x": 70,
+        "y": 31.5,
+        "w": 8,
+        "h": 11
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "It borrows a shared reference: the film's red-stiletto key art and stacked title logo are recognised in a second, and the brand simply replaces the last word ('Wears Prada' becomes 'Eats Biscoff').",
+    "The picture does the joke. The heel melts into a devil's pitchfork stabbed into the jar, so the 'devil' is visibly eating the product, and the headline only names what you already see.",
+    "It is very spare: one object stacked on the left, one title block on the right, a ≈10% gutter between them, and a large empty lower-right field, with red used only for the shoe, the small title words and the tagline."
+  ]
+}

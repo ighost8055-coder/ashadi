@@ -1,0 +1,238 @@
+{
+  "canvas": {
+    "w": 1402,
+    "h": 1753,
+    "aspect": "4:5",
+    "background": "#340A5C",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A minimalist meme composition set on a solid Kapruka Retail Purple (#340A5C) canvas with 100px safe margins, featuring a central studio cut-out ginger kitten framed symmetrically by three real Kapruka flower bouquet cutouts (Pink White Tiger Lily Charm Bouquet, Purple Twilight Chrysanthemum Bouquet, and Veloura Red Rose Mixed Bouquet). Bold white Inter text sits centered above and below the central subject to form a classic top-and-bottom meme caption, accompanied by the Kapruka logo at top center and a clean delivery proof tagline below.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.3,
+      "bottom": 7.5,
+      "left": 9.3
+    },
+    "alignment_axes": [
+      "Top Kapruka logo, top headline, central kitten cutout, bottom punchline, and supporting delivery line are centered along the x=50.0% vertical axis",
+      "Top-left Veloura Red Rose Mixed Bouquet and bottom-left Pink White Tiger Lily Charm Bouquet align along left margin x=9.3%",
+      "Right-side Purple Twilight Chrysanthemum Bouquet aligns along right margin x=90.7%"
+    ],
+    "whitespace": [
+      "7.5% (101px) Retail Purple top margin above the Kapruka logo, keeping logo top edge within 110px",
+      "9.3% (100px) Retail Purple side margins protecting left and right bouquet edges",
+      "7.5% (101px) Retail Purple bottom margin below bottom bouquets and supporting delivery line"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 9.3,
+      "y": 21.5,
+      "w": 81.4,
+      "h": 56.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "An orange-and-cream ginger tabby kitten lying flat on its back with eyes squinted shut in a dramatic faint pose, surrounded symmetrically by three real Kapruka fresh flower bouquets from the attached product sheet.",
+    "composition": "Overhead flat-lay studio cutout composition set directly on seamless flat Retail Purple (#340A5C) inside the inset bounding box x=9.3%–90.7%, y=21.5%–78.0%, with the ginger kitten centered at x=37.5%–62.5%, y=26.0%–73.0%, flanked on the upper-left by Veloura Red Rose Mixed Bouquet, lower-left by Pink White Tiger Lily Charm Bouquet, and right by Purple Twilight Chrysanthemum Bouquet.",
+    "camera": "High-angle overhead studio flat-lay photograph, crisp edge-to-edge focus across fur, petals, and wrapping paper.",
+    "lighting": "Soft, even studio overhead lighting with gentle, contained natural contact shading under the kitten and bouquet wraps, zero radial vignette or background gradient.",
+    "palette": [
+      "#340A5C",
+      "#D8B894",
+      "#C91E32",
+      "#F4B6C2",
+      "#7B3F9E",
+      "#F5F4EB"
+    ],
+    "negative_space": [
+      "x: 0, y: 0, w: 100, h: 21.5",
+      "x: 30, y: 74, w: 40, h: 26"
+    ],
+    "prompt": "High-angle overhead studio product photograph, 4:5 portrait aspect ratio, on a completely seamless, flat solid Retail Purple (#340A5C) background with zero gradients, no radial vignette, no horizon line, and no rectangular seams. Inside an explicit inset placement box spanning x=9.3% to 90.7% and y=21.5% to 78.0% (leaving generous open purple margins around all four edges), arrange a clean studio cutout scene: in the center (x=37.5% to 62.5%, y=26.0% to 73.0%), a sleepy ginger-and-cream tabby kitten lies flat on its back with eyes squinted shut, chin tilted up, paws tucked neatly at its sides, and tail extending downward in a dramatic faint pose. Flanking the kitten symmetrically inside the same inset bounds are the three real flower bouquets drawn exactly as shown in the attached product sheet, preserving their exact shapes, flower varieties, petal colours, wrapping papers, ribbons, and any printed words on the products themselves: Veloura Red Rose Mixed Bouquet at upper-left (x=9.3% to 35.5%, y=22.0% to 47.5%), Pink White Tiger Lily Charm Bouquet at lower-left (x=9.3% to 36.0%, y=53.5% to 78.0%), and Purple Twilight Chrysanthemum Bouquet on the right (x=64.0% to 90.7%, y=32.0% to 68.0%). Keep the top zone (y=0% to 21.5%) and bottom center zone (x=25% to 75%, y=74% to 100%) completely clear, calm, and uncluttered for vector logo and typography overlay. Soft, even overhead studio lighting with subtle, tightly contained contact shadows under the kitten and bouquets, photographic realism with natural fur and fresh petal textures, strictly no Kapruka logos, no headlines, no captions, no price tags, and no watermarks.",
+    "attach": [
+      "product-sheet.png"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e0",
+      "type": "logo",
+      "brand": "Kapruka",
+      "box": {
+        "x": 40.5,
+        "y": 7.5,
+        "w": 19,
+        "h": 4.2
+      },
+      "on": "dark",
+      "confidence": "high"
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "CAUSE OF DEATH:",
+      "box": {
+        "x": 20,
+        "y": 14,
+        "w": 60,
+        "h": 5.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 72,
+        "cap_height_px": 52,
+        "line_height": 1.05,
+        "letter_spacing_px": 0.5,
+        "case": "uppercase",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 9.3,
+        "y": 22,
+        "w": 26.2,
+        "h": 25.5
+      },
+      "description": "Veloura Red Rose Mixed Bouquet drawn exactly as on the attached product sheet.",
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 64,
+        "y": 32,
+        "w": 26.7,
+        "h": 36
+      },
+      "description": "Purple Twilight Chrysanthemum Bouquet drawn exactly as on the attached product sheet.",
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 9.3,
+        "y": 53.5,
+        "w": 26.7,
+        "h": 24.5
+      },
+      "description": "Pink White Tiger Lily Charm Bouquet drawn exactly as on the attached product sheet.",
+      "confidence": "high"
+    },
+    {
+      "id": "e7",
+      "type": "text",
+      "role": "headline",
+      "text": "NO FLOWERS",
+      "box": {
+        "x": 25,
+        "y": 78.5,
+        "w": 50,
+        "h": 5.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 72,
+        "cap_height_px": 52,
+        "line_height": 1.05,
+        "letter_spacing_px": 0.5,
+        "case": "uppercase",
+        "italic": false,
+        "color": "#FFC107",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [
+        {
+          "text": "NO FLOWERS",
+          "color": "#FFC107"
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "e8",
+      "type": "text",
+      "role": "tagline",
+      "text": "Same-day flower delivery in Colombo. Next-day island-wide.",
+      "box": {
+        "x": 15,
+        "y": 86,
+        "w": 70,
+        "h": 6.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "geometric sans",
+        "weight": 400,
+        "size_px": 30,
+        "cap_height_px": 22,
+        "line_height": 1.2,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#F5F4EB",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e2",
+    "e4",
+    "e5",
+    "e0",
+    "e1",
+    "e7",
+    "e8"
+  ],
+  "hierarchy": [
+    "e1",
+    "scene",
+    "e7",
+    "e8",
+    "e0",
+    "e2",
+    "e4",
+    "e5"
+  ],
+  "why_it_works": [
+    "High-contrast white and Kapruka Yellow (#FFC107) Inter typography on flat Retail Purple (#340A5C) preserves instant meme readability while anchoring brand identity.",
+    "Three real Kapruka flower bouquets from the product sheet symmetrically frame the dramatic ginger kitten cutout inside strict 100px safe margins.",
+    "Pairing the deadpan 'NO FLOWERS' punchline with Kapruka's confirmed Colombo same-day and island-wide next-day delivery proof converts humor directly into gifting action."
+  ],
+  "changes": [
+    "Converted canvas from 1402x1753 white (#FFFFFF) to Kapruka standard 1080x1350 Retail Purple (#340A5C) with strict 100px (9.3% horizontal, 7.5% vertical) safe margins.",
+    "Added the white-and-yellow Kapruka vector logo at top center (y=7.5%, 101px from top edge, within the 110px rule) and removed the third-party Flower Aura logo.",
+    "Switched typography to Inter Bold (700) in all-caps matching the concept lockup ('CAUSE OF DEATH:' in #FFFFFF and 'NO FLOWERS' highlighted in #FFC107) within the 15% character-count limit.",
+    "Replaced the four competitor bouquets with the three real attached Kapruka bouquets (Veloura Red Rose Mixed Bouquet, Pink White Tiger Lily Charm Bouquet, and Purple Twilight Chrysanthemum Bouquet) drawn exactly as on the product sheet.",
+    "Added the concept's supporting delivery proof line ('Same-day flower delivery in Colombo. Next-day island-wide.') in Inter Regular (400) Soft Cream (#F5F4EB) below the punchline inside the bottom 100px safe zone."
+  ],
+  "claims_used": [
+    "Same-day flower delivery in Colombo. Next-day island-wide. — Supported by 1-foundation/01-business-context.md Section 1 ('Same-day delivery within the Colombo region; next-day island-wide.')."
+  ]
+}

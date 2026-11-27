@@ -1,0 +1,126 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-21T17:32:50.911Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01-r1.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": ""
+      },
+      "canva": {
+        "id": "DAHbkWQNZps",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODc1MDg4NDMxfQ..fovAznwmcp31LW09.nq27leqEXrLck7O2dwcuTHQ7L9DwwKV7-MjT78wu9cB39ddVZAwo59uSLExN1_TFpxjxtZdQZ7W47aoPd5wRjAOCOfwIEOEsBIHiSSh6CFldDao.XJarDBDH_vsE0yR6aZylQA/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=2d1a6b33-fd6f-404c-bf23-c81459e665d9&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODc1MDg4NDMxfQ..fovAznwmcp31LW09.nq27leqEXrLck7O2dwcuTHQ7L9DwwKV7-MjT78wu9cB39ddVZAwo59uSLExN1_TFpxjxtZdQZ7W47aoPd5wRjAOCOfwIEOEsBIHiSSh6CFldDao.XJarDBDH_vsE0yR6aZylQA/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=ce33d0ac-c8f2-4997-8f49-714463554ba4&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01-r1.png",
+      "review": {
+        "verdict": "minor-fixes",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "adapt: Hero shoe-and-cake graphic is much smaller and flatter than reference's tall, dramatic composition.",
+            "fix_in_canva": "Scale up the shoe-and-cake visual to fill left half vertically while staying inside 100px margins."
+          },
+          {
+            "severity": "medium",
+            "what": "Left edge of the red shoe sits closer than 100px to the left canvas margin.",
+            "fix_in_canva": "Nudge the shoe-and-cake graphic right so its leftmost pixel clears the 100px safe margin."
+          },
+          {
+            "severity": "low",
+            "what": "Large empty vertical gap between hero block and bottom tagline weakens visual cohesion.",
+            "fix_in_canva": "Enlarge hero visual and headline slightly to balance vertical white space above the tagline."
+          }
+        ],
+        "strengths": [
+          "Clean, crisp Inter typography with strong Kapruka purple hierarchy.",
+          "Undistorted Kapruka logo placed neatly in top-right safe zone.",
+          "Playful, on-brand headline and tagline match reference copy length."
+        ]
+      },
+      "polish": {
+        "rounds": 2,
+        "applied": [
+          "moved \"BUYS\"",
+          "moved \"KAPRUKA\"",
+          "picture scaled 115% nudged 2,12"
+        ],
+        "needsNewPicture": null,
+        "unfixable": []
+      },
+      "final": "final-01-2026-11-21T18-36-10.png",
+      "finalAt": "2026-11-21T18:36:19.436Z"
+    },
+    {
+      "engine": "Gemini",
+      "scene": "placed-02-brand.jpg",
+      "pptx": "design-02-r2.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": ""
+      },
+      "canva": {
+        "id": "DAHbkTDJxdw",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODc1NzY0NTEyfQ..lOtFzLvIf1MVvwCk.Sfz7yonbuzyATccC6u6syx95C92f9UUUNXckv71R6Hui25T1RGFKeDHXKKelTnRYEiWqWUCd0NUhsuS5uNrvbSbpLBvWQYP6dp8eokSnRzu8oBY.rtd_8g5L0KnmZ05KFaDVvQ/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=aa7af29e-a0e6-4619-abaf-4b8abd5bb18a&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODc1NzY0NTEyfQ..lOtFzLvIf1MVvwCk.Sfz7yonbuzyATccC6u6syx95C92f9UUUNXckv71R6Hui25T1RGFKeDHXKKelTnRYEiWqWUCd0NUhsuS5uNrvbSbpLBvWQYP6dp8eokSnRzu8oBY.rtd_8g5L0KnmZ05KFaDVvQ/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=e037b786-d293-4c0e-8458-47bcea4bb164&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-02-r2.png",
+      "review": {
+        "verdict": "minor-fixes",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Left edge of red shoe is harshly sliced off vertically inside the canvas.",
+            "fix_in_canva": "Replace with full uncropped shoe-and-cake image inside the 100px left margin."
+          },
+          {
+            "severity": "low",
+            "what": "Secondary text uses off-palette medium purple instead of brand Retail Purple or Yellow.",
+            "fix_in_canva": "Recolor 'THE', 'BUYS', and bottom tagline to #340A5C or #FFC107 accent."
+          }
+        ],
+        "strengths": [
+          "Faithful layout, hierarchy, and visual gag adaptation from the reference.",
+          "Clean, undistorted Kapruka logo properly positioned within top-right safe margins.",
+          "Crisp Inter typography with balanced spacing and strong visual contrast."
+        ]
+      },
+      "polish": {
+        "rounds": 2,
+        "applied": [
+          "moved \"BUYS\"",
+          "moved \"KAPRUKA\"",
+          "moved logo"
+        ],
+        "needsNewPicture": null,
+        "unfixable": []
+      },
+      "final": "final-02-2026-11-21T18-36-19.png",
+      "finalAt": "2026-11-21T18:36:26.421Z"
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n27w\nThat's all! 👠",
+  "concept": null,
+  "style": "adapt",
+  "title": "The Devil Buys Kapruka",
+  "finishedAt": "2026-11-21T17:58:38.709Z",
+  "best": 1
+}

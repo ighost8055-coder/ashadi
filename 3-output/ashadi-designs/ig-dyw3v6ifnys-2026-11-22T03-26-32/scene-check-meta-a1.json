@@ -1,0 +1,122 @@
+{
+  "text_or_logos": [
+    {
+      "what": "BOSS",
+      "box": {
+        "x": 42,
+        "y": 16.5,
+        "w": 5.5,
+        "h": 16
+      }
+    },
+    {
+      "what": "HUGO BOSS",
+      "box": {
+        "x": 48.5,
+        "y": 17,
+        "w": 1.5,
+        "h": 16.5
+      }
+    },
+    {
+      "what": "UNLIMITED",
+      "box": {
+        "x": 51,
+        "y": 19,
+        "w": 1.5,
+        "h": 13
+      }
+    },
+    {
+      "what": "100 ml e 3.3 FL.OZ.",
+      "box": {
+        "x": 42,
+        "y": 35.5,
+        "w": 9.5,
+        "h": 1
+      }
+    },
+    {
+      "what": "DOLCE & GABBANA The Only One",
+      "box": {
+        "x": 42,
+        "y": 50,
+        "w": 14.5,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "هوس HAWAS ELIXIR",
+      "box": {
+        "x": 50,
+        "y": 74,
+        "w": 8,
+        "h": 6.5
+      }
+    },
+    {
+      "what": "الرصاصي 100 ML EAU DE PARFUM 3.38 FL.OZ.",
+      "box": {
+        "x": 51,
+        "y": 83.5,
+        "w": 6,
+        "h": 4
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "white perfume bottle (BOSS Unlimited)",
+      "box": {
+        "x": 37,
+        "y": 4,
+        "w": 19,
+        "h": 33
+      }
+    },
+    {
+      "what": "amber glass perfume bottle (Dolce & Gabbana The Only One)",
+      "box": {
+        "x": 40.5,
+        "y": 37,
+        "w": 17.5,
+        "h": 25.5
+      }
+    },
+    {
+      "what": "gold perfume bottle (Hawas Elixir)",
+      "box": {
+        "x": 44.5,
+        "y": 62.5,
+        "w": 19,
+        "h": 28
+      }
+    },
+    {
+      "what": "stacked white pedestals with cast shadow",
+      "box": {
+        "x": 10,
+        "y": 37,
+        "w": 60.5,
+        "h": 60
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 10,
+    "y": 4,
+    "w": 60.5,
+    "h": 93
+  },
+  "notes": "",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

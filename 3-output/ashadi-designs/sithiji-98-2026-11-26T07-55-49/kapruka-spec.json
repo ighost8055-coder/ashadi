@@ -1,0 +1,244 @@
+{
+  "canvas": {
+    "w": 3280,
+    "h": 4096,
+    "aspect": "4:5",
+    "background": "#F5F4EB",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A minimalist meme-style layout on a soft cream (#F5F4EB) background featuring a Kapruka purple logo tab pinned at the top right inside the 100px safe margin. Below, a right-aligned blue iMessage chat bubble is followed on the left by a subhead and a horizontal row of three isolated Kapruka product cutouts.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.3,
+      "bottom": 25.5,
+      "left": 15.5
+    },
+    "alignment_axes": [
+      "e6 (left product cutout) and e5 ('the plans:') align closely on the left around x=15.5%-16.5%",
+      "e6, e7, and e8 share a horizontal bottom baseline around y=74.0%-74.5%"
+    ],
+    "whitespace": [
+      "30.5% open vertical space above the blue chat bubble",
+      "2.5% vertical gap between the blue chat bubble and 'the plans:'",
+      "8.5% vertical gap between 'the plans:' and the tallest product cutout",
+      "25.5% empty margin below the bottom row of products"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 16.5,
+      "y": 51,
+      "w": 64.5,
+      "h": 23.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "Three isolated Kapruka products arranged side-by-side: VOI SCRUB AND WASH COFFEE 400ML bottle, Kandy Myst By Cinnamon Chocolate Fudge Brownie cake, and Choco Land Chocolate Loaded Gateaux.",
+    "composition": "Three distinct product cutouts spaced evenly across the lower-middle horizontal axis, scaled to similar visual heights and grounded along a shared baseline.",
+    "camera": "Eye-level to slightly high-angle studio product photography, sharp focus throughout.",
+    "lighting": "Bright, even studio lighting with soft specular highlights on packaging and chocolate glaze, with clean grounded contact shadows.",
+    "palette": [
+      "#4B2386",
+      "#543B28",
+      "#3B2314",
+      "#F5F4EB",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "x=0%, y=0%, w=100%, h=30.5%",
+      "x=0%, y=74.5%, w=100%, h=25.5%"
+    ],
+    "prompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless flat pure white #FFFFFF background for cutout-on-ground placement, with no border, horizon line, vignette, or panel seams. Inside an explicit inset horizontal row spanning x=16.5% to 81.0% and y=51.0% to 74.5%, three real sellable products are arranged side-by-side along a shared horizontal baseline: on the left, the VOI SCRUB AND WASH COFFEE 400ML bottle; in the center, the Kandy Myst By Cinnamon Chocolate Fudge Brownie cake; on the right, the Choco Land Chocolate Loaded Gateaux. Every product is drawn exactly as shown in the attached product sheet with identical shape, colour, packaging, frosting, and front-facing unobstructed printed words spelled exactly 'Voi', 'COFFEE', and 'SCRUB & WASH'. Bright, even studio product lighting from a consistent upper-front direction with natural specular highlights on bottle surfaces and rich chocolate textures, and soft, compact contact shadows strictly contained beneath each item inside the bounding box. Keep all surrounding space completely empty and uncluttered, especially x=81.0% to 90.7%, y=7.5% to 19.5%; x=47.5% to 83.5%, y=30.5% to 37.5%; and x=15.5% to 35.0%, y=40.0% to 43.5%. No Kapruka logos, watermarks, headlines, captions, or price tags.",
+    "attach": [
+      "product-sheet.png"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "shape",
+      "shape": "rect",
+      "box": {
+        "x": 81.2,
+        "y": 7.5,
+        "w": 9.5,
+        "h": 12
+      },
+      "fill": "#340A5C",
+      "opacity": 1,
+      "radius_px": 0,
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "logo",
+      "brand": "Kapruka",
+      "box": {
+        "x": 82.7,
+        "y": 13,
+        "w": 6.5,
+        "h": 5.5
+      },
+      "on": "dark",
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "shape",
+      "shape": "pill",
+      "box": {
+        "x": 47.5,
+        "y": 30.5,
+        "w": 36,
+        "h": 7
+      },
+      "fill": "#0A95FF",
+      "opacity": 1,
+      "radius_px": 46,
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "sorry i have plans.",
+      "box": {
+        "x": 51,
+        "y": 33,
+        "w": 29,
+        "h": 2.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "humanist sans",
+        "weight": 700,
+        "size_px": 32,
+        "cap_height_px": 23,
+        "line_height": 1.2,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "left",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "subhead",
+      "text": "the plans:",
+      "box": {
+        "x": 15.5,
+        "y": 40,
+        "w": 18,
+        "h": 2.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "grotesque",
+        "weight": 400,
+        "size_px": 34,
+        "cap_height_px": 24,
+        "line_height": 1.2,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 16.5,
+        "y": 51,
+        "w": 15,
+        "h": 23
+      },
+      "description": "VOI SCRUB AND WASH COFFEE 400ML bottle drawn exactly as in the attached product sheet.",
+      "confidence": "high"
+    },
+    {
+      "id": "e7",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 40.5,
+        "y": 56.5,
+        "w": 19.5,
+        "h": 17.5
+      },
+      "description": "Kandy Myst By Cinnamon Chocolate Fudge Brownie cake drawn exactly as in the attached product sheet.",
+      "confidence": "high"
+    },
+    {
+      "id": "e8",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 66.5,
+        "y": 57.5,
+        "w": 14.5,
+        "h": 17
+      },
+      "description": "Choco Land Chocolate Loaded Gateaux drawn exactly as in the attached product sheet.",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Small blue speech bubble tail extending from the bottom-right corner of the message pill.",
+      "box": {
+        "x": 81.5,
+        "y": 35.5,
+        "w": 3,
+        "h": 2
+      }
+    }
+  ],
+  "z_order": [
+    "e1",
+    "e2",
+    "e3",
+    "ornaments",
+    "e4",
+    "e5",
+    "e6",
+    "e7",
+    "e8"
+  ],
+  "hierarchy": [
+    "e3",
+    "e4",
+    "e5",
+    "e6",
+    "e7",
+    "e8",
+    "e1"
+  ],
+  "why_it_works": [
+    "High-contrast blue iMessage bubble immediately draws the eye as a familiar conversational hook.",
+    "Generous Soft Cream negative space keeps the punchline and three product cutouts clean and scannable.",
+    "Left-to-right reading flow naturally guides the viewer from the text setup down to the three indulgent Kapruka treats."
+  ],
+  "changes": [
+    "Scaled canvas to 1080x1350 (4:5) and type sizes proportionally while preserving exact layout proportions and line counts.",
+    "Replaced pale pink background (#FAF0ED) with Kapruka Soft Cream (#F5F4EB) and subhead text color with Retail Purple (#340A5C).",
+    "Replaced top-right red tab (#D81921) and Juan Valdez logo with a Retail Purple (#340A5C) tab and Kapruka logo inset to respect the 100px top and right safe margins (top edge at y=101px).",
+    "Adapted Spanish text ('perdón tengo planes.' / 'los planes:') to plain English ('sorry i have plans.' / 'the plans:') within the 15% character limit using Inter Bold 700 and Regular 400.",
+    "Replaced the three Juan Valdez drinks with the three real Kapruka products from the product sheet: VOI SCRUB AND WASH COFFEE 400ML, Kandy Myst By Cinnamon Chocolate Fudge Brownie cake, and Choco Land Chocolate Loaded Gateaux."
+  ],
+  "claims_used": [
+    "No factual claims, prices, offers, or delivery promises are stated in the copy; copy uses only a universal conversational meme setup ('sorry i have plans.' / 'the plans:') paired with real Kapruka self-purchase/gifting products supported by 01-business-context.md Line C (Ecom self-purchase)."
+  ]
+}

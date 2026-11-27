@@ -1,0 +1,285 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#E8E7E3",
+    "background_kind": "texture"
+  },
+  "layout_summary": "A tall cutout photo-collage runs down the centre: a woman stands full-length, arms raised, holding a gold mesh-strap watch that is absurdly oversized and spans most of the top third. The type stack sits right-aligned in the calm lower-right quadrant, and two rotated green oval brand stickers sit in the empty lower-left, beside her leg.",
+  "grid": {
+    "margins_pct": {
+      "top": 6,
+      "right": 8,
+      "bottom": 3.5,
+      "left": 10.5
+    },
+    "alignment_axes": [
+      "All headline lines right-align on x≈91.5%; the period of 'MATCH.' overhangs slightly to x≈92%",
+      "URL line right edge at x≈90.5% (sits roughly on the headline's right axis)",
+      "Watch case centre, the woman's face and her body centreline share the vertical axis x≈50%",
+      "Watch strap is symmetric about x=50% (16.5% → 83.5%)",
+      "Top of 'VISIT OUR' (y≈49.5%) lines up with her shoulder/jacket collar line"
+    ],
+    "whitespace": [
+      "Empty band, full width, from y=0 to 6% above the watch case",
+      "Lower-left quadrant (x 0–33%, y 32–56%) is empty paper above the stickers",
+      "Upper-right (x 68–100%, y 31–48%) is empty paper between the watch strap and the type stack",
+      "Gap of ≈1.5% between the 'AND FIND' baseline (y≈58.7%) and the 'YOUR' cap top (y≈61%)",
+      "Gap of ≈1.5% between the 'MATCH.' baseline (y≈82.8%) and the URL (y≈84.4%)",
+      "Lower-right below the URL (x 62–100%, y 86–100%) is empty paper",
+      "Lower-left below the stickers (x 0–38%, y 74–100%) is empty paper",
+      "Gap of ≈1.5–2% between the woman's right side (x≈60%) and the left edge of 'PERFECT' (x≈61%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 16.5,
+      "y": 6,
+      "w": 67,
+      "h": 90.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A young woman with long brown hair and round dark sunglasses, wearing a black leather biker jacket over an olive-green polo, high-waisted cream wide-leg trousers and black flats. She stands facing camera and holds above her head an enormous gold watch with a white dial, slim gold baton indices and hands, and a wide gold woven-mesh strap that extends horizontally to either side.",
+    "composition": "Vertical stack on the centre axis. The watch case is a circle at x 36–66%, y 6–29.5%, with its crown/lug touching the top of her head at y≈30.5%. The strap is a horizontal band at x 16.5–83.5%, y 13.5–25.5%. Her raised arms span x 34–68% and her hands grip the case at y≈24–28%. Her body runs from her hair at y≈30.5% to her feet at y≈96.5%, roughly x 37–62%, with her torso narrowing to x 39–59% at the trousers. She is not cropped anywhere, and the watch is surreal in scale, about four times her head width.",
+    "camera": "Straight-on, eye-level to chest-level, full-length fashion shot with a normal-to-slightly-long lens feel. Both cutouts are fully in focus with no depth of field. The watch is a separate flat-lay product shot composited in, seen face-on.",
+    "lighting": "Soft overcast daylight on the woman, even and frontal with no hard shadows. The watch is lit with a soft studio key and has warm specular highlights on the gold. A slight warm/film grade and canvas-paper grain sit over everything.",
+    "palette": [
+      "#C9A24A",
+      "#8C6A22",
+      "#F1EFEA",
+      "#1E2226",
+      "#5B6447",
+      "#D9D2C2",
+      "#6B4630",
+      "#E8E7E3"
+    ],
+    "negative_space": [
+      {
+        "x": 68,
+        "y": 31,
+        "w": 28,
+        "h": 17
+      },
+      {
+        "x": 60,
+        "y": 48,
+        "w": 34,
+        "h": 39
+      },
+      {
+        "x": 2,
+        "y": 31,
+        "w": 31,
+        "h": 24
+      },
+      {
+        "x": 2,
+        "y": 75,
+        "w": 34,
+        "h": 23
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "subhead",
+      "text": "VISIT OUR\nWEBSITE\nAND FIND",
+      "box": {
+        "x": 72.5,
+        "y": 49.5,
+        "w": 19,
+        "h": 9.2
+      },
+      "font": {
+        "family_guess": "Raleway",
+        "category": "geometric sans",
+        "weight": 600,
+        "size_px": 42,
+        "cap_height_px": 30,
+        "line_height": 1.12,
+        "letter_spacing_px": 0,
+        "case": "upper",
+        "italic": false,
+        "color": "#163F24",
+        "align": "right",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e1b",
+      "type": "text",
+      "role": "label",
+      "text": "AND FIND",
+      "box": {
+        "x": 72.8,
+        "y": 56.5,
+        "w": 18.7,
+        "h": 2.3
+      },
+      "font": {
+        "family_guess": "Raleway",
+        "category": "geometric sans",
+        "weight": 400,
+        "size_px": 42,
+        "cap_height_px": 30,
+        "line_height": 1.12,
+        "letter_spacing_px": 0,
+        "case": "upper",
+        "italic": false,
+        "color": "#163F24",
+        "align": "right",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "YOUR\nPERFECT\nMATCH.",
+      "box": {
+        "x": 60.8,
+        "y": 61,
+        "w": 31.2,
+        "h": 21.8
+      },
+      "font": {
+        "family_guess": "Bodoni Moda (condensed ~80% width) / Playfair Display Condensed",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 115,
+        "cap_height_px": 80,
+        "line_height": 0.93,
+        "letter_spacing_px": -1,
+        "case": "upper",
+        "italic": false,
+        "color": "#0F3A1E",
+        "align": "right",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "cta",
+      "text": "WWW.VICTORDUVALIER.COM",
+      "box": {
+        "x": 63,
+        "y": 84.4,
+        "w": 27.5,
+        "h": 1.3
+      },
+      "font": {
+        "family_guess": "Raleway",
+        "category": "geometric sans",
+        "weight": 600,
+        "size_px": 24,
+        "cap_height_px": 17,
+        "line_height": 1,
+        "letter_spacing_px": 0.5,
+        "case": "upper",
+        "italic": false,
+        "color": "#163F24",
+        "align": "right",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "image",
+      "role": "sticker",
+      "box": {
+        "x": 10.5,
+        "y": 57,
+        "w": 20.5,
+        "h": 9.8
+      },
+      "description": "Deep-green oval sticker (#1E5A2C, with a slight emboss and drop shadow), rotated about -15°. It carries the brand wordmark 'VICTOR / DUVALIER' in a light-green high-contrast serif (#9FC39A) on two lines, centred and following the oval's tilt.",
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "image",
+      "role": "sticker",
+      "box": {
+        "x": 18,
+        "y": 64.7,
+        "w": 21.5,
+        "h": 8.8
+      },
+      "description": "A second identical green oval sticker overlapping the lower-right of e4, rotated about +10°, with the wordmark 'VICTOR / DUVALIER' in the same light-green serif. Its right edge just touches the woman's trouser leg at x≈39.5%.",
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "logo",
+      "brand": "Victor Duvalier (monogram 'VD' + wordmark printed on the watch dial, part of the product photo)",
+      "box": {
+        "x": 47.5,
+        "y": 14,
+        "w": 5,
+        "h": 6
+      },
+      "on": "light",
+      "confidence": "low"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Full-canvas canvas/paper-weave texture and fine grain overlaid on the background and on the cutouts (a collage-print feel)",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 100
+      }
+    },
+    {
+      "description": "Soft drop shadows under both green oval stickers, so they read as physical stickers lifted off the paper",
+      "box": {
+        "x": 10.5,
+        "y": 57,
+        "w": 29,
+        "h": 17
+      }
+    }
+  ],
+  "z_order": [
+    "background-texture",
+    "scene",
+    "e6",
+    "e4",
+    "e5",
+    "e1",
+    "e1b",
+    "e2",
+    "e3",
+    "grain-overlay"
+  ],
+  "hierarchy": [
+    "scene (oversized gold watch)",
+    "scene (woman's face/sunglasses)",
+    "e2",
+    "e1",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "why_it_works": [
+    "Scale escalation: a woman holding a watch bigger than her torso makes the product the hero at a glance without a single word.",
+    "The narrow central figure leaves two clean paper quadrants. The heavy condensed serif headline fills the right one, and the stickers balance the left, which makes a strong Z-path from watch to face to headline to URL.",
+    "The palette is locked to the brand: olive top, green type and green stickers echo each other, and the gold strap is the only warm hit, so the eye goes to the product first."
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-15T07:50:51.705Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "scene-meta-a1-meta-01-raw.jpg",
+      "pptx": "design-02.pptx",
+      "attempts": 1,
+      "rebuilt": true,
+      "check": {
+        "paintedText": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 1,
+        "notes": "Bag front face is the large purple panel from ~x21.5-52.5; a narrow darker side panel runs x14.5-21.5 (y58-92) at the left. Rope handle arcs across the face (~x32-46, y59-73) so a logo should sit above or below it. Glass perfume bottle (x52-65, y72-93) is plain/unlabelled. Minor oddities: the shoe is floating unsupported with no leg or visible means of support, and the bag's top-left corner flap geometry is slightly implausible where the ribbon exits. No hands, faces or fingers in frame. Right half of the image (x>66) is clean empty backdrop."
+      },
+      "canva": {
+        "id": "DAHa-epVVSI",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzI3NTE3MjE4fQ..QQ3Fj3JkDnHx63Af.t1tr2HMA8aYXV_xgRqA08JfikiJjklujUPhreewSw0-jca-fZrV_JxHYbH81Lc9YRiln-5nAPNS3t8En9XOcbziMbbXUP2oeStXCkf9CBaiCbp4.9chRlSvhN1hCbDrcR7pHAw/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=52c7819c-bd35-49f0-a1f5-c3ee08ee7798&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzI3NTE3MjE4fQ..QQ3Fj3JkDnHx63Af.t1tr2HMA8aYXV_xgRqA08JfikiJjklujUPhreewSw0-jca-fZrV_JxHYbH81Lc9YRiln-5nAPNS3t8En9XOcbziMbbXUP2oeStXCkf9CBaiCbp4.9chRlSvhN1hCbDrcR7pHAw/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=deb7c07b-0076-42aa-a17c-1aff5b1ff36b&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-02.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Visible photo box: grey image panel edges against white page, hard seam at right/top/bottom",
+            "fix_in_canva": "Remove photo background or match page white; extend image to full bleed left"
+          },
+          {
+            "severity": "high",
+            "what": "Shoe clipped at left frame edge; heel cut off, losing reference's complete floating silhouette",
+            "fix_in_canva": "Scale photo down slightly and nudge right so whole shoe sits inside frame"
+          },
+          {
+            "severity": "medium",
+            "what": "Reference's melt device lost; ribbon replaces heel-into-product link, so idea doesn't read",
+            "fix_in_canva": "Rebuild so shoe heel visibly pours/leads into the gift bag opening"
+          },
+          {
+            "severity": "medium",
+            "what": "\"IN A\" sits too close above \"Gift Bag\"; ascenders nearly collide",
+            "fix_in_canva": "Increase line spacing between \"IN A\" and \"Gift Bag\" by ~15-20px"
+          },
+          {
+            "severity": "medium",
+            "what": "Dead white band under photo (y~1105-1250) leaves layout bottom-heavy and unfinished",
+            "fix_in_canva": "Extend photo panel to bottom edge or scale image up to close the gap"
+          },
+          {
+            "severity": "medium",
+            "what": "Clear empty unlabelled glass bottle reads as prop, not a sellable gift product",
+            "fix_in_canva": "Swap in a real filled Kapruka perfume/beauty product photo"
+          },
+          {
+            "severity": "low",
+            "what": "Case inconsistent: \"Gift Bag\" title case against all-caps lines above",
+            "fix_in_canva": "Set \"Gift Bag\" to uppercase, or title-case the whole headline"
+          },
+          {
+            "severity": "low",
+            "what": "Headline block centred ~25px left of the right column's optical centre",
+            "fix_in_canva": "Shift headline text group right by ~25px to centre in white area"
+          }
+        ],
+        "strengths": [
+          "Correct Kapruka purple and gold palette",
+          "Exactly one logo, undistorted, on real bag asset",
+          "Bottom tagline placement matches reference"
+        ]
+      }
+    },
+    {
+      "engine": "Meta AI",
+      "scene": "scene-meta-a1-meta-01-raw.png",
+      "pptx": "design-01.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 1,
+        "notes": "Clean of text/marks: bag front and side panels are blank matte purple, perfume bottle is unlabelled clear glass, no signage or wall text anywhere. Minor generative artefacts: (1) the stiletto heel tip around x=6-13, y=28-36 dissolves into the gold ribbon with no visible contact point or floor contact, so the shoe reads as floating with no support; (2) the shoe is a disembodied pump with no leg, which is intentional still-life but the shoe casts almost no shadow on the backdrop while the bag and bottle do, so the lighting is inconsistent between the upper and lower halves; (3) the bag's left side panel top edge near x=20-26, y=56-60 has a slightly malformed fold - the gusset crease does not line up with the front panel corner; (4) ribbon strands behind the bag at x=50-58, y=58-80 pass ambiguously in front of and behind the bag edge. No melted objects, no hands or fingers in frame."
+      },
+      "canva": {
+        "id": "DAHa-R-YjcI",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzI3MTE0ODgxfQ..Lke2Wj8hO4zx8WtV.XMJ35EAXaDsf2PYcQb7gqL_IQTdmBz_ZmyHBI_Ho99t9JZJ1FiKgWk69i_461k20-6AoIaChfINu3_udrAZB-DFMVpTslH_u4WYZGquAz_m3rXw.XN28vx7pk37P-QDw1NK86g/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=e08406c0-aacd-4202-8594-ce0886020b6c&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzI3MTE0ODgxfQ..Lke2Wj8hO4zx8WtV.XMJ35EAXaDsf2PYcQb7gqL_IQTdmBz_ZmyHBI_Ho99t9JZJ1FiKgWk69i_461k20-6AoIaChfINu3_udrAZB-DFMVpTslH_u4WYZGquAz_m3rXw.XN28vx7pk37P-QDw1NK86g/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=0ff4a941-ffef-4365-a6b3-209057931569&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png"
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "title": "THE WORLD IN A Gift Bag",
+  "finishedAt": "2026-11-15T09:32:05.387Z"
+}

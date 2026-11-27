@@ -1,0 +1,151 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-17T08:50:34.546Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01-r1.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 1,
+        "notes": "No text, logos or watermark anywhere. The box is plain purple with only small die-cut or score marks on the front-left panel (about x 17-21, y 85-87); these are not text. Both hands have five fingers and look anatomically fine. The fork is intact. Chocolate crumbs at the corners of her mouth fit the joke. The box's left flap and the woman's body are cut off by the left edge of the frame. The front-left face of the box is the best place for a logo. It slopes at the top, from about y 76 on the left to about y 83 at the corner near x 30, so the safe flat area is roughly x 6-28, y 83-93."
+      },
+      "canva": {
+        "id": "DAHbKExiFGQ",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDk3OTAwODI4fQ..eS8LvLEuOlBu0QTU.ErXKUURrRffWGyyxVbmw0MVNuRYZjd15Bpuq31Ie9LlI_YQsiGOM_ZuxkWRyrITwArkG4luEgK_Z4ehOJW5HV-B6iyBUEhf7Bfn8zsdyjoCpZMY.o6LezE4m6DCbtYxFCnGcFQ/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=b880d45a-aa43-40bb-bc8d-ba92b512911b&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDk3OTAwODI4fQ..eS8LvLEuOlBu0QTU.ErXKUURrRffWGyyxVbmw0MVNuRYZjd15Bpuq31Ie9LlI_YQsiGOM_ZuxkWRyrITwArkG4luEgK_Z4ehOJW5HV-B6iyBUEhf7Bfn8zsdyjoCpZMY.o6LezE4m6DCbtYxFCnGcFQ/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=633a0ac3-4717-4c79-a45c-0fbe0c8801f8&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01-r1.png",
+      "review": {
+        "verdict": "minor-fixes",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Photo's rectangular edge shows on the left as a lighter strip from about y215 to y1045 against the cream background.",
+            "fix_in_canva": "Remove the photo's background, or colour-match the photo edge to the cream #F3F0E7 and feather it."
+          },
+          {
+            "severity": "medium",
+            "what": "Amma looks genuinely furious and mid-shout, not mock-protesting. That reads as scolding and breaks the happy gifting mood.",
+            "fix_in_canva": "Swap in a take with a softer half-smile 'aiyo, why' frown. Keep the raised hand and the fork in the cake."
+          },
+          {
+            "severity": "medium",
+            "what": "Headline is set in a high-contrast serif, not bold Poppins as the brand check requires.",
+            "fix_in_canva": "Reset NO/GIFTS/SAID/AMMA in Poppins Bold. Keep the size hierarchy and the two purple tones."
+          },
+          {
+            "severity": "medium",
+            "what": "The cake-and-fork payoff is small and tucked bottom-left. The joke, that she's already eating it, reads late at thumbnail size.",
+            "fix_in_canva": "Scale the photo up about 25% and pull it right so the fork, the cake and the missing slice sit nearer the centre."
+          },
+          {
+            "severity": "medium",
+            "what": "The Kapruka mark on the box is AI-painted, and the box purple is brighter than the brand's #4B2386.",
+            "fix_in_canva": "Place the real Kapruka logo asset on the box and shift the box hue toward #4B2386."
+          },
+          {
+            "severity": "low",
+            "what": "Large empty bands above and below the photo. The composition sits low compared with the reference's top-anchored hero.",
+            "fix_in_canva": "Move the photo up so the raised hand starts about 120px from the top, matching the reference's heel position."
+          },
+          {
+            "severity": "low",
+            "what": "Her left side is hard-cropped at the canvas edge, so her shoulder and arm look amputated.",
+            "fix_in_canva": "Shift the photo right about 40px, or extend the photo canvas so the crop falls on her body naturally."
+          }
+        ],
+        "strengths": [
+          "Concept lands: raised 'no' hand while her fork is already in the cake.",
+          "Headline and tagline give one plain, direct, connected message.",
+          "Keeps the reference's stacked headline rhythm and colour-split hierarchy faithfully."
+        ]
+      },
+      "polish": {
+        "rounds": 2,
+        "applied": [
+          "removed \"NO GIFTS SAID AMMA\"",
+          "moved \"NO\"",
+          "moved \"GIFTS\"",
+          "moved \"SAID\"",
+          "moved \"AMMA\""
+        ],
+        "needsNewPicture": "Keep the same composition: Amma at left with her hand raised in a 'stop' gesture, fork in the chocolate cake, open box, one slice missing. Change three things. 1) Expression: a playful mock protest, a half-smile 'aiyo, why did you' frown with warm eyes. She must not look angry or shouting. 2) Box: Kapruka purple #4B2386, not the brighter violet, with NO logo or text painted on the box. The real Kapruka logo is placed as a layer on top. 3) Background: seamless and edge-free, exactly the page cream #F4F2E6, with no lighter rectangle or visible photo border on any side. Bring the cake, the fork and the missing slice a little larger and closer to the middle of the subject group so the payoff reads at thumbnail size.",
+        "unfixable": [
+          "Headline font is serif, not Poppins Bold. The layer patch can only change size, colour and weight, not font family, so the four headline layers (NO/GIFTS/SAID/AMMA) need to be reset to Poppins Bold by hand in Canva. Keep the current sizes and the two purple tones.",
+          "Amma looks furious instead of mock-protesting. That is in the photo itself, so it went to regenerate_picture.",
+          "The AI-painted Kapruka mark and the too-bright box purple are also in the photo. Sent to regenerate_picture: the new box will be blank, and the existing pkg-logo-1 real-logo layer sits on it.",
+          "Cake payoff placement: only partly fixable. Scale 1.15 is the maximum allowed, not the suggested 125%. Pulling the picture right would bring back the lighter left strip and push the raised hand into the headline, which starts at x 46.5%, so dx stays 0. The regeneration note asks for a bigger, more central cake instead."
+        ]
+      }
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "concept": {
+    "reference_idea": "This treat is so tempting that even the most feared, hardest-to-please judge of taste gives in to it.",
+    "reference_decoded": [
+      {
+        "element": "Glossy red stiletto on white",
+        "stands_for": "The poster for 'The Devil Wears Prada': fashion, power, and its ruthless editor as the judge of taste"
+      },
+      {
+        "element": "The stiletto heel melting into a red devil's pitchfork",
+        "stands_for": "The 'devil' herself, with her weapon turned into a fork"
+      },
+      {
+        "element": "Pitchfork prongs dipped into an overflowing Biscoff jar",
+        "stands_for": "The judge caught in the act of indulging. The spread dripping down the jar shows how much she wants it"
+      },
+      {
+        "element": "THE / DEVIL / EATS / BISCOFF (film-title serif, small red words, big black words)",
+        "stands_for": "The film title with one word swapped ('Wears Prada' becomes 'Eats Biscoff'), so the product takes the place of the luxury label"
+      },
+      {
+        "element": "\"Don't be silly Andrea, everybody wants this.\"",
+        "stands_for": "A twist on the film's line 'everybody wants to be us', spoken by the editor to her assistant. It is the brand's claim: everyone wants this product"
+      },
+      {
+        "element": "Clean white background, lots of empty space",
+        "stands_for": "Copies the film poster's look so the parody is recognised at once"
+      }
+    ],
+    "needs_to_know": "The 2006 film 'The Devil Wears Prada': its red-stiletto poster, its title, the character Andrea and the editor's 'everybody wants to be us' line. Without the film, it is just a shoe in a jar of spread.",
+    "transferable": "partly",
+    "kapruka_concept": {
+      "one_line": "Amma says 'don't buy me anything' every single year, and she is the first one into the cake when it arrives.",
+      "hook": "Almost every Sri Lankan family has heard this. A parent (usually Amma) insists 'mata monawath epa, salli nasthi karanna epa' (don't get me anything, don't waste money), then quietly loves the gift. It is a shared joke here and in diaspora homes, and it is a universal truth that fits a Sri Lankan setting. Like the reference, it shows the strictest critic caving, without needing anyone to know a film.",
+      "headline_lines": [
+        "“Don’t buy me anything.”",
+        "— Amma, every year"
+      ],
+      "supporting_line": "Send it anyway. Delivered island-wide by Kapruka.",
+      "visual": "A real, candid moment in a Sri Lankan home living room in daylight. A mother in her late 50s holds up one hand in a firm 'no, no, no, why did you spend money' gesture, frowning at someone just off-frame (the child who sent or brought it). Her other hand already holds a dessert fork pressed into an open cake, and one slice is clearly gone. Her lips may show a smudge of icing. The open Kapruka cake box sits under the cake, lid pushed back. Meaning of each object: the raised hand is the refusal; the fork in the cake is the giving in (the reference's pitchfork, turned into an everyday fork); the missing slice is proof she has already started; the Kapruka cake box shows where the gift came from. Nothing else on the table. No props, no balloons, no decoration.",
+      "product_role": "Cake (one of Kapruka's top gifting categories) is the punchline. The refused gift is the thing she can't stop eating, delivered in Kapruka's real cake box.",
+      "why_it_makes_sense": "The picture shows the contradiction (one hand saying no, the other already eating) and the headline quotes the line every child has heard, so words and picture tell the same joke in two seconds. The supporting line turns that recognition into the action: she will say no, send it anyway, and Kapruka delivers it anywhere on the island."
+    },
+    "rejected": [
+      "A direct parody of the film poster: a heel or devil holding a Kapruka product with a 'The ___ Eats ___' title. Dropped because it relies on a film title the Sri Lankan audience may not know and copies the props (stiletto, pitchfork) instead of the idea.",
+      "Parodying a well-known Sri Lankan teledrama villain or strict-mother-in-law character. Dropped because it depends on a specific show or trademark and makes an elder into a villain, which clashes with the happy gifting mood.",
+      "'The aunty who criticises every wedding cake' caught eating a Kapruka cake. Strong recognition, but it frames the recipient as a critic, not someone loved, so it can't be sent as a gift. The 'Amma says don't buy me anything' version keeps the same 'critic caves' mechanism inside a real gifting relationship."
+    ],
+    "confidence": "high",
+    "warnings": [
+      "Please confirm the exact wording a Sri Lankan viewer would recognise (English 'Don't buy me anything' versus Sinhala 'Mata monawath epa' or a Tamil equivalent). A local-language version may land harder for Local→Local; the English version suits the diaspora version.",
+      "Tone: Amma must look caught and playful, not greedy or mocked. Keep it warm and bright so it stays happy, never sad or gloomy (Core Rule 14).",
+      "The supporting line only claims island-wide delivery, which 01-business-context.md supports. For a diaspora version, 'Send it from anywhere in the world' is also supported. Do not add same-day wording unless the ad is Colombo-specific.",
+      "If an image is generated, the Kapruka cake box must match the real cake-box asset, with no invented text on it (Core Rule 19), and the cake should match a real Kapruka listing photo."
+    ]
+  },
+  "title": "No Gifts Said Amma Gifts Amma",
+  "finishedAt": "2026-11-17T09:00:13.102Z"
+}

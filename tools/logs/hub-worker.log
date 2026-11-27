@@ -1,0 +1,241 @@
+[2026-11-26T06:27:23.449Z] hub worker started: hub=https://pricelens.lanka.info/ashadi local=http://127.0.0.1:5041
+[2026-11-26T06:29:34.050Z] designs: uploaded 380 file(s), skipped 0
+[2026-11-26T06:32:26.664Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T06:32:30.017Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T06:36:27.194Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T06:36:30.586Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T06:39:06.143Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T06:39:09.516Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T06:55:04.251Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T06:55:09.698Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T06:58:25.652Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:01:02.657Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:01:38.701Z] designs: uploaded 4 file(s), skipped 0
+[2026-11-26T07:03:02.929Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:03:15.903Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:04:03.557Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:04:49.984Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:07:50.454Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:08:14.973Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:09:47.154Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:10:28.151Z] designs: uploaded 4 file(s), skipped 0
+[2026-11-26T07:10:39.890Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:14:26.138Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:14:40.003Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:15:29.777Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:37:27.204Z] 40e04ef1 started on this laptop
+[2026-11-26T07:37:48.075Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:37:59.023Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:38:09.889Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:38:35.252Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:41:48.825Z] hub unreachable: The operation was aborted due to timeout
+[2026-11-26T07:41:59.079Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T07:42:03.718Z] upload failed upload-ref-1-2026-11-26T07-37-28/measure/ref-01-grid.png: The operation was aborted due to timeout
+[2026-11-26T07:42:13.911Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:42:18.402Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:42:24.214Z] command POST /api/jobs/40e04ef1-53a0-44ff-b88f-2d9a3ea92b27/retry -> 202
+[2026-11-26T07:42:24.853Z] command POST /api/jobs/40e04ef1-53a0-44ff-b88f-2d9a3ea92b27/resume -> 409
+[2026-11-26T07:42:36.998Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:42:37.944Z] command DELETE /api/tracker/40e04ef1-53a0-44ff-b88f-2d9a3ea92b27 -> 200
+[2026-11-26T07:42:40.990Z] designs: uploaded 4 file(s), skipped 0
+[2026-11-26T07:43:04.937Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:43:18.514Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:43:53.318Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:44:07.114Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:44:50.719Z] 0ccd64d9 started on this laptop
+[2026-11-26T07:44:53.451Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:45:41.194Z] command DELETE /api/jobs/0ccd64d9-e95f-41e3-929d-9ce13b88cf7e -> 200
+[2026-11-26T07:45:44.047Z] command DELETE /api/jobs/0ccd64d9-e95f-41e3-929d-9ce13b88cf7e -> 409
+[2026-11-26T07:46:05.029Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:47:43.342Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:47:54.618Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:49:19.986Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:51:07.891Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:51:42.356Z] designs: uploaded 4 file(s), skipped 0
+[2026-11-26T07:51:54.420Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T07:53:23.652Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:55:07.172Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T07:55:11.319Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T07:55:59.375Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T07:56:05.971Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:56:29.227Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:56:42.764Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:56:54.173Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:57:07.912Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:57:42.047Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T07:58:52.975Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T08:04:41.490Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T08:05:06.181Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T08:05:26.614Z] command DELETE /api/tracker/0ccd64d9-e95f-41e3-929d-9ce13b88cf7e -> 200
+[2026-11-26T08:05:32.271Z] command DELETE /api/tracker/33c9c5ad-f059-4210-91e6-c042e37e2363 -> 404
+[2026-11-26T08:05:35.097Z] command DELETE /api/tracker/79e76101-79c0-4e26-89bd-de2702985c40 -> 404
+[2026-11-26T08:09:08.378Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T08:09:53.188Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T08:10:19.079Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T08:11:32.539Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T08:12:17.462Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T08:12:30.897Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T08:12:42.779Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T08:15:31.215Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T08:16:39.817Z] hub unreachable: fetch failed
+[2026-11-26T08:16:43.665Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T08:16:57.629Z] hub unreachable: fetch failed
+[2026-11-26T08:17:01.072Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T08:17:31.212Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T08:19:05.710Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T08:19:19.056Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T08:20:07.616Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T09:25:23.215Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T09:25:29.339Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T10:09:59.577Z] command POST /api/jobs/c6d1de70-7d0f-446a-ba18-4c5daf0a9d1a/retry -> 404
+[2026-11-26T10:09:59.583Z] command POST /api/jobs/c6d1de70-7d0f-446a-ba18-4c5daf0a9d1a/retry -> 404
+[2026-11-26T10:10:02.481Z] command POST /api/jobs/c6d1de70-7d0f-446a-ba18-4c5daf0a9d1a/retry -> 404
+[2026-11-26T10:10:02.484Z] command POST /api/jobs/c6d1de70-7d0f-446a-ba18-4c5daf0a9d1a/retry -> 404
+[2026-11-26T10:10:02.488Z] command POST /api/jobs/c6d1de70-7d0f-446a-ba18-4c5daf0a9d1a/retry -> 404
+[2026-11-26T10:22:00.603Z] command POST /api/settings -> 200
+[2026-11-26T10:22:55.211Z] command POST /api/settings -> 200
+[2026-11-26T10:23:43.809Z] 9815571b started on this laptop
+[2026-11-26T10:24:01.610Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T10:28:59.720Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T10:29:25.122Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T10:29:36.655Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T10:32:03.937Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T10:34:13.579Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T10:35:31.802Z] hub unreachable: fetch failed
+[2026-11-26T10:35:35.631Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T10:35:57.105Z] hub unreachable: fetch failed
+[2026-11-26T10:36:00.618Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T10:48:05.887Z] command POST /api/jobs/759a0bc4-bd47-49b9-806c-8f4e1c2319ea/retry -> 404
+[2026-11-26T10:49:24.078Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T10:51:55.584Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T10:51:58.998Z] hub reachable again after 1 failed attempt(s)
+[2026-11-26T10:54:13.981Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T10:54:34.634Z] command POST /api/jobs/9815571b-19a5-4f4b-acae-a298511e95f1/resume -> 202
+[2026-11-26T11:00:12.771Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:01:13.378Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T11:01:38.402Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T11:01:50.603Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T11:02:53.325Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T11:03:48.684Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:05:36.894Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T11:09:13.333Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T11:09:37.827Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:15:37.765Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:16:14.246Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:17:16.013Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T11:18:26.385Z] designs: uploaded 4 file(s), skipped 0
+[2026-11-26T11:18:39.265Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:21:38.377Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:27:38.504Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T11:27:51.349Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:28:51.524Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T11:29:03.342Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T11:30:13.814Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-26T11:45:38.530Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:54:06.369Z] command POST /api/jobs/45f8f255-9fae-4729-af2d-12e193d56351/resume -> 202
+[2026-11-26T11:54:18.156Z] upload failed upload-ref-1-2026-11-26T10-23-45/design.json: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-26T11:54:26.689Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T11:54:26.814Z] command POST /api/jobs/23ecf899-ac81-4240-874c-d616f02a14bf/feedback -> 200
+[2026-11-26T11:54:40.810Z] command POST /api/settings -> 200
+[2026-11-26T11:57:03.490Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-26T11:57:27.813Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T12:00:17.517Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-26T12:00:30.698Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:13:20.790Z] hub unreachable: fetch failed
+[2026-11-27T04:13:44.166Z] hub reachable again after 1 failed attempt(s)
+[2026-11-27T04:13:52.987Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:15:37.959Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:17:18.238Z] command DELETE /api/tracker/e91d5fc9-c615-4f86-9e66-a94502f3632e -> 200
+[2026-11-27T04:17:18.249Z] command DELETE /api/tracker/45f8f255-9fae-4729-af2d-12e193d56351 -> 200
+[2026-11-27T04:19:05.411Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-27T04:19:08.825Z] hub reachable again after 1 failed attempt(s)
+[2026-11-27T04:30:57.838Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-27T04:31:01.180Z] hub reachable again after 1 failed attempt(s)
+[2026-11-27T04:34:04.832Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-27T04:34:09.232Z] hub reachable again after 1 failed attempt(s)
+[2026-11-27T04:34:15.154Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-27T04:34:18.490Z] hub reachable again after 1 failed attempt(s)
+[2026-11-27T04:37:39.990Z] 1cb4e7fa started on this laptop
+[2026-11-27T04:37:53.257Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:38:15.826Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:38:33.132Z] command DELETE /api/tracker/9815571b-19a5-4f4b-acae-a298511e95f1 -> 200
+[2026-11-27T04:38:52.391Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:39:06.043Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:39:27.496Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:39:41.071Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:40:25.495Z] 05e932c9 started on this laptop
+[2026-11-27T04:40:27.551Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:42:03.835Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:43:42.453Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-27T04:44:15.133Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:45:30.270Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:45:40.807Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:46:03.365Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:46:17.570Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-27T04:46:28.574Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:48:44.686Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-27T04:49:17.437Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-27T04:49:29.517Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:50:07.006Z] designs: uploaded 5 file(s), skipped 0
+[2026-11-27T04:50:17.280Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:51:05.994Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:51:15.336Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:51:29.439Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:52:27.924Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:52:39.389Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:52:58.441Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-27T04:53:01.802Z] hub reachable again after 1 failed attempt(s)
+[2026-11-27T04:54:07.464Z] hub unreachable: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-
+[2026-11-27T04:54:10.809Z] hub reachable again after 1 failed attempt(s)
+[2026-11-27T04:55:14.565Z] command POST /api/jobs/05e932c9-9614-4ba2-8bc2-bcea4498e9ff/retry -> 202
+[2026-11-27T04:55:30.125Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T04:55:40.751Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T04:55:51.503Z] designs: uploaded 1 file(s), skipped 0
+[2026-11-27T05:02:26.008Z] 62738426 started on this laptop
+[2026-11-27T05:02:26.098Z] f15511aa started on this laptop
+[2026-11-27T05:02:42.581Z] designs: uploaded 2 file(s), skipped 0
+[2026-11-27T05:03:04.997Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-27T05:03:16.824Z] designs: uploaded 3 file(s), skipped 0
+[2026-11-27T05:03:53.245Z] designs: uploaded 4 file(s), skipped 0

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ashadi — Kapruka ad creative</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Ashadi</h1>
+          <p class="brand-sub">Ad creative for Kapruka</p>
+        </div>
+      </div>
+      <div class="pills" id="pills" aria-label="System status"></div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ============ Left: make something, watch it run ============ -->
+    <section class="col-left" aria-label="Create">
+      <form class="card composer" id="composer" novalidate>
+        <h2 class="card-title">Create</h2>
+
+        <div class="tabs" role="tablist" aria-label="What do you want to make?">
+          <button type="button" role="tab" class="tab tab-design" id="tab-design" data-mode="design" aria-controls="panel-main">Design → Canva</button>
+          <button type="button" role="tab" class="tab" id="tab-idea" data-mode="idea" aria-controls="panel-main">Ideas</button>
+          <button type="button" role="tab" class="tab" id="tab-promote" data-mode="promote" aria-controls="panel-main">Promote</button>
+        </div>
+
+        <div id="panel-main" role="tabpanel" class="fields">
+          <p class="mode-help" id="mode-help"></p>
+
+          <label class="field">
+            <span class="label" id="source-label"></span>
+            <input type="text" id="source" name="source" autocomplete="off" spellcheck="false" list="persona-list" required>
+            <datalist id="persona-list">
+              <option value="Romantic — local">
+              <option value="Romantic — international">
+              <option value="Parents — local">
+              <option value="Parents — international">
+              <option value="Kids">
+              <option value="Siblings">
+              <option value="Friends">
+              <option value="Social / obligation">
+              <option value="Corporate staff">
+              <option value="Corporate customers">
+              <option value="Self-purchaser">
+            </datalist>
+          </label>
+
+          <label class="field field-count">
+            <span class="label" id="count-label"></span>
+            <select id="count" name="count"></select>
+          </label>
+
+          <label class="field">
+            <span class="label">Creative note <span class="optional">optional</span></span>
+            <textarea id="instruction" name="instruction" rows="2" maxlength="500" placeholder="" spellcheck="true"></textarea>
+          </label>
+        </div>
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+
+        <div class="composer-foot">
+          <button type="submit" class="btn btn-primary" id="submit">Create</button>
+          <p class="hint">Runs in your automation Chrome, one job at a time. Expect several minutes.</p>
+        </div>
+      </form>
+
+      <section class="card" aria-labelledby="queue-title">
+        <div class="card-head">
+          <h2 class="card-title" id="queue-title">Now &amp; next</h2>
+        </div>
+        <div id="jobs" class="jobs" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <!-- ============ Right: results ============ -->
+    <section class="col-right" aria-label="Results">
+      <article class="card viewer" id="viewer" aria-live="polite"></article>
+
+      <section class="card" aria-labelledby="runs-title">
+        <div class="card-head">
+          <h2 class="card-title" id="runs-title">Past runs <span class="count" id="runs-count"></span></h2>
+          <div class="chips" role="group" aria-label="Filter past runs" id="run-filters">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-filter="design" aria-pressed="false">Canva designs</button>
+            <button type="button" class="chip" data-filter="recreate" aria-pressed="false">Recreated</button>
+            <button type="button" class="chip" data-filter="idea" aria-pressed="false">Ideas</button>
+            <button type="button" class="chip" data-filter="promote" aria-pressed="false">Promoted</button>
+          </div>
+        </div>
+        <div class="runs" id="runs"></div>
+        <button type="button" class="btn btn-ghost more" id="runs-more" hidden>Show more</button>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Image preview">
+    <div class="lb-bar">
+      <p class="lb-caption" id="lb-caption"></p>
+      <div class="lb-actions">
+        <a class="btn btn-ghost" id="lb-download" download>Download</a>
+        <button type="button" class="btn btn-ghost" id="lb-close" aria-label="Close preview">Close</button>
+      </div>
+    </div>
+    <div class="lb-stage">
+      <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Previous image">‹</button>
+      <img id="lb-img" alt="">
+      <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Next image">›</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>

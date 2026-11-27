@@ -1,0 +1,97 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-17T09:27:59.446Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": "No text, logos or watermark anywhere. The shoe, drip and cake form one connected group: the drip from the heel becomes a red pitchfork whose tines go into the cake. This is a deliberate surreal device but reads as melted, liquid red. The heel tip and the start of the drip blend a little where they meet at about x 45-47, y 26-30. The shoe floats with no shadow on the backdrop. The glaze is very glossy and slightly CG-looking. The cake crumb and the stand look clean, with no obvious artefacts. The whole right side (x 58-100) and the top-left corner are empty white space, usable for copy."
+      },
+      "canva": {
+        "id": "DAHbKc6LqQw",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NTAwMjEzOTk2fQ..K6U6weUer6K5OIM4.tTSqQZ8LhZLwfHjmPIPAOqsTvK05Vh0hs0tEjWJnVUXnD4mi55r-TqObi4UH_n6v1rG8Jq2zL6sWPan1bErwImchHEHJl9U2ZN6y-_e4Ubzg_MM.oomDLgSFIYWp_YZ3DOVu2g/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=23f6f412-be78-453b-8065-592bc9bb4b68&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NTAwMjEzOTk2fQ..K6U6weUer6K5OIM4.tTSqQZ8LhZLwfHjmPIPAOqsTvK05Vh0hs0tEjWJnVUXnD4mi55r-TqObi4UH_n6v1rG8Jq2zL6sWPan1bErwImchHEHJl9U2ZN6y-_e4Ubzg_MM.oomDLgSFIYWp_YZ3DOVu2g/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=b49bbb79-94b1-4502-b07f-29ee56b58bff&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Faint grey rectangular patches and ghost texture visible behind shoe and cake (x≈70–730, y≈200–1100); image box edges show.",
+            "fix_in_canva": "Replace with a clean cut-out on pure white, or run Background Remover and set page fill to #FFFFFF."
+          },
+          {
+            "severity": "high",
+            "what": "adapt: the reference's devil-tail arrow on the V of DEVIL is missing, so the type loses its visual device.",
+            "fix_in_canva": "Add a thin #340A5C devil-tail arrow rising from the V's right stroke, matching the reference angle."
+          },
+          {
+            "severity": "high",
+            "what": "adapt: the reference shoe is huge, cropped and enters from the top-left. Here it's a small, whole shoe floating mid-frame.",
+            "fix_in_canva": "Scale the shoe up about 40% and angle the sole diagonally from the top-left, keeping the toe 100px inside the edge."
+          },
+          {
+            "severity": "high",
+            "what": "adapt: the reference type hierarchy uses colour contrast (accent THE/EATS against dark DEVIL/BISCOFF). Here THE/EATS are a thin, pale purple and read weak.",
+            "fix_in_canva": "Set THE/EATS to Inter SemiBold in #FFC107-dark or #4B2386 at full opacity, and keep DEVIL/CAKE Bold #340A5C."
+          },
+          {
+            "severity": "medium",
+            "what": "adapt: the support line changed job. The reference is a spoken punchline; 'A world of choices' is a short tagline.",
+            "fix_in_canva": "Use a plain spoken line of similar length that pays off the cake, e.g. 'Go on. Everybody wants a slice.'"
+          },
+          {
+            "severity": "medium",
+            "what": "Cake plate left edge (~103px) and shoe toe (~105px) sit right at the 100px margin limit.",
+            "fix_in_canva": "Nudge the product group 15–20px right so every object clears 100px with some room."
+          },
+          {
+            "severity": "medium",
+            "what": "Cake looks generated, not a verified Kapruka listing photo; I can't confirm it matches the real product.",
+            "fix_in_canva": "Swap in the actual Kapruka chocolate cake listing image, cut out, keeping the drip and fork device."
+          },
+          {
+            "severity": "low",
+            "what": "The fork and drip stream are thin and look detached from the heel tip, and read weakly at thumbnail size.",
+            "fix_in_canva": "Thicken the red stream where it meets the heel tip so heel-to-fork reads as one continuous melt."
+          },
+          {
+            "severity": "low",
+            "what": "Logo top edge sits at about 110px, right at the limit.",
+            "fix_in_canva": "Move the logo up 10–15px so its top edge sits at about 95–100px."
+          }
+        ],
+        "strengths": [
+          "The heel-to-pitchfork melt device carries over clearly",
+          "Headline stays plain and readable, stacked like the reference",
+          "Generous white space and a clean right-hand text column"
+        ]
+      },
+      "polish": {
+        "rounds": 0,
+        "applied": [],
+        "needsNewPicture": null,
+        "unfixable": []
+      }
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "concept": null,
+  "style": "adapt",
+  "title": "Devil Cake",
+  "finishedAt": "2026-11-17T09:37:46.404Z"
+}

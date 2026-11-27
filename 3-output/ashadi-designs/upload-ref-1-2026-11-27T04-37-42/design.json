@@ -1,0 +1,120 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": "Format: feed 4:5, 1080x1350. Background: Kapruka Purple #3C096C fading to #100223 at the bottom edge. Hero product: luxury watch set on a cream plinth, resting softly with a contact shadow. Placement: 45-55% of frame width, centered. On-image text in Inter Black: \"Gift a luxury timepiece\", support line in Inter Medium: \"For your memorable moments\". Text color: white on purple. Lighting: soft focus highlighting the watch's elegance. NEGATIVE: price tags, discount badges, buttons, app UI, watermarks, second logo, busy patterns, glossy or CG look, alcohol imagery, culturally specific references.",
+  "startedAt": "2026-11-27T04:37:42.634Z",
+  "variants": [
+    {
+      "engine": "Gemini",
+      "scene": "scene-gemini-a2-gemini-01-raw-brand.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [
+          "watch dial brand wordmark, logo mark and printed numerals/indices (top-right watch, green-sleeve arm)",
+          "watch dial brand wordmark, small printed text and numerals (left watch, pointing arm)",
+          "watch dial brand wordmark, small printed text, numerals and date window (bottom-right watch, plaid-sleeve arm)"
+        ],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": "No watermark. Main issue: all three watch dials carry tiny brand wordmarks, logo marks, printed text and numerals, so they need cleaning or masking. Tattoos are drawings, not text. Six real human arms and hands fill the frame from edge to edge; finger counts look normal. The pole runs the full height, so the objects box covers the whole frame. Hands and sleeves are part of the composition and overlap the objects."
+      },
+      "canva": {
+        "id": "DAHcFKFPMJg",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MzQ2NzY4MTM0fQ..OASNowoqE-LmSI1x.ZruzcTHoLg_YOpOh-XTAKSh-H2spBFERhK0ig34cymDPS9V7hMrKYLpfjh-7xye20tQaTlzb3UuONbVp5yPhdJCi3qhS1i2ByroIvEGYpWbmwWM.sxgrayJPPTmb9zSxpLs2Hg/edit?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=f88cfcbb-13db-457d-bff6-1e850de95596&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MzQ2NzY4MTM0fQ..OASNowoqE-LmSI1x.ZruzcTHoLg_YOpOh-XTAKSh-H2spBFERhK0ig34cymDPS9V7hMrKYLpfjh-7xye20tQaTlzb3UuONbVp5yPhdJCi3qhS1i2ByroIvEGYpWbmwWM.sxgrayJPPTmb9zSxpLs2Hg/view?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=f907b24e-4b21-4653-bd47-6fb0fadc571f&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "audit": null,
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "product: watches are generic light-blue dials, not the real Giordano GD 1207 22 / GD 1193 11",
+            "fix_in_canva": "Replace each wrist watch with cut-outs from the real Giordano listing photos, scaled to the wrist"
+          },
+          {
+            "severity": "high",
+            "what": "adapt: reference shows 7 watches; pink-sleeve and floral-sleeve wrists, and the tattooed wrist, now have none",
+            "fix_in_canva": "Add real Giordano watches to those three wrists so every hand wears one, as in the reference"
+          },
+          {
+            "severity": "high",
+            "what": "adapt: all watches identical, which loses the reference's variety (a different watch on every wrist)",
+            "fix_in_canva": "Alternate the couple pair and the men's model across wrists so the styles visibly differ"
+          },
+          {
+            "severity": "high",
+            "what": "Logo sits on top of the pole and the top hand's knuckles, so the logo and photo collide",
+            "fix_in_canva": "Move the hand and pole down, or place the logo in clear purple space top-left, top edge ≤110px"
+          },
+          {
+            "severity": "medium",
+            "what": "Canvas appears taller than 1080x1350, with a stray solid purple strip along the bottom edge",
+            "fix_in_canva": "Resize to 1080x1350 and delete or extend the bottom band so the background is continuous"
+          },
+          {
+            "severity": "medium",
+            "what": "adapt: the two-tone colour-block device is weak because both purples are near-identical in value",
+            "fix_in_canva": "Use #340A5C for the outer L-block and a clearly lighter brand purple inside it, keeping the reference's shapes"
+          },
+          {
+            "severity": "medium",
+            "what": "margins: sleeves bleed off the left and right edges; hands and arms are not inside 100px",
+            "fix_in_canva": "Scale the photo group down so the sleeve ends crop cleanly, or mask them to keep 100px side margins"
+          },
+          {
+            "severity": "low",
+            "what": "Blue pole sleeve and red button carry off-brand cyan and red, which compete with the watches",
+            "fix_in_canva": "Recolour the sleeve to #FFC107 and keep the button red, or tone it down"
+          }
+        ],
+        "strengths": [
+          "Reference composition and hand choreography kept faithfully",
+          "Pointing-hand gag at the red button preserved",
+          "Brand purple ground reads as Kapruka"
+        ]
+      },
+      "polish": {
+        "rounds": 1,
+        "applied": [],
+        "needsNewPicture": null,
+        "unfixable": [
+          "Canvas is 1080x1503, not 1080x1350. Layer patches can't change page size. The bottom purple strip is the page colour showing below the picture, so the regenerated full-bleed picture (or a page resize in Canva) removes it.",
+          "Sleeves bleed off the left and right edges. This is the reference's device: arms reach in from outside the frame. The 100px margin rule covers text and logo, not the photo. Scaling the photo down to 100px side margins would leave arms cut off in mid-air, so I left it."
+        ]
+      },
+      "final": "final-01-2026-11-27T04-49-45.png",
+      "finalAt": "2026-11-27T04:49:49.683Z"
+    }
+  ],
+  "reference": [
+    "ref-01.png"
+  ],
+  "caption": null,
+  "relation": "direct",
+  "target": "GIORDANO COUPLE WATCHES GD 1207 22, GIORDANO ANALOG WATCH FOR MEN GD 1193 11",
+  "products": {
+    "source": "category page",
+    "items": [
+      {
+        "title": "GIORDANO COUPLE WATCHES GD 1207 22",
+        "price": "RS.45,500",
+        "url": "https://www.kapruka.com/buyonline/giordano-couple-watches-gd-120/kid/jewelleryw001371"
+      },
+      {
+        "title": "GIORDANO ANALOG WATCH FOR MEN GD 1193 11",
+        "price": "RS.24,670",
+        "url": "https://www.kapruka.com/buyonline/giordano-analog-watch-for-men-/kid/jewelleryw001381"
+      }
+    ]
+  },
+  "concept": null,
+  "style": "adapt",
+  "title": "upload-ref-1",
+  "finishedAt": "2026-11-27T04:49:44.994Z",
+  "best": 0
+}

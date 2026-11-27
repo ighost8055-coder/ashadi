@@ -1,0 +1,145 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": null,
+  "startedAt": "2026-11-26T10:53:59.814Z",
+  "variants": [
+    {
+      "engine": "Gemini",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": ""
+      },
+      "canva": {
+        "id": "DAHcA3p6GgI",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjgzOTAyMDA5fQ..hss-9TfGqr_1e0mH.EfMrNLapTfBhdmKb4ziMiUZTF0s0mZ4GJ2qX4UMgtMfgKe3w3ECDwM83dJTjaSf2nGuB9VbKjTZo1gFdPAn8ojX-qBmefStFfQ3RE_QZxkxXXnU.slHAHydRXQEYHlAyuY2nMg/edit?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=b9807788-7cce-464b-b334-e1dcffbbc86c&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjgzOTAyMDA5fQ..hss-9TfGqr_1e0mH.EfMrNLapTfBhdmKb4ziMiUZTF0s0mZ4GJ2qX4UMgtMfgKe3w3ECDwM83dJTjaSf2nGuB9VbKjTZo1gFdPAn8ojX-qBmefStFfQ3RE_QZxkxXXnU.slHAHydRXQEYHlAyuY2nMg/view?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=ed2d88a8-068d-4826-b8ea-49d318780e4a&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "audit": {
+        "blocks": 4,
+        "flags": []
+      },
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Heavy purple smudge/halo artefacts surround the purple bouquet and kitten inside the grey card.",
+            "fix_in_canva": "Remove the purple glow/brush smudge behind the purple bouquet and kitten; use clean neutral shadows."
+          },
+          {
+            "severity": "high",
+            "what": "Grey rounded box contradicts the intended clean Retail Purple (#340A5C) open-margin studio cutout concept.",
+            "fix_in_canva": "Remove the grey rounded rectangle and place clean cutouts directly on the solid #340A5C background."
+          },
+          {
+            "severity": "medium",
+            "what": "Product mismatch: purple chrysanthemum bouquet replaces the requested bright sunflower bouquet.",
+            "fix_in_canva": "Swap the purple chrysanthemum bouquet on the right for the specified bright sunflower bouquet."
+          },
+          {
+            "severity": "medium",
+            "what": "Kapruka logo top edge sits slightly below the 110px top-margin threshold and looks slightly small.",
+            "fix_in_canva": "Move Kapruka logo up so top edge is ~80-100px from top and set width to 200-220px."
+          }
+        ],
+        "strengths": [
+          "Clear two-second meme humor paired with relevant Kapruka delivery subline.",
+          "Clean Inter/sans-serif typography hierarchy with crisp white and yellow contrast.",
+          "Zero third-party logos or competitor box branding on the bouquets."
+        ]
+      },
+      "polish": {
+        "rounds": 1,
+        "applied": [],
+        "needsNewPicture": null,
+        "unfixable": []
+      },
+      "final": "final-01-2026-11-26T11-28-40.png",
+      "finalAt": "2026-11-26T11:28:44.431Z"
+    }
+  ],
+  "reference": [
+    "ref-01.jpg"
+  ],
+  "caption": "Cat Meme: Cause of Death, No Flowers\nSingle meme image: 'cause of death: no flowers' · Cut-out kitten lying blissed-out, ringed by four bouquets · Flower brand's product photos used as meme props",
+  "relation": "direct",
+  "target": null,
+  "products": {
+    "source": "catalogue snapshot",
+    "items": [
+      {
+        "title": "Pink White Tiger Lily Charm Bouquet",
+        "price": "RS.4,160",
+        "url": "https://www.kapruka.com/buyonline/pink-white-tiger-lily-charm-bo/kid/flowers00t1982"
+      },
+      {
+        "title": "Purple Twilight Chrysanthemum Bouquet",
+        "price": "RS.5,450",
+        "url": "https://www.kapruka.com/buyonline/purple-twilight-chrysanthemum-/kid/flowers00t2159"
+      },
+      {
+        "title": "Veloura Red Rose Mixed Bouquet",
+        "price": "RS.8,250",
+        "url": "https://www.kapruka.com/buyonline/veloura-red-rose-mixed-bouquet/kid/flowers00t2167"
+      }
+    ]
+  },
+  "concept": {
+    "reference_idea": "Playfully exaggerate the dramatic emotional toll of not receiving flowers by framing real bouquets as the cure for a fictional 'cause of death: no flowers'.",
+    "reference_decoded": [
+      {
+        "element": "Top line: 'cause of death:'",
+        "stands_for": "A deadpan, mock-forensic setup borrowed from internet meme culture that sets up an exaggerated dramatic excuse."
+      },
+      {
+        "element": "Center cutout: ginger kitten lying flat on its back with eyes squinted shut",
+        "stands_for": "The dramatic, over-the-top recipient 'fainting' or 'dying' from a lack of affection or gifting."
+      },
+      {
+        "element": "Four surrounding flower bouquets (red roses in black box, purple orchids, pastel mixed lilies/roses, yellow sunflowers)",
+        "stands_for": "The actual retail product assortment offered as the immediate antidote/solution to the fictional emergency."
+      },
+      {
+        "element": "Bottom line: 'no flowers'",
+        "stands_for": "The comedic punchline revealing the trivial, relatable gifting omission behind the dramatic pose."
+      }
+    ],
+    "needs_to_know": "Familiarity with standard deadpan internet meme phrasing ('cause of death: [relatable minor disappointment]') and the humorous trope of dramatic collapse when a partner or loved one forgets to send flowers.",
+    "transferable": "yes",
+    "kapruka_concept": {
+      "one_line": "Turn the dramatic 'forgot to send flowers' meme into a clean, purple-framed gifting reminder featuring real Kapruka bouquets that rescue you from showing up empty-handed.",
+      "hook": "The universally understood relationship joke of dramatically 'fainting' or 'dying' when a special day passes without flowers—immediately relatable to both local partners and Sri Lankans abroad trying not to miss a milestone.",
+      "headline_lines": [
+        "CAUSE OF DEATH:",
+        "NO FLOWERS"
+      ],
+      "supporting_line": "Same-day flower delivery in Colombo. Next-day island-wide.",
+      "visual": "Solid Kapruka Retail Purple (#340A5C) background with generous open margin. In the center, a clean studio cutout of a sleepy ginger kitten lying flat on its back in a dramatic 'faint' pose, flanked cleanly by three real Kapruka fresh flower bouquets (a classic red rose bouquet, a mixed pastel lily and rose arrangement, and a bright sunflower bouquet) with zero third-party logos or competitor box branding.",
+      "product_role": "Kapruka Fresh Flowers (Gifting — Romantic & Occasion bouquets) serve as both the visual framing around the central joke and the exact deliverable product a sender can order immediately.",
+      "why_it_makes_sense": "The visual contrast between the dramatic, deadpan 'cause of death: no flowers' meme and real, vibrant Kapruka bouquets lands in under two seconds without needing heavy explanation. Pairing the playful hook with Kapruka's real delivery proof gives both local senders and overseas diaspora a fast, reliable way to avoid forgetting an important occasion."
+    },
+    "rejected": [
+      "Replacing the kitten with a photo of a sulking Sri Lankan person — rejected because real human acting in a deadpan meme looks staged and cheesy, whereas a sleepy kitten carries universal, lighthearted internet humor without risking awkward expressions.",
+      "Using 'cause of death: forgot the anniversary' with generic gift boxes — rejected because 'no flowers' directly ties the punchline to a single, visually unmistakable Kapruka hero category rather than a vague assortment.",
+      "Adding decorative sparkles, floating petals, or gold burst badges around the bouquets — rejected because the humor relies on stark, minimalist white/purple breathing room, and extra props violate Kapruka's clean-layout rules."
+    ],
+    "confidence": "high",
+    "warnings": [
+      "Confirm whether Meta ad policy or brand comfort prefers 'Cause of death: no flowers' verbatim or a softer phrasing like 'Emergency status: no flowers' if 'death' triggers ad-review flags, though 'cause of death:' is standard benign meme syntax.",
+      "Ensure the red rose bouquet used in the Kapruka version uses plain unbranded wrapping or Kapruka's own packaging rather than the 'Flower Aura' black box visible in the reference image."
+    ]
+  },
+  "style": "creative",
+  "title": "Cause Of Death: No Flowers",
+  "finishedAt": "2026-11-26T11:28:40.273Z",
+  "best": 0
+}

@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "purple high-heel shoe with trident",
+      "box": {
+        "x": 9.5,
+        "y": 12.5,
+        "w": 27.5,
+        "h": 54.5
+      }
+    },
+    {
+      "what": "chocolate cake with dripping glaze and shadow",
+      "box": {
+        "x": 1.5,
+        "y": 64.5,
+        "w": 37.5,
+        "h": 17
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 1.5,
+    "y": 12.5,
+    "w": 37.5,
+    "h": 69
+  },
+  "notes": "The purple shoe has both a stiletto heel sticking out to the right and a separate trident stem growing downward from the base of the heel.",
+  "size": {
+    "w": 818,
+    "h": 1024
+  }
+}

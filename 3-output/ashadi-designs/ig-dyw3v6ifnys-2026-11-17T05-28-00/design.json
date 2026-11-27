@@ -1,0 +1,79 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-17T05:28:00.584Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "placed-01.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 1,
+        "notes": "No text, logos, labels or watermark found anywhere — the bag face, globe, roses and floor are all blank. One thing to verify at full resolution: the watch dial (approx x 42.5, y 69.5, w 4, h 4) carries faint indistinct markings that could resolve into garbled pseudo-text or a fake brand name at print size; it was too small to read here. Other observations: the globe is cropped hard at the top and left edges, so it reads as a partial object; the gold pour reads as frozen/solid metal rather than flowing liquid where it meets the bag rim, and the rivulet down the bag's left edge merges with the puddle in a slightly melted, unphysical way; the bag's left side panel and the gold coating overlap with no clear shadow separating bag from floor — the bag casts almost no ground shadow, so it floats slightly against the white backdrop; no people or hands in frame, so no finger/anatomy issues."
+      },
+      "canva": {
+        "id": "DAHbJZlYDxs",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDg2MzYwOTg3fQ..ykgbFNnf0vL7fWs0.6m3-6aSvoX-anEhopNNKd5HFYWpacPgkG-8c0utjTM7DyR-oq5j1tDnWar_Tx4I4AXGgkvezWr21s4_i-4lOfA5vzM7KHky3YTGWtXM4gRU6KeE.E7SBn8rxal7EamgehLM0Gw/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=a1e9b486-1e31-4dc3-87d6-65e8a258d452&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDg2MzYwOTg3fQ..ykgbFNnf0vL7fWs0.6m3-6aSvoX-anEhopNNKd5HFYWpacPgkG-8c0utjTM7DyR-oq5j1tDnWar_Tx4I4AXGgkvezWr21s4_i-4lOfA5vzM7KHky3YTGWtXM4gRU6KeE.E7SBn8rxal7EamgehLM0Gw/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=a5f5d7df-3307-44ba-9b8c-68fead40b17c&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "review": {
+        "verdict": "minor-fixes",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Kapruka wordmark on bag looks AI-painted — uneven cap heights, irregular letterforms",
+            "fix_in_canva": "Cover it with the real Kapruka logo PNG, scaled and angled to bag face"
+          },
+          {
+            "severity": "medium",
+            "what": "Globe clipped hard at top edge; reference keeps full white margin above subject",
+            "fix_in_canva": "Scale image down ~8% and nudge down so globe clears top"
+          },
+          {
+            "severity": "medium",
+            "what": "Bag purple reads muted grey-violet, off brand #4B2386",
+            "fix_in_canva": "Adjust image: raise saturation, shift hue toward brand purple"
+          },
+          {
+            "severity": "medium",
+            "what": "Uneven headline rhythm — gap above THAT roughly three times the others",
+            "fix_in_canva": "Tighten GIFTS-to-THAT spacing to match THE-to-GIFTS gap"
+          },
+          {
+            "severity": "low",
+            "what": "Gold watch at bag rim reads as unidentifiable half-melted object",
+            "fix_in_canva": "Mask that corner or replace with a clearly readable product"
+          },
+          {
+            "severity": "low",
+            "what": "Gold puddle crowds the bottom tagline; reference has more clearance",
+            "fix_in_canva": "Move 'A world of choices' down 30-40px or raise image"
+          },
+          {
+            "severity": "low",
+            "what": "Headline is one flat purple; reference accents small words for hierarchy",
+            "fix_in_canva": "Set THE and THAT in a lighter purple tint for contrast"
+          }
+        ],
+        "strengths": [
+          "Strong blank-headline read: globe melts straight into the bag",
+          "White space and right-side type block faithful to reference",
+          "Copy is direct, high contrast, instantly legible at thumbnail"
+        ]
+      }
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "title": "The Gifts That Arrive",
+  "finishedAt": "2026-11-17T05:47:42.221Z"
+}

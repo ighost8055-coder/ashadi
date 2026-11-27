@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sithiji · Content Assistor</title>
+<link id="fav" rel="icon" type="image/svg+xml" href="static/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#402970; --purple-dark:#2e1d51; --purple-mid:#5b3a9e; --purple-soft:#f1ecf9; --purple-line:#e3daf3;
+  --gold:#f5b301; --gold-soft:#fff6d9;
+  --bg:#f7f5fb; --card:#fff; --text:#241a3a; --dim:#6b6480; --line:#e8e4f0;
+  --green:#15803d; --green-soft:#e6f4ea; --red:#c62828; --red-soft:#fdeaea; --amber:#a16207; --amber-soft:#fef3c7;
+  --shadow:0 1px 2px rgba(46,29,81,.06),0 4px 16px rgba(46,29,81,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;line-height:1.5}
+h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.01em}
+header{background:linear-gradient(100deg,var(--purple-dark),var(--purple) 55%,var(--purple-mid));color:#fff;padding:14px 28px;display:flex;align-items:center;gap:16px}
+header img{height:36px;width:auto;background:#fff;border-radius:8px;padding:4px}
+header h1{margin:0;font-size:22px}
+header .sub{font-size:12px;opacity:.8;margin-top:1px}
+header .spacer{flex:1}
+.wk{font-size:12px;font-weight:600;border-radius:999px;padding:4px 12px;background:rgba(255,255,255,.14);display:none}
+.wk i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:#9aa}
+.wk.on i{background:#4ade80}.wk.off i{background:#f87171}
+.week-nav{display:flex;align-items:center;gap:8px;font-size:13px}
+.week-nav button{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:5px 10px;cursor:pointer;font-family:inherit}
+.week-nav button:hover{background:rgba(255,255,255,.25)}
+main{max-width:1180px;margin:0 auto;padding:22px 20px 60px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px;min-width:130px;box-shadow:var(--shadow)}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:28px;color:var(--purple);line-height:1.1}
+.stat span{font-size:12px;color:var(--dim)}
+.stat.green b{color:var(--green)} .stat.gold b{color:var(--amber)}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 16px;cursor:pointer;font:600 13px 'Plus Jakarta Sans';color:var(--text)}
+.cnt{background:var(--purple-soft);color:var(--purple);border-radius:999px;padding:0 8px;font-size:11.5px;margin-left:4px}
+.tab.on .cnt{background:rgba(255,255,255,.22);color:#fff}
+.card.picked{border:2px solid var(--purple);box-shadow:0 0 0 3px var(--purple-line)}
+.chip.pk{background:var(--gold);color:#2b1d00}
+.card.donecard .thumb{filter:saturate(.85)}
+.tab.on{background:var(--purple);border-color:var(--purple);color:#fff}
+.panel{display:none}.panel.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.pad{padding:18px 20px}
+.btn{background:var(--purple);color:#fff;border:0;border-radius:9px;padding:8px 14px;font:600 13px 'Plus Jakarta Sans';cursor:pointer}
+.btn:hover{background:var(--purple-dark)} .btn.ghost{background:var(--purple-soft);color:var(--purple)} .btn.ghost:hover{background:var(--purple-line)}
+.btn.gold{background:var(--gold);color:#2b1d00}.btn.gold:hover{background:#e0a300}
+.btn.danger{background:var(--red-soft);color:var(--red)} .btn.sm{padding:5px 10px;font-size:12px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:#fff;color:var(--text);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--purple-line);border-color:var(--purple-mid)}
+label{display:block;font-size:12px;font-weight:600;color:var(--dim);margin-bottom:4px}
+.chip{display:inline-block;border-radius:999px;padding:2px 10px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.g-laptop_image{background:#e8eefc;color:#2a4bb0}.g-laptop_video{background:#ece6fb;color:#5a33b3}
+.g-walk_image{background:#e2f5ea;color:#166534}.g-walk_video{background:#fff0d6;color:#a16207}
+.s-not_started{background:#eceaf2;color:#5b5570}.s-in_progress{background:var(--amber-soft);color:var(--amber)}.s-done{background:var(--green-soft);color:var(--green)}
+.o-chip{background:var(--purple-soft);color:var(--purple)}
+.dots{letter-spacing:2px;color:var(--gold)} .dots i{color:#dcd6e8;font-style:normal}
+/* week */
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:14px}
+.slot{border:1.5px dashed var(--purple-line);border-radius:14px;min-height:150px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:8px}
+.slot.filled{border:1px solid var(--line);border-style:solid;box-shadow:var(--shadow)}
+.slot .t{font-weight:700;cursor:pointer}.slot .t:hover{color:var(--purple-mid)}
+.slot.empty{align-items:center;justify-content:center;color:var(--dim);text-align:center}
+.quota{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.q{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff;min-width:150px}
+.q b{font-family:'Fraunces',serif;font-size:19px}
+.q.full{background:var(--red-soft);border-color:#f3c0c0}.q.ok b{color:var(--purple)}
+.notes{margin-top:10px;background:var(--gold-soft);border:1px solid #f1d98b;border-radius:10px;padding:8px 12px;color:#6b4b00}
+.rules{font-size:12.5px;color:var(--dim);margin:8px 0 0;padding-left:18px}
+/* bank */
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.filters select,.filters input{width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.item{overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .12s,box-shadow .12s}
+.item:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(46,29,81,.14)}
+.thumb{height:130px;background:linear-gradient(135deg,var(--purple-soft),#fff);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;color:var(--purple-mid);font-size:12px}
+.item .body{padding:12px 14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.item .title{font-weight:700;line-height:1.3}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--dim);font-size:12.5px}
+/* drawer */
+.veil{position:fixed;inset:0;background:rgba(36,26,58,.45);display:none;z-index:20}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(640px,100%);background:#fff;z-index:21;display:none;overflow-y:auto;box-shadow:-8px 0 30px rgba(0,0,0,.2)}
+.drawer .head{background:var(--purple);color:#fff;padding:16px 22px;position:sticky;top:0;z-index:2}
+.drawer .head h2{margin:0 0 6px;font-size:20px}
+.drawer .inner{padding:18px 22px 40px}
+.drawer h3{font-size:16px;margin:20px 0 8px;color:var(--purple)}
+.step{display:flex;gap:12px;margin-bottom:12px}
+.step .n{flex:0 0 28px;height:28px;border-radius:50%;background:var(--purple);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+.step .st{font-weight:700}
+.step .dt{white-space:pre-wrap;color:#3a3150}
+.bl{margin:4px 0;padding-left:18px}.bl li{margin:2px 0}
+.quote{background:var(--purple-soft);border-left:4px solid var(--gold);border-radius:8px;padding:10px 14px;white-space:pre-wrap}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}header{flex-wrap:wrap}}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--purple-dark);color:#fff;padding:11px 18px;border-radius:10px;z-index:40;display:none;max-width:90%}
+.toast.err{background:var(--red)}
+</style>
+</head>
+<body>
+<header>
+  <img src="static/logo.png" alt="Kapruka">
+  <div><h1>Sithiji · Content Assistor</h1><div class="sub" id="sub">Telegram → content bank → weekly picks</div></div>
+  <div class="spacer"></div>
+  <div id="wk" class="wk" title="The PC runs the AI analysis and pushes results here"></div>
+  <div class="week-nav"><button onclick="shiftWeek(-1)">‹</button><span id="weeklabel"></span><button onclick="shiftWeek(1)">›</button><input type="date" id="wpick" title="Jump to the week containing this date" onchange="jumpTo(this.value)" style="width:auto;padding:4px 6px;font-size:12px;border-radius:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;color-scheme:dark"><button onclick="thisWeek()">This week</button></div>
+</header>
+<main>
+  <div class="stats" id="stats"></div>
+  <div class="tabs">
+    <div class="tab on" data-t="week">This week</div>
+    <div class="tab" data-t="bank">Content bank</div>
+    <div class="tab" data-t="done">Complete <span class="cnt" id="dn"></span></div>
+    <div class="tab" data-t="log">Log content manually</div>
+  </div>
+  <div id="ashbar" style="display:none"></div>
+
+  <section class="panel on" id="p-week">
+    <div class="card pad">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Weekly <span id="wkn">10</span> <span class="muted" id="weekprog" style="font-family:'Plus Jakarta Sans';font-weight:500"></span></h2>
+        <button class="btn gold sm" onclick="suggest()">Suggest a valid set</button>
+      </div>
+      <div class="quota" id="quota"></div>
+      <div id="notes"></div>
+      <ul class="rules">
+        <li id="rule1"></li>
+        <li id="rule2"></li>
+        <li>Walk Around image and video stay balanced (never 2 of one and none of the other).</li>
+      </ul>
+      <div class="slots" id="slots"></div>
+      <div id="suggestbox"></div>
+    </div>
+  </section>
+
+  <section class="panel" id="p-bank">
+    <div class="card pad" style="margin-bottom:14px">
+      <b>Quick add</b> <span class="muted">— same as sending it to the Telegram bot; Claude reads it and fills in everything.</span>
+      <div class="row" style="margin-top:8px;flex-wrap:nowrap">
+        <input id="qa-url" placeholder="Instagram, TikTok, LinkedIn, Facebook or web link (optional)" style="flex:1">
+        <input id="qa-text" placeholder="…or type your idea" style="flex:2">
+        <button class="btn" onclick="quickAdd()">Add</button>
+      </div>
+    </div>
+    <div class="filters">
+      <input id="f-q" placeholder="Search…" oninput="renderBank()">
+      <select id="f-g" onchange="renderBank()"><option value="">All groups</option></select>
+      <select id="f-s" onchange="renderBank()"><option value="">All statuses</option></select>
+      <select id="f-p" onchange="renderBank()"><option value="">Picked + not picked</option><option value="picked">Picked</option><option value="free">Not picked yet</option></select>
+      <select id="f-src" onchange="renderBank()"><option value="">All sources</option><option value="instagram">Instagram</option><option value="tiktok">TikTok</option><option value="facebook">Facebook</option><option value="linkedin">LinkedIn</option><option value="youtube">YouTube</option><option value="other_link">Other links</option><option value="own_upload">Uploads</option><option value="text_idea">Ideas</option></select>
+      <select id="f-a" onchange="renderBank()"><option value="">All content</option><option value="1">🎨 Ashadi-ready only</option></select>
+      <select id="f-o" onchange="renderBank()"><option value="">Original + Inspired</option><option value="original">Original</option><option value="inspired">Inspired</option></select>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="panel" id="p-done">
+    <div class="card pad" style="margin-bottom:14px">
+      <h2 style="margin:0 0 4px">Completed content</h2>
+      <div class="muted" id="donesub"></div>
+    </div>
+    <div class="grid" id="dgrid"></div>
+  </section>
+
+  <section class="panel" id="p-log">
+    <div class="card pad">
+      <h2 style="margin-top:0">Log content manually</h2>
+      <p class="muted" style="margin-top:-6px">Add something yourself — a piece you made, a plan, or an idea. Tick “Let AI fill it in” to have Claude categorise it and write the steps.</p>
+      <form id="logform" onsubmit="return submitLog(event)">
+        <div class="form-grid">
+          <div class="full"><label>Title</label><input name="title" placeholder="e.g. Mother's Day cake unboxing at the Colombo store"></div>
+          <div><label>Link (optional)</label><input name="url" placeholder="https://instagram.com/…"></div>
+          <div><label>Image / video (optional)</label><input type="file" name="file" accept="image/*,video/*"></div>
+          <div class="full"><label>Notes / what it is</label><textarea name="notes" rows="3" placeholder="What's the idea, the hook, who it's for…"></textarea></div>
+          <div class="full" style="background:var(--purple-soft);border-radius:10px;padding:10px 12px"><label style="display:flex;gap:8px;align-items:center;margin:0;color:var(--purple)"><input type="checkbox" id="ai" style="width:auto"> Let AI fill in the group, difficulty and step-by-step (needs a link, notes or file)</label></div>
+          <div class="manual"><label>Group</label><select name="group" id="lg"></select></div>
+          <div class="manual"><label>Origin</label><select name="origin"><option value="original">Original</option><option value="inspired">Inspired</option></select></div>
+          <div class="manual"><label>Difficulty (1–5)</label><select name="difficulty"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
+          <div class="manual"><label>Time estimate</label><input name="time_estimate" placeholder="e.g. 2–3 hours"></div>
+          <div class="manual"><label>Status</label><select name="status"><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></div>
+          <div class="full manual"><label>Steps (one per line)</label><textarea name="steps" rows="5" placeholder="1. Shoot 5 photos of the cake box at the entrance&#10;2. Edit in Canva…"></textarea></div>
+        </div>
+        <div style="margin-top:16px"><button class="btn" type="submit">Save to content bank</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="veil" id="veil" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer"></div>
+<div class="veil" id="pwveil" style="z-index:50" onclick="closePw()"></div>
+<div class="card pad" id="pwbox" style="display:none;position:fixed;z-index:51;top:50%;left:50%;transform:translate(-50%,-50%);width:min(420px,92%)">
+  <h2 style="margin:0 0 6px;font-size:19px">Special permission needed</h2>
+  <div class="muted" id="pwmsg" style="margin-bottom:12px"></div>
+  <label>Password</label>
+  <input type="password" id="pwin" autocomplete="off" onkeydown="if(event.key==='Enter')submitPw()">
+  <div id="pwerr" style="color:var(--red);font-size:12.5px;margin-top:6px;min-height:18px"></div>
+  <div class="row" style="margin-top:10px;justify-content:flex-end"><button class="btn ghost sm" onclick="closePw()">Cancel</button><button class="btn sm" onclick="submitPw()">Pick anyway</button></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+let S=null, WEEK=null, CUR=null;
+const $=id=>document.getElementById(id);
+const bl=v=>Array.isArray(v)?'<ul class="bl">'+v.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>':esc(v||'');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m,err){const t=$('toast');t.textContent=m;t.className='toast'+(err?' err':'');t.style.display='block';clearTimeout(t._h);t._h=setTimeout(()=>t.style.display='none',4200)}
+async function api(url,opt){const r=await fetch(url,opt);let j={};try{j=await r.json()}catch(e){}return {ok:r.ok,j}}
+const post=(u,b)=>api(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b||{})});
+
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+t.dataset.t));
+});
+$('ai').onchange=()=>document.querySelectorAll('.manual').forEach(e=>e.style.display=$('ai').checked?'none':'');
+
+function dots(n){n=n||0;return '<span class="dots">'+'●'.repeat(n)+'<i>'+'●'.repeat(5-n)+'</i></span>'}
+function gchip(g){return g?`<span class="chip g-${g}">${esc(S.groups[g])}</span>`:'<span class="chip s-not_started">Not categorised</span>'}
+function schip(s){return `<span class="chip s-${s}">${esc(S.statuses[s])}</span>`}
+function thumbStyle(c){return c.thumb?`style="background-image:url('media/${c.id}/${encodeURI(c.thumb)}')"`:''}
+function _ymd(ws){const [y,m,d]=ws.split('-').map(Number);return Date.UTC(y,m-1,d)}
+function _iso(ms){return new Date(ms).toISOString().slice(0,10)}
+function weekLabel(ws){const a=_ymd(ws),b=a+6*864e5;const f=ms=>new Date(ms).toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'});return f(a)+' – '+f(b)}
+function mondayOf(iso){const ms=_ymd(iso);const dow=(new Date(ms).getUTCDay()+6)%7;return _iso(ms-dow*864e5)}
+function shiftWeek(n){WEEK=_iso(_ymd(WEEK||S.this_week)+7*n*864e5);load()}
+function jumpTo(v){if(!v)return;WEEK=mondayOf(v);load()}
+function thisWeek(){WEEK=null;load()}
+
+async function load(poll){
+  const {j}=await api('api/state'+(WEEK?'?week='+WEEK:''));S=j;WEEK=WEEK||j.this_week;
+  if(!$('f-g').options[1]){
+    Object.entries(S.groups).forEach(([k,v])=>{$('f-g').add(new Option(v,k));$('lg').add(new Option(v+' — '+S.group_help[k],k))});
+    Object.entries(S.statuses).forEach(([k,v])=>{if(k!=='done')$('f-s').add(new Option(v,k))});
+  }
+  $('wpick').value=WEEK;
+  $('weeklabel').textContent=weekLabel(WEEK)+(WEEK===S.this_week?'':' (not current)');
+  const st=S.stats;
+  $('stats').innerHTML=[['Total in bank',st.total,''],['Not started',st.not_started,''],['In progress',st.in_progress,'gold'],['Done',st.done,'green'],...(st.analysing?[['AI reading…',st.analysing,'']]:[])]
+    .map(x=>`<div class="stat ${x[2]}"><b>${x[1]}</b><span>${x[0]}</span></div>`).join('');
+  const wk=$('wk');if(S.queue_mode){wk.style.display='block';wk.className='wk '+(S.worker_online?'on':'off');wk.innerHTML='<i></i>PC worker: '+(S.worker_online?'online':'offline — items wait in the queue')}
+  renderAshBar();
+  renderWeek();renderBank();renderDone();
+  const ashBusy=CUR&&(S.content.find(c=>c.id===CUR)||{}).ashadi_state&&['queued','working','final_requested'].includes(S.content.find(c=>c.id===CUR).ashadi_state);
+  if((!poll||ashBusy)&&CUR&&$('drawer').style.display==='block')openItem(CUR,true);   // live progress while Ashadi works
+}
+
+function renderWeek(){
+  const w=S.week;
+  $('wkn').textContent=w.slots;$('rule1').textContent=`${w.slots} pieces a week, max ${w.max_per_group} from any one group.`;$('rule2').textContent=`Max ${w.max_laptop} On Laptop pieces in total (image + video) — the rest must be Walk Around.`;
+  $('weekprog').textContent=`· ${w.items.length}/${w.slots} picked · ${w.done} done`;
+  $('quota').innerHTML=Object.keys(S.groups).map(g=>{const n=w.counts[g];return `<div class="q ${n>=w.max_per_group?'full':'ok'}"><span class="muted">${esc(S.groups[g])}</span><br><b>${n}/${w.max_per_group}</b></div>`}).join('')+
+   `<div class="q ${w.laptop_total>=w.max_laptop?'full':'ok'}"><span class="muted">On Laptop total</span><br><b>${w.laptop_total}/${w.max_laptop}</b></div>`;
+  $('notes').innerHTML=w.notes.map(n=>`<div class="notes">${esc(n)}</div>`).join('');
+  let h='';
+  w.items.forEach(c=>{h+=`<div class="slot filled"><div class="row">${gchip(c.grp)}${schip(c.status)}${c.carried_from?`<span class="chip" style="background:var(--gold-soft);color:#7a5200" title="Not finished last week, so it moved here automatically">↪ carried from ${weekLabel(c.carried_from).split(' – ')[0]}</span>`:''}${c.pick_override?'<span class="chip" style="background:#fdeaea;color:#c62828" title="Picked past a rule with the special-permission password">⚠ override</span>':''}</div>
+    <div class="t" onclick="openItem(${c.id})">#${c.id} ${esc(c.title)}</div>
+    <div class="muted">${dots(c.difficulty)} · ${esc(c.time_estimate||'')}</div>
+    ${(()=>{const b=ashadiBtn((S.content||[]).find(x=>x.id===c.id)||c);return b?`<div class="row" style="margin-top:6px">${b}</div>`:''})()}
+    <div class="row" style="margin-top:auto">
+      <select style="width:auto;padding:5px 8px" onchange="setStatus(${c.id},this.value)">${Object.entries(S.statuses).map(([k,v])=>`<option value="${k}" ${k===c.status?'selected':''}>${v}</option>`).join('')}</select>
+      <button class="btn danger sm" onclick="unpick(${c.id})">Remove</button></div></div>`});
+  for(let i=w.items.length;i<w.slots;i++)h+=`<div class="slot empty"><div><b>Slot ${i+1}</b><br>Pick from the bank</div><button class="btn ghost sm" onclick="goBank()">Open content bank</button></div>`;
+  $('slots').innerHTML=h;
+}
+function goBank(){document.querySelector('[data-t=bank]').click()}
+
+const PLAT={instagram:'Instagram',tiktok:'TikTok',facebook:'Facebook',linkedin:'LinkedIn',youtube:'YouTube',other_link:'Link',own_upload:'Upload',text_idea:'Idea'};
+function platChip(c){const n=PLAT[c.source_type];return n?`<span class="chip" style="background:#eef0f6;color:#3b4363">${n}</span>`:''}
+function pickLabel(c){const w=(S.pick_map||{})[c.id];if(!w)return '';return w===WEEK?'✓ Picked this week':'✓ Picked · week of '+weekLabel(w)}
+function cardHtml(c,done){
+  const busy=c.analysis_state==='pending'||c.analysis_state==='analyzing';
+  const label=busy?(S.queue_mode&&!S.worker_online?'⏳ Queued — runs when the PC is online':'⏳ AI is reading this…'):c.analysis_state==='failed'?'⚠ Analysis failed':c.analysis_state==='needs_media'?'📎 Needs a screenshot':'';
+  const pl=pickLabel(c);
+  const when=done?`<div class="muted">Completed ${esc(fmtDate(c.done_at||c.created))}</div>`:'';
+  return `<div class="card item ${!done&&pl?'picked':''} ${done?'donecard':''}" onclick="openItem(${c.id})"><div class="thumb" ${thumbStyle(c)}>${c.thumb?'':esc(label||'No preview')}</div>
+    <div class="body"><div class="title">#${c.id} ${esc(c.title||c.source_url||(c.raw_text||'').slice(0,60)||'Untitled')}</div>
+    <div class="row">${!done&&pl?`<span class="chip pk">${esc(pl)}</span>`:''}${label&&c.thumb?`<span class="muted">${label}</span>`:''}${c.analysis_state==='done'?gchip(c.grp):''}${schip(c.status)}${platChip(c)}${c.origin?`<span class="chip o-chip">${esc(c.origin)}</span>`:''}</div>
+    <div class="muted">${c.analysis_state==='done'?dots(c.difficulty)+' · '+esc(c.time_estimate||''):''}</div>${when}
+    ${(()=>{const b=ashadiBtn(c);return b?`<div class="row" style="margin-top:6px" onclick="event.stopPropagation()">${b}</div>`:''})()}</div></div>`}
+
+// ---- Ashadi (graphic designer): push a card, she recreates it in Kapruka's look in Canva
+const ASH_LABEL={queued:'⏳ Queued with Ashadi',working:'🎨 Ashadi is designing…',final_requested:'⏳ Pulling the final from Canva…',done:'✓ Design ready in Canva',failed:'⚠ Ashadi hit a problem'};
+function ashCanva(c){try{return JSON.parse(c.ashadi_canva||'[]')||[]}catch(e){return []}}
+function ashadiBtn(c){
+  const st=c.ashadi_state;
+  if(!c.ashadi_ok&&!st)return '';            // only content Ashadi can actually recreate gets the button
+  if(st==='queued'||st==='working'||st==='final_requested')return `<span class="chip" style="background:var(--purple-soft);color:var(--purple)">${ASH_LABEL[st]}</span>`;
+  if(st==='done')return `<span class="chip" style="background:#e6f6ec;color:#17673a">${ASH_LABEL.done}</span><button class="btn ghost sm" onclick="sendAshadi(${c.id})">Redo</button>`;
+  return `${st==='failed'?`<span class="chip" style="background:var(--red-soft);color:var(--red)">${ASH_LABEL.failed}</span>`:''}<button class="btn gold sm" onclick="sendAshadi(${c.id})">🎨 Send to Ashadi</button>`;
+}
+function ashadiPanel(c){
+  const st=c.ashadi_state, cv=ashCanva(c), media=c.media||[];
+  const fin=media.filter(m=>/^ashadi_final_/.test(m)).sort().pop();
+  let h=`<h3>Ashadi</h3><div class="notes" style="background:var(--purple-soft);border-color:var(--purple-line);color:var(--text)">`;
+  if(!st&&!c.ashadi_ok)h+=`<span class="muted">Not for Ashadi — ${esc(c.ashadi_why||'')}.</span>`;
+  else if(!st)h+=`Send this to Ashadi and she recreates it as an editable Kapruka design in Canva — same layout, spacing and type, Kapruka brand.<div class="row" style="margin-top:8px"><button class="btn gold" onclick="sendAshadi(${c.id})">🎨 Send to Ashadi</button></div>`;
+  else{
+    h+=`<b>${esc(ASH_LABEL[st]||st)}</b>${c.ashadi_msg?`<div class="muted">${esc(c.ashadi_msg)}</div>`:''}`;
+    if(st==='queued'||st==='final_requested')h+=`<div class="row" style="margin-top:8px"><button class="btn danger sm" onclick="cancelAshadi(${c.id})">Cancel</button></div>`;
+    if(st==='queued'&&S.queue_mode&&!S.worker_online)h+=`<div class="muted" style="margin-top:6px">The PC is offline — it starts when the PC is back.</div>`;
+  }
+  if(cv.length&&cv[0].concept)h+=`<div style="margin-top:10px"><b>The idea</b><div>${esc(cv[0].concept)}</div>${cv[0].concept_why?`<div class="muted" style="margin-top:4px">${esc(cv[0].concept_why)}</div>`:''}${(cv[0].concept_warn||[]).length?`<div class="muted" style="margin-top:4px">⚠ Check: ${esc(cv[0].concept_warn.join(' · '))}</div>`:''}</div>`;
+  if(cv.length){
+    h+=`<div style="display:flex;gap:10px;overflow-x:auto;margin-top:10px">${cv.map((v,i)=>`<div style="flex:0 0 auto;width:200px">${v.preview?`<img src="media/${c.id}/${encodeURI(v.preview)}" style="width:100%;border-radius:10px;background:#fff;border:1px solid var(--purple-line)">`:''}
+      <div class="muted" style="margin:4px 0">${esc(v.engine||'Design '+(i+1))}${v.verdict?' · '+esc(v.verdict):''}</div>
+      ${v.editUrl?`<a class="btn sm" href="${esc(v.editUrl)}" target="_blank" rel="noopener">Edit in Canva ↗</a>`:''}</div>`).join('')}</div>`;
+    if(st!=='queued'&&st!=='working'&&st!=='final_requested')h+=`<div class="row" style="margin-top:10px"><button class="btn ghost sm" onclick="pullAshadiFinal(${c.id})">Pull final from Canva</button><button class="btn ghost sm" onclick="sendAshadi(${c.id})">Redo</button></div>`;
+  }
+  if(fin)h+=`<div style="margin-top:10px"><b>Final</b><br><img src="media/${c.id}/${encodeURI(fin)}" style="max-width:260px;border-radius:10px;border:1px solid var(--purple-line)"><div class="row" style="margin-top:6px"><a class="btn ghost sm" href="media/${c.id}/${encodeURI(fin)}" download>Download final</a></div></div>`;
+  return h+`</div>`;
+}
+async function sendAshadi(id){const note=prompt('Anything Ashadi should change or keep? (optional — e.g. "swap the product for a cake")','');if(note===null)return;
+  const {ok,j}=await post(`api/content/${id}/ashadi`,{note});if(!ok)return toast(j.error||'Could not send',true);toast('Sent to Ashadi');await load();if(CUR===id)openItem(id,true)}
+async function cancelAshadi(id){const {ok,j}=await post(`api/content/${id}/ashadi/cancel`);if(!ok)return toast(j.error||'Could not cancel',true);toast('Cancelled');await load();if(CUR===id)openItem(id,true)}
+async function pullAshadiFinal(id){const {ok,j}=await post(`api/content/${id}/ashadi/final`);if(!ok)return toast(j.error||'Could not request',true);toast('Asking Ashadi for the final…');await load();if(CUR===id)openItem(id,true)}
+
+function renderAshBar(){
+  const ok=S.content.filter(c=>c.ashadi_ok), busy=S.content.filter(c=>['queued','working','final_requested'].includes(c.ashadi_state)).length, ready=S.content.filter(c=>c.ashadi_state==='done').length;
+  const el=$('ashbar');
+  el.style.cssText='display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0 14px;padding:10px 14px;border-radius:12px;background:var(--purple-soft);border:1px solid var(--purple-line)';
+  el.innerHTML=`<span>🎨 <b>${ok.length}</b> of ${S.content.length} items can go to Ashadi${busy?` · <b>${busy}</b> with her now`:''}${ready?` · <b>${ready}</b> designs ready`:''}</span><button class="btn gold sm" onclick="goAshadi()">Show them</button><span class="muted">The rest are videos, text ideas, or have no picture to copy.</span>`;
+}
+function goAshadi(){document.querySelector('[data-t=bank]').click();$('f-a').value='1';renderBank();window.scrollTo({top:0,behavior:'smooth'})}
+function fmtDate(s){if(!s)return '';const d=new Date(s);return isNaN(d)?s:d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}
+
+function renderBank(){
+  const A=$('f-a').value,q=$('f-q').value.toLowerCase(),g=$('f-g').value,s=$('f-s').value,o=$('f-o').value,p=$('f-p').value,src=$('f-src').value;
+  const pm=S.pick_map||{};
+  const rows=S.content.filter(c=>c.status!=='done'&&(!A||c.ashadi_ok)&&(!g||c.grp===g)&&(!s||c.status===s)&&(!o||c.origin===o)&&(!src||c.source_type===src)&&(!p||(p==='picked')===!!pm[c.id])&&(!q||((c.title||'')+(c.raw_text||'')+(c.source_url||'')+(c.summary||'')).toLowerCase().includes(q)));
+  rows.sort((x,y)=>(pm[y.id]?1:0)-(pm[x.id]?1:0)||y.id-x.id);   // picked items first
+  $('grid').innerHTML=rows.map(c=>cardHtml(c,false)).join('')||'<div class="muted">Nothing here — everything is either completed or filtered out. Send something to @Sithijibot or use Quick add.</div>';
+}
+
+function renderDone(){
+  const rows=S.content.filter(c=>c.status==='done').sort((x,y)=>String(y.done_at||y.created).localeCompare(String(x.done_at||x.created)));
+  $('dn').textContent=rows.length||'';
+  const wk=rows.filter(c=>c.done_at&&c.done_at.slice(0,10)>=S.this_week).length;
+  $('donesub').textContent=rows.length?`${rows.length} completed · ${wk} this week. Reopen an item from its detail panel if it needs more work.`:'Nothing completed yet. Set an item to Done and it moves here.';
+  $('dgrid').innerHTML=rows.map(c=>cardHtml(c,true)).join('');
+}
+
+async function openItem(id,keep){
+  CUR=id;const {j:c}=await api('api/content/'+id);const a=c.analysis||{};
+  const picked=S.week.items.some(i=>i.id===id);
+  const ok=c.analysis_state==='done';
+  let h=`<div class="head"><div style="float:right;cursor:pointer;font-size:22px" onclick="closeDrawer()">×</div><h2>#${c.id} ${esc(c.title||'Untitled')}</h2>
+    <div class="row">${ok?gchip(c.grp):''}${schip(c.status)}${c.origin?`<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${esc(c.origin)}</span>`:''}${ok?`<span style="margin-left:4px">${dots(c.difficulty)}</span>`:''}</div></div><div class="inner">`;
+  h+=ashadiPanel(c);
+  if(!ok){h+=`<p>State: <b>${esc(c.analysis_state)}</b> ${esc(c.error||'')}</p>${c.analysis_state==='needs_media'?`<p>Send a screenshot or screen recording to the bot with the caption <b>#${c.id}</b>.</p>`:''}<button class="btn" onclick="retry(${c.id})">Re-run analysis</button> `}
+  else{
+    h+=`<div class="row" style="margin-bottom:10px">${picked?`<button class="btn danger sm" onclick="unpick(${c.id})">Remove from this week</button>`:`<button class="btn sm" onclick="pick(${c.id})">Pick for ${WEEK===S.this_week?'this week':'week of '+weekLabel(WEEK)}</button>`}
+      <select style="width:auto" onchange="setStatus(${c.id},this.value)">${Object.entries(S.statuses).map(([k,v])=>`<option value="${k}" ${k===c.status?'selected':''}>${v}</option>`).join('')}</select></div>`;
+    if(c.media&&c.media.length){const v=c.media.find(m=>/\.(mp4|mov|webm)$/i.test(m)&&!m.includes('_frame'));const ims=c.media.filter(m=>/\.(jpg|jpeg|png|webp)$/i.test(m)&&!m.includes('_frame')&&!/^ashadi_/.test(m)&&!(c.media.some(x=>/^slide_/.test(x))&&m==='og_preview.jpg'));const im=ims[0];
+      if(ims.length>1){h+=`<div class="muted" style="margin-bottom:4px">${ims.length} slides</div><div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:6px">${ims.map((m,i)=>`<img src="media/${c.id}/${encodeURI(m)}" title="Slide ${i+1}" style="height:220px;border-radius:10px;flex:0 0 auto;background:var(--purple-soft)">`).join('')}</div>`}
+      else h+=v?`<video src="media/${c.id}/${encodeURI(v)}" controls style="width:100%;max-height:320px;border-radius:10px;background:#000"></video>`:im?`<img src="media/${c.id}/${encodeURI(im)}" style="width:100%;max-height:320px;object-fit:contain;border-radius:10px;background:var(--purple-soft)">`:''}
+    h+=`<h3>What it is</h3><div>${bl(a.what_it_is||c.summary)}</div>${a.why_it_works?`<div class="muted" style="margin-top:6px"><b>Why it works</b>${bl(a.why_it_works)}</div>`:''}
+    <h3>Group &amp; difficulty</h3><div><b>${esc(S.groups[c.grp])}</b> — ${esc(S.group_help[c.grp])}<br><span class="muted">${esc(c.group_reason||'')}</span></div>
+    <div style="margin-top:6px">${dots(c.difficulty)} <b>${c.difficulty}/5</b> · ${esc(c.time_estimate||'')}<br><span class="muted">${esc(c.difficulty_why||'')}</span></div>
+    ${a.tools_needed&&a.tools_needed.length?`<div class="muted" style="margin-top:6px">Tools: ${esc(a.tools_needed.join(', '))}</div>`:''}
+    ${a.kapruka_angle?`<h3>Kapruka angle</h3>${bl(a.kapruka_angle)}`:''}
+    <h3>Step by step</h3>${(a.steps||[]).map(s=>`<div class="step"><div class="n">${s.n}</div><div><div class="st">${esc(s.title)}</div><div class="dt">${esc(s.detail)}</div></div></div>`).join('')||'<div class="muted">No steps logged.</div>'}
+    ${a.shot_list&&a.shot_list.length?`<h3>Shot list</h3><ul>${a.shot_list.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+    ${a.persona_walkthrough?`<h3>How a creator would do it</h3><div class="quote">${bl(a.persona_walkthrough)}</div>`:''}
+    ${a.caption_suggestion?`<h3>Caption</h3><div class="quote">${esc(a.caption_suggestion)}</div>`:''}
+    <h3>Adjust</h3><div class="row"><select id="e-g" style="width:auto">${Object.entries(S.groups).map(([k,v])=>`<option value="${k}" ${k===c.grp?'selected':''}>${v}</option>`).join('')}</select>
+      <select id="e-o" style="width:auto"><option value="original" ${c.origin==='original'?'selected':''}>Original</option><option value="inspired" ${c.origin==='inspired'?'selected':''}>Inspired</option></select>
+      <select id="e-d" style="width:auto">${[1,2,3,4,5].map(n=>`<option ${n===c.difficulty?'selected':''}>${n}</option>`).join('')}</select>
+      <button class="btn ghost sm" onclick="saveEdit(${c.id})">Save</button><button class="btn ghost sm" onclick="retry(${c.id})">Re-run AI</button></div>`}
+  if(c.source_url)h+=`<h3>Source</h3><a href="${esc(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_url)}</a>`;
+  if(c.raw_text)h+=`<h3>Original text</h3><div class="quote">${esc(c.raw_text)}</div>`;
+  h+=`<div style="margin-top:26px"><button class="btn danger sm" onclick="del(${c.id})">Delete</button></div></div>`;
+  $('drawer').innerHTML=h;$('drawer').style.display='block';$('veil').style.display='block';
+}
+function closeDrawer(){CUR=null;$('drawer').style.display='none';$('veil').style.display='none'}
+
+let PWID=null;
+async function pick(id){const {ok,j}=await post('api/pick/'+id,{week:WEEK});
+  if(ok){toast('Picked');await load();return}
+  if(j.overridable){PWID=id;$('pwmsg').textContent=j.message;$('pwerr').textContent='';$('pwin').value='';$('pwveil').style.display='block';$('pwbox').style.display='block';setTimeout(()=>$('pwin').focus(),50);return}
+  toast(j.message||'Not allowed',true)}
+function closePw(){PWID=null;$('pwveil').style.display='none';$('pwbox').style.display='none'}
+async function submitPw(){const pw=$('pwin').value;if(!pw||PWID==null)return;
+  const {ok,j}=await post('api/pick/'+PWID,{week:WEEK,override_password:pw});
+  if(ok){closePw();toast('Picked (rule overridden)');await load();return}
+  $('pwerr').textContent=j.wrong_password?'Wrong password.':(j.message||'Not allowed');$('pwin').select()}
+async function unpick(id){await post('api/unpick/'+id,{week:WEEK});await load()}
+async function setStatus(id,s){await post(`api/content/${id}/status`,{status:s});await load()}
+async function retry(id){await post(`api/content/${id}/retry`);toast('Re-analysing…');await load()}
+async function del(id){if(!confirm('Delete this item permanently?'))return;await api('api/content/'+id,{method:'DELETE'});closeDrawer();await load()}
+async function saveEdit(id){await post(`api/content/${id}/edit`,{grp:$('e-g').value,origin:$('e-o').value,difficulty:$('e-d').value});toast('Saved');await load()}
+async function quickAdd(){const url=$('qa-url').value.trim(),text=$('qa-text').value.trim();const {ok,j}=await post('api/idea',{url,text});if(!ok)return toast(j.error||'Failed',true);$('qa-url').value='';$('qa-text').value='';toast('Saved as #'+j.id+' — AI is reading it');await load()}
+async function suggest(){const r=await api('api/suggest?week='+WEEK);const j=r.j;$('suggestbox').innerHTML=j.length?`<div class="notes" style="background:var(--purple-soft);border-color:var(--purple-line);color:var(--text)"><b>A rule-valid set (easiest first):</b><br>${j.map(c=>`#${c.id} ${esc(c.title)} — ${esc(S.groups[c.grp])} (d${c.difficulty}) <a href="#" onclick="pick(${c.id});return false">pick</a>`).join('<br>')}</div>`:'<div class="notes">Not enough analysed, not-done items in the right groups to fill the week. Add more content.</div>'}
+async function submitLog(e){e.preventDefault();const fd=new FormData($('logform'));fd.set('ai',$('ai').checked?'1':'0');
+  const r=await fetch('api/log',{method:'POST',body:fd});const j=await r.json();if(!r.ok)return toast(j.error||'Failed',true);
+  toast(j.ai?'Saved as #'+j.id+' — AI is reading it':'Logged as #'+j.id);$('logform').reset();$('ai').dispatchEvent(new Event('change'));await load();goBank()}
+
+// Animated favicon: redrawn on a canvas (works in every browser; animated SVG favicons don't).
+(function(){
+  try{
+    const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');const link=document.getElementById('fav');let t=0;
+    function star(cx,cy,r,rot){x.save();x.translate(cx,cy);x.rotate(rot);x.beginPath();for(let i=0;i<8;i++){const a=i*Math.PI/4,rr=i%2?r*.32:r;x.lineTo(Math.cos(a)*rr,Math.sin(a)*rr)}x.closePath();x.fill();x.restore()}
+    function frame(){
+      t+=0.07;x.clearRect(0,0,64,64);
+      const g=x.createLinearGradient(0,0,64,64);g.addColorStop(0,'#5b3a9e');g.addColorStop(1,'#2e1d51');
+      x.fillStyle=g;x.beginPath();x.roundRect(0,0,64,64,14);x.fill();
+      x.fillStyle='#fff';x.font='700 42px Georgia,serif';x.textAlign='center';x.fillText('S',29,46);
+      x.shadowColor='#f5b301';x.shadowBlur=6+4*Math.sin(t*2);x.fillStyle='#f5b301';
+      star(49,19,9+3*Math.sin(t*2),t);x.shadowBlur=0;
+      star(14,52,3+1.5*Math.sin(t*3+1),-t);
+      link.type='image/png';link.href=c.toDataURL('image/png');
+    }
+    frame();setInterval(frame,120);
+  }catch(e){}
+})();
+load();setInterval(()=>{if(!document.hidden)load(true)},8000);
+</script>
+</body>
+</html>

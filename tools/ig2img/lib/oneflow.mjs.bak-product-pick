@@ -1,0 +1,472 @@
+// oneflow.mjs — the intake side of Ashadi's one pipeline (human spec, 2026-11-22).
+//
+//   references (Instagram / Pinterest / uploaded image) ─┐
+//   product or category link, or a promo/persona text ──┼─► products (real packshots) ─► relation (direct | indirect | none)
+//   persona / promote with no reference ─────────────────┘                                   └─► strategist (none only)
+//
+// Everything here thinks with Gemini in the signed-in automation Chrome — no Claude CLI, no API key (human route).
+import { mkdirSync, writeFileSync, readFileSync, existsSync, copyFileSync } from 'node:fs';
+import { join, extname, basename } from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { ROOT } from './env.mjs';
+import { think } from './thinker.mjs';
+import { ensureLessons, playbookFor } from './promptbook.mjs';
+
+const HERE = fileURLToPath(new URL('.', import.meta.url));
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+export const IG_RE = /instagram\.com\/(?:[A-Za-z0-9_.]+\/)?(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i;
+export const PIN_RE = /(?:pinterest\.[a-z.]+\/pin\/|pin\.it\/)/i;
+export const KAPRUKA_RE = /^https?:\/\/(?:www\.)?kapruka\.com\//i;
+
+// ---------------------------------------------------------------------------------------------------------
+// Small helpers
+// ---------------------------------------------------------------------------------------------------------
+export function extractJson(text, label = 'answer') {
+  let s = String(text || '').trim().replace(/^```(?:json)?/i, '').replace(/```$/i, '').trim();
+  const a = s.indexOf('{'); const b = s.lastIndexOf('}');
+  if (a < 0 || b < a) throw new Error(`${label}: Gemini did not return JSON`);
+  s = s.slice(a, b + 1);
+  try { return JSON.parse(s); } catch { /* fall through: strip trailing commas */ }
+  try { return JSON.parse(s.replace(/,\s*([}\]])/g, '$1')); } catch (e) { throw new Error(`${label}: bad JSON from Gemini (${e.message})`); }
+}
+
+async function ask(_chrome, prompt, images = [], { label = 'step', log = console.log } = {}) {
+  // The picked AI method answers (thinker.mjs): the Claude CLI, or Gemini in the browser. `_chrome` is kept only so call sites stay the same.
+  const preface = 'Reply with ONLY one JSON object — no commentary, no code fence, no markdown.\n\n';
+  return extractJson(await think(preface + prompt, { images, label }), label);
+}
+
+export async function downloadImage(url, dest) {
+  // This office connection drops requests now and then (2026-11-22: a product download died with a bare "fetch failed" on
+  // both attempts of a job). Network-level failures are retried with growing pauses; HTTP error answers are not.
+  let r;
+  for (let i = 1; ; i++) {
+    try { r = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'image/*,*/*' }, redirect: 'follow', signal: AbortSignal.timeout(30_000) }); break; }
+    catch (e) {
+      const why = `${e.message}${e.cause?.code ? ` (${e.cause.code})` : ''}`;
+      if (i >= 4) throw new Error(`download failed after ${i} tries: ${why}`);
+      await new Promise((res) => setTimeout(res, [0, 3000, 8000, 15000][i]));
+    }
+  }
+  if (!r.ok) throw new Error(`download failed (${r.status}) for ${url.slice(0, 80)}`);
+  const type = r.headers.get('content-type') || '';
+  if (!/^image\//i.test(type)) throw new Error(`that link is not an image (${type || 'unknown type'})`);
+  const ext = /png/i.test(type) ? '.png' : /webp/i.test(type) ? '.webp' : '.jpg';
+  const file = dest.replace(/\.[a-z0-9]+$/i, '') + ext;
+  writeFileSync(file, Buffer.from(await r.arrayBuffer()));
+  return file;
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// References: one reference = one design. A reference can be an Instagram post (several slides), a Pinterest pin,
+// a direct image URL, or an uploaded image already saved on disk.
+// ---------------------------------------------------------------------------------------------------------
+export async function resolveReference(ref, dir, { log = console.log } = {}) {
+  mkdirSync(dir, { recursive: true });
+  const v = String(ref.value || '').trim();
+  if (ref.type === 'file') {
+    if (!existsSync(v)) throw new Error('an uploaded reference image is missing from disk');
+    return { files: [v], label: basename(v) };
+  }
+  if (IG_RE.test(v)) {
+    const m = v.match(IG_RE);
+    const kind = m[1].toLowerCase() === 'reels' ? 'reel' : m[1].toLowerCase();
+    return { igUrl: `https://www.instagram.com/${kind}/${m[2]}/`, label: `Instagram ${m[2]}` };
+  }
+  if (PIN_RE.test(v)) {
+    const r = await fetch(v, { headers: { 'User-Agent': UA }, redirect: 'follow', signal: AbortSignal.timeout(30_000) });
+    const html = await r.text();
+    const og = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+      || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
+    if (!og) throw new Error('could not read the picture from that Pinterest link — upload the image instead');
+    const big = og[1].replace(/&amp;/g, '&').replace(/\/(?:\d+x\d*|\d+x)\//, '/originals/');
+    let file;
+    try { file = await downloadImage(big, join(dir, 'pin')); } catch { file = await downloadImage(og[1].replace(/&amp;/g, '&'), join(dir, 'pin')); }
+    log('  ✓ Pinterest picture saved');
+    return { files: [file], label: 'Pinterest pin' };
+  }
+  if (/^https?:\/\//i.test(v)) {
+    const file = await downloadImage(v, join(dir, 'ref-url'));
+    return { files: [file], label: 'Image link' };
+  }
+  throw new Error('a reference must be an Instagram link, a Pinterest link, an image link or an uploaded image');
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// Products: the real Kapruka packshots. Source order: the given product page, the given category page, then the
+// local snapshot (cache/kapruka-products.json) matched against the promo text.
+// ---------------------------------------------------------------------------------------------------------
+const upsize = (u) => String(u || '').replace(/width=\d+/, 'width=1000').replace(/quality=\d+/, 'quality=95');
+
+/** kapruka.com sometimes shows a Cloudflare "Just a moment" page; it clears itself — wait it out (same approach as build-product-cache.mjs). */
+async function openAndWait(page, url, readyJs) {
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 }).catch(() => {});
+    for (let i = 0; i < 8; i++) {
+      await sleep(2500);
+      const st = await page.evaluate((js) => ({
+        ready: !!(new Function(`return (${js})`))(),
+        challenge: /just a moment|security verification/i.test(document.title + ' ' + (document.body?.innerText || '').slice(0, 200)),
+      }), readyJs).catch(() => ({ ready: false, challenge: false }));
+      if (st.ready) return true;
+      if (!st.challenge && i >= 3) break;
+    }
+    await sleep(4000 * attempt);
+  }
+  return false;
+}
+
+async function readProductPage(page, url) {
+  if (!(await openAndWait(page, url, "document.querySelector('h1') && document.querySelector('h1').innerText.trim().length > 3"))) return { title: '', price: '', img: '' };
+  return page.evaluate(() => {
+    const h1 = document.querySelector('h1')?.innerText?.trim() || '';
+    const og = document.querySelector('meta[property="og:image"]')?.content || '';
+    const txt = document.body.innerText || '';
+    const price = (txt.match(/(?:Rs\.?|LKR)\s?[\d,]{3,}(?:\.\d+)?/i) || [''])[0];
+    const imgs = [...document.querySelectorAll('img')].filter((i) => /product-image|productImages/.test(i.src || '')).map((i) => i.src);
+    return { title: h1, price, img: og || imgs[0] || '' };
+  });
+}
+
+async function readCategoryPage(page, url, n) {
+  if (!(await openAndWait(page, url, "document.querySelectorAll('a[href*=\"/buyonline/\"]').length > 0"))) return [];
+  return page.evaluate((n) => {
+    const out = []; const seen = new Set();
+    for (const a of document.querySelectorAll('a[href*="/buyonline/"]')) {
+      const href = a.href.split('?')[0];
+      if (seen.has(href)) continue;
+      const img = a.querySelector('img') || a.parentElement?.querySelector('img');
+      if (!img) continue;
+      let name = (img.getAttribute('alt') || '').replace(/\s+/g, ' ').trim().split(/\s+Buy\s+/i)[0].trim();
+      const card = (a.innerText || '').replace(/\s+/g, ' ').trim();
+      if (name.length < 4) name = card.replace(/^(Top Choices|Best Sellers|New Arrivals|On Sale)\s*/i, '').replace(/\s*RS\.?\s?[\d,]+.*$/i, '').trim();
+      if (name.length < 4) continue;
+      const price = (card.match(/RS\.?\s?[\d,]+/i) || [''])[0];
+      seen.add(href);
+      out.push({ url: href, img: img.src || img.getAttribute('data-src') || '', title: name, price });
+      if (out.length >= n) break;
+    }
+    return out;
+  }, n);
+}
+
+// A category page lists its seasonal best-sellers first (Christmas cakes in November). Choose by occasion instead: drop items for
+// a season the brief does not mention, then put the items whose names match the brief first (2026-11-22: a Mother's Day ad got
+// Christmas cakes with "Merry Christmas" toppers).
+const SEASONS = [
+  ['christmas', /christmas|xmas|santa|yule|snowman|winter wonderland|noel/i],
+  ['valentine', /valentine/i],
+  ['new year', /new year/i],
+  ['halloween', /halloween/i],
+  ['easter', /easter/i],
+  ['avurudu', /avurudu|new year sinhala|tamil new year/i],
+  ['vesak', /vesak|poson/i],
+];
+export function pickForOccasion(list, hint, n, log = () => {}) {
+  const h = String(hint || '').toLowerCase();
+  const off = SEASONS.filter(([name, re]) => !re.test(h) && !h.includes(name)).map(([, re]) => re);
+  const ok = list.filter((p) => !off.some((re) => re.test(p.title)));
+  const pool = ok.length >= Math.min(n, 2) ? ok : list;
+  if (pool !== list && ok.length !== list.length) log(`  · skipped ${list.length - ok.length} seasonal product(s) that don't match this brief`);
+  const toks = h.split(/[^a-z0-9]+/).filter((t) => t.length > 3 && !['kapruka', 'https', 'online', 'from', 'with', 'cakes', 'days'].includes(t));
+  const score = (p) => toks.reduce((a, t) => a + (p.title.toLowerCase().includes(t) ? 1 : 0), 0);
+  return pool.map((p, i) => ({ p, i, s: score(p) })).sort((a, b) => b.s - a.s || a.i - b.i).slice(0, n).map((x) => x.p);
+}
+
+function fromSnapshot(hint, n) {
+  const f = join(ROOT, 'tools', 'ig2img', 'cache', 'kapruka-products.json');
+  if (!existsSync(f)) return [];
+  const list = JSON.parse(readFileSync(f, 'utf8'));
+  const toks = String(hint || '').toLowerCase().split(/[^a-z0-9]+/).filter((t) => t.length > 2);
+  if (!toks.length) return [];
+  return list.map((p) => {
+    const hay = `${p.name} ${p.category}`.toLowerCase();
+    return { p, s: toks.reduce((a, t) => a + (hay.includes(t) ? 1 : 0), 0) };
+  }).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, n).map((x) => ({ url: x.p.url, img: x.p.img, title: x.p.name, price: x.p.price }));
+}
+
+/**
+ * @returns {{products: {title, price, url, file}[], sheet: string|null, cuts: string[], labelWords: string[], source: string}|null}
+ *   null when no product was asked for (no link, no hint) — the job then runs without a product sheet.
+ */
+export async function fetchProducts({ productUrl = '', hint = '', outDir, chrome, n = 3, log = console.log }) {
+  const dir = join(outDir, 'product');
+  mkdirSync(dir, { recursive: true });
+  let picks = []; let source = '';
+  const page = await chrome.newPage();
+  try {
+    const url = String(productUrl || '').trim();
+    if (url && KAPRUKA_RE.test(url)) {
+      if (/\/buyonline\/.+\/kid\//i.test(url)) {
+        log('  → reading the product page');
+        const r = await readProductPage(page, url);
+        if (!r.title || !r.img) throw new Error('could not read that Kapruka product page (no title or picture) — check the link');
+        picks = [{ url, title: r.title, price: r.price, img: r.img }]; source = 'product page';
+      } else {
+        log('  → reading the category page');
+        const all = await readCategoryPage(page, url, Math.max(n * 6, 18));
+        if (!all.length) throw new Error('found no products on that Kapruka page — check the link');
+        picks = pickForOccasion(all, `${hint} ${url}`, n, log);
+        source = 'category page';
+      }
+    } else if (url) {
+      throw new Error('the product link must be a kapruka.com page');
+    } else if (hint) {
+      picks = fromSnapshot(hint, n); source = 'catalogue snapshot';
+    }
+  } finally { await page.close().catch(() => {}); }
+  if (!picks.length) return null;
+
+  const files = [];
+  for (const [i, p] of picks.slice(0, n).entries()) {
+    try { files.push({ ...p, file: await downloadImage(upsize(p.img), join(dir, `p-${i + 1}`)) }); }
+    catch (e) { log(`  ! could not download "${(p.title || '').slice(0, 40)}": ${e.message}`); }
+  }
+  if (!files.length) throw new Error('no product picture could be downloaded');
+  const py = spawnSync('python', ['-I', join(HERE, 'cutout_sheet.py'), dir, ...files.map((f) => f.file)], { encoding: 'utf8', timeout: 5 * 60_000 });
+  if (py.status !== 0) throw new Error(`product cut-out failed: ${(py.stderr || py.stdout || '').slice(-300)}`);
+  const sheetInfo = JSON.parse(py.stdout.trim().split('\n').pop());
+  log(`  ✓ ${files.length} real product${files.length > 1 ? 's' : ''} fetched (${source}): ${files.map((f) => (f.title || '').slice(0, 40)).join(' | ')}`);
+
+  // The exact words printed on the packs: the image engine must spell them exactly, and the checker must not
+  // treat them as stray painted text.
+  let labelWords = [];
+  try {
+    const r = await ask(chrome,
+      `The attached image is a sheet of real products. For each product give ONLY the large, clearly legible words printed on its packaging: the brand and the product name (and variant/size only if big and sharp). Do NOT guess. Skip anything small, blurry, curved, ingredient or legal text, barcodes and fine print — a missing word is fine, an invented word is NOT. Reply: {"products":[{"words":["..."]}]}`,
+      [sheetInfo.sheet], { label: 'label-reader', log });
+    const raw = [...new Set((r.products || []).flatMap((p) => p.words || []).map((w) => String(w).trim()).filter((w) => w.length > 1))];
+    // The shop's own product title is the ground truth. A word read off a tiny photo that is NOT in the title is almost certainly
+    // OCR noise (2026-11-25: "EAD DESPERITITE", "1000MM SLTF OFZ" became binding "must spell exactly" rules, and the art director
+    // then flagged the bottle for lacking them). Keep only words the title confirms.
+    const norm = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    const titleText = ` ${files.map((f) => norm(f.title || '')).join(' ')} `;
+    labelWords = raw.filter((w) => norm(w).split(' ').filter(Boolean).every((t) => titleText.includes(` ${t} `) || (t.length > 3 && titleText.includes(t))));
+    if (raw.length !== labelWords.length) log(`  · label reader: kept ${labelWords.length} of ${raw.length} words (dropped words the product title does not confirm: ${raw.filter((w) => !labelWords.includes(w)).slice(0, 4).join(', ')})`);
+  } catch (e) { log(`  · could not read the pack wording (${String(e.message).slice(0, 80)}) — continuing without it`); }
+  const result = { products: files.map(({ title, price, url, file }) => ({ title, price, url, file })), sheet: sheetInfo.sheet, cuts: sheetInfo.cuts, labelWords, source };
+  writeFileSync(join(outDir, 'products.json'), JSON.stringify(result, null, 2));
+  return result;
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// Direct vs indirect — by how the reference relates to what we promote (human definition, 2026-11-22):
+// a perfume reference for a perfume promotion is DIRECT; a watch reference for a perfume promotion is INDIRECT.
+// ---------------------------------------------------------------------------------------------------------
+export async function classifyRelation({ refFiles, target, override = '', chrome, outDir, log = console.log }) {
+  const hasTarget = !!String(target || '').trim();
+  if (['direct', 'indirect'].includes(override) && hasTarget) {
+    log(`  · relation set by you: ${override}`);
+    return { relation: override, ref_subject: '', reason: 'chosen in the form' };
+  }
+  const r = await ask(chrome,
+    `Look at the attached reference ad image(s). In a few words, what product or category does the reference ADVERTISE (its hero)? `
+    + (hasTarget ? `We want to promote: "${target}". Is the reference's hero the same product or the same category as what we promote? `
+      : `Nothing specific is being promoted, so the reference is copied for Kapruka: answer relation "direct". `)
+    + `Same product or category (e.g. a perfume ad for a perfume promotion) = "direct". A different product or category (e.g. a watch ad for a perfume promotion) = "indirect". `
+    + `Reply: {"ref_subject":"...","relation":"direct|indirect","reason":"one short sentence"}`,
+    refFiles.slice(0, 3), { label: 'relation', log });
+  const relation = ['direct', 'indirect'].includes(override) ? override : (hasTarget && r.relation === 'indirect' ? 'indirect' : 'direct');
+  const res = { relation, ref_subject: String(r.ref_subject || ''), reason: String(r.reason || '') };
+  writeFileSync(join(outDir, 'relation.json'), JSON.stringify(res, null, 2));
+  log(hasTarget ? `  · the reference advertises "${res.ref_subject}", we promote "${target}" → ${relation.toUpperCase()} (${res.reason})` : `  · the reference advertises "${res.ref_subject}" → copied for Kapruka (DIRECT)`);
+  return res;
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// Creative strategist (no reference). Picks the angle and writes the brief; a built-in layout template carries it.
+// ---------------------------------------------------------------------------------------------------------
+const T_TEXT = (id, role, text, box, size, color, align = 'center', extra = {}) => ({
+  id, type: 'text', role, text, box,
+  font: { family_guess: 'Inter', category: 'sans-serif', weight: 700, size_px: size, cap_height_px: Math.round(size * 0.73), line_height: 1.1, letter_spacing_px: 0, case: 'none', italic: false, color, align, valign: 'middle', ...extra },
+  highlights: [], confidence: 'high',
+});
+
+/** Layout templates in the same shape the reference measurer writes, so the adapter and the rest of the build treat them like any reference. */
+export function layoutTemplate(name, tone = 'light') {
+  if (name === 'full-bleed') {
+    // The picture IS the poster (a place, a moment, people); the type sits on calm bands at the top and bottom of it.
+    const light = tone !== 'dark';                       // 'light' = white type on a darker picture, 'dark' = purple type on a lighter one
+    const ink = light ? '#FFFFFF' : '#340A5C';
+    return {
+      canvas: { w: 1080, h: 1350, aspect: '4:5', background: light ? '#340A5C' : '#F5F4EB', background_kind: 'photo' },
+      layout_summary: 'A full-bleed photograph fills the whole poster; the logo, a two-line headline and one short supporting line all sit together on ONE calm band at the top; the rest of the picture is free for the story.',
+      grid: { margins_pct: { top: 7.5, right: 9.5, bottom: 7.5, left: 9.5 }, alignment_axes: ['headline, supporting line and logo are centred on the page'], whitespace: ['one quiet, low-detail band across the top 40% of the picture'] },
+      scene: { present: true, box: { x: 0, y: 0, w: 100, h: 100 }, kind: 'photo', framing: 'full-bleed', subject: 'the picture', composition: 'as briefed', camera: 'as briefed', lighting: 'as briefed', palette: ['#340A5C', '#FFC107', '#F5F4EB'], negative_space: [{ x: 0, y: 0, w: 100, h: 40 }] },
+      elements: [
+        { id: 'logo', type: 'logo', role: 'logo', on: light ? 'dark' : 'light', box: { x: 36, y: 7.5, w: 28, h: 5 }, confidence: 'high' },
+        T_TEXT('e1', 'headline', 'HEADLINE LINE ONE', { x: 9.5, y: 16, w: 81, h: 6 }, 76, ink),
+        T_TEXT('e2', 'headline', 'ACCENT WORD', { x: 9.5, y: 23, w: 81, h: 7 }, 88, light ? '#FFC107' : '#340A5C'),
+        T_TEXT('e3', 'tagline', 'Supporting line here.', { x: 9.5, y: 31.5, w: 81, h: 4 }, 38, ink),
+      ],
+      ornaments: [], z_order: ['scene', 'logo', 'e1', 'e2', 'e3'], hierarchy: ['scene', 'e1', 'e2', 'e3', 'logo'],
+    };
+  }
+  if (name === 'light-split') {
+    return {
+      canvas: { w: 1080, h: 1350, aspect: '4:5', background: '#F5F4EB', background_kind: 'flat' },
+      layout_summary: 'A calm cream poster: a two-line headline at the top, one hero product group in the middle on the ground, a single supporting line near the bottom, logo top centre.',
+      grid: { margins_pct: { top: 7.5, right: 9.5, bottom: 7.5, left: 9.5 }, alignment_axes: ['everything is centred on the page'], whitespace: ['generous clear space around the hero'] },
+      scene: { present: true, box: { x: 15, y: 30, w: 70, h: 52 }, kind: 'photo', framing: 'cutout-on-ground', subject: 'the promoted product(s)', composition: 'centred hero group', camera: 'eye-level studio product shot', lighting: 'soft studio light from the upper left with a soft contact shadow', palette: ['#F5F4EB', '#340A5C'], negative_space: [{ x: 0, y: 0, w: 100, h: 28 }, { x: 0, y: 84, w: 100, h: 16 }] },
+      elements: [
+        { id: 'logo', type: 'logo', role: 'logo', on: 'light', box: { x: 36, y: 7.5, w: 28, h: 5 }, confidence: 'high' },
+        T_TEXT('e1', 'headline', 'HEADLINE LINE ONE', { x: 9.5, y: 16, w: 81, h: 5 }, 64, '#340A5C'),
+        T_TEXT('e2', 'headline', 'HEADLINE LINE TWO', { x: 9.5, y: 21.5, w: 81, h: 7 }, 88, '#340A5C'),
+        T_TEXT('e3', 'tagline', 'Supporting line here.', { x: 9.5, y: 87, w: 81, h: 4 }, 44, '#6B3FA0'),
+      ],
+      ornaments: [], z_order: ['scene', 'logo', 'e1', 'e2', 'e3'], hierarchy: ['scene', 'e2', 'e1', 'e3', 'logo'],
+    };
+  }
+  return {   // 'purple-hero' (default): the brand's own look — deep purple ground, white headline, yellow accent
+    canvas: { w: 1080, h: 1350, aspect: '4:5', background: '#340A5C', background_kind: 'flat' },
+    layout_summary: 'A deep Kapruka-purple poster: a bold white headline at the top with one yellow accent word, one hero product group centred below it, a short supporting line near the bottom, logo top centre.',
+    grid: { margins_pct: { top: 7.5, right: 9.5, bottom: 7.5, left: 9.5 }, alignment_axes: ['everything is centred on the page'], whitespace: ['clear purple space around the hero'] },
+    scene: { present: true, box: { x: 15, y: 34, w: 70, h: 50 }, kind: 'photo', framing: 'cutout-on-ground', subject: 'the promoted product(s)', composition: 'centred hero group', camera: 'eye-level studio product shot', lighting: 'soft key light from the upper right, gentle rim light, soft contact shadow', palette: ['#340A5C', '#FFFFFF', '#FFC107'], negative_space: [{ x: 0, y: 0, w: 100, h: 32 }, { x: 0, y: 86, w: 100, h: 14 }] },
+    elements: [
+      { id: 'logo', type: 'logo', role: 'logo', on: 'dark', box: { x: 36, y: 7.5, w: 28, h: 5 }, confidence: 'high' },
+      T_TEXT('e1', 'headline', 'HEADLINE LINE ONE', { x: 9.5, y: 16, w: 81, h: 6 }, 76, '#FFFFFF'),
+      T_TEXT('e2', 'headline', 'ACCENT WORD', { x: 9.5, y: 23, w: 81, h: 7 }, 88, '#FFC107'),
+      T_TEXT('e3', 'tagline', 'Supporting line here.', { x: 9.5, y: 87, w: 81, h: 4 }, 44, '#FFFFFF'),
+    ],
+    ornaments: [], z_order: ['scene', 'logo', 'e1', 'e2', 'e3'], hierarchy: ['scene', 'e1', 'e2', 'e3', 'logo'],
+  };
+}
+
+const BANNED_WORDS = /\b(premium|luxury|exclusive|high-end|best|leading|biggest|amazing|incredible|premier)\b/i;
+const STRAT_STOP = new Set(['kapruka', 'promote', 'online', 'from', 'with', 'that', 'this', 'your', 'about', 'gift', 'gifts', 'days', 'shop', 'make', 'want', 'need']);
+
+/** The parts of a foundation file that match this job (by section), so the strategist reads the right persona / occasion, not the whole file. */
+function excerptsFor(file, text, max) {
+  try {
+    const raw = readFileSync(join(ROOT, file), 'utf8');
+    const toks = String(text || '').toLowerCase().split(/[^a-z0-9']+/).filter((t) => t.length > 3 && !STRAT_STOP.has(t));
+    if (!toks.length) return '';
+    const blocks = raw.split(/\n(?=#{1,3} )/);
+    const scored = blocks.map((b, i) => ({ b, i, s: toks.reduce((a, t) => a + (b.toLowerCase().includes(t) ? 1 : 0), 0) }))
+      .filter((x) => x.s > 0).sort((a, b) => b.s - a.s || a.i - b.i);
+    let out = '';
+    for (const x of scored) {
+      if (out.length + x.b.length > max) { out += x.b.slice(0, Math.max(0, max - out.length)); break; }
+      out += `${x.b}\n\n`;
+    }
+    return out.trim() ? `--- ${file} (the parts that match this job) ---\n${out.trim()}` : '';
+  } catch { return ''; }
+}
+
+const SUBJECT_STEM = (w) => w.replace(/(ing|ers|er|es|s)$/, '');
+/** The words of the request that name the SUBJECT (what is being advertised). */
+function subjectTokens(t) {
+  return String(t || '').toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 3 && !STRAT_STOP.has(w)).map(SUBJECT_STEM).filter((w) => w.length >= 3);
+}
+
+/** Problems with a strategist reply that are worth one corrective re-ask. Empty list = good. */
+function briefProblems(b, jobText = '') {
+  const p = [];
+  if (!b || typeof b !== 'object') return ['the reply was not a JSON object'];
+  const c = Array.isArray(b.candidates) ? b.candidates : [];
+  if (c.length < 3) p.push('"candidates" must list at least 3 genuinely different concepts');
+  if (!(Number.isInteger(b.chosen) && b.chosen >= 0 && b.chosen < c.length)) p.push('"chosen" must be the 0-based index of the best candidate');
+  if (c.some((x) => /^K0\b/i.test(String(x?.concept || '')))) p.push('K0 (the reverent tableau) is not a valid concept');
+  const win = c[b.chosen] || {};
+  if (Number.isInteger(b.chosen) && String(win.subject_anchor || '').length < 25) p.push('the chosen candidate needs "subject_anchor": what in the picture, with ALL text covered, tells a stranger what is being advertised');
+  const toks = subjectTokens(jobText);
+  if (toks.length && !toks.some((t) => String(b.scene_prompt || '').toLowerCase().includes(t))) p.push(`scene_prompt never shows the subject ("${String(jobText).trim().slice(0, 60)}"): the picture must contain a recognisable anchor of it — describe it explicitly (it should mention ${toks.slice(0, 4).join(' / ')})`);
+  if (!b.headline_line_1 || !b.headline_line_2) p.push('both headline lines are required');
+  if (String(b.headline_line_1 || '').length > 22) p.push(`headline_line_1 is ${String(b.headline_line_1).length} characters; the limit is 22`);
+  if (String(b.headline_line_2 || '').length > 14) p.push(`headline_line_2 is ${String(b.headline_line_2).length} characters; the limit is 14`);
+  if (String(b.supporting_line || '').length > 38) p.push(`supporting_line is ${String(b.supporting_line).length} characters; the limit is 38`);
+  const words = `${b.headline_line_1} ${b.headline_line_2} ${b.supporting_line} ${b.scene_prompt}`;   // the picture prompt too: "luxury gold" in it makes the image model paint a luxe look (seen 2026-11-25)
+  if (BANNED_WORDS.test(words)) p.push(`the copy or scene_prompt uses a banned word (${words.match(BANNED_WORDS)[0]})`);
+  if (String(b.scene_prompt || '').length < 500) p.push('scene_prompt must be a full 150-230 word description of the picture');
+  if (/["“”][^"“”]{2,}["“”]/.test(String(b.scene_prompt || '')) && /headline|caption|reads|says|sign/i.test(String(b.scene_prompt || ''))) p.push('scene_prompt must not contain any lettering or quoted text');
+  return p;
+}
+
+export async function strategist({ kind, text, instruction = '', products, chrome, outDir, log = console.log }) {
+  const prods = products?.products?.length
+    ? `Real products we can show (attached as a sheet): ${products.products.map((p) => `${p.title}${p.price ? ' (' + p.price + ')' : ''}`).join('; ')}. They MUST appear in the picture, drawn exactly as the sheet shows (even if small or partly in frame).`
+    : 'No specific product was given — choose a believable real Kapruka product type for the idea, or let a person and a moment carry the idea (a product is not mandatory).';
+  // The learning loop: rules distilled from every earlier design, plus the best earlier prompts that ran under the same conditions.
+  try { await ensureLessons({ chrome, log }); } catch (e) { log(`  · playbook not updated (${String(e.message).split('\n')[0].slice(0, 90)}) — using what is saved`); }
+  const book = playbookFor({ target: text, hasProducts: !!products?.sheet, framing: 'cutout-on-ground' });
+  if (book.text) log(`  · playbook: writing from ${book.used.entries} earlier designs (rules v${book.used.lessons || 0})`); else log('  · playbook: nothing recorded yet — writing from the brand rules only');
+  const read = (f, n) => { try { return `--- ${f} ---\n${readFileSync(join(ROOT, f), 'utf8').slice(0, n)}`; } catch { return ''; } };
+  const craft = read('1-foundation/05-strategist-craft.md', 14000);
+  const jobText = `${text} ${instruction}`;
+  const ctx = [
+    read('1-foundation/01-business-context.md', 3000),
+    read('1-foundation/00-brand-guidelines.md', 6000),
+    excerptsFor('1-foundation/02-personas.md', jobText, 2600),
+    excerptsFor('1-foundation/03-occasion-calendar.md', jobText, 1400),
+    excerptsFor('1-foundation/02e-desire-engine.md', jobText, 1600),
+  ].filter(Boolean).join('\n\n');
+  if (!craft) log('  · note: 1-foundation/05-strategist-craft.md is missing — thinking without the craft guide');
+
+  const basePrompt = `You are Ashadi's creative strategist for Kapruka (Sri Lanka's gifting and shopping site). There is NO reference image for this job, so the idea is entirely yours — and a basic idea is a failed job.
+${kind === 'persona' ? `Persona to speak to: "${text}".` : `Thing to promote: "${text}".`}${instruction ? (instruction.length > 200 ? `\nCREATIVE DIRECTION from the requester (a developed brief written by the Facebook ads strategist): ${instruction}\nBUILD ON IT: keep its idea, message and any on-image wording it gives (shorten to the headline limits below if needed), and sharpen the execution. But if its picture would fail the Subject Test, the one-second test or any hard rule below, fix that part and say so in "why". Still list your own candidates, and prefer the direction's concept when it passes.` : `\nRequester's note: ${instruction}`) : ''}
+${prods}
+
+DO NOT jump to the first idea. Work through the craft guide below IN ORDER and show your work in "candidates":
+1. Find the shared truth people in this audience would nod at. 2. List FOUR genuinely different candidate concepts, each from a DIFFERENT concept bucket (K1-K9; never K0). 3. For each, write the obvious "logical version" an ordinary art director would do first, then the escalation (which 1-2 variables you moved) that makes it better while keeping the idea. 4. Run each through the blank-headline test and the one-second / easy-to-process tests, and score it 1-10 honestly (a K0-style product-on-a-colour poster scores 2). 5. Choose the highest-scoring one that passes, and write the final brief for it.
+
+THE SUBJECT TEST COMES FIRST and is not negotiable: cover ALL text — can a stranger tell what is being advertised ("${text}")? The picture must contain a recognisable ANCHOR of that subject: the real product if one is attached; for a service or feature (updates, tracking, checkout, delivery) the object people associate with it — e.g. for WhatsApp updates a phone showing a WhatsApp-style chat (white and green rounded message bubbles, small tick marks, the pale chat wallpaper, drawn with lines instead of letters so there is NO legible text); for an occasion, its unmistakable symbols. A concept that hides the subject (K2 "never shown directly", K3 "the wrong thing") is only allowed if the anchor is still plainly in frame. A picture that would suit any brand or any message (a person smiling at a phone, a gift on a table) FAILS this test: score it at most 3 and do not choose it. For a feature or service ad, prefer concepts where its interface or object is the hero or co-hero.
+
+Hard rules (these never bend): one idea only; plain spoken, direct words — no wordplay, puns or clever double meanings; a universal, relatable moment (no Sinhala/Tamil words, no kinship terms like amma/akka, no postcard clichés); no invented prices, offers or delivery promises; never use the words premium, luxury, exclusive, high-end, best, leading, biggest, amazing, incredible, premier; happy and vibrant, never gloomy.
+Headline: two lines (line 1 up to 22 characters, line 2 up to 14 characters, the accent word or phrase). Supporting line up to 38 characters. The headline must NOT just describe what the picture shows.
+layout: "purple-hero", "light-split" or "full-bleed" — pick the one that carries THIS idea (see the guide; do not default to purple-hero). text_tone: "light" (white type, picture darker where the type sits) or "dark" (purple type, picture lighter where the type sits).
+scene_prompt: 150-230 words describing ONLY the picture for an image model, in the order given in the guide (viewpoint and scale, who is in the frame doing what right now, the product, surface and props, light as a choice, colour story, what stays empty, what to avoid). It must contain NO headline, caption, sign or any lettering. ${products?.sheet ? 'State that the real products from the attached sheet are drawn exactly as they are.' : ''}
+PLACEMENT: for purple-hero and light-split the hero area is x 15-85% and y 32-84% of the frame (centred, below the headline). For full-bleed the picture fills the whole frame and ALL the type (logo, two headline lines, supporting line) sits together in the top 40%: keep that band quiet, soft, low-detail and even in tone (a wall, sky, dark space, blurred background), and put the whole story, the person and the product in the lower 60% — nothing important and no bright detail in the top 40%, and nothing awkward where the bottom edge is cropped. Do NOT copy placement coordinates from earlier examples or rules below: they belong to other layouts. Take their lessons (what to specify, what to avoid), not their numbers.
+${book.text ? `
+WRITE scene_prompt IN THE STYLE THAT HAS WORKED — this is Ashadi's own playbook, learned from earlier designs and your feedback. Follow its structure and level of detail, apply every Do, and avoid every Avoid:
+${book.text}
+` : ''}
+=== THE CRAFT GUIDE ===
+${craft}
+
+=== WHAT THE BUSINESS AND BRAND SAY ===
+${ctx}
+
+Reply with ONLY this JSON (the candidates come first, then the winner's brief):
+{"recognition":"the shared truth, one sentence",
+ "candidates":[{"concept":"K1-K9","idea":"one line","picture":"what the image shows","subject_anchor":"what in the picture, with ALL text covered, tells a stranger the ad is about the subject","logical_version":"the obvious way","wow_moved":"which variable(s) and the result","blank_headline_read":"what the picture says with the headline covered","passes":"yes/no + why (one-second, easy to process)","score":1-10}, ... four of them],
+ "chosen":0,
+ "angle":"one sentence","audience":"...","layout":"purple-hero|light-split|full-bleed","text_tone":"light|dark","headline_line_1":"...","headline_line_2":"...","supporting_line":"...","scene_prompt":"...","why":"one sentence"}`;
+
+  const imgs = products?.sheet ? [products.sheet] : [];
+  let b = await ask(chrome, basePrompt, imgs, { label: 'strategist', log });
+  let problems = briefProblems(b, text);
+  if (problems.length) {
+    log(`  · strategist reply needs fixing (${problems.join('; ').slice(0, 220)}) — asking once more`);
+    try {
+      const b2 = await ask(chrome, `${basePrompt}\n\nYOUR PREVIOUS REPLY HAD THESE PROBLEMS — fix every one and reply again with the complete JSON:\n- ${problems.join('\n- ')}`, imgs, { label: 'strategist', log });
+      if (b2 && typeof b2 === 'object') { b = b2; problems = briefProblems(b, text); }
+    } catch (e) { log(`  · second strategist reply failed (${String(e.message).split('\n')[0].slice(0, 100)}) — using the first`); }
+  }
+  if (!b?.headline_line_1 || !b?.scene_prompt) throw new Error('the strategist did not return a usable brief');
+  if (problems.length) log(`  ! brief still has issues, continuing: ${problems.join('; ').slice(0, 220)}`);
+  b.layout = ['light-split', 'full-bleed'].includes(b.layout) ? b.layout : 'purple-hero';
+  b.text_tone = b.text_tone === 'dark' ? 'dark' : 'light';
+  if (b.layout === 'light-split') b.text_tone = 'dark';
+  if (b.layout === 'purple-hero') b.text_tone = 'light';
+  b.playbook = book.used;                                  // how much it had learned from when it wrote this
+  writeFileSync(join(outDir, 'strategist-brief.json'), JSON.stringify(b, null, 2));
+  const cands = Array.isArray(b.candidates) ? b.candidates : [];
+  const win = cands[b.chosen] || {};
+  if (b.recognition) log(`  · shared truth: ${String(b.recognition).slice(0, 160)}`);
+  if (cands.length) log(`  · concepts weighed: ${cands.map((x, i) => `${i === b.chosen ? '★' : ''}${x.concept || '?'} (${x.score ?? '?'})`).join(' · ')}`);
+  if (win.idea) log(`  · chosen: ${String(win.concept || '')} — ${String(win.idea).slice(0, 170)}${win.wow_moved ? ` | wow: ${String(win.wow_moved).slice(0, 110)}` : ''}`);
+  log(`  ✓ angle: ${b.angle} [layout: ${b.layout}]`);
+  return b;
+}
+
+/** A reference-style layout spec built from the strategist's brief, so the adapter/builder can run unchanged. */
+export function specFromBrief(brief) {
+  const spec = layoutTemplate(brief.layout, brief.text_tone);
+  const set = (id, text) => { const e = spec.elements.find((x) => x.id === id); if (e) e.text = text; };
+  set('e1', brief.headline_line_1); set('e2', brief.headline_line_2); set('e3', brief.supporting_line);
+  spec.scene.subject = brief.scene_prompt;
+  return spec;
+}

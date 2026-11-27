@@ -1,0 +1,12 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": null,
+  "startedAt": "2026-11-27T04:55:16.442Z",
+  "variants": [],
+  "reference": [
+    "ref-01.png"
+  ],
+  "caption": null,
+  "error": "could not check the product photos for people (The Claude CLI could not do \"people-checker\" (people-checker exited 1: You've hit your 5-hour limit ) — try again"
+}

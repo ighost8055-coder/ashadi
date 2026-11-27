@@ -1,0 +1,130 @@
+{
+  "canvas": {
+    "w": 1199,
+    "h": 1499,
+    "aspect": "4:5",
+    "background": "#FFFCEB",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A centered two-line meme-style headline sits in the upper third of a pale cream canvas above a large cutout composite of a tabby cat wearing red sunglasses and holding two perfume bottles. The cat subject anchors the bottom center and bleeds off the lower edge.",
+  "grid": {
+    "margins_pct": {
+      "top": 18,
+      "right": 9.5,
+      "bottom": 0,
+      "left": 9.5
+    },
+    "alignment_axes": [
+      "Headline, subhead, and central cat subject share a vertical center axis at x=50%",
+      "Headline left and right edges sit symmetrically at x=9.5% and x=90.5%"
+    ],
+    "whitespace": [
+      "18% empty top margin above the headline",
+      "2% vertical gap between headline and subhead",
+      "6.5% vertical gap between subhead baseline and top of cat's ears",
+      "20% open margins on left and right flanking the subject"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 20.5,
+      "y": 33.5,
+      "w": 59,
+      "h": 66.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "Brown tabby cat facing forward wearing glossy red cat-eye sunglasses and a small red satin ribbon bow on its left ear, holding two rectangular glass perfume bottles with black cylindrical caps (pink-red liquid on left, deep blue-amber liquid on right) in its front paws.",
+    "composition": "Centered vertically in the lower two-thirds, cropped at the chest along the bottom canvas edge, occupying ~59% of canvas width.",
+    "camera": "Eye-level straight-on medium close-up, sharp focus across fur, sunglasses, and bottle surfaces.",
+    "lighting": "Soft, even front-lit studio illumination with subtle specular highlights on the red frames and glass bottles.",
+    "palette": [
+      "#8C725B",
+      "#C9B29B",
+      "#A8151B",
+      "#141414",
+      "#1E355E",
+      "#9E424B"
+    ],
+    "negative_space": [
+      "x=0%, y=0%, w=100%, h=33.5%",
+      "x=0%, y=33.5%, w=20.5%, h=66.5%",
+      "x=79.5%, y=33.5%, w=20.5%, h=66.5%"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "\"Your future is in your hands\"",
+      "box": {
+        "x": 9.5,
+        "y": 18,
+        "w": 81,
+        "h": 4.5
+      },
+      "font": {
+        "family_guess": "Plus Jakarta Sans",
+        "category": "geometric sans",
+        "weight": 600,
+        "size_px": 56,
+        "cap_height_px": 41,
+        "line_height": 1.15,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "subhead",
+      "text": "Meanwhile me :",
+      "box": {
+        "x": 33.5,
+        "y": 24.5,
+        "w": 33.5,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Plus Jakarta Sans",
+        "category": "geometric sans",
+        "weight": 400,
+        "size_px": 40,
+        "cap_height_px": 29,
+        "line_height": 1.15,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2"
+  ],
+  "hierarchy": [
+    "e1",
+    "e2",
+    "scene"
+  ],
+  "why_it_works": [
+    "Generous cream negative space around the upper text ensures immediate readability before the eye drops to the visual punchline.",
+    "Strict central symmetry ties the two-line setup directly to the cat's gaze and symmetrical twin perfume bottles.",
+    "High-contrast red eyewear and bow draw attention to the cat's face, guiding the viewer down to the held products."
+  ]
+}

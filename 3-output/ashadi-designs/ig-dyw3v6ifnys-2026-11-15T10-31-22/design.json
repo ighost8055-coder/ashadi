@@ -1,0 +1,84 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-15T10:31:22.103Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "placed-01.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 1,
+        "notes": "Clean white seamless backdrop, no text anywhere. Right ~15% and bottom ~5% are empty white. Minor render oddities: the ribbon emerging from the handbag handle has no plausible anchor point (it just morphs out of the strap), and the box's left front face edge is slightly soft/warped near 12% x, 75% y. Box face is largely obscured by ribbon — the clearest uninterrupted dark panel for a logo is roughly x 38-50%, y 70-85%."
+      },
+      "canva": {
+        "id": "DAHa-lmtcTk",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzMxODExNDUxfQ..sriMG9sClZtFMk25.wrJRoFlZ62rs6I2qXhcfyCw_z25cXuue4EkHAgyCZB3nkHkdLnA4PdlMVJ-fsomh7KBGcBSrkrW3cvoAaCNp1sy6yZ5UBr1bDB7_QS8dBdMo5HQ.S7i7g3OqKGIrUwz0q-KPBQ/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=b7564f5b-c660-48cd-96cb-bc6ac537ba5b&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzMxODExNDUxfQ..sriMG9sClZtFMk25.wrJRoFlZ62rs6I2qXhcfyCw_z25cXuue4EkHAgyCZB3nkHkdLnA4PdlMVJ-fsomh7KBGcBSrkrW3cvoAaCNp1sy6yZ5UBr1bDB7_QS8dBdMo5HQ.S7i7g3OqKGIrUwz0q-KPBQ/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=f06678a6-b47b-47a3-87d0-3ddc54650ba8&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Huge dead white gap: artwork ends ~48% height, caption at 94% — unbalanced, reference fills frame",
+            "fix_in_canva": "Scale the gift-box image group up ~1.6x and move down so it ends near y=78%"
+          },
+          {
+            "severity": "high",
+            "what": "Handbag is clipped by the top edge; reference shoe has clear top margin",
+            "fix_in_canva": "Drag the bag/ribbon group down ~140px so the bag top sits inside the frame"
+          },
+          {
+            "severity": "high",
+            "what": "Headline mixes serif (THE GIFTS COME) with bold sans (WRAPPED); reference lockup is one typeface",
+            "fix_in_canva": "Set all four headline words in bold Poppins, or all in the serif — pick one"
+          },
+          {
+            "severity": "medium",
+            "what": "Straight horizontal cut across cutout shadow under box — visible image box edge",
+            "fix_in_canva": "Erase/feather the bottom shadow edge, or apply a soft bottom fade to the cutout"
+          },
+          {
+            "severity": "medium",
+            "what": "Ribbon tails from bag strap float; join into the bow reads broken, not poured",
+            "fix_in_canva": "Overlap the ribbon tail layer onto the bow by ~40px and nudge horizontally to align"
+          },
+          {
+            "severity": "medium",
+            "what": "No accent colour in headline; reference uses red THE/EATS to build hierarchy",
+            "fix_in_canva": "Colour THE and COME in Kapruka gold #FFD21E over white, or lighter purple"
+          },
+          {
+            "severity": "low",
+            "what": "Bag and box lighting/scale mismatch; bag reads oversized next to small box",
+            "fix_in_canva": "Reduce bag layer ~15% and add matching soft shadow beneath it"
+          },
+          {
+            "severity": "low",
+            "what": "WRAPPED right edge sits ~95px from frame; GIFTS ends ~135px — ragged right",
+            "fix_in_canva": "Right-align GIFTS and WRAPPED to one guide at x=980"
+          }
+        ],
+        "strengths": [
+          "Correct single Kapruka logo, undistorted, on brand packaging",
+          "Support line is direct, legible, high contrast",
+          "Purple/gold palette is on brand and consistent"
+        ]
+      }
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "title": "The Gifts Come Wrapped",
+  "finishedAt": "2026-11-15T10:54:36.916Z"
+}

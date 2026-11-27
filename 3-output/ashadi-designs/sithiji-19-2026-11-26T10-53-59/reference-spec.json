@@ -1,0 +1,203 @@
+{
+  "canvas": {
+    "w": 1402,
+    "h": 1753,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A minimalist meme composition set on a solid white canvas, featuring a central cut-out kitten surrounded symmetrically by four flower bouquet cut-outs in the corners. Bold sans-serif black text sits centered above and below the central subject to form a classic top-and-bottom meme caption.",
+  "grid": {
+    "margins_pct": {
+      "top": 12.5,
+      "right": 2.5,
+      "bottom": 7,
+      "left": 3
+    },
+    "alignment_axes": [
+      "Top headline and bottom punchline are centered around the x=50.5% vertical axis",
+      "Central kitten cutout is centered along the x=50.0% vertical axis",
+      "Top-left red rose box and bottom-left lily bouquet align along left margin x=3.0%–3.5%",
+      "Top-right orchid bouquet and bottom-right sunflower bouquet align along right margin x=96.5%–97.5%"
+    ],
+    "whitespace": [
+      "12.5% empty white margin above the top text",
+      "8.0% vertical gap between top text baseline and top-left bouquet",
+      "6.5% vertical gap between kitten's tail tip and bottom punchline text",
+      "7.0% empty white margin below bottom bouquets"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 37.5,
+      "y": 26,
+      "w": 25.5,
+      "h": 48.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "An orange-and-cream tabby kitten lying flat on its back with eyes squinted shut, chin tilted upward, paws tucked near its sides, and a dark-tipped tail extending downward.",
+    "composition": "Full-body isolated cutout positioned vertically down the center of the canvas, flanked symmetrically on left and right by four floral arrangements.",
+    "camera": "High-angle overhead flat-lay shot, sharp focus across the fur.",
+    "lighting": "Soft, even indoor ambient light with gentle natural shading under the chin and belly.",
+    "palette": [
+      "#D8B894",
+      "#A6825B",
+      "#F2E6D8",
+      "#4A3E35"
+    ],
+    "negative_space": [
+      "x: 0, y: 0, w: 100, h: 22",
+      "x: 33, y: 74, w: 36, h: 26"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "cause of death:",
+      "box": {
+        "x": 23,
+        "y": 12.5,
+        "w": 55,
+        "h": 5.5
+      },
+      "font": {
+        "family_guess": "Montserrat",
+        "category": "geometric sans",
+        "weight": 500,
+        "size_px": 92,
+        "cap_height_px": 66,
+        "line_height": 1.1,
+        "letter_spacing_px": 0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 3,
+        "y": 22,
+        "w": 31.5,
+        "h": 26.5
+      },
+      "description": "Round black hatbox filled with red roses and baby's breath, tied with a red satin ribbon bow.",
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "logo",
+      "brand": "Flower Aura",
+      "box": {
+        "x": 16,
+        "y": 41,
+        "w": 6.5,
+        "h": 3
+      },
+      "on": "dark",
+      "confidence": "medium"
+    },
+    {
+      "id": "e4",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 64,
+        "y": 22.5,
+        "w": 33.5,
+        "h": 31.5
+      },
+      "description": "Bouquet of magenta purple orchids wrapped in pink and gold paper with a black branded ribbon.",
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 3.5,
+        "y": 55.5,
+        "w": 34.5,
+        "h": 36
+      },
+      "description": "Bouquet of pink lilies, peach roses, and white blooms wrapped in white paper with a pink ribbon.",
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 66.5,
+        "y": 58.5,
+        "w": 30,
+        "h": 34.5
+      },
+      "description": "Bouquet of bright yellow sunflowers and eucalyptus leaves wrapped in cream paper with a black ribbon.",
+      "confidence": "high"
+    },
+    {
+      "id": "e7",
+      "type": "text",
+      "role": "tagline",
+      "text": "no flowers",
+      "box": {
+        "x": 34.5,
+        "y": 79,
+        "w": 33,
+        "h": 5.5
+      },
+      "font": {
+        "family_guess": "Montserrat",
+        "category": "geometric sans",
+        "weight": 500,
+        "size_px": 92,
+        "cap_height_px": 66,
+        "line_height": 1.1,
+        "letter_spacing_px": 0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e2",
+    "e3",
+    "e4",
+    "e5",
+    "e6",
+    "e1",
+    "e7"
+  ],
+  "hierarchy": [
+    "e1",
+    "scene",
+    "e7",
+    "e2",
+    "e4",
+    "e5",
+    "e6"
+  ],
+  "why_it_works": [
+    "High-contrast black geometric type on pure white delivers instant meme readability on social feeds.",
+    "Four corner flower cutouts frame the expressive central kitten without visual clutter or overlapping edges.",
+    "Clean product photography doubles organically as comedic props while subtly displaying brand packaging."
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A parody poster layout on a pure white background featuring a glossy Kapruka purple stiletto with a trident heel dipping into a rich dark chocolate ganache cake on the left, balanced by a stacked Inter Bold title lockup on the right, the Kapruka logo in the top-right corner, and a single-line bold purple punchline across the bottom inside 100px safe margins.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.5,
+      "bottom": 8,
+      "left": 9.5
+    },
+    "alignment_axes": [
+      "DEVIL and CAKE share a left edge at x=46–46.5%",
+      "Kapruka logo right edge aligns with the 100px right margin at x=90.5%",
+      "Bottom punchline is horizontally centered at x=50%"
+    ],
+    "whitespace": [
+      "7.5% empty band across top edge (100px margin)",
+      "7.5% horizontal gap between heel/cake (x=38.5%) and title block (x=46%)",
+      "33% open white space below title block (y=55.5% to y=88.5%)",
+      "6% empty band between cake base (y=82.5%) and bottom punchline (y=88.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 9.5,
+      "y": 10,
+      "w": 29,
+      "h": 72.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy deep Kapruka purple (#340A5C) stiletto heel with a three-pronged trident tip dipping into a rich, round dark chocolate ganache cake, with thick chocolate ganache overflowing and dripping down the right side.",
+    "composition": "Positioned within the left third inside the 100px margin; the purple patent-leather stiletto angles upward and descends vertically into the compact chocolate cake resting at the lower left.",
+    "camera": "Eye-level studio shot, sharp focus throughout.",
+    "lighting": "Bright, soft studio lighting from the upper left with crisp specular highlights on the purple patent shoe and glossy chocolate ganache, plus a soft natural contact shadow beneath the cake.",
+    "palette": [
+      "#340A5C",
+      "#3B1E12",
+      "#5C2E1A",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "x=38.5% to 100%, y=0% to 88.5% (right side and upper-right)",
+      "x=0% to 9.3% and x=90.7% to 100% (100px side margins)",
+      "y=0% to 7.4% and y=92.6% to 100% (100px top and bottom margins)"
+    ],
+    "prompt": "Eye-level studio product photograph in 4:5 portrait orientation on a pure flat white (#FFFFFF) background with cutout-on-ground framing. Positioned strictly within the left third of the frame (x=9.5% to 38.5%, y=10% to 82.5%), a glossy deep purple (#340A5C) patent-leather stiletto shoe with a sleek three-pronged purple trident heel angles upward and dips its trident tip straight down into the top of a rich, compact round dark chocolate ganache cake resting at the lower left. Where the trident pierces the cake, thick, gleaming dark chocolate ganache overflows and drips naturally down the right side of the cake, pooling slightly onto the white ground. Real photographic materials throughout: authentic patent-leather reflections and crisp specular highlights on the stiletto, velvety dark chocolate ganache with realistic viscosity, subtle moist sponge texture, bright soft studio lighting from a single consistent upper-left direction, sharp focus throughout, and a natural soft contact shadow beneath the cake with zero plastic AI sheen. Keep the entire remainder of the canvas pure, uninterrupted flat white (#FFFFFF), completely calm and uncluttered for overlaid typography and logo: top-right logo zone (x=71.5% to 90.5%, y=7.5% to 12%), right-side title zone (x=46% to 90.5%, y=31% to 55.5%), bottom tagline zone (x=9.5% to 90.5%, y=88.5% to 92%), and outer 100px margins (x<9.3%, x>90.7%, y<7.4%, y>92.6%). Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage, plates with markings, or UI anywhere in the image.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 71.5,
+        "y": 7.5,
+        "w": 19,
+        "h": 4.5
+      }
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 31,
+        "w": 12,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 56,
+        "cap_height_px": 41,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 140,
+        "cap_height_px": 101,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 65,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "CAKE",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 156,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly, everybody wants a Kapruka cake.",
+      "box": {
+        "x": 9.5,
+        "y": 88.5,
+        "w": 81,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 46,
+        "cap_height_px": 34,
+        "line_height": 1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5",
+    "logo"
+  ],
+  "why_it_works": [
+    "Instant pop-culture parody recognition preserved through the glossy trident stiletto, overflowing chocolate ganache drip, stacked title lockup, and generous white space.",
+    "Two-tone Kapruka purple palette (#340A5C main, #6B3FA0 accent) ties the patent shoe and typography together cleanly on white.",
+    "Replacing the third-party spread jar with a rich Kapruka chocolate ganache cake keeps the dripping visual pun while making the hero product authentically Kapruka."
+  ],
+  "changes": [
+    "Replaced the third-party Lotus Biscoff jar with a rich dark chocolate ganache cake (a real Kapruka gifting product) and recoloured the glossy trident stiletto from red to Kapruka Retail Purple (#340A5C).",
+    "Changed all typography from Garamond and Century Gothic to Inter Bold (700) per the standing Inter-only rule.",
+    "Mapped the black/red type hierarchy to Kapruka purple (#340A5C) for DEVIL/CAKE and legible lighter purple (#6B3FA0) for THE/EATS and the bottom punchline on the white ground.",
+    "Updated the lockup from 'THE DEVIL EATS BISCOFF' to 'THE DEVIL EATS CAKE' and rewrote the spoken punchline to 'Don't be silly, everybody wants a Kapruka cake.' (47 chars vs 44 chars, +6.8%).",
+    "Added the Kapruka logo in the calm top-right corner (x=71.5%, y=7.5%, w=19%) so its top edge sits 101px from the top edge.",
+    "Pulled the scene box, e4 right edge, and bottom punchline (e5) inside the mandatory 100px margins on all four sides (x: 9.5–90.5%, y: 7.5–92%).",
+    "Removed the devil-tail arrow ornament on the letter V per the no-ornaments rule."
+  ],
+  "claims_used": [
+    "Kapruka sells cakes (supported by 1-foundation/00-brand-guidelines.md Section 6 'Make cakes appetizing' and 1-foundation/references/brand-assets/_brand-assets.md listing Kapruka cake gifting). No prices, offers, or delivery promises are claimed."
+  ]
+}

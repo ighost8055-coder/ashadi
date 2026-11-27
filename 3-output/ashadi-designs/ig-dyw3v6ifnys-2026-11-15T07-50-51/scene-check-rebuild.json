@@ -1,0 +1,26 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "bag",
+      "face": {
+        "x": 21.5,
+        "y": 58,
+        "w": 31,
+        "h": 36.5
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    }
+  ],
+  "notes": "Bag front face is the large purple panel from ~x21.5-52.5; a narrow darker side panel runs x14.5-21.5 (y58-92) at the left. Rope handle arcs across the face (~x32-46, y59-73) so a logo should sit above or below it. Glass perfume bottle (x52-65, y72-93) is plain/unlabelled. Minor oddities: the shoe is floating unsupported with no leg or visible means of support, and the bag's top-left corner flap geometry is slightly implausible where the ribbon exits. No hands, faces or fingers in frame. Right half of the image (x>66) is clean empty backdrop.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

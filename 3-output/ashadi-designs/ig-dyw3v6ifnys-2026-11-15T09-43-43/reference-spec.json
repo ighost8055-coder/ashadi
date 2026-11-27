@@ -1,0 +1,265 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A two-column poster: a full-bleed-left 3D render (a red stiletto whose heel melts into a devil's trident pouring into a Biscoff jar) occupies the left ~36% from 10% to 82% height, while a flush-left/flush-right movie-title lockup sits in the right half between 31% and 55%. A single full-width red one-liner anchors the bottom at 92-96%, with a large deliberate field of empty white between the lockup and that caption.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 6.6,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL and BISCOFF share a left edge at x=46.8%",
+      "DEVIL (right 89.1%) and BISCOFF (right 90.6%) are optically justified to a shared right edge at x≈90%",
+      "EATS is centred on the DEVIL/BISCOFF block centre at x≈68.5%",
+      "THE is indented off that left edge, starting at x=50.5% (sits over the D–E gap)",
+      "The caption is centred on the canvas vertical centreline (block centre x=50.2%)",
+      "The melting heel, the three trident prongs and the jar body share a vertical axis at x≈24%",
+      "The render column (0–36.3%) and the type column (46.8–90.6%) are two hard vertical bands"
+    ],
+    "whitespace": [
+      "10% empty white band across the full top (y 0–10%)",
+      "10.5% vertical white gutter between the render's right edge (x=36.3%) and the lockup's left edge (x=46.8%)",
+      "37% tall empty white field on the right half between the BISCOFF baseline (y=55%) and the caption cap-top (y=92.3%)",
+      "10.3% white band between the jar base (y=82%) and the caption cap-top (y=92.3%)",
+      "No left margin — the shoe deliberately bleeds off the left edge; the caption's 7% is the only true left margin"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36.3,
+      "h": 72
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy patent-red women's stiletto pump, lying tilted with its pointed toe up at the top right of the column and its sole running down to the left off the canvas edge. Its stiletto heel stretches downward and turns liquid, splitting into three curved prongs that form a devil's trident, each prong tipped with a small barbed point as it plunges into the open mouth of a cylindrical glass spread jar below. Thick caramel-brown spread wells over the jar's rim, coats the threads and runs down the glass in heavy drips, pooling in a small blob at the base. The jar carries a red wraparound product label.",
+    "composition": "Single diagonal from upper-right (toe, x≈30%, y≈11%) down to lower-left, then a hard vertical turn at x≈24% where the heel becomes the pour, landing on the jar centred at x≈24%, y≈55–82%. Shoe occupies x 0–36.3%, y 10–45.6%; jar occupies x 13.9–34.8%, y 55.6–81.9%. The shoe is cropped hard by the left canvas edge; the jar is fully contained with a tiny contact shadow.",
+    "camera": "Slight below-eye-level product angle on the jar, near-eye-level on the shoe; long-lens / orthographic-feeling compression with no perspective distortion; everything in sharp focus front to back, no depth-of-field falloff.",
+    "lighting": "Studio product lighting — a broad soft key from the upper left plus a hard specular highlight raking the shoe's instep and toe, and a second kicker on the right of the jar. Neutral white colour temperature; crisp mirror-gloss speculars on the red patent, satin sheen on the caramel, no cast shadow beyond a faint grey contact shadow under the jar.",
+    "palette": [
+      "#FFFFFF",
+      "#CE1B20",
+      "#9E0E13",
+      "#F2726F",
+      "#C07E2E",
+      "#A5651F",
+      "#E0AB66",
+      "#D21F26",
+      "#C9962F",
+      "#EFEFEF"
+    ],
+    "negative_space": [
+      "Right half of the canvas, x 37–100% / y 56–92% — the largest calm field, nothing sits on it",
+      "Top band x 0–100% / y 0–10%",
+      "Lower-left block x 0–14% / y 46–92%",
+      "Gutter strip x 36–47% / y 10–92%"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 50.5,
+        "y": 31.2,
+        "w": 13.5,
+        "h": 2.9
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 56,
+        "cap_height_px": 39,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#BE1622",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.8,
+        "y": 34.6,
+        "w": 42.3,
+        "h": 7.9
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 152,
+        "cap_height_px": 107,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#0D0D0D",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61.3,
+        "y": 44.4,
+        "w": 16,
+        "h": 3.1
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 60,
+        "cap_height_px": 42,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#BE1622",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "Biscoff",
+      "box": {
+        "x": 46.8,
+        "y": 49.1,
+        "w": 43.8,
+        "h": 5.9
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 114,
+        "cap_height_px": 80,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "title",
+        "italic": false,
+        "color": "#0D0D0D",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.3,
+        "w": 86.4,
+        "h": 3.7
+      },
+      "font": {
+        "family_guess": "Brandon Grotesque",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 54,
+        "cap_height_px": 39,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#C8202B",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 13.9,
+        "y": 55.6,
+        "w": 20.9,
+        "h": 26.3
+      },
+      "description": "Cylindrical glass Lotus Biscoff spread jar, lid off, shot straight on. Red wraparound label with the white oval Lotus roundel at the top, large white script-style 'Biscoff' wordmark across the middle, and a gold lozenge carrying 'Smooth' below it; caramel-coloured biscuit illustrations sit on the label's lower left and right. Clear glass shoulders visible at the label's left and right edges. The label's red band runs y≈63–77%. Caramel spread overflows the rim and runs down over the label.",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Devil-tail arrow rising off the apex of the 'I' in DEVIL — a thin black stroke that kicks up and to the right, tapering into a solid barbed arrowhead. Same black as the headline.",
+      "box": {
+        "x": 73.8,
+        "y": 30.8,
+        "w": 4,
+        "h": 5
+      }
+    },
+    {
+      "description": "Three small barbed prong tips at the ends of the liquid trident, just above the jar mouth (part of the render, read as a graphic device).",
+      "box": {
+        "x": 19,
+        "y": 51.5,
+        "w": 9,
+        "h": 4.5
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e6",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e6",
+    "e4",
+    "e5",
+    "e1",
+    "e3"
+  ],
+  "why_it_works": [
+    "A single unbroken diagonal — toe → heel → pour → jar — carries the eye down the left column and hands it off to the headline at the exact height where the pour lands.",
+    "The borrowed movie-title lockup does all the comprehension work in one second; the picture only has to supply the red shoe and the jar for the joke to close.",
+    "Nothing competes: pure white ground, one red, one black, one caramel — and a 37% empty field under the title that makes the caption read as the punchline rather than as body copy."
+  ]
+}

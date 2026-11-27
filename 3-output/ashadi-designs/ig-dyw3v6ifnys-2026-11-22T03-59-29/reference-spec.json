@@ -1,0 +1,229 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A minimalist two-column editorial parody poster on a pure white ground, pairing a bleeding red stiletto-trident and overflowing spread jar on the left with a stacked serif movie-title lockup on the right. A single centered red rounded-sans tagline anchors the bottom edge, surrounded by generous white space.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 7,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL (x=46.5%) and BISCOFF (x=46.0%) share a near-aligned left edge around x=46.0%",
+      "DEVIL (right edge x=89.5%) and BISCOFF (right edge x=91.0%) share a near-aligned right edge around x=90.0%",
+      "Bottom tagline is horizontally centered on the canvas (x=7.0% to x=93.0%, center axis x=50.0%)"
+    ],
+    "whitespace": [
+      "10.0% empty white band across the top above the stiletto tip",
+      "10.0% horizontal gutter between the right edge of the shoe/jar scene (x=36.0%) and the title lockup (x=46.0%)",
+      "37.0% open white space on the lower right between BISCOFF (y=55.5%) and the bottom tagline (y=92.5%)",
+      "10.0% vertical gap between the bottom of the spread drip (y=82.5%) and the bottom tagline (y=92.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy red patent-leather stiletto shoe cropped at the left edge, whose slender heel morphs into a three-pronged red trident dipping into an open glass jar of smooth golden-brown biscuit spread, with thick spread overflowing and dripping down the right side of the jar onto the white surface",
+    "composition": "Vertically stacked on the left third of the canvas; the shoe enters diagonally from the left edge (y=10% to y=52.5%) and connects directly into the jar sitting below (y=55.5% to y=82.5%)",
+    "camera": "Eye-level studio product shot, crisp focus throughout with deep depth of field",
+    "lighting": "Bright, clean studio lighting from the upper right creating sharp white specular highlights on the red shoe and jar rim, with a soft diffuse shadow cast to the bottom-left of the jar",
+    "palette": [
+      "#C80815",
+      "#7A0007",
+      "#B56B27",
+      "#8C4A14",
+      "#E2A65F"
+    ],
+    "negative_space": [
+      "x=36.0%, y=0.0%, w=64.0%, h=92.5%",
+      "x=0.0%, y=82.5%, w=100.0%, h=10.0%"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 30.5,
+        "w": 12,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Times New Roman",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Times New Roman",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 140,
+        "cap_height_px": 101,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Times New Roman",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 45,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Times New Roman",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 156,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "VAG Rounded",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 46,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Black devil-tail arrowhead extending upward from the right diagonal stroke of the letter V in DEVIL",
+      "box": {
+        "x": 74,
+        "y": 31.5,
+        "w": 3.5,
+        "h": 3.5
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "Instant cultural recognition: replicates the exact white-ground composition, red-and-black serif lockup, and trident-stiletto motif of The Devil Wears Prada poster.",
+    "High-contrast negative space keeps the eye locked onto the visual pun (trident dipping into the spread jar) before sweeping right to the headline.",
+    "Color restraint (pure white, crimson red, black, and caramel brown) unifies the brand jar with the movie-poster aesthetic."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DcxH6OVkipL/",
+  "instruction": null,
+  "startedAt": "2026-11-26T06:57:50.628Z",
+  "variants": [],
+  "error": "browserType.connectOverCDP: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - <ws preparing> retrieving websocket url from http://127.0.0.1:9222\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:9222/devtools/browser/511c2a8e-5117-45b2-8fde-51618592316a\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:9222/devtools/browser/511c2a8e-5117-45b2-8fde-51618592316a\u001b[22m\n"
+}

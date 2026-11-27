@@ -1,0 +1,230 @@
+{
+  "canvas": {
+    "w": 3280,
+    "h": 4096,
+    "aspect": "4:5",
+    "background": "#FAF0ED",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A minimalist meme-style layout on a soft pale pink background featuring a red brand logo tab pinned to the top right. Below, a right-aligned blue iMessage chat bubble is followed on the left by a subhead and a horizontal row of three isolated coffee drink cutouts.",
+  "grid": {
+    "margins_pct": {
+      "top": 0,
+      "right": 7.5,
+      "bottom": 25.5,
+      "left": 15.5
+    },
+    "alignment_axes": [
+      "e4 (left cup) and e2 (los planes:) align closely on the left around x=15.5%-16.5%",
+      "e4, e5, and e6 share a horizontal bottom baseline around y=74.0%-74.5%"
+    ],
+    "whitespace": [
+      "30.5% open vertical space above the blue chat bubble",
+      "2.5% vertical gap between the blue chat bubble and 'los planes:'",
+      "8.5% vertical gap between 'los planes:' and the tallest drink cutout",
+      "25.5% empty margin below the bottom row of drinks"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 16.5,
+      "y": 51,
+      "w": 64.5,
+      "h": 23.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "Three isolated beverages arranged side-by-side: an iced blended drink topped with whipped cream and caramel drizzle in a clear plastic cup, a dark brown ceramic mug filled with coffee and heart-shaped latte art, and an iced green matcha drink in a clear plastic cup.",
+    "composition": "Three distinct cutouts spaced evenly across the lower-middle horizontal axis, scaled to similar visual heights and grounded along a shared baseline.",
+    "camera": "Eye-level to slightly high-angle studio product photography, sharp focus throughout.",
+    "lighting": "Bright, even studio lighting with soft specular highlights on plastic cups and ceramic glaze.",
+    "palette": [
+      "#C9A286",
+      "#543B28",
+      "#D8E2C8",
+      "#DF2027",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "x=0%, y=0%, w=83%, h=30.5%",
+      "x=0%, y=74.5%, w=100%, h=25.5%"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "shape",
+      "shape": "rect",
+      "box": {
+        "x": 83,
+        "y": 0,
+        "w": 9.5,
+        "h": 12
+      },
+      "fill": "#D81921",
+      "opacity": 1,
+      "radius_px": 0,
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "logo",
+      "brand": "Juan Valdez",
+      "box": {
+        "x": 84.5,
+        "y": 5.5,
+        "w": 6.5,
+        "h": 5.5
+      },
+      "on": "dark",
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "shape",
+      "shape": "pill",
+      "box": {
+        "x": 47.5,
+        "y": 30.5,
+        "w": 36,
+        "h": 7
+      },
+      "fill": "#0A95FF",
+      "opacity": 1,
+      "radius_px": 140,
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "perdón tengo planes.",
+      "box": {
+        "x": 51,
+        "y": 33,
+        "w": 29,
+        "h": 2.5
+      },
+      "font": {
+        "family_guess": "SF Pro Text",
+        "category": "humanist sans",
+        "weight": 400,
+        "size_px": 98,
+        "cap_height_px": 70,
+        "line_height": 1.2,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "left",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "subhead",
+      "text": "los planes:",
+      "box": {
+        "x": 15.5,
+        "y": 40,
+        "w": 15,
+        "h": 2.5
+      },
+      "font": {
+        "family_guess": "Helvetica Neue",
+        "category": "grotesque",
+        "weight": 400,
+        "size_px": 102,
+        "cap_height_px": 74,
+        "line_height": 1.2,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#1E1918",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 16.5,
+        "y": 51,
+        "w": 15,
+        "h": 23
+      },
+      "description": "Iced caramel blended coffee drink with whipped cream and caramel drizzle in a clear branded cup.",
+      "confidence": "high"
+    },
+    {
+      "id": "e7",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 40.5,
+        "y": 56.5,
+        "w": 19.5,
+        "h": 17.5
+      },
+      "description": "Dark brown stoneware mug containing hot coffee with heart latte art.",
+      "confidence": "high"
+    },
+    {
+      "id": "e8",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 66.5,
+        "y": 57.5,
+        "w": 14.5,
+        "h": 17
+      },
+      "description": "Iced green matcha latte in a clear branded plastic cup.",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Small blue speech bubble tail extending from the bottom-right corner of the message pill.",
+      "box": {
+        "x": 81.5,
+        "y": 35.5,
+        "w": 3,
+        "h": 2
+      }
+    }
+  ],
+  "z_order": [
+    "e1",
+    "e2",
+    "e3",
+    "ornaments",
+    "e4",
+    "e5",
+    "e6",
+    "e7",
+    "e8"
+  ],
+  "hierarchy": [
+    "e3",
+    "e4",
+    "e5",
+    "e6",
+    "e7",
+    "e8",
+    "e1"
+  ],
+  "why_it_works": [
+    "High-contrast blue iMessage bubble immediately draws the eye as a familiar conversational hook.",
+    "Generous pale pink negative space keeps the punchline and three product cutouts clean and scannable.",
+    "Left-to-right reading flow naturally guides the viewer from the text setup down to the product lineup."
+  ]
+}

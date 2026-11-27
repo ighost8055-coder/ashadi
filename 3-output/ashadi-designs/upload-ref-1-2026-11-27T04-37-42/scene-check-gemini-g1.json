@@ -1,0 +1,148 @@
+{
+  "text_or_logos": [
+    {
+      "what": "garbled brand wordmark and small print on watch dial (top-right wrist, green sleeve)",
+      "box": {
+        "x": 63,
+        "y": 17.5,
+        "w": 5.5,
+        "h": 4
+      }
+    },
+    {
+      "what": "garbled brand wordmark and small print on watch dial (pink-sleeve wrist)",
+      "box": {
+        "x": 31.5,
+        "y": 29,
+        "w": 5.5,
+        "h": 4
+      }
+    },
+    {
+      "what": "garbled wordmark, numerals 9/6, date window and small print on watch dial (floral-sleeve wrist)",
+      "box": {
+        "x": 63.5,
+        "y": 40,
+        "w": 7,
+        "h": 4.5
+      }
+    },
+    {
+      "what": "garbled wordmark and date window on watch dial (pointing wrist, polka-dot sleeve)",
+      "box": {
+        "x": 11,
+        "y": 56.5,
+        "w": 5.5,
+        "h": 4
+      }
+    },
+    {
+      "what": "numeral 12 and garbled wordmark/small print on watch dial (plaid-sleeve wrist)",
+      "box": {
+        "x": 60.5,
+        "y": 71.5,
+        "w": 7,
+        "h": 5
+      }
+    },
+    {
+      "what": "garbled wordmark, numerals 9/6, date '23' on watch dial (tattooed wrist)",
+      "box": {
+        "x": 31,
+        "y": 84.5,
+        "w": 7.5,
+        "h": 5.5
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "vertical dark textured pole with cyan clamp and red button",
+      "box": {
+        "x": 47,
+        "y": 0,
+        "w": 6,
+        "h": 100
+      }
+    },
+    {
+      "what": "green-sleeve arm and hand gripping pole, with watch",
+      "box": {
+        "x": 43,
+        "y": 7,
+        "w": 57,
+        "h": 23
+      }
+    },
+    {
+      "what": "pink-sleeve arm and hand gripping pole, with watch",
+      "box": {
+        "x": 0,
+        "y": 23.5,
+        "w": 57.5,
+        "h": 17
+      }
+    },
+    {
+      "what": "floral-bomber arm and fist gripping pole, with watch",
+      "box": {
+        "x": 43,
+        "y": 34.5,
+        "w": 57,
+        "h": 14.5
+      }
+    },
+    {
+      "what": "polka-dot-sleeve arm pointing at red button, with watch",
+      "box": {
+        "x": 0,
+        "y": 54.5,
+        "w": 41,
+        "h": 9.5
+      }
+    },
+    {
+      "what": "plaid-sleeve arm and hand gripping pole, with watch",
+      "box": {
+        "x": 42.5,
+        "y": 66,
+        "w": 57.5,
+        "h": 18
+      }
+    },
+    {
+      "what": "navy-suit arm with tattooed hand gripping pole, with watch",
+      "box": {
+        "x": 0,
+        "y": 78.5,
+        "w": 57.5,
+        "h": 16.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 100,
+    "h": 100
+  },
+  "people": [
+    "right hand + forearm in green blazer sleeve (top)",
+    "hand + forearm in pink coat sleeve",
+    "fist + forearm in black floral bomber sleeve",
+    "pointing hand with red nail + forearm in polka-dot sleeve",
+    "hand + forearm in black/white plaid sleeve",
+    "tattooed hand + wrist in navy suit sleeve with white shirt cuff"
+  ],
+  "notes": "All six watch dials carry small AI pseudo-text (garbled brand names, numerals, date windows) that must be cleaned or covered. All six watches are the identical model, which may read as a single-SKU push rather than range. Hands look anatomically correct (no extra fingers seen); the top-right grip thumb sits slightly unnaturally over the pole. The composition fills the full frame, so there is no clean empty area for text. The pole has no visible anchor at top or bottom.",
+  "size": {
+    "w": 1840,
+    "h": 2304
+  }
+}

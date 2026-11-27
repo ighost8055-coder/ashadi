@@ -1,0 +1,176 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#4A181B",
+    "background_kind": "texture"
+  },
+  "layout_summary": "A centered, vertical single-column layout on a dark burgundy canvas featuring a brand logo at the top, a two-line serif headline above a large hand-drawn head outline containing a photographic cake cutout, and a website URL anchored at the bottom.",
+  "grid": {
+    "margins_pct": {
+      "top": 4.5,
+      "right": 22.5,
+      "bottom": 4.5,
+      "left": 22.5
+    },
+    "alignment_axes": [
+      "logo (e1), headline (e2), central illustration/product group (e3, ornament), and footer URL (e4) are all centered on the vertical axis at x=50%"
+    ],
+    "whitespace": [
+      "7.5% vertical gap between logo (y=9.5%) and headline (y=17%)",
+      "8.5% vertical gap between headline (y=26.5%) and top of head illustration (y=35%)",
+      "13.5% vertical gap between bottom of head illustration (y=79.5%) and footer URL (y=93%)",
+      "generous 22.5% to 25% horizontal margins flanking the central stack"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 42,
+      "y": 44.5,
+      "w": 25,
+      "h": 12.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A rectangular slice of layered strawberry cream pastry with freeze-dried red berry crumble on top and creamy filling with fruit chunks.",
+    "composition": "Centered horizontally and slightly above vertical center inside the cranial cavity of the white line-art head profile.",
+    "camera": "Eye-level macro product shot with sharp focus across the pastry cross-section.",
+    "lighting": "Even, soft studio lighting highlighting the creamy texture and vibrant red berry topping.",
+    "palette": [
+      "#C93A43",
+      "#F4DFC8",
+      "#E2A89C",
+      "#6E2326"
+    ],
+    "negative_space": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 35
+      },
+      {
+        "x": 0,
+        "y": 80,
+        "w": 100,
+        "h": 20
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "logo",
+      "brand": "Keyes Bakehouse Kuala Lumpur",
+      "box": {
+        "x": 44.5,
+        "y": 4.5,
+        "w": 11,
+        "h": 5
+      },
+      "on": "dark",
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "Why you so quiet?\nWhat's on your mind?",
+      "box": {
+        "x": 25.5,
+        "y": 17,
+        "w": 49,
+        "h": 9.5
+      },
+      "font": {
+        "family_guess": "EB Garamond",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 56,
+        "cap_height_px": 39,
+        "line_height": 1.25,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#F5EFEA",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 42,
+        "y": 44.5,
+        "w": 25,
+        "h": 12.5
+      },
+      "description": "Isolated side-profile slice of layered strawberry cream cake topped with red berry crumble.",
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "cta",
+      "text": "www.keyesbakehouse.com.my",
+      "box": {
+        "x": 26,
+        "y": 93,
+        "w": 48,
+        "h": 2.5
+      },
+      "font": {
+        "family_guess": "Montserrat",
+        "category": "geometric sans",
+        "weight": 500,
+        "size_px": 30,
+        "cap_height_px": 22,
+        "line_height": 1.2,
+        "letter_spacing_px": 0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#F5EFEA",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Hand-drawn white monoline illustration of a human head in left profile with a cutaway cranial window framing the cake slice.",
+      "box": {
+        "x": 22.5,
+        "y": 35,
+        "w": 55,
+        "h": 44.5
+      }
+    }
+  ],
+  "z_order": [
+    "ornament_0",
+    "e3",
+    "e1",
+    "e2",
+    "e4"
+  ],
+  "hierarchy": [
+    "e3",
+    "ornament_0",
+    "e2",
+    "e1",
+    "e4"
+  ],
+  "why_it_works": [
+    "Visual metaphor literally places the product inside the viewer's mind, creating an instant, memorable punchline for the headline.",
+    "High-contrast crisp white typography and line art pop cleanly against the rich, low-noise dark burgundy background.",
+    "Strict vertical symmetry and generous outer margins keep the eye locked onto the central gag and brand URL."
+  ]
+}

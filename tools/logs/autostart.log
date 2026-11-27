@@ -1,0 +1,574 @@
+[2026-11-26T11:57:15.5238075+05:30] === autostart ===
+[2026-11-26T11:57:15.7202915+05:30] Chrome already listening on :9222.
+[2026-11-26T11:57:16.1235117+05:30] Starting Telegram bot ...
+[2026-11-26T11:57:22.8316406+05:30] Ashadi web: 
+[2026-11-26T11:57:22.9462717+05:30] Starting Sithiji worker ...
+[2026-11-26T11:57:23.1468595+05:30] Starting hub worker ...
+[2026-11-26T11:57:23.2044268+05:30] Ready.
+[2026-11-26T12:00:12.4551245+05:30] === autostart ===
+[2026-11-26T12:00:12.6681747+05:30] Chrome already listening on :9222.
+[2026-11-26T12:00:12.9444521+05:30] Telegram bot already running.
+[2026-11-26T12:00:13.0424332+05:30] Ashadi web: 
+[2026-11-26T12:00:13.1530977+05:30] Sithiji worker already running.
+[2026-11-26T12:00:13.2736498+05:30] Hub worker already running.
+[2026-11-26T12:00:13.2776361+05:30] Ready.
+[2026-11-26T12:03:16.8304373+05:30] === autostart ===
+[2026-11-26T12:03:16.9967060+05:30] Chrome already listening on :9222.
+[2026-11-26T12:03:17.2778307+05:30] Telegram bot already running.
+[2026-11-26T12:03:17.3627265+05:30] Ashadi web: 
+[2026-11-26T12:03:17.4783827+05:30] Sithiji worker already running.
+[2026-11-26T12:03:17.5989598+05:30] Hub worker already running.
+[2026-11-26T12:03:17.6044547+05:30] Ready.
+[2026-11-26T12:08:16.3035995+05:30] === autostart ===
+[2026-11-26T12:08:16.6988873+05:30] Chrome already listening on :9222.
+[2026-11-26T12:08:17.2354977+05:30] Telegram bot already running.
+[2026-11-26T12:08:17.4165365+05:30] Ashadi web: 
+[2026-11-26T12:08:17.6824083+05:30] Sithiji worker already running.
+[2026-11-26T12:08:17.9739359+05:30] Hub worker already running.
+[2026-11-26T12:08:17.9812331+05:30] Ready.
+[2026-11-26T12:13:15.9196977+05:30] === autostart ===
+[2026-11-26T12:13:16.1641268+05:30] Chrome already listening on :9222.
+[2026-11-26T12:13:16.6054988+05:30] Telegram bot already running.
+[2026-11-26T12:13:16.7110547+05:30] Ashadi web: 
+[2026-11-26T12:13:16.8232931+05:30] Sithiji worker already running.
+[2026-11-26T12:13:16.9714963+05:30] Hub worker already running.
+[2026-11-26T12:13:16.9773027+05:30] Ready.
+[2026-11-26T12:18:16.5637495+05:30] === autostart ===
+[2026-11-26T12:18:16.8736524+05:30] Chrome already listening on :9222.
+[2026-11-26T12:18:17.5932390+05:30] Telegram bot already running.
+[2026-11-26T12:18:17.8100039+05:30] Ashadi web: 
+[2026-11-26T12:18:17.9729422+05:30] Sithiji worker already running.
+[2026-11-26T12:18:18.1670530+05:30] Hub worker already running.
+[2026-11-26T12:18:18.1750315+05:30] Ready.
+[2026-11-26T12:23:16.2121342+05:30] === autostart ===
+[2026-11-26T12:23:16.4430412+05:30] Chrome already listening on :9222.
+[2026-11-26T12:23:16.7845943+05:30] Telegram bot already running.
+[2026-11-26T12:23:16.8793402+05:30] Ashadi web: 
+[2026-11-26T12:23:17.0292467+05:30] Sithiji worker already running.
+[2026-11-26T12:23:17.1873504+05:30] Hub worker already running.
+[2026-11-26T12:23:17.1923376+05:30] Ready.
+[2026-11-26T12:28:25.4460885+05:30] === autostart ===
+[2026-11-26T12:28:25.7981472+05:30] Chrome already listening on :9222.
+[2026-11-26T12:28:26.5664005+05:30] Telegram bot already running.
+[2026-11-26T12:28:26.7259759+05:30] Ashadi web: 
+[2026-11-26T12:28:26.9054931+05:30] Sithiji worker already running.
+[2026-11-26T12:28:27.1079516+05:30] Hub worker already running.
+[2026-11-26T12:28:27.1172475+05:30] Ready.
+[2026-11-26T12:33:23.2623520+05:30] === autostart ===
+[2026-11-26T12:33:23.7126049+05:30] Chrome already listening on :9222.
+[2026-11-26T12:33:24.6743123+05:30] Telegram bot already running.
+[2026-11-26T12:33:25.0253843+05:30] Ashadi web: 
+[2026-11-26T12:33:25.2010270+05:30] Sithiji worker already running.
+[2026-11-26T12:33:25.5022250+05:30] Hub worker already running.
+[2026-11-26T12:33:25.5092039+05:30] Ready.
+[2026-11-26T12:38:17.0800349+05:30] === autostart ===
+[2026-11-26T12:38:17.3392085+05:30] Chrome already listening on :9222.
+[2026-11-26T12:38:17.8077519+05:30] Telegram bot already running.
+[2026-11-26T12:38:17.9497940+05:30] Ashadi web: 
+[2026-11-26T12:38:18.1059486+05:30] Sithiji worker already running.
+[2026-11-26T12:38:18.2675184+05:30] Hub worker already running.
+[2026-11-26T12:38:18.2745000+05:30] Ready.
+[2026-11-26T12:43:17.2324053+05:30] === autostart ===
+[2026-11-26T12:43:17.5763373+05:30] Chrome already listening on :9222.
+[2026-11-26T12:43:18.1248729+05:30] Telegram bot already running.
+[2026-11-26T12:43:18.2760241+05:30] Ashadi web: 
+[2026-11-26T12:43:18.4106617+05:30] Sithiji worker already running.
+[2026-11-26T12:43:18.6031487+05:30] Hub worker already running.
+[2026-11-26T12:43:18.6081437+05:30] Ready.
+[2026-11-26T12:48:17.0819748+05:30] === autostart ===
+[2026-11-26T12:48:17.2945960+05:30] Chrome already listening on :9222.
+[2026-11-26T12:48:17.7012017+05:30] Telegram bot already running.
+[2026-11-26T12:48:17.8084752+05:30] Ashadi web: 
+[2026-11-26T12:48:17.9161408+05:30] Sithiji worker already running.
+[2026-11-26T12:48:18.0405038+05:30] Hub worker already running.
+[2026-11-26T12:48:18.0463221+05:30] Ready.
+[2026-11-26T12:53:15.1179264+05:30] === autostart ===
+[2026-11-26T12:53:15.2854260+05:30] Chrome already listening on :9222.
+[2026-11-26T12:53:15.5518394+05:30] Telegram bot already running.
+[2026-11-26T12:53:15.6350820+05:30] Ashadi web: 
+[2026-11-26T12:53:15.7420849+05:30] Sithiji worker already running.
+[2026-11-26T12:53:15.8463668+05:30] Hub worker already running.
+[2026-11-26T12:53:15.8520421+05:30] Ready.
+[2026-11-26T12:58:14.9888931+05:30] === autostart ===
+[2026-11-26T12:58:15.1402220+05:30] Chrome already listening on :9222.
+[2026-11-26T12:58:15.4018965+05:30] Telegram bot already running.
+[2026-11-26T12:58:15.5150295+05:30] Ashadi web: 
+[2026-11-26T12:58:15.6202878+05:30] Sithiji worker already running.
+[2026-11-26T12:58:15.7319051+05:30] Hub worker already running.
+[2026-11-26T12:58:15.7352109+05:30] Ready.
+[2026-11-26T13:03:15.0350842+05:30] === autostart ===
+[2026-11-26T13:03:15.1895648+05:30] Chrome already listening on :9222.
+[2026-11-26T13:03:15.4634463+05:30] Telegram bot already running.
+[2026-11-26T13:03:15.5461317+05:30] Ashadi web: 
+[2026-11-26T13:03:15.6494186+05:30] Sithiji worker already running.
+[2026-11-26T13:03:15.7608745+05:30] Hub worker already running.
+[2026-11-26T13:03:15.7672065+05:30] Ready.
+[2026-11-26T13:08:22.9880384+05:30] === autostart ===
+[2026-11-26T13:08:23.3500696+05:30] Chrome already listening on :9222.
+[2026-11-26T13:08:26.3375119+05:30] Telegram bot already running.
+[2026-11-26T13:08:27.3049904+05:30] Ashadi web: 
+[2026-11-26T13:08:27.5194015+05:30] Sithiji worker already running.
+[2026-11-26T13:08:27.8579044+05:30] Hub worker already running.
+[2026-11-26T13:08:27.8688760+05:30] Ready.
+[2026-11-26T13:13:25.1273249+05:30] === autostart ===
+[2026-11-26T13:13:25.5621628+05:30] Chrome already listening on :9222.
+[2026-11-26T13:13:26.3600698+05:30] Telegram bot already running.
+[2026-11-26T13:13:26.5934447+05:30] Ashadi web: 
+[2026-11-26T13:13:26.7749615+05:30] Sithiji worker already running.
+[2026-11-26T13:13:27.0667220+05:30] Hub worker already running.
+[2026-11-26T13:13:27.0737028+05:30] Ready.
+[2026-11-26T13:18:16.6268917+05:30] === autostart ===
+[2026-11-26T13:18:16.7952997+05:30] Chrome already listening on :9222.
+[2026-11-26T13:18:17.1380945+05:30] Telegram bot already running.
+[2026-11-26T13:18:17.2377473+05:30] Ashadi web: 
+[2026-11-26T13:18:17.3383938+05:30] Sithiji worker already running.
+[2026-11-26T13:18:17.4689335+05:30] Hub worker already running.
+[2026-11-26T13:18:17.4729184+05:30] Ready.
+[2026-11-26T13:23:19.4352856+05:30] === autostart ===
+[2026-11-26T13:23:19.7833563+05:30] Chrome already listening on :9222.
+[2026-11-26T13:23:22.3460696+05:30] Telegram bot already running.
+[2026-11-26T13:23:22.4348315+05:30] Ashadi web: 
+[2026-11-26T13:23:22.5355625+05:30] Sithiji worker already running.
+[2026-11-26T13:23:22.6851626+05:30] Hub worker already running.
+[2026-11-26T13:23:22.6921592+05:30] Ready.
+[2026-11-26T13:28:16.6238346+05:30] === autostart ===
+[2026-11-26T13:28:16.8233037+05:30] Chrome already listening on :9222.
+[2026-11-26T13:28:17.2202394+05:30] Telegram bot already running.
+[2026-11-26T13:28:17.3259565+05:30] Ashadi web: 
+[2026-11-26T13:28:17.4561233+05:30] Sithiji worker already running.
+[2026-11-26T13:28:17.5917627+05:30] Hub worker already running.
+[2026-11-26T13:28:17.6087258+05:30] Ready.
+[2026-11-26T13:33:17.9107692+05:30] === autostart ===
+[2026-11-26T13:33:18.0793119+05:30] Chrome already listening on :9222.
+[2026-11-26T13:33:18.4134036+05:30] Telegram bot already running.
+[2026-11-26T13:33:18.5051566+05:30] Ashadi web: 
+[2026-11-26T13:33:18.6298167+05:30] Sithiji worker already running.
+[2026-11-26T13:33:18.7913798+05:30] Hub worker already running.
+[2026-11-26T13:33:18.7953685+05:30] Ready.
+[2026-11-26T13:38:18.3883856+05:30] === autostart ===
+[2026-11-26T13:38:18.7291961+05:30] Chrome already listening on :9222.
+[2026-11-26T13:38:19.1737858+05:30] Telegram bot already running.
+[2026-11-26T13:38:19.2835164+05:30] Ashadi web: 
+[2026-11-26T13:38:19.4231782+05:30] Sithiji worker already running.
+[2026-11-26T13:38:19.6009999+05:30] Hub worker already running.
+[2026-11-26T13:38:19.6069160+05:30] Ready.
+[2026-11-26T13:43:15.3234856+05:30] === autostart ===
+[2026-11-26T13:43:15.5059983+05:30] Chrome already listening on :9222.
+[2026-11-26T13:43:15.8919666+05:30] Telegram bot already running.
+[2026-11-26T13:43:15.9777340+05:30] Ashadi web: 
+[2026-11-26T13:43:16.0804747+05:30] Sithiji worker already running.
+[2026-11-26T13:43:16.1891688+05:30] Hub worker already running.
+[2026-11-26T13:43:16.1931587+05:30] Ready.
+[2026-11-26T13:48:17.2541794+05:30] === autostart ===
+[2026-11-26T13:48:17.6501195+05:30] Chrome already listening on :9222.
+[2026-11-26T13:48:18.0011785+05:30] Telegram bot already running.
+[2026-11-26T13:48:18.0939312+05:30] Ashadi web: 
+[2026-11-26T13:48:18.1996485+05:30] Sithiji worker already running.
+[2026-11-26T13:48:18.3233155+05:30] Hub worker already running.
+[2026-11-26T13:48:18.3263065+05:30] Ready.
+[2026-11-26T13:53:15.1307894+05:30] === autostart ===
+[2026-11-26T13:53:15.2504696+05:30] Chrome already listening on :9222.
+[2026-11-26T13:53:15.4589132+05:30] Telegram bot already running.
+[2026-11-26T13:53:15.5237371+05:30] Ashadi web: 
+[2026-11-26T13:53:15.6025276+05:30] Sithiji worker already running.
+[2026-11-26T13:53:15.6873008+05:30] Hub worker already running.
+[2026-11-26T13:53:15.6912893+05:30] Ready.
+[2026-11-26T13:58:16.5137537+05:30] === autostart ===
+[2026-11-26T13:58:16.6723327+05:30] Chrome already listening on :9222.
+[2026-11-26T13:58:16.9635832+05:30] Telegram bot already running.
+[2026-11-26T13:58:17.0792738+05:30] Ashadi web: 
+[2026-11-26T13:58:17.1889815+05:30] Sithiji worker already running.
+[2026-11-26T13:58:17.3026763+05:30] Hub worker already running.
+[2026-11-26T13:58:17.3066649+05:30] Ready.
+[2026-11-26T14:03:16.7338193+05:30] === autostart ===
+[2026-11-26T14:03:16.8904018+05:30] Chrome already listening on :9222.
+[2026-11-26T14:03:17.1646672+05:30] Telegram bot already running.
+[2026-11-26T14:03:17.9216418+05:30] Ashadi web: 
+[2026-11-26T14:03:18.0353402+05:30] Sithiji worker already running.
+[2026-11-26T14:03:18.1639925+05:30] Hub worker already running.
+[2026-11-26T14:03:18.1679830+05:30] Ready.
+[2026-11-26T14:08:15.1444998+05:30] === autostart ===
+[2026-11-26T14:08:15.2811304+05:30] Chrome already listening on :9222.
+[2026-11-26T14:08:15.4805944+05:30] Telegram bot already running.
+[2026-11-26T14:08:15.5434257+05:30] Ashadi web: 
+[2026-11-26T14:08:15.6331823+05:30] Sithiji worker already running.
+[2026-11-26T14:08:15.7179558+05:30] Hub worker already running.
+[2026-11-26T14:08:15.7209475+05:30] Ready.
+[2026-11-26T14:13:16.5766836+05:30] === autostart ===
+[2026-11-26T14:13:16.7377679+05:30] Chrome already listening on :9222.
+[2026-11-26T14:13:17.0135424+05:30] Telegram bot already running.
+[2026-11-26T14:13:17.0903359+05:30] Ashadi web: 
+[2026-11-26T14:13:17.1751105+05:30] Sithiji worker already running.
+[2026-11-26T14:13:17.2678626+05:30] Hub worker already running.
+[2026-11-26T14:13:17.2708525+05:30] Ready.
+[2026-11-26T14:18:15.5124586+05:30] === autostart ===
+[2026-11-26T14:18:15.7060839+05:30] Chrome already listening on :9222.
+[2026-11-26T14:18:15.9812682+05:30] Telegram bot already running.
+[2026-11-26T14:18:17.0014417+05:30] Ashadi web: 
+[2026-11-26T14:18:17.1411763+05:30] Sithiji worker already running.
+[2026-11-26T14:18:17.3127745+05:30] Hub worker already running.
+[2026-11-26T14:18:17.3327218+05:30] Ready.
+[2026-11-26T14:23:15.3011614+05:30] === autostart ===
+[2026-11-26T14:23:15.4567444+05:30] Chrome already listening on :9222.
+[2026-11-26T14:23:15.7342908+05:30] Telegram bot already running.
+[2026-11-26T14:23:15.8223440+05:30] Ashadi web: 
+[2026-11-26T14:23:15.9325611+05:30] Sithiji worker already running.
+[2026-11-26T14:23:16.0482501+05:30] Hub worker already running.
+[2026-11-26T14:23:16.0522386+05:30] Ready.
+[2026-11-26T14:28:15.2292651+05:30] === autostart ===
+[2026-11-26T14:28:15.4013608+05:30] Chrome already listening on :9222.
+[2026-11-26T14:28:15.6856012+05:30] Telegram bot already running.
+[2026-11-26T14:28:15.7830370+05:30] Ashadi web: 
+[2026-11-26T14:28:15.8857616+05:30] Sithiji worker already running.
+[2026-11-26T14:28:16.0114265+05:30] Hub worker already running.
+[2026-11-26T14:28:16.0144965+05:30] Ready.
+[2026-11-26T14:33:15.4880558+05:30] === autostart ===
+[2026-11-26T14:33:15.6819528+05:30] Chrome already listening on :9222.
+[2026-11-26T14:33:16.0153824+05:30] Telegram bot already running.
+[2026-11-26T14:33:16.1799418+05:30] Ashadi web: 
+[2026-11-26T14:33:16.3215655+05:30] Sithiji worker already running.
+[2026-11-26T14:33:16.4701642+05:30] Hub worker already running.
+[2026-11-26T14:33:16.4917985+05:30] Ready.
+[2026-11-26T14:38:16.1478363+05:30] === autostart ===
+[2026-11-26T14:38:16.4217252+05:30] Chrome already listening on :9222.
+[2026-11-26T14:38:16.8706678+05:30] Telegram bot already running.
+[2026-11-26T14:38:16.9584308+05:30] Ashadi web: 
+[2026-11-26T14:38:17.0683034+05:30] Sithiji worker already running.
+[2026-11-26T14:38:17.1841217+05:30] Hub worker already running.
+[2026-11-26T14:38:17.1983222+05:30] Ready.
+[2026-11-26T14:43:15.2405808+05:30] === autostart ===
+[2026-11-26T14:43:15.4210947+05:30] Chrome already listening on :9222.
+[2026-11-26T14:43:15.7274378+05:30] Telegram bot already running.
+[2026-11-26T14:43:15.8137440+05:30] Ashadi web: 
+[2026-11-26T14:43:15.9094551+05:30] Sithiji worker already running.
+[2026-11-26T14:43:16.0291737+05:30] Hub worker already running.
+[2026-11-26T14:43:16.0351190+05:30] Ready.
+[2026-11-26T14:48:15.1810949+05:30] === autostart ===
+[2026-11-26T14:48:15.3344064+05:30] Chrome already listening on :9222.
+[2026-11-26T14:48:15.6025811+05:30] Telegram bot already running.
+[2026-11-26T14:48:15.7353399+05:30] Ashadi web: 
+[2026-11-26T14:48:15.8358496+05:30] Sithiji worker already running.
+[2026-11-26T14:48:15.9487311+05:30] Hub worker already running.
+[2026-11-26T14:48:15.9537220+05:30] Ready.
+[2026-11-26T14:53:15.3275928+05:30] === autostart ===
+[2026-11-26T14:53:15.4753933+05:30] Chrome already listening on :9222.
+[2026-11-26T14:53:15.7467422+05:30] Telegram bot already running.
+[2026-11-26T14:53:15.8293407+05:30] Ashadi web: 
+[2026-11-26T14:53:15.9312637+05:30] Sithiji worker already running.
+[2026-11-26T14:53:16.0358742+05:30] Hub worker already running.
+[2026-11-26T14:53:16.0418511+05:30] Ready.
+[2026-11-26T14:58:15.2067375+05:30] === autostart ===
+[2026-11-26T14:58:15.3597115+05:30] Chrome already listening on :9222.
+[2026-11-26T14:58:15.6241664+05:30] Telegram bot already running.
+[2026-11-26T14:58:15.7169102+05:30] Ashadi web: 
+[2026-11-26T14:58:15.8375199+05:30] Sithiji worker already running.
+[2026-11-26T14:58:15.9427828+05:30] Hub worker already running.
+[2026-11-26T14:58:15.9488045+05:30] Ready.
+[2026-11-26T15:03:15.2206014+05:30] === autostart ===
+[2026-11-26T15:03:15.3729347+05:30] Chrome already listening on :9222.
+[2026-11-26T15:03:15.6340554+05:30] Telegram bot already running.
+[2026-11-26T15:03:15.7483712+05:30] Ashadi web: 
+[2026-11-26T15:03:15.8545975+05:30] Sithiji worker already running.
+[2026-11-26T15:03:15.9605881+05:30] Hub worker already running.
+[2026-11-26T15:03:15.9659790+05:30] Ready.
+[2026-11-26T15:08:15.3509731+05:30] === autostart ===
+[2026-11-26T15:08:15.5171440+05:30] Chrome already listening on :9222.
+[2026-11-26T15:08:15.8123050+05:30] Telegram bot already running.
+[2026-11-26T15:08:15.9418002+05:30] Ashadi web: 
+[2026-11-26T15:08:16.0608362+05:30] Sithiji worker already running.
+[2026-11-26T15:08:16.1831206+05:30] Hub worker already running.
+[2026-11-26T15:08:16.1890259+05:30] Ready.
+[2026-11-26T15:13:15.1702573+05:30] === autostart ===
+[2026-11-26T15:13:15.3183681+05:30] Chrome already listening on :9222.
+[2026-11-26T15:13:15.5734127+05:30] Telegram bot already running.
+[2026-11-26T15:13:15.6631301+05:30] Ashadi web: 
+[2026-11-26T15:13:15.7598788+05:30] Sithiji worker already running.
+[2026-11-26T15:13:15.8646594+05:30] Hub worker already running.
+[2026-11-26T15:13:15.8728604+05:30] Ready.
+[2026-11-26T15:18:15.2421744+05:30] === autostart ===
+[2026-11-26T15:18:15.4127306+05:30] Chrome already listening on :9222.
+[2026-11-26T15:18:15.7438437+05:30] Telegram bot already running.
+[2026-11-26T15:18:16.5780502+05:30] Ashadi web: 
+[2026-11-26T15:18:16.7105756+05:30] Sithiji worker already running.
+[2026-11-26T15:18:16.8195578+05:30] Hub worker already running.
+[2026-11-26T15:18:16.8425503+05:30] Ready.
+[2026-11-26T15:23:15.4477385+05:30] === autostart ===
+[2026-11-26T15:23:15.6222725+05:30] Chrome already listening on :9222.
+[2026-11-26T15:23:15.9134924+05:30] Telegram bot already running.
+[2026-11-26T15:23:15.9982656+05:30] Ashadi web: 
+[2026-11-26T15:23:16.1009907+05:30] Sithiji worker already running.
+[2026-11-26T15:23:16.2116953+05:30] Hub worker already running.
+[2026-11-26T15:23:16.2157569+05:30] Ready.
+[2026-11-26T15:28:15.2302139+05:30] === autostart ===
+[2026-11-26T15:28:15.3951768+05:30] Chrome already listening on :9222.
+[2026-11-26T15:28:15.6580548+05:30] Telegram bot already running.
+[2026-11-26T15:28:15.7462779+05:30] Ashadi web: 
+[2026-11-26T15:28:15.8478965+05:30] Sithiji worker already running.
+[2026-11-26T15:28:15.9528155+05:30] Hub worker already running.
+[2026-11-26T15:28:15.9590639+05:30] Ready.
+[2026-11-26T15:33:15.2409900+05:30] === autostart ===
+[2026-11-26T15:33:15.3991677+05:30] Chrome already listening on :9222.
+[2026-11-26T15:33:15.7031602+05:30] Telegram bot already running.
+[2026-11-26T15:33:15.7927399+05:30] Ashadi web: 
+[2026-11-26T15:33:15.9164924+05:30] Sithiji worker already running.
+[2026-11-26T15:33:16.0422192+05:30] Hub worker already running.
+[2026-11-26T15:33:16.0482032+05:30] Ready.
+[2026-11-26T15:38:15.3334132+05:30] === autostart ===
+[2026-11-26T15:38:15.4878127+05:30] Chrome already listening on :9222.
+[2026-11-26T15:38:15.7602081+05:30] Telegram bot already running.
+[2026-11-26T15:38:15.8586705+05:30] Ashadi web: 
+[2026-11-26T15:38:15.9667028+05:30] Sithiji worker already running.
+[2026-11-26T15:38:16.0855144+05:30] Hub worker already running.
+[2026-11-26T15:38:16.0904632+05:30] Ready.
+[2026-11-26T15:43:15.2354987+05:30] === autostart ===
+[2026-11-26T15:43:15.3849667+05:30] Chrome already listening on :9222.
+[2026-11-26T15:43:15.6331770+05:30] Telegram bot already running.
+[2026-11-26T15:43:15.7368842+05:30] Ashadi web: 
+[2026-11-26T15:43:15.8419031+05:30] Sithiji worker already running.
+[2026-11-26T15:43:15.9664838+05:30] Hub worker already running.
+[2026-11-26T15:43:15.9727550+05:30] Ready.
+[2026-11-26T15:48:15.2497620+05:30] === autostart ===
+[2026-11-26T15:48:15.4334897+05:30] Chrome already listening on :9222.
+[2026-11-26T15:48:15.7029448+05:30] Telegram bot already running.
+[2026-11-26T15:48:15.8158192+05:30] Ashadi web: 
+[2026-11-26T15:48:15.9228634+05:30] Sithiji worker already running.
+[2026-11-26T15:48:16.0366359+05:30] Hub worker already running.
+[2026-11-26T15:48:16.0408487+05:30] Ready.
+[2026-11-26T15:53:15.4668300+05:30] === autostart ===
+[2026-11-26T15:53:15.6423194+05:30] Chrome already listening on :9222.
+[2026-11-26T15:53:15.9187945+05:30] Telegram bot already running.
+[2026-11-26T15:53:15.9995090+05:30] Ashadi web: 
+[2026-11-26T15:53:16.1037717+05:30] Sithiji worker already running.
+[2026-11-26T15:53:16.2169818+05:30] Hub worker already running.
+[2026-11-26T15:53:16.2209694+05:30] Ready.
+[2026-11-26T15:58:18.0145650+05:30] === autostart ===
+[2026-11-26T15:58:18.2935412+05:30] Chrome already listening on :9222.
+[2026-11-26T15:58:18.9357209+05:30] Telegram bot already running.
+[2026-11-26T15:58:19.0828403+05:30] Ashadi web: 
+[2026-11-26T15:58:19.2647084+05:30] Sithiji worker already running.
+[2026-11-26T15:58:19.4371973+05:30] Hub worker already running.
+[2026-11-26T15:58:19.4431795+05:30] Ready.
+[2026-11-26T16:03:17.9535794+05:30] === autostart ===
+[2026-11-26T16:03:18.2377975+05:30] Chrome already listening on :9222.
+[2026-11-26T16:03:18.7659041+05:30] Telegram bot already running.
+[2026-11-26T16:03:18.9504106+05:30] Ashadi web: 
+[2026-11-26T16:03:19.1110777+05:30] Sithiji worker already running.
+[2026-11-26T16:03:19.2806264+05:30] Hub worker already running.
+[2026-11-26T16:03:19.2846133+05:30] Ready.
+[2026-11-26T16:08:17.4191912+05:30] === autostart ===
+[2026-11-26T16:08:17.7194547+05:30] Chrome already listening on :9222.
+[2026-11-26T16:08:18.2438011+05:30] Telegram bot already running.
+[2026-11-26T16:08:18.4298324+05:30] Ashadi web: 
+[2026-11-26T16:08:18.6015630+05:30] Sithiji worker already running.
+[2026-11-26T16:08:18.8128081+05:30] Hub worker already running.
+[2026-11-26T16:08:18.8177909+05:30] Ready.
+[2026-11-26T16:13:15.7184586+05:30] === autostart ===
+[2026-11-26T16:13:15.9739747+05:30] Chrome already listening on :9222.
+[2026-11-26T16:13:16.5069365+05:30] Telegram bot already running.
+[2026-11-26T16:13:16.6445805+05:30] Ashadi web: 
+[2026-11-26T16:13:16.7915075+05:30] Sithiji worker already running.
+[2026-11-26T16:13:16.9544195+05:30] Hub worker already running.
+[2026-11-26T16:13:16.9800563+05:30] Ready.
+[2026-11-26T16:18:15.5558285+05:30] === autostart ===
+[2026-11-26T16:18:15.7774821+05:30] Chrome already listening on :9222.
+[2026-11-26T16:18:16.4392656+05:30] Telegram bot already running.
+[2026-11-26T16:18:16.6521383+05:30] Ashadi web: 
+[2026-11-26T16:18:16.7857000+05:30] Sithiji worker already running.
+[2026-11-26T16:18:16.9253818+05:30] Hub worker already running.
+[2026-11-26T16:18:16.9293713+05:30] Ready.
+[2026-11-26T16:23:15.6024918+05:30] === autostart ===
+[2026-11-26T16:23:15.7771096+05:30] Chrome already listening on :9222.
+[2026-11-26T16:23:16.0662303+05:30] Telegram bot already running.
+[2026-11-26T16:23:16.1639693+05:30] Ashadi web: 
+[2026-11-26T16:23:16.2786627+05:30] Sithiji worker already running.
+[2026-11-26T16:23:16.4063205+05:30] Hub worker already running.
+[2026-11-26T16:23:16.4113065+05:30] Ready.
+[2026-11-26T16:28:15.3995410+05:30] === autostart ===
+[2026-11-26T16:28:15.5780642+05:30] Chrome already listening on :9222.
+[2026-11-26T16:28:15.9091354+05:30] Telegram bot already running.
+[2026-11-26T16:28:16.0268151+05:30] Ashadi web: 
+[2026-11-26T16:28:16.1415102+05:30] Sithiji worker already running.
+[2026-11-26T16:28:16.2709826+05:30] Hub worker already running.
+[2026-11-26T16:28:16.2779646+05:30] Ready.
+[2026-11-26T16:33:17.7957872+05:30] === autostart ===
+[2026-11-26T16:33:18.1312346+05:30] Chrome already listening on :9222.
+[2026-11-26T16:33:18.7515778+05:30] Telegram bot already running.
+[2026-11-26T16:33:18.9870616+05:30] Ashadi web: 
+[2026-11-26T16:33:19.1468891+05:30] Sithiji worker already running.
+[2026-11-26T16:33:19.3378697+05:30] Hub worker already running.
+[2026-11-26T16:33:19.3508342+05:30] Ready.
+[2026-11-26T16:38:17.2808441+05:30] === autostart ===
+[2026-11-26T16:38:17.5032470+05:30] Chrome already listening on :9222.
+[2026-11-26T16:38:17.9996264+05:30] Telegram bot already running.
+[2026-11-26T16:38:18.1148361+05:30] Ashadi web: 
+[2026-11-26T16:38:18.2464993+05:30] Sithiji worker already running.
+[2026-11-26T16:38:18.4299929+05:30] Hub worker already running.
+[2026-11-26T16:38:18.4339818+05:30] Ready.
+[2026-11-26T16:43:17.2472139+05:30] === autostart ===
+[2026-11-26T16:43:17.4756084+05:30] Chrome already listening on :9222.
+[2026-11-26T16:43:17.9403587+05:30] Telegram bot already running.
+[2026-11-26T16:43:18.0499490+05:30] Ashadi web: 
+[2026-11-26T16:43:18.1737716+05:30] Sithiji worker already running.
+[2026-11-26T16:43:18.3279892+05:30] Hub worker already running.
+[2026-11-26T16:43:18.3329796+05:30] Ready.
+[2026-11-26T16:48:18.1823992+05:30] === autostart ===
+[2026-11-26T16:48:18.4354383+05:30] Chrome already listening on :9222.
+[2026-11-26T16:48:18.9881685+05:30] Telegram bot already running.
+[2026-11-26T16:48:19.1567138+05:30] Ashadi web: 
+[2026-11-26T16:48:19.2899414+05:30] Sithiji worker already running.
+[2026-11-26T16:48:19.4146088+05:30] Hub worker already running.
+[2026-11-26T16:48:19.4195987+05:30] Ready.
+[2026-11-26T16:53:17.2824633+05:30] === autostart ===
+[2026-11-26T16:53:17.9716091+05:30] Chrome already listening on :9222.
+[2026-11-26T16:53:18.4712719+05:30] Telegram bot already running.
+[2026-11-26T16:53:18.8527614+05:30] Ashadi web: 
+[2026-11-26T16:53:18.9624687+05:30] Sithiji worker already running.
+[2026-11-26T16:53:19.0941197+05:30] Hub worker already running.
+[2026-11-26T16:53:19.1001015+05:30] Ready.
+[2026-11-26T16:58:17.2336757+05:30] === autostart ===
+[2026-11-26T16:58:17.4461078+05:30] Chrome already listening on :9222.
+[2026-11-26T16:58:17.8779525+05:30] Telegram bot already running.
+[2026-11-26T16:58:18.0036148+05:30] Ashadi web: 
+[2026-11-26T16:58:18.1242918+05:30] Sithiji worker already running.
+[2026-11-26T16:58:18.2519506+05:30] Hub worker already running.
+[2026-11-26T16:58:18.2569380+05:30] Ready.
+[2026-11-26T17:03:19.6004683+05:30] === autostart ===
+[2026-11-26T17:03:19.8278617+05:30] Chrome already listening on :9222.
+[2026-11-26T17:03:20.2128315+05:30] Telegram bot already running.
+[2026-11-26T17:03:20.3245313+05:30] Ashadi web: 
+[2026-11-26T17:03:20.4182808+05:30] Sithiji worker already running.
+[2026-11-26T17:03:20.5289845+05:30] Hub worker already running.
+[2026-11-26T17:03:20.5319743+05:30] Ready.
+[2026-11-26T17:08:17.1579278+05:30] === autostart ===
+[2026-11-26T17:08:17.3105190+05:30] Chrome already listening on :9222.
+[2026-11-26T17:08:17.5987476+05:30] Telegram bot already running.
+[2026-11-26T17:08:17.6835203+05:30] Ashadi web: 
+[2026-11-26T17:08:17.7653022+05:30] Sithiji worker already running.
+[2026-11-26T17:08:17.8630405+05:30] Hub worker already running.
+[2026-11-26T17:08:17.8660316+05:30] Ready.
+[2026-11-26T17:13:16.9976415+05:30] === autostart ===
+[2026-11-26T17:13:17.1771612+05:30] Chrome already listening on :9222.
+[2026-11-26T17:13:17.7670840+05:30] Telegram bot already running.
+[2026-11-26T17:13:17.8458727+05:30] Ashadi web: 
+[2026-11-26T17:13:17.9316415+05:30] Sithiji worker already running.
+[2026-11-26T17:13:18.0263866+05:30] Hub worker already running.
+[2026-11-26T17:13:18.0393519+05:30] Ready.
+[2026-11-26T17:18:17.1116333+05:30] === autostart ===
+[2026-11-26T17:18:17.2761915+05:30] Chrome already listening on :9222.
+[2026-11-26T17:18:17.6017505+05:30] Telegram bot already running.
+[2026-11-26T17:18:17.7034764+05:30] Ashadi web: 
+[2026-11-26T17:18:17.7802704+05:30] Sithiji worker already running.
+[2026-11-26T17:18:17.8889773+05:30] Hub worker already running.
+[2026-11-26T17:18:17.8939654+05:30] Ready.
+[2026-11-26T17:23:16.8512227+05:30] === autostart ===
+[2026-11-26T17:23:17.0227624+05:30] Chrome already listening on :9222.
+[2026-11-26T17:23:17.3319378+05:30] Telegram bot already running.
+[2026-11-26T17:23:17.4765455+05:30] Ashadi web: 
+[2026-11-26T17:23:17.5633132+05:30] Sithiji worker already running.
+[2026-11-26T17:23:17.6590566+05:30] Hub worker already running.
+[2026-11-26T17:23:17.6630446+05:30] Ready.
+[2026-11-26T17:28:18.3405787+05:30] === autostart ===
+[2026-11-26T17:28:18.5580059+05:30] Chrome already listening on :9222.
+[2026-11-26T17:28:20.4978243+05:30] Telegram bot already running.
+[2026-11-26T17:28:20.6743477+05:30] Ashadi web: 
+[2026-11-26T17:28:20.8030059+05:30] Sithiji worker already running.
+[2026-11-26T17:28:20.9605814+05:30] Hub worker already running.
+[2026-11-26T17:28:20.9655681+05:30] Ready.
+[2026-11-26T17:33:21.7496393+05:30] === autostart ===
+[2026-11-26T17:33:21.9800219+05:30] Chrome already listening on :9222.
+[2026-11-26T17:33:22.5644618+05:30] Telegram bot already running.
+[2026-11-26T17:33:22.6522192+05:30] Ashadi web: 
+[2026-11-26T17:33:22.7499599+05:30] Sithiji worker already running.
+[2026-11-26T17:33:22.8656485+05:30] Hub worker already running.
+[2026-11-26T17:33:22.8706353+05:30] Ready.
+[2026-11-27T09:46:07.9296569+05:30] === autostart ===
+[2026-11-27T09:46:08.5824051+05:30] Chrome already listening on :9222.
+[2026-11-27T09:46:11.4861759+05:30] Starting Telegram bot ...
+[2026-11-27T09:46:26.2060679+05:30] Ashadi web: 
+[2026-11-27T09:46:26.4464953+05:30] Sithiji worker already running.
+[2026-11-27T09:46:26.7925540+05:30] Hub worker already running.
+[2026-11-27T09:46:26.8032550+05:30] Ready.
+[2026-11-27T09:48:15.9152640+05:30] === autostart ===
+[2026-11-27T09:48:16.1715807+05:30] Chrome already listening on :9222.
+[2026-11-27T09:48:17.3056648+05:30] Telegram bot already running.
+[2026-11-27T09:48:17.5859550+05:30] Ashadi web: 
+[2026-11-27T09:48:17.6981731+05:30] Sithiji worker already running.
+[2026-11-27T09:48:17.8363415+05:30] Hub worker already running.
+[2026-11-27T09:48:17.8393313+05:30] Ready.
+[2026-11-27T09:53:17.8211566+05:30] === autostart ===
+[2026-11-27T09:53:18.2422169+05:30] Chrome already listening on :9222.
+[2026-11-27T09:53:20.1793207+05:30] Telegram bot already running.
+[2026-11-27T09:53:20.5139758+05:30] Ashadi web: 
+[2026-11-27T09:53:20.6618481+05:30] Sithiji worker already running.
+[2026-11-27T09:53:20.8375246+05:30] Hub worker already running.
+[2026-11-27T09:53:20.8418508+05:30] Ready.
+[2026-11-27T09:58:38.3507360+05:30] === autostart ===
+[2026-11-27T09:58:39.0230052+05:30] Chrome already listening on :9222.
+[2026-11-27T09:58:40.2611375+05:30] Telegram bot already running.
+[2026-11-27T09:58:40.5929573+05:30] Ashadi web: 
+[2026-11-27T09:58:40.7436987+05:30] Sithiji worker already running.
+[2026-11-27T09:58:40.9272766+05:30] Hub worker already running.
+[2026-11-27T09:58:40.9331081+05:30] Ready.
+[2026-11-27T10:03:23.5632055+05:30] === autostart ===
+[2026-11-27T10:03:23.8837632+05:30] Chrome already listening on :9222.
+[2026-11-27T10:03:24.4182484+05:30] Telegram bot already running.
+[2026-11-27T10:03:24.5566680+05:30] Ashadi web: 
+[2026-11-27T10:03:24.7219288+05:30] Sithiji worker already running.
+[2026-11-27T10:03:24.8940496+05:30] Hub worker already running.
+[2026-11-27T10:03:24.8983987+05:30] Ready.
+[2026-11-27T10:08:16.9535680+05:30] === autostart ===
+[2026-11-27T10:08:17.6569006+05:30] Chrome already listening on :9222.
+[2026-11-27T10:08:26.1169358+05:30] Telegram bot already running.
+[2026-11-27T10:08:27.2972366+05:30] Ashadi web: 
+[2026-11-27T10:08:27.4691309+05:30] Sithiji worker already running.
+[2026-11-27T10:08:27.7990314+05:30] Hub worker already running.
+[2026-11-27T10:08:27.8055272+05:30] Ready.
+[2026-11-27T10:13:17.2242878+05:30] === autostart ===
+[2026-11-27T10:13:17.4582034+05:30] Chrome already listening on :9222.
+[2026-11-27T10:13:18.0123570+05:30] Telegram bot already running.
+[2026-11-27T10:13:18.1410137+05:30] Ashadi web: 
+[2026-11-27T10:13:18.2916107+05:30] Sithiji worker already running.
+[2026-11-27T10:13:18.4864429+05:30] Hub worker already running.
+[2026-11-27T10:13:18.4906210+05:30] Ready.
+[2026-11-27T10:18:19.2024138+05:30] === autostart ===
+[2026-11-27T10:18:19.4976044+05:30] Chrome already listening on :9222.
+[2026-11-27T10:18:20.1744528+05:30] Telegram bot already running.
+[2026-11-27T10:18:20.2871494+05:30] Ashadi web: 
+[2026-11-27T10:18:20.4647165+05:30] Sithiji worker already running.
+[2026-11-27T10:18:20.6497046+05:30] Hub worker already running.
+[2026-11-27T10:18:20.6546919+05:30] Ready.
+[2026-11-27T10:23:15.9293405+05:30] === autostart ===
+[2026-11-27T10:23:16.1138471+05:30] Chrome already listening on :9222.
+[2026-11-27T10:23:16.3901071+05:30] Telegram bot already running.
+[2026-11-27T10:23:20.5574878+05:30] Ashadi web: 
+[2026-11-27T10:23:20.7030963+05:30] Sithiji worker already running.
+[2026-11-27T10:23:20.9848760+05:30] Hub worker already running.
+[2026-11-27T10:23:20.9898590+05:30] Ready.
+[2026-11-27T10:28:19.7047307+05:30] === autostart ===
+[2026-11-27T10:28:19.9127096+05:30] Chrome already listening on :9222.
+[2026-11-27T10:28:20.4171504+05:30] Telegram bot already running.
+[2026-11-27T10:28:20.5278242+05:30] Ashadi web: 
+[2026-11-27T10:28:20.6475024+05:30] Sithiji worker already running.
+[2026-11-27T10:28:20.7682686+05:30] Hub worker already running.
+[2026-11-27T10:28:20.7724910+05:30] Ready.
+[2026-11-27T10:33:24.8128976+05:30] === autostart ===
+[2026-11-27T10:33:27.1257027+05:30] Chrome already listening on :9222.
+[2026-11-27T10:33:32.5476564+05:30] Telegram bot already running.
+[2026-11-27T10:33:32.7251825+05:30] Ashadi web: 
+[2026-11-27T10:33:32.8743093+05:30] Sithiji worker already running.
+[2026-11-27T10:33:33.0777644+05:30] Hub worker already running.
+[2026-11-27T10:33:33.0827497+05:30] Ready.
+[2026-11-27T10:38:19.8731730+05:30] === autostart ===
+[2026-11-27T10:38:20.2028657+05:30] Chrome already listening on :9222.
+[2026-11-27T10:38:20.8182138+05:30] Telegram bot already running.
+[2026-11-27T10:38:21.0145078+05:30] Ashadi web: 
+[2026-11-27T10:38:21.1505826+05:30] Sithiji worker already running.
+[2026-11-27T10:38:21.3040136+05:30] Hub worker already running.
+[2026-11-27T10:38:21.3081644+05:30] Ready.
+[2026-11-27T10:43:17.8254251+05:30] === autostart ===
+[2026-11-27T10:43:18.1445666+05:30] Chrome already listening on :9222.
+[2026-11-27T10:43:18.6482198+05:30] Telegram bot already running.
+[2026-11-27T10:43:18.8598295+05:30] Ashadi web: 
+[2026-11-27T10:43:18.9892800+05:30] Sithiji worker already running.
+[2026-11-27T10:43:19.1428688+05:30] Hub worker already running.
+[2026-11-27T10:43:19.1478545+05:30] Ready.

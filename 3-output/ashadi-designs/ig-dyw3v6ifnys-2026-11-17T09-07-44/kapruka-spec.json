@@ -1,0 +1,279 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#340A5C",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A two-column poster on flat Retail Purple. On the left, one real Kapruka chocolate cake sits on a plain white plate. One slice is half cut and pulled slightly out, and three dessert forks stab into that same slice from three directions. Their handles rise up and fan out, so the cake and forks stack into one vertical object down the left third. On the right, a four-line stacked Inter title reads WE / ALL / WANT / THIS ONE, with the small words in gold and the big words in white. One centred line in gold sits across the bottom. The Kapruka logo is top-centre.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 9.3,
+      "bottom": 8,
+      "left": 9.3
+    },
+    "alignment_axes": [
+      "The pulled-out slice, the point where the three fork tips meet, and the cake's centre share one vertical axis at x≈25% (reference: heel drip / pitchfork / jar axis at x≈24.5%)",
+      "The left edges of 'ALL' and 'THIS ONE' line up at x≈46.5%. The right edge of 'THIS ONE' stops at or before x≈90%",
+      "The bottom tagline and the logo are both centred on the canvas centre line, x=50%",
+      "The baseline of 'THIS ONE' (y≈55.5%) lines up with the cake's top surface and the fork tips (y≈55–56%), the same lock the reference makes between 'BISCOFF' and the jar rim",
+      "The title block's top (y≈31%) is level with the tops of the highest fork handle (y≈34%), the same handshake the reference makes with the heel's arch"
+    ],
+    "whitespace": [
+      "≈6.5% empty gutter between the scene's right extent (x≈40%) and the title block (x≈46.5%)",
+      "Large empty lower-right field, x 42–91%, y 57–86%, which balances the heavy cake on the left",
+      "≈6% empty band between the plate's bottom (y≈82.5%) and the tagline cap-top (y≈88.5%)",
+      "Empty field across the top between the logo (y≈7.4–12%) and the scene/title (y≈31–34%)",
+      "No object comes within 100px of any canvas edge"
+    ]
+  },
+  "logo": {
+    "id": "logo",
+    "type": "logo",
+    "box": {
+      "x": 40.7,
+      "y": 7.4,
+      "w": 18.5,
+      "h": 4.6
+    },
+    "on": "dark",
+    "note": "Added because the reference has no logo. Top-centre per the brand guide, top edge at 100px (inside the 110px rule). Mark and wordmark only, nothing under it. Composited in Canva."
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 10,
+      "y": 34,
+      "w": 30,
+      "h": 48.5
+    },
+    "kind": "photograph",
+    "framing": "cutout-on-ground",
+    "subject": "One real Kapruka chocolate cake (round, chocolate-ganache finish, exactly as on its kapruka.com listing, not redesigned) on a plain white ceramic plate. One slice is partly cut and pulled slightly out from the cake. Three ordinary stainless-steel dessert forks are pushed into that same slice from three directions (left, top, right), and their tips meet in the middle of the slice. The handles fan up and outward. A few real crumbs sit on the plate. No hands, no box, no ribbon, no gold, no other props.",
+    "composition": "The cake and plate sit low in the left column: plate x≈10–40%, y≈73–82.5%, cake top surface at y≈55–56%. The pulled slice faces the viewer on the x≈25% axis. The three fork handles rise from the slice to y≈34%. The left handle leans to x≈12%, the right handle to x≈38%, and the centre handle is near-vertical. Cake and forks read as one continuous vertical object stacked down the left third, echoing the reference's shoe-over-jar stack. Everything stays inside the 100px margin.",
+    "camera": "Slightly above the cake (≈20° down), long-lens feel with no perspective distortion, everything in sharp focus, no depth-of-field falloff",
+    "lighting": "Soft, bright studio light from the upper left. Clean specular highlights on the ganache, the cut sponge face and the fork steel, with a faint soft contact shadow under the plate falling down-right. Neutral white light, no colour cast.",
+    "palette": [
+      "#340A5C",
+      "#3B1F14",
+      "#5A3220",
+      "#F5F4EB",
+      "#C9CCD1",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      {
+        "x": 44,
+        "y": 29,
+        "w": 50,
+        "h": 28,
+        "note": "the title block sits here"
+      },
+      {
+        "x": 42,
+        "y": 57,
+        "w": 49,
+        "h": 29,
+        "note": "deliberately empty"
+      },
+      {
+        "x": 9.3,
+        "y": 87,
+        "w": 81.4,
+        "h": 6.5,
+        "note": "the tagline band"
+      },
+      {
+        "x": 38,
+        "y": 6,
+        "w": 24,
+        "h": 8,
+        "note": "the logo sits here"
+      }
+    ],
+    "prompt": "4:5 portrait product photograph on a perfectly flat, even, deep purple background (#340A5C) with no gradient, vignette or texture. In the left third of the frame, a round chocolate cake with a smooth dark chocolate ganache finish sits on a plain white ceramic plate, shot from slightly above (about 20 degrees) with a long-lens look and no distortion. One slice is partly cut and pulled a little way out of the cake, so its moist layered sponge face shows toward the camera. Three ordinary stainless-steel dessert forks are stuck into that same slice from three directions, left, top and right, with their tips meeting in the middle of the slice. Their handles fan up and outward, so the cake and forks make one tall vertical shape. A few real crumbs are scattered on the plate. No hands, no people, no box, no ribbon, no candles, no other props. Soft, bright studio light from the upper left, with clean highlights on the ganache and the fork steel, one consistent light direction, and a faint soft contact shadow under the plate. Everything is in sharp focus, with real food texture and no plastic sheen. Keep these areas completely empty, flat purple and calm: the right half x 42-94%, y 29-86%; the top band x 30-70%, y 5-14%; the bottom band x 9-91%, y 86-94%. The cake, plate and forks stay inside x 10-40%, y 34-83%. Absolutely no text, letters, numbers, logos, labels or watermarks anywhere.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "WE",
+      "box": {
+        "x": 51.5,
+        "y": 31,
+        "w": 12,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 60,
+        "cap_height_px": 44,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "ALL",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.7
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 148,
+        "cap_height_px": 107,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "WANT",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.7
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 70,
+        "cap_height_px": 51,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "THIS ONE",
+      "box": {
+        "x": 46.5,
+        "y": 47.2,
+        "w": 43.5,
+        "h": 8.3
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 160,
+        "cap_height_px": 116,
+        "line_height": 1,
+        "letter_spacing_px": -1,
+        "case": "upper",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Kapruka cakes, delivered island-wide.",
+      "box": {
+        "x": 9.3,
+        "y": 88.5,
+        "w": 81.4,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 44,
+        "cap_height_px": 32,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e4",
+    "e2",
+    "e1",
+    "e3",
+    "e5",
+    "logo"
+  ],
+  "why_it_works": [
+    "It uses a truth almost every family shares: when a cake comes home, everyone goes for the same last slice. You recognise it in a second, at home or abroad, without needing to know a film or a phrase.",
+    "The picture tells the joke. Three forks meeting in one slice show 'everybody' wanting it before you read a word, and the title just says plainly what you already see. The support line turns that moment into a gift you can send.",
+    "It keeps the reference's spare rhythm: one vertical object down the left, one stacked title on the right, an empty lower-right field, and the accent colour used only for the small title words and the tagline."
+  ],
+  "changes": [
+    "Background changed from white to flat Retail Purple #340A5C, per the approved concept and the brand guide's main ground. So the big title words are white, and the accent words (WE, WANT) and the tagline are gold #D9A441, which is allowed on a dark ground. This keeps the reference's two-colour title hierarchy.",
+    "The title copy is now WE / ALL / WANT / THIS ONE (2/3/4/8 characters against the reference's 3/5/4/7, every line within +15%). It is the concept's 'Everybody wants this.' said plainly in the reference's four-line rhythm. There is no parody or wordplay.",
+    "The tagline now carries the concept's supporting_line, 'Kapruka cakes, delivered island-wide.' (37 characters vs 44). It moved up from y 92.5% to 88.5% and in from x 7% to 9.3% so it sits inside the 100px margin.",
+    "All type is Inter 700. The didone serif, the small-caps treatment and the rounded sans are gone, and the scheme stays all-caps to match the reference title.",
+    "Replaced the Biscoff jar, which belongs to another brand, and the red stiletto with the nearest real Kapruka product, a chocolate cake on a plate. The pitchfork became three ordinary forks in one slice. No melting or dripping device is used, because the concept doesn't need one.",
+    "The scene box moved from x 0 (bleeding off the edge) to x 10–40%, y 34–82.5%, because no object may come within 100px of an edge. The vertical stack, the axis near x≈25% and the cake-top-to-baseline lock at y≈55.5% are kept.",
+    "Removed the devil's-tail arrow on the V, because ornaments are not allowed.",
+    "Added one Kapruka logo top-centre (top edge at 100px, on dark), with mark and wordmark only, because the reference has none. scene.attach is empty because no packaging appears. Note for the build: the Kapruka MCP search was blocked by permissions, so the cake's exact listing was not confirmed. Swap in or match the real kapruka.com chocolate-cake listing photo before export."
+  ],
+  "claims_used": [
+    "'Kapruka cakes': cakes are a confirmed Kapruka gifting category (01-business-context.md §6, item 7: top gifting categories by revenue are cakes · flowers · hampers · gifts · chocolates).",
+    "'delivered island-wide': confirmed proof, approved for ad use (01-business-context.md §1, 'Island-wide delivery — anywhere in Sri Lanka', and §6, item 2). No same-day, price or offer claim is made."
+  ]
+}

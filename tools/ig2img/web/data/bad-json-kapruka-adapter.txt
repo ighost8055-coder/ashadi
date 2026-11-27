@@ -1,0 +1,163 @@
+Gemini said
+
+{
+"canvas": {
+"w": 1080,
+"h": 1350,
+"aspect": "4:5",
+"background": "#F5F4EB",
+"background_kind": "flat"
+},
+"layout_summary": "A centered two-line meme-style headline sits in the upper third of a soft cream canvas beneath a top-centered Kapruka logo, above a large cutout composite of a tabby cat wearing red sunglasses and holding two perfume bottles. The cat subject anchors the bottom center inside the 100px safe margins.",
+"grid": {
+"margins_pct": {
+"top": 7.4,
+"right": 9.3,
+"bottom": 7.4,
+"left": 9.3
+},
+"alignment_axes": [
+"Logo, headline, subhead, and central cat subject share a vertical center axis at x=50%",
+"Headline left and right edges sit symmetrically inside the 100px safe zone at x=9.5% and x=90.5%"
+],
+"whitespace": [
+"18% empty top space above the headline with Kapruka logo centered at y=7.4%",
+"2% vertical gap between headline and subhead",
+"6.5% vertical gap between subhead baseline and top of cat's ears",
+"20% open margins on left and right flanking the subject"
+]
+},
+"scene": {
+"present": true,
+"box": {
+"x": 20.5,
+"y": 33.5,
+"w": 59,
+"h": 59.1
+},
+"kind": "photo",
+"framing": "cutout-on-ground",
+"subject": "Brown tabby cat facing forward wearing glossy red cat-eye sunglasses and a small red satin ribbon bow on its left ear, holding two real perfume bottles drawn exactly as in the attached product sheet in its front paws: BAD GIRLS CODE French Perfume For Women J. By JANVIER Eau de Parfum 100 ml on the left and Flower By Kenzo Poppy Bouquet Eau De Perfume on the right.",
+"composition": "Centered vertically in the lower two-thirds inside the 100px bottom safe margin (ending cleanly at y=92.6%), occupying 59% of canvas width.",
+"camera": "Eye-level straight-on medium close-up, sharp focus across fur, glossy red frames, satin bow, and front-facing bottle labels.",
+"lighting": "Soft, even front-lit studio illumination with subtle specular highlights on the red sunglasses frames, satin ribbon, and glass perfume bottles.",
+"palette": [
+"#8C725B",
+"#C9B29B",
+"#A8151B",
+"#141414",
+"#F5F4EB",
+"#340A5C"
+],
+"negative_space": [
+"x=0%, y=0%, w=100%, h=33.5%",
+"x=0%, y=33.5%, w=20.5%, h=66.5%",
+"x=79.5%, y=33.5%, w=20.5%, h=66.5%"
+],
+"prompt": "Eye-level studio product photograph, 4:5 portrait aspect ratio, isolated cutout-on-ground subject set against a pure flat seamless solid white #FFFFFF backdrop with zero borders, zero horizon lines, zero vignettes, and zero rectangular photo-box seams. Centered inside an explicit inset bounding box spanning x=20.5% to 79.5% and y=33.5% to 92.6% (strictly respecting 100px safe margins on all edges with clean fur finishing at the chest inside y=92.6%), a realistic brown tabby cat faces straight toward the camera wearing glossy crimson-red cat-eye sunglasses and a small crimson-red satin ribbon bow clipped to its left ear. Held upright and front-facing in the cat's front paws are two real glass perfume bottles drawn exactly as in the attached product sheet with identical bottle silhouettes, caps, glass tones, and crisp front-facing printed labels: on the left, BAD GIRLS CODE French Perfume For Women J. By JANVIER Eau de Parfum 100 ml with exact legible label spelling "J. BY JANVIER", "Bad Girls", "CODE", and "EAU DE PARFUM"; on the right, Flower By Kenzo Poppy Bouquet Eau De Perfume drawn with exact fidelity to the attached product sheet. Soft, even front-lit studio illumination casts subtle realistic specular highlights on the glossy red eyewear, glass bottles, and soft fur, with a soft contained contact shadow beneath the paws and chest strictly inside the inset bounding box. Keep the entire upper zone (x=0% to 100%, y=0% to 33.5%) and side margins completely empty and low-detail for typography and logo placement. No ad headlines, no watermarks, no price tags, no stickers, and no Kapruka logos anywhere in the scene.",
+"attach": [
+"product-sheet.png"
+]
+},
+"elements": [
+{
+"id": "logo",
+"type": "logo",
+"role": "brand",
+"on": "light",
+"box": {
+"x": 40.7,
+"y": 7.4,
+"w": 18.5,
+"h": 4.2
+}
+},
+{
+"id": "e1",
+"type": "text",
+"role": "headline",
+"text": ""Your future is in your hands"",
+"box": {
+"x": 9.5,
+"y": 18,
+"w": 81,
+"h": 4.5
+},
+"font": {
+"family": "Inter",
+"category": "geometric sans",
+"weight": 700,
+"size_px": 50,
+"cap_height_px": 37,
+"line_height": 1.15,
+"letter_spacing_px": -0.5,
+"case": "none",
+"italic": false,
+"color": "#340A5C",
+"align": "center",
+"valign": "top"
+},
+"highlights": [],
+"confidence": "high"
+},
+{
+"id": "e2",
+"type": "text",
+"role": "subhead",
+"text": "Meanwhile me :",
+"box": {
+"x": 33.5,
+"y": 24.5,
+"w": 33.5,
+"h": 3
+},
+"font": {
+"family": "Inter",
+"category": "geometric sans",
+"weight": 400,
+"size_px": 36,
+"cap_height_px": 26,
+"line_height": 1.15,
+"letter_spacing_px": 0,
+"case": "none",
+"italic": false,
+"color": "#340A5C",
+"align": "center",
+"valign": "top"
+},
+"highlights": [],
+"confidence": "high"
+}
+],
+"ornaments": [],
+"z_order": [
+"scene",
+"logo",
+"e1",
+"e2"
+],
+"hierarchy": [
+"e1",
+"e2",
+"scene",
+"logo"
+],
+"why_it_works": [
+"Generous Soft Cream negative space around the upper Retail Purple text ensures immediate readability before the eye drops to the visual punchline.",
+"Strict central symmetry ties the two-line setup directly to the cat's gaze and the two featured Kapruka fragrances.",
+"High-contrast glossy red eyewear and bow draw attention to the cat's face, guiding the viewer down to the real J. By JANVIER and Flower By Kenzo bottles."
+],
+"changes": [
+"Standardized canvas dimensions from 1199x1499 to Kapruka's 1080x1350 (4:5) social ad format with 100px safe margins on all four sides.",
+"Mapped flat cream ground to Kapruka Soft Cream (#F5F4EB) and text layers to Retail Purple (#340A5C).",
+"Switched all text layers from Plus Jakarta Sans to Inter (700 Bold headline, 400 Regular subhead) scaled proportionally to 1080x1350.",
+"Added the Kapruka logo top-centered at y=7.4% (100px from top, within the 110px top-edge rule) on a light ground.",
+"Replaced the two generic HIRA perfume bottles with real Kapruka products: BAD GIRLS CODE French Perfume For Women J. By JANVIER Eau de Parfum 100 ml and Flower By Kenzo Poppy Bouquet Eau De Perfume.",
+"Kept the visual meme device intact (brown tabby cat wearing glossy red cat-eye sunglasses and red satin ribbon bow holding both bottles) while ending the cutout cleanly inside the 100px bottom safe margin.",
+"Preserved the exact punchy 1-line headline ('Your future is in your hands', 29 chars) and 1-line subhead ('Meanwhile me :', 14 chars) so line counts and character limits match the reference."
+],
+"claims_used": [
+"No factual delivery, tenure, or pricing claims are stated in the headline or subhead copy, keeping the meme setup purely relatable and compliant with 01-business-context.md.",
+"Featured products (BAD GIRLS CODE French Perfume For Women J. By JANVIER Eau de Parfum 100 ml and Flower By Kenzo Poppy Bouquet Eau De Perfume) match the approved product brief with zero invented prices, discounts, or unverified superlatives."
+]
+}

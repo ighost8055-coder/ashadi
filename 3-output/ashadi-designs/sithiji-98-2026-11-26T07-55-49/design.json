@@ -1,0 +1,115 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": null,
+  "startedAt": "2026-11-26T07:55:49.429Z",
+  "variants": [
+    {
+      "engine": "Gemini",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01-r2.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [
+          "NATURAL FRUIT SEEDS Cleanses & exfoliates for glowing skin Alcohol free WHITENING EFFECT"
+        ],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": "Product packaging label text is rendered on the Voi Coffee Scrub & Wash bottle; small text lines under 'NATURAL FRUIT SEEDS' are slightly blurry/garbled."
+      },
+      "canva": {
+        "id": "DAHcAJIVu_E",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjczMDM5MjIzfQ..VRGEtMt7_6Xr4bKa.Hdrb9_PTidZsyl0W5ki2njaIPOazvOWad17wa1qEKYsgzIq3Ympj2wPEFnN-BcwPuPqnF6U_1rzDpMvAZXTtCZ1UfLA_MaMduecussB2GuTTFUk.maIbs_rgLmJJwvc3rK0vEw/edit?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=22a7d1a7-439a-47dd-8001-76fb0af0cc76&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjczMDM5MjIzfQ..VRGEtMt7_6Xr4bKa.Hdrb9_PTidZsyl0W5ki2njaIPOazvOWad17wa1qEKYsgzIq3Ympj2wPEFnN-BcwPuPqnF6U_1rzDpMvAZXTtCZ1UfLA_MaMduecussB2GuTTFUk.maIbs_rgLmJJwvc3rK0vEw/view?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=ef3600eb-6664-48b9-9b9b-c0c835ee7265&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01-r2.png",
+      "audit": {
+        "blocks": 2,
+        "flags": [
+          "block at y 101–262: sits +388px off centre",
+          "block at y 411–505: sits +167px off centre"
+        ]
+      },
+      "review": {
+        "verdict": "minor-fixes",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "adapt: iMessage bubble lacks the bottom-right pointer tail seen in the reference image.",
+            "fix_in_canva": "Add a matching blue right-pointing speech tail to the bottom-right corner of the message bubble."
+          },
+          {
+            "severity": "medium",
+            "what": "brand: Kapruka logo is tiny at the top of the purple block instead of centered and properly sized.",
+            "fix_in_canva": "Center the Kapruka logo vertically and horizontally inside the purple rectangle and increase its width."
+          }
+        ],
+        "strengths": [
+          "Accurate product rendering with exact 'Voi COFFEE SCRUB & WASH' spelling.",
+          "Clean spacing and faithful 100px safe margins across all four canvas edges.",
+          "Strong structural match to the reference layout and minimalist color palette."
+        ]
+      },
+      "polish": {
+        "rounds": 3,
+        "applied": [
+          "moved e1",
+          "moved e2",
+          "moved e3",
+          "moved \"sorry i have plans\"",
+          "resized \"sorry i have plans\"",
+          "moved \"the plans:\"",
+          "resized \"the plans:\"",
+          "weight of \"the plans:\"",
+          "moved e1",
+          "moved e2",
+          "moved \"sorry i have plans\"",
+          "resized \"sorry i have plans\"",
+          "moved \"the plans:\"",
+          "resized \"the plans:\"",
+          "recoloured \"the plans:\"",
+          "weight of \"the plans:\""
+        ],
+        "needsNewPicture": null,
+        "unfixable": [
+          "adapt: iMessage bubble lacks the bottom-right pointer tail seen in the reference image. — Adding a new shape layer is not supported by the layer patch schema."
+        ]
+      },
+      "final": "final-01-2026-11-26T08-19-57.png",
+      "finalAt": "2026-11-26T08:20:01.722Z"
+    }
+  ],
+  "reference": [
+    "ref-01.jpg"
+  ],
+  "caption": "\"Sorry, I have plans\" chat bubble post\nBlue chat bubble in Spanish: \"Sorry, I have plans.\" · \"The plans:\" followed by three drink cut-outs in a row · Plain cream background, red logo tab top right; looks like Juan Valdez",
+  "relation": "direct",
+  "target": null,
+  "products": {
+    "source": "catalogue snapshot",
+    "items": [
+      {
+        "title": "VOI SCRUB AND WASH COFFEE 400ML",
+        "price": "Rs 3,900",
+        "url": "https://www.kapruka.com/buyonline/voi-scrub-and-wash-coffee-400ml/kid/cosmetics001670"
+      },
+      {
+        "title": "Kandy Myst By Cinnamon Chocolate Fudge Brownie cake",
+        "price": "RS.11,720",
+        "url": "https://www.kapruka.com/buyonline/kandy-myst-by-cinnamon-chocola/kid/cakekmc00104"
+      },
+      {
+        "title": "Choco Land, Chocolate Loaded Gateaux",
+        "price": "RS.7,400",
+        "url": "https://www.kapruka.com/buyonline/choco-land-chocolate-loaded-ga/kid/cake00ka001204"
+      }
+    ]
+  },
+  "concept": null,
+  "style": "adapt",
+  "title": "sorry i have plans.",
+  "finishedAt": "2026-11-26T08:19:57.045Z",
+  "best": 0
+}

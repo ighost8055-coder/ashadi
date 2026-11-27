@@ -1,0 +1,130 @@
+{
+  "text_or_logos": [
+    {
+      "what": "tiny wordmark, indices and date numerals on the dial of the top-right watch",
+      "box": {
+        "x": 63,
+        "y": 17.5,
+        "w": 6,
+        "h": 4.5
+      }
+    },
+    {
+      "what": "tiny wordmark, indices and date numerals on the dial of the left (pointing-hand) watch",
+      "box": {
+        "x": 11,
+        "y": 55,
+        "w": 5.5,
+        "h": 4
+      }
+    },
+    {
+      "what": "tiny wordmark, numerals and date window on the dial of the lower-right watch",
+      "box": {
+        "x": 61,
+        "y": 70,
+        "w": 6.5,
+        "h": 5.5
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "dark knurled vertical pole, full height",
+      "box": {
+        "x": 47,
+        "y": 0,
+        "w": 6,
+        "h": 100
+      }
+    },
+    {
+      "what": "blue grip sleeve with red button on the pole",
+      "box": {
+        "x": 47,
+        "y": 49,
+        "w": 6,
+        "h": 15
+      }
+    },
+    {
+      "what": "top-right arm (green blazer with striped cuff) gripping the pole, wearing a watch",
+      "box": {
+        "x": 43,
+        "y": 7.5,
+        "w": 57,
+        "h": 22
+      }
+    },
+    {
+      "what": "left arm (pink wool sleeve) gripping the pole",
+      "box": {
+        "x": 0,
+        "y": 22.5,
+        "w": 58,
+        "h": 17.5
+      }
+    },
+    {
+      "what": "right arm (black crane-print bomber sleeve) gripping the pole",
+      "box": {
+        "x": 43,
+        "y": 34,
+        "w": 57,
+        "h": 13.5
+      }
+    },
+    {
+      "what": "left arm (polka-dot sleeve) pointing at the red button, wearing a watch",
+      "box": {
+        "x": 0,
+        "y": 53.5,
+        "w": 41,
+        "h": 9
+      }
+    },
+    {
+      "what": "right arm (black/white check sleeve) gripping the pole, wearing a watch",
+      "box": {
+        "x": 43,
+        "y": 65,
+        "w": 57,
+        "h": 17.5
+      }
+    },
+    {
+      "what": "left arm (navy camo blazer, tattooed hand) gripping the pole",
+      "box": {
+        "x": 0,
+        "y": 77,
+        "w": 58,
+        "h": 14.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 100,
+    "h": 100
+  },
+  "people": [
+    "top-right hand + forearm, green blazer sleeve (gripping the pole)",
+    "left hand + forearm, pink sleeve (gripping)",
+    "right hand + forearm, crane-print sleeve (gripping)",
+    "left hand + forearm, polka-dot sleeve, index finger pointing, red nail polish",
+    "lower-right hand + forearm, check sleeve (gripping)",
+    "lower-left tattooed hand + forearm, navy camo blazer with white shirt cuff (gripping)"
+  ],
+  "notes": "There's tiny pseudo-text on all three watch dials: wordmarks, numerals and date windows. Read close up, it's probably garbled, so retouch the dials or use the real product shot. The three watches are identical, which looks like one product copied three times. The hands look anatomically fine with normal finger counts. In the 50-62% x range, the top-right and crane-sleeve hands sit very close to the pink-sleeve hand at the pole. The pole runs the full height, so objects_box covers the whole frame. There's no empty area for type except the purple strip at x 5-40%, y 63-76%, and the panel area at top-left, x 0-35%, y 0-21%.",
+  "size": {
+    "w": 1840,
+    "h": 2304
+  }
+}

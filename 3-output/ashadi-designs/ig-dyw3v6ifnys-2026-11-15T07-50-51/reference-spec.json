@@ -1,0 +1,244 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A tall two-column poster on pure white: a red stiletto bleeding into a Biscoff jar occupies the left third and runs from the top-left corner down to 82% height, while a centred three-line movie-title lockup sits in the right half between 29% and 55%. A single red one-line kicker in heavy sans runs full-width across the bottom at 95%.",
+  "grid": {
+    "margins_pct": {
+      "top": 8.5,
+      "right": 4.5,
+      "bottom": 3.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "All three headline lines ('THE', 'DEVIL'/'EATS', 'BISCOFF') are centred on a shared vertical axis at x=68%",
+      "'DEVIL' and 'BISCOFF' share an identical left edge at x=47.5% and right edge at x=89.5% — the two display lines are optically width-matched",
+      "The shoe-to-jar drip column and the jar body share a vertical centre at x=29%",
+      "Bottom kicker is centred on the canvas centre axis at x=50%, independent of the headline axis",
+      "Headline block bottom (55%) and jar top-of-lid (~66%) leave an unoccupied horizontal band shared across both columns"
+    ],
+    "whitespace": [
+      "Entire right column above y=29% is empty white (x 45-100%, y 0-29%) — roughly 16% of canvas height",
+      "Full-width empty band between the jar base (y=82%) and the kicker cap-top (y=94%) — a 12% breathing gap",
+      "Empty white block right of the jar and below the headline (x 45-100%, y 56-92%) — the largest single void, about 36% height",
+      "Left edge is deliberately bled: the shoe is cropped off-canvas at x=0, so there is no left margin",
+      "~5.5% clear gap between the headline's right edge (89.5%) and the right canvas edge"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 9,
+      "w": 42,
+      "h": 73
+    },
+    "kind": "3d-render",
+    "subject": "A glossy scarlet patent-leather stiletto court shoe, angled toe-up to the upper right, whose slim heel melts and stretches downward into three liquid caramel-brown tendrils that pour into the open mouth of a squat glass spread jar; thick caramel spread overflows the rim, coats the lid thread and runs in heavy drips down the jar's side to pool at its base. The jar is wrapped in a red wraparound label with a mustard-yellow oval band and a biscuit-and-spoon illustration.",
+    "composition": "Shoe enters from the top-left corner and is cropped by the left canvas edge, filling the diagonal from (0,50%) to (36%,10%); the heel tapers to a drip column centred at x=29% that connects into the jar below; the jar sits bottom-left, upright, occupying x 15-41%, y 65-82%, with a faint contact shadow. Together they form one continuous top-left-to-bottom-centre diagonal that leaves the right half empty for type.",
+    "camera": "Straight-on, near eye-level product view with a slight high angle on the jar lid showing a sliver of the opening; long-lens feel with no perspective distortion, everything in sharp focus front to back, no depth-of-field falloff.",
+    "lighting": "Soft broad key from the upper left with a bright specular highlight running the length of the shoe's vamp and a second sharp highlight on the heel; a cooler fill from the right separates the jar from the white ground; shadows are extremely soft and almost absent, producing a cut-out-on-white studio look.",
+    "palette": [
+      "#FFFFFF",
+      "#D81E20",
+      "#B0141A",
+      "#C8862E",
+      "#A5611D",
+      "#E8B45C",
+      "#F2F2F2"
+    ],
+    "negative_space": [
+      "x 45-100%, y 0-29% (white above the headline)",
+      "x 45-100%, y 56-92% (white right of and below the jar)",
+      "x 0-100%, y 82-93% (full-width band above the kicker)"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 60.5,
+        "y": 36.5,
+        "w": 15.5,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Bodoni MT / ITC Bodoni Seventytwo",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 66,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1.5,
+        "case": "upper",
+        "italic": false,
+        "color": "#9E1B1E",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 47.5,
+        "y": 40,
+        "w": 42,
+        "h": 6.5
+      },
+      "font": {
+        "family_guess": "Bodoni MT / ITC Bodoni Seventytwo",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 124,
+        "cap_height_px": 88,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "upper",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 51,
+        "w": 16.5,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Bodoni MT / ITC Bodoni Seventytwo",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 66,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1.5,
+        "case": "upper",
+        "italic": false,
+        "color": "#D41E26",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46.5,
+        "y": 55.5,
+        "w": 43.5,
+        "h": 6
+      },
+      "font": {
+        "family_guess": "Bodoni MT / ITC Bodoni Seventytwo",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 118,
+        "cap_height_px": 84,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "title",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don’t be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 93,
+        "w": 86,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Montserrat ExtraBold / Gilroy ExtraBold",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 51,
+        "cap_height_px": 36,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#C8202B",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "A thin black devil-tail arrow replacing the upward stroke of the 'I' in DEVIL — a slim curved stem rising above the cap line and terminating in a solid filled arrowhead pointing up-right; drawn in the same black as the type, roughly 1.5x the cap height tall.",
+      "box": {
+        "x": 73,
+        "y": 30.5,
+        "w": 5.5,
+        "h": 11
+      }
+    },
+    {
+      "description": "Three pointed caramel drip tips hanging from the underside of the melted heel loops, each ending in a small downward spike just above the jar mouth (part of the rendered scene, but reading graphically as a trio of accent marks).",
+      "box": {
+        "x": 24.5,
+        "y": 60,
+        "w": 9,
+        "h": 4.5
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "ornament-arrow",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "The movie-poster title lockup is instantly recognisable as a parody frame, so the joke lands before a single word is read.",
+    "A hard left/right split — rendered object on the left diagonal, centred type on the right — lets both halves stay large and uncrowded on a white field.",
+    "Colour is rationed to exactly two: red for the shoe, the accent words and the kicker; black for the two big title lines, which keeps a busy render legible at thumbnail size."
+  ]
+}

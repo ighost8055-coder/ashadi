@@ -1,0 +1,113 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-21T17:06:41.501Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": ""
+      },
+      "canva": {
+        "id": "DAHbkaOs3wk",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODczMzU5MjY0fQ..Ut8BZNNuTvnRSoJz.ioKIaY2aOgP2jtqWsLLWw34rIamMJo6uzV2jqK46LDaNPc7daKFMKUuD4yworzVJyFsUma9ioGT4KmkZUAHijhRRxoln4McT4CwXbMCbDEdUkq4.ebg-bo1LhpqqMNbhuWhi5Q/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=593e6f32-e88b-4646-bd0c-885f48f76e69&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODczMzU5MjY0fQ..Ut8BZNNuTvnRSoJz.ioKIaY2aOgP2jtqWsLLWw34rIamMJo6uzV2jqK46LDaNPc7daKFMKUuD4yworzVJyFsUma9ioGT4KmkZUAHijhRRxoln4McT4CwXbMCbDEdUkq4.ebg-bo1LhpqqMNbhuWhi5Q/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=74174361-0924-45f0-82be-2b47c46d7125&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "adapt: Purple heel is rotated toe-up with a stubby pitchfork, breaking the reference's sleek downward-stepping stiletto silhouette.",
+            "fix_in_canva": "Regenerate hero visual with stiletto angled downward like reference, then replace image layer in Canva."
+          },
+          {
+            "severity": "medium",
+            "what": "Visible hard vertical crop edge cuts off the soft grey shadow on the left side of the cake.",
+            "fix_in_canva": "Feather the left edge of the image mask or regenerate with wider padding around the shadow."
+          },
+          {
+            "severity": "low",
+            "what": "Kapruka logo is aligned top-right instead of the brand guideline's top-center placement for social posts.",
+            "fix_in_canva": "Center-align the Kapruka logo horizontally at the top within 100-110px of the top edge."
+          }
+        ],
+        "strengths": [
+          "Clean Inter typography matches the reference's stacked headline hierarchy well.",
+          "Strong, playful Kapruka copy adaptation with clear contrast and legibility.",
+          "Generous breathing room and clean margins across the entire canvas."
+        ]
+      },
+      "polish": {
+        "rounds": 1,
+        "applied": [],
+        "needsNewPicture": null,
+        "unfixable": []
+      }
+    },
+    {
+      "engine": "Gemini",
+      "scene": "placed-02-brand.jpg",
+      "pptx": "design-02.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": "The purple shoe has both a stiletto heel sticking out to the right and a separate trident stem growing downward from the base of the heel."
+      },
+      "canva": {
+        "id": "DAHbkWjuNyI",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODczNzQ1MTk2fQ..ZpOME9Ook1DiaL5B.F6VAPpQcd0quEVDnLqeSGBHK3PlEanvsATVFD9W1hdt-Es7FVBopYqQ5lEMeUnExaBf0psCX7D4m2YwEHrclVYekwJvd-y7jY7H-I4HAjmy9dFM.e99V23H4zRoZjk8fhFltFQ/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=af6dd2f4-8645-4fac-a891-5955626a44e3&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3ODczNzQ1MTk2fQ..ZpOME9Ook1DiaL5B.F6VAPpQcd0quEVDnLqeSGBHK3PlEanvsATVFD9W1hdt-Es7FVBopYqQ5lEMeUnExaBf0psCX7D4m2YwEHrclVYekwJvd-y7jY7H-I4HAjmy9dFM.e99V23H4zRoZjk8fhFltFQ/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=795a6833-de1c-4816-9d01-3d68603861f4&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-02.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "adapt: visual device is broken; stiletto heel sticks out sideways while a separate trident grows from the sole.",
+            "fix_in_canva": "Replace hero image so the stiletto heel itself tapers into the trident dipping into the cake."
+          },
+          {
+            "severity": "high",
+            "what": "Purple shoe has obvious AI distortion and warped anatomy, undermining Kapruka's premium visual standard.",
+            "fix_in_canva": "Regenerate or composite a crisp, anatomically accurate purple stiletto with clean studio reflections."
+          }
+        ],
+        "strengths": [
+          "Faithfully preserves reference layout, hierarchy, and white space.",
+          "Clean Inter typography with strong contrast and balanced spacing.",
+          "Undistorted Kapruka logo properly placed within top 110px."
+        ]
+      },
+      "polish": {
+        "rounds": 0,
+        "applied": [],
+        "needsNewPicture": null,
+        "unfixable": []
+      }
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n27w\nThat's all! 👠",
+  "concept": null,
+  "style": "adapt",
+  "title": "The Devil Eats Cake",
+  "finishedAt": "2026-11-21T17:26:04.703Z"
+}

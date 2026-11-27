@@ -1,0 +1,745 @@
+// web/server.mjs — the browser front door for the ig2img pipeline ("Ashadi").
+//
+// Same engine as the Telegram bot (run.mjs → runPipeline), different door: you fill in
+// a form instead of messaging @Ashadiabot, watch live progress, and browse every result
+// — past and present — in one place. It does not use Telegram at all, so it keeps
+// working when the bot can't reach api.telegram.org.
+//
+//   node tools/ig2img/web/server.mjs            → http://127.0.0.1:5041
+//   IG2IMG_WEB_PORT=5050 node ...               → other port
+//   IG2IMG_WEB_DEMO=1 node ...                  → simulated runs (no Chrome, no quota used)
+//
+// Safety:
+//  * Binds to 127.0.0.1 only. There is no login, and a job drives your signed-in
+//    automation Chrome and spends image-generation quota — so it must never be
+//    reachable from the network.
+//  * Rejects any Host / Origin that isn't this server (blocks DNS-rebinding and
+//    cross-site "click a link and it starts a job" attacks).
+//  * Serves files only from 3-output/reference-recreations/, images + md/txt only.
+//  * One job at a time, and it waits while the Telegram bot is mid-job — both would
+//    otherwise fight over the same Chrome tabs (see the note in telegram-bot.mjs).
+import http from 'node:http';
+import { fork, execFile } from 'node:child_process';
+import {
+  readFileSync, readdirSync, existsSync, statSync, createReadStream, appendFileSync, mkdirSync,
+  openSync, readSync, closeSync, fstatSync, writeFileSync,
+} from 'node:fs';
+import { join, resolve, relative, extname, sep, isAbsolute, basename, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { setDefaultResultOrder } from 'node:dns';
+import { randomUUID } from 'node:crypto';
+import { ROOT } from '../lib/env.mjs';
+import { canvaConfigured, canvaStatus, authorizeUrl, finishAuthorize } from '../lib/canva.mjs';
+
+// Same IPv4-first fix the bot needs on this network (api.telegram.org AAAA is dead);
+// harmless for localhost and keeps any outbound fetch from the pipeline consistent.
+setDefaultResultOrder('ipv4first');
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const PUBLIC_DIR = join(HERE, 'public');
+const REC_DIR = join(ROOT, '3-output', 'reference-recreations');
+const DESIGN_DIR = join(ROOT, '3-output', 'ashadi-designs');   // same path design.mjs writes to
+const INBOX_DIR = join(ROOT, '3-output', 'ashadi-inbox');         // Sithiji reference pictures
+const LOG_DIR = join(ROOT, 'tools', 'logs');
+const BOT_LOG = join(LOG_DIR, 'ig2img.log');
+const WEB_LOG = join(LOG_DIR, 'web.log');
+const CDP_PORT = Number(process.env.IG2IMG_CDP_PORT || 9222);
+
+const HOST = '127.0.0.1';
+const PORT = Number(process.env.IG2IMG_WEB_PORT || 5041);
+const DEMO = process.env.IG2IMG_WEB_DEMO === '1' || process.argv.includes('--demo');
+const ALLOWED_HOSTS = new Set([`127.0.0.1:${PORT}`, `localhost:${PORT}`]);
+
+mkdirSync(LOG_DIR, { recursive: true });
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const wlog = (...a) => { try { appendFileSync(WEB_LOG, `[${new Date().toISOString()}] ${a.join(' ')}\n`); } catch {} };
+
+// ---------------------------------------------------------------------------------
+// The pipeline. Loaded lazily so demo mode never touches Playwright / Chrome.
+// ---------------------------------------------------------------------------------
+async function demoRun(_source, { log }) {
+  const say = async (ms, ...l) => { await sleep(ms); log(...l); };
+  await say(300, '\n[1/4] Instagram');
+  await say(1200, '  → opening (demo)');
+  await say(600, '📥 Read 1 slide. Writing the Kapruka recreation prompt…');
+  await say(300, '\n[2/4] Reference Recreator');
+  await say(1800, '🧠 2 prompts ready. Generating the image…');
+  await say(300, '\n[3/4] Generate + review — Meta AI, all');
+  await say(1500, '  · prompt 1: Meta AI in parallel');
+  await say(1500, '  · prompt 2: Meta AI in parallel');
+  await say(300, '\n[4/4] Send — none');
+  const newest = listRunDirs()
+    .map((n) => ({ n, t: statSync(join(REC_DIR, n, 'run.json')).mtimeMs }))
+    .sort((a, b) => b.t - a.t)[0];
+  if (!newest) throw new Error('demo mode needs at least one existing run');
+  const run = readRunJson(newest.n);
+  await say(200, `\nDone → ${join(REC_DIR, newest.n)}`);
+  return { outDir: join(REC_DIR, newest.n), images: (run.images || []).map((i) => i.file), docPath: null };
+}
+let _runPipeline = null;
+async function getRunPipeline() {
+  if (_runPipeline) return _runPipeline;
+  _runPipeline = DEMO ? demoRun : (await import('../run.mjs')).runPipeline;
+  return _runPipeline;
+}
+
+// ---------------------------------------------------------------------------------
+// Reading the Telegram bot's log: is it mid-job, is Telegram reachable?
+// ---------------------------------------------------------------------------------
+function tailText(file, bytes) {
+  try {
+    const fd = openSync(file, 'r');
+    try {
+      const size = fstatSync(fd).size;
+      const len = Math.min(size, bytes);
+      const buf = Buffer.alloc(len);
+      readSync(fd, buf, 0, len, size - len);
+      return buf.toString('utf8');
+    } finally { closeSync(fd); }
+  } catch { return ''; }
+}
+
+function botState() {
+  const t = tailText(BOT_LOG, 96 * 1024);
+  if (!t) return { state: 'unknown', pollErrors: 0, username: null };
+  const username = [...t.matchAll(/telegram bot @(\w+) listening/g)].pop()?.[1] || null;
+  // Only lines since the bot's latest start count: a healthy bot polls SILENTLY, so errors
+  // from before a restart would otherwise sit in the last-20-lines window indefinitely.
+  const start = t.lastIndexOf(' listening');
+  const recent = (start >= 0 ? t.slice(start) : t).split(/\r?\n/).filter(Boolean).slice(-20);
+  const pollErrors = recent.filter((l) => /POLL ERR|POLL STALE/.test(l)).length;
+
+  // A job is in flight if the last "RUN  [" line is recent and nothing terminal followed it.
+  let busy = false;
+  const idx = t.lastIndexOf('] RUN  [');
+  if (idx >= 24) {
+    const ts = Date.parse(t.slice(idx - 24, idx));
+    const after = t.slice(idx + 1);
+    const finished = /^Done →|^FAILED:|\] ERR |telegram bot @\w+ listening/m.test(after.slice(8));
+    busy = Number.isFinite(ts) && Date.now() - ts < 40 * 60_000 && !finished;
+  }
+  return { state: busy ? 'working' : pollErrors >= 15 ? 'unreachable' : 'ok', pollErrors, username };
+}
+
+// The page polls /api/status every 15 s; don't hit Canva's profile endpoint that often.
+const canvaCache = { at: 0, v: null };
+async function canvaStatusCached(force = false) {
+  if (!force && canvaCache.v && Date.now() - canvaCache.at < 60_000) return canvaCache.v;
+  canvaCache.v = await canvaStatus().catch((e) => ({ configured: canvaConfigured(), connected: false, error: e.message }));
+  canvaCache.at = Date.now();
+  return canvaCache.v;
+}
+
+async function chromeUp() {
+  try {
+    const r = await fetch(`http://127.0.0.1:${CDP_PORT}/json/version`, { signal: AbortSignal.timeout(1500) });
+    return r.ok;
+  } catch { return false; }
+}
+
+// ---------------------------------------------------------------------------------
+// Jobs
+// ---------------------------------------------------------------------------------
+const MAX_QUEUED = 10;
+const MAX_LOG_LINES = 2000;
+const jobs = new Map();          // id -> job (newest last)
+const queue = [];                // jobs waiting to run, in order
+let current = null;              // the job running right now
+const sse = new Set();
+
+const clampInt = (v, lo, hi, d) => Math.min(hi, Math.max(lo, Number.isFinite(Number(v)) ? Math.trunc(Number(v)) : d));
+
+function summary(j) {
+  return {
+    id: j.id, mode: j.mode, source: j.source, instruction: j.instruction, count: j.count,
+    status: j.status, message: j.message, step: j.step,
+    createdAt: j.createdAt, startedAt: j.startedAt, finishedAt: j.finishedAt,
+    runId: j.runId, runKind: j.mode === 'design' ? 'design' : 'run', imageCount: j.imageCount, error: j.error,
+    origin: j.origin || null, stopping: !!j.stopRequested, stoppable: !!j.child,
+  };
+}
+function emit(event, data) {
+  const payload = `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`;
+  for (const res of sse) { try { res.write(payload); } catch { sse.delete(res); } }
+}
+function touch(job, patch = {}) { Object.assign(job, patch); emit('job', summary(job)); }
+
+function pushLine(job, line) {
+  job.log.push(line);
+  if (job.log.length > MAX_LOG_LINES) job.log.splice(0, job.log.length - MAX_LOG_LINES);
+  wlog(`${job.id.slice(0, 8)} ${line}`);
+  emit('log', { id: job.id, line });
+
+  // Progress: the pipeline announces its stages as "[1/4]" … "[4/4]" ("[1-2/4]" for the
+  // idea/promote modes, which skip the Instagram read); the design job uses "[1/5]" … "[5/5]".
+  let step = job.step;
+  const d5 = line.match(/\[(\d)\/5\]/);
+  if (d5) step = Number(d5[1]);
+  else if (/\[4\/4\]/.test(line)) step = 4;
+  else if (/\[3\/4\]/.test(line)) step = 3;
+  else if (/\[2\/4\]|\[1-2\/4\]/.test(line)) step = 2;
+  else if (/\[1\/4\]/.test(line)) step = 1;
+  // Headline = the latest unindented line (the pipeline's own "say" messages + stage titles).
+  const headline = /^\S/.test(line) ? line.trim() : null;
+  if (step !== job.step || (headline && headline !== job.message)) {
+    touch(job, { step, ...(headline ? { message: headline } : {}) });
+  }
+}
+
+function trimFinished() {
+  const finished = [...jobs.values()].filter((j) => ['done', 'failed', 'cancelled', 'stopped'].includes(j.status));
+  for (const j of finished.slice(0, Math.max(0, finished.length - 20))) jobs.delete(j.id);
+}
+
+// Same pattern + canonical form as normaliseIgUrl() in lib/ig.mjs, so a pasted
+// "create https://…/p/X/?utm_source=…" and the clean link are recognised as the same post.
+const IG_RE = /instagram\.com\/(?:[A-Za-z0-9_.]+\/)?(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i;
+
+function validate(b) {
+  if (!b || typeof b !== 'object') return { error: 'Bad request.' };
+  // "Canva for all links" (2026-11-15): an Instagram link always becomes a Canva design.
+  const mode = b.mode === 'recreate' ? 'design' : b.mode;
+  if (!['recreate', 'idea', 'promote', 'design'].includes(mode)) return { error: 'Pick what you want to do first.' };
+  let source = String(b.source ?? '').trim();
+  const instruction = String(b.instruction ?? '').trim();
+  const count = clampInt(b.count, 1, 4, 1);
+  if (instruction.length > 500) return { error: 'The creative note is too long (500 characters max).' };
+  if (mode === 'recreate' || mode === 'design') {
+    const ig = source.match(IG_RE);
+    if (!ig) return { error: 'That doesn\'t look like an Instagram post or reel link (instagram.com/p/…, /reel/…).' };
+    const kind = ig[1].toLowerCase() === 'reels' ? 'reel' : ig[1].toLowerCase();
+    source = `https://www.instagram.com/${kind}/${ig[2]}/`;
+  } else if (mode === 'idea') {
+    if (source.length < 2) return { error: 'Name the persona you want ideas for.' };
+    if (source.length > 200) return { error: 'Persona is too long (200 characters max).' };
+  } else {
+    if (source.length < 2) return { error: 'Say what you want to promote.' };
+    if (source.length > 300) return { error: 'That\'s too long (300 characters max).' };
+  }
+  return { mode, source, instruction, count };
+}
+
+function createJob(v) {
+  const dup = [...jobs.values()].find((j) =>
+    ['queued', 'waiting', 'running'].includes(j.status) && j.mode === v.mode && j.source === v.source);
+  if (dup) return { error: 'That exact job is already queued or running.', status: 409 };
+  if (queue.length >= MAX_QUEUED) return { error: `The queue is full (${MAX_QUEUED}). Let some finish first.`, status: 429 };
+  const job = {
+    id: randomUUID(), ...v, status: 'queued', message: 'Waiting in the queue…', step: 0,
+    createdAt: Date.now(), startedAt: null, finishedAt: null, runId: null, imageCount: null, error: null, log: [],
+  };
+  jobs.set(job.id, job);
+  queue.push(job);
+  wlog(`${job.id.slice(0, 8)} QUEUED [${job.mode}] ${job.source}${job.instruction ? ` — "${job.instruction}"` : ''}`);
+  emit('job', summary(job));
+  pump();
+  return { job };
+}
+
+async function runJob(job) {
+  current = job;
+  touch(job, { status: 'running', startedAt: Date.now(), message: 'Starting…', step: 0 });
+  const log = (...a) => {
+    for (const raw of a.join(' ').split(/\r?\n/)) {
+      const line = raw.replace(/\s+$/, '');
+      if (line.trim()) pushLine(job, line);
+    }
+  };
+  try {
+    let res;
+    if (DEMO) {
+      const runPipeline = await getRunPipeline();
+      const r = await runPipeline(job.source, { log });
+      res = { outDir: r.outDir, count: r.images.length };
+    } else {
+      // Each job runs in its OWN process (job-runner.mjs) so "Stop" can end it — and the
+      // Claude agents it spawned — without touching the server, Chrome or other jobs.
+      res = await new Promise((resolveJob, rejectJob) => {
+        const child = fork(join(HERE, 'job-runner.mjs'), [], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe', 'ipc'], windowsHide: true });
+        job.child = child;
+        let result = null; let failure = null;
+        child.stdout.on('data', (d) => log(String(d)));          // stray console output from libraries
+        child.stderr.on('data', (d) => log(String(d)));
+        child.on('message', (m) => {
+          if (m.type === 'log') log(m.text);
+          else if (m.type === 'done') result = m;
+          else if (m.type === 'error') failure = m;
+        });
+        child.on('error', rejectJob);
+        child.on('exit', (code) => {
+          job.child = null;
+          // Give the last IPC message ('done' / 'error') a moment to arrive: it can lose the race
+          // with the exit event, and the real cause was then reported as "exited unexpectedly".
+          setTimeout(() => {
+            if (job.stopRequested) return rejectJob(Object.assign(new Error('Stopped by you'), { stopped: true, outDir: failure?.outDir }));
+            if (result) return resolveJob(result);
+            rejectJob(Object.assign(new Error(failure?.message || `the job process exited unexpectedly (code ${code})`), { outDir: failure?.outDir }));
+          }, 500);
+        });
+        child.send({
+          mode: job.mode, source: job.source, count: job.count, instruction: job.instruction,
+          refFiles: job.refFiles || [], caption: job.caption || '', tag: job.tag || '',
+        });
+      });
+    }
+    const design = job.mode === 'design';
+    const n = res.count ?? 0;
+    touch(job, {
+      status: 'done', runId: basename(res.outDir), imageCount: n, step: design ? 5 : 4,
+      message: design ? `Done — ${n} design${n === 1 ? '' : 's'} in Canva` : `Done — ${n} image${n === 1 ? '' : 's'}`,
+    });
+  } catch (e) {
+    if (e.stopped) {
+      wlog(`${job.id.slice(0, 8)} STOPPED by user`);
+      touch(job, { status: 'stopped', message: 'Stopped by you', ...(e.outDir ? { runId: basename(e.outDir) } : {}) });
+      return;
+    }
+    wlog(`${job.id.slice(0, 8)} FAILED ${e.message}`);
+    touch(job, { status: 'failed', error: e.message, message: e.message, ...(e.outDir ? { runId: basename(e.outDir) } : {}) });
+  } finally {
+    job.finishedAt = Date.now();
+    current = null;
+    emit('job', summary(job));
+    trimFinished();
+  }
+}
+
+let pumping = false;
+async function pump() {
+  if (pumping) return;
+  pumping = true;
+  try {
+    for (;;) {
+      const job = queue[0];
+      if (!job) break;
+      // Chrome can only serve one pipeline run at a time. If the Telegram bot is mid-job,
+      // hold this one back instead of colliding with it.
+      while (queue[0] === job && botState().state === 'working') {
+        if (job.status !== 'waiting') touch(job, { status: 'waiting', message: 'The Telegram bot is running a job — waiting for Chrome to be free…' });
+        await sleep(8000);
+      }
+      if (queue[0] !== job) continue;          // cancelled while waiting
+      queue.shift();
+      await runJob(job);
+    }
+  } finally { pumping = false; }
+}
+
+function cancelJob(id) {
+  const job = jobs.get(id);
+  if (!job) return { error: 'No such job.', status: 404 };
+  if (job.status === 'running') {
+    if (!job.child) return { error: 'This job can\'t be stopped (it isn\'t running in its own process).', status: 409 };
+    if (job.stopRequested) return { job };
+    job.stopRequested = true;
+    touch(job, { message: 'Stopping…' });
+    // Kill the job process AND everything it started (Claude agents, Python helpers).
+    // Chrome is not its child — it only attaches over CDP — so Chrome stays up.
+    if (process.platform === 'win32') execFile('taskkill', ['/PID', String(job.child.pid), '/T', '/F'], () => {});
+    else job.child.kill('SIGKILL');
+    return { job };
+  }
+  const i = queue.indexOf(job);
+  if (i === -1) return { error: 'That job has already finished.', status: 409 };
+  queue.splice(i, 1);
+  touch(job, { status: 'cancelled', message: 'Cancelled', finishedAt: Date.now() });
+  return { job };
+}
+
+// ---------------------------------------------------------------------------------
+// Past runs (every folder in reference-recreations/ that has a run.json)
+// ---------------------------------------------------------------------------------
+function listRunDirs() {
+  try {
+    return readdirSync(REC_DIR, { withFileTypes: true })
+      .filter((d) => d.isDirectory() && existsSync(join(REC_DIR, d.name, 'run.json')))
+      .map((d) => d.name);
+  } catch { return []; }
+}
+function readRunJson(name) {
+  try { return JSON.parse(readFileSync(join(REC_DIR, name, 'run.json'), 'utf8')); } catch { return null; }
+}
+
+/** Absolute path from a run.json → a URL under /files/, or null if it isn't inside the run folder. */
+function fileUrl(runName, abs, fallbackSubdir) {
+  if (!abs) return null;
+  const runDir = join(REC_DIR, runName);
+  let target = isAbsolute(abs) ? abs : join(runDir, abs);
+  let rel = relative(REC_DIR, target);
+  if (rel.startsWith('..') || isAbsolute(rel) || !existsSync(target)) {
+    // run.json written on another machine/path — find the file by name in the run folder.
+    target = join(runDir, fallbackSubdir, basename(abs));
+    rel = relative(REC_DIR, target);
+    if (!existsSync(target)) return null;
+  }
+  let v = 0;
+  try { v = Math.floor(statSync(target).mtimeMs); } catch {}
+  return `/files/${rel.split(sep).map(encodeURIComponent).join('/')}?v=${v}`;
+}
+
+function runLabel(j) {
+  if (j.mode === 'recreate') return String(j.source || '').match(/\/(?:p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i)?.[1] || j.source || '';
+  return j.source || '';
+}
+
+function listRuns() {
+  const out = [];
+  for (const name of listRunDirs()) {
+    const j = readRunJson(name);
+    if (!j) continue;
+    let at = 0;
+    try { at = statSync(join(REC_DIR, name, 'run.json')).mtimeMs; } catch {}
+    const images = j.images || [];
+    out.push({
+      id: name, mode: j.mode || 'recreate', label: runLabel(j), source: j.source || '',
+      instruction: j.instruction || '', at,
+      imageCount: images.length, passedCount: images.filter((i) => i.passed).length,
+      thumb: fileUrl(name, images[0]?.file, 'renders') || fileUrl(name, j.slides?.[0], 'reference'),
+    });
+  }
+  return out.sort((a, b) => b.at - a.at);
+}
+
+function runDetail(name) {
+  if (!/^[\w.-]+$/.test(name)) return null;
+  const j = readRunJson(name);
+  if (!j) return null;
+  const bodyPath = join(REC_DIR, name, 'prompt-body.md');
+  const sections = existsSync(bodyPath)
+    ? readFileSync(bodyPath, 'utf8').split(/^##\s+PROMPT\s+/mi).slice(1).map((s) => s.trim()) : [];
+  const prompts = (j.prompts || []).map((p, i) => ({
+    index: p.index,
+    title: p.title,
+    body: (sections[i] || '').split('\n').slice(1).join('\n').trim(),
+  }));
+  const images = (j.images || []).map((im) => {
+    const m = basename(im.file || '').match(/^p(\d+)-/);
+    return {
+      url: fileUrl(name, im.file, 'renders'), name: basename(im.file || ''),
+      engine: im.engine, passed: !!im.passed, reason: im.reason || '', promptIndex: m ? Number(m[1]) : 0,
+    };
+  }).filter((im) => im.url);
+  let at = 0;
+  try { at = statSync(join(REC_DIR, name, 'run.json')).mtimeMs; } catch {}
+  return {
+    id: name, mode: j.mode || 'recreate', label: runLabel(j), source: j.source || '',
+    instruction: j.instruction || '', caption: j.caption || '', at,
+    reference: (j.slides || []).map((s) => fileUrl(name, s, 'reference')).filter(Boolean),
+    prompts, images,
+  };
+}
+
+// ---------------------------------------------------------------------------------
+// Design runs (3-output/ashadi-designs/<run>/design.json) — Canva designs
+// ---------------------------------------------------------------------------------
+const NAME_RE = /^[\w.-]+$/;
+function readJsonFile(p) { try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return null; } }
+
+function dFileUrl(name, fname) {
+  if (!fname) return null;
+  const abs = join(DESIGN_DIR, name, fname);
+  if (!existsSync(abs)) return null;
+  let v = 0;
+  try { v = Math.floor(statSync(abs).mtimeMs); } catch {}
+  return `/dfiles/${encodeURIComponent(name)}/${fname.split('/').map(encodeURIComponent).join('/')}?v=${v}`;
+}
+
+function listDesigns() {
+  let names = [];
+  try { names = readdirSync(DESIGN_DIR, { withFileTypes: true }).filter((d) => d.isDirectory() && !d.name.startsWith('_')).map((d) => d.name); } catch {}
+  const out = [];
+  for (const name of names) {
+    const j = readJsonFile(join(DESIGN_DIR, name, 'design.json'));
+    if (!j) continue;
+    let at = 0;
+    try { at = statSync(join(DESIGN_DIR, name, 'design.json')).mtimeMs; } catch {}
+    const vs = j.variants || [];
+    const thumbV = vs.find((v) => v.final) || vs.find((v) => v.preview);
+    out.push({
+      id: name, kind: 'design', mode: 'design', label: j.title || name, source: j.source || '', at,
+      imageCount: vs.filter((v) => v.canva).length, finals: vs.filter((v) => v.final).length, error: j.error || null,
+      thumb: dFileUrl(name, thumbV?.final || thumbV?.preview) || dFileUrl(name, j.reference?.[0] && `reference/${j.reference[0]}`),
+    });
+  }
+  return out.sort((a, b) => b.at - a.at);
+}
+
+function designDetail(name) {
+  if (!NAME_RE.test(name)) return null;
+  const dir = join(DESIGN_DIR, name);
+  const j = readJsonFile(join(dir, 'design.json'));
+  if (!j) return null;
+  const k = readJsonFile(join(dir, 'kapruka-spec.json')) || {};
+  let at = 0;
+  try { at = statSync(join(dir, 'design.json')).mtimeMs; } catch {}
+  return {
+    id: name, kind: 'design', mode: 'design', label: j.title || name, source: j.source || '', at,
+    instruction: j.instruction || '', caption: j.caption || '', error: j.error || null,
+    reference: (j.reference || []).map((f) => dFileUrl(name, `reference/${f}`)).filter(Boolean),
+    changes: k.changes || [], claims: k.claims_used || [], layout: k.layout_summary || '', concept: j.concept || null,
+    copy: (k.elements || []).filter((e) => e.type === 'text').map((e) => ({ role: e.role, text: e.text })),
+    scenePrompt: k.scene?.prompt || '',
+    variants: (j.variants || []).map((v, i) => ({
+      index: i, engine: v.engine, editUrl: v.canva?.editUrl || null, canvaError: v.canvaError || null,
+      preview: dFileUrl(name, v.preview), scene: dFileUrl(name, v.scene && `renders/${v.scene}`), canRetry: !v.canva && !!v.pptx,
+      final: dFileUrl(name, v.final), finalName: v.final || null, finalAt: v.finalAt || null,
+      check: v.check || null, attempts: v.attempts || 1, review: v.review || null, polish: v.polish || null,
+    })),
+  };
+}
+
+// ---------------------------------------------------------------------------------
+// HTTP
+// ---------------------------------------------------------------------------------
+const TYPES = {
+  '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
+  '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif',
+  '.md': 'text/plain; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.svg': 'image/svg+xml',
+};
+const FILE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.md', '.txt']);
+const STATIC = new Set(['index.html', 'app.css', 'app.js', 'favicon.svg']);
+const CSP = "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; "
+  + "base-uri 'none'; form-action 'none'; frame-ancestors 'none'";
+
+const originOk = (req) => {
+  const o = req.headers.origin;
+  if (!o) return true;
+  try { return ALLOWED_HOSTS.has(new URL(o).host); } catch { return false; }
+};
+
+function json(res, code, obj) {
+  const body = JSON.stringify(obj);
+  res.writeHead(code, {
+    'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store',
+    'X-Content-Type-Options': 'nosniff',
+  });
+  res.end(body);
+}
+
+function readJson(req, limit = 16 * 1024) {
+  return new Promise((resolveBody, reject) => {
+    let size = 0; const chunks = [];
+    req.on('data', (c) => {
+      size += c.length;
+      if (size > limit) { reject(Object.assign(new Error('Request too large.'), { status: 413 })); req.destroy(); return; }
+      chunks.push(c);
+    });
+    req.on('end', () => {
+      try { resolveBody(JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}')); }
+      catch { reject(Object.assign(new Error('Bad JSON.'), { status: 400 })); }
+    });
+    req.on('error', reject);
+  });
+}
+
+function serveFile(req, res, abs, { download = false, cacheable = false } = {}) {
+  let st;
+  try { st = statSync(abs); } catch { return json(res, 404, { error: 'Not found.' }); }
+  if (!st.isFile()) return json(res, 404, { error: 'Not found.' });
+  const ext = extname(abs).toLowerCase();
+  const headers = {
+    'Content-Type': TYPES[ext] || 'application/octet-stream',
+    'Content-Length': st.size,
+    'X-Content-Type-Options': 'nosniff',
+    'Cache-Control': cacheable ? 'public, max-age=31536000, immutable' : 'no-cache',
+  };
+  if (ext === '.html') headers['Content-Security-Policy'] = CSP;
+  if (download) headers['Content-Disposition'] = `attachment; filename="${basename(abs).replace(/[^\w.\- ]/g, '_')}"`;
+  res.writeHead(200, headers);
+  if (req.method === 'HEAD') return res.end();
+  createReadStream(abs).pipe(res);
+}
+
+const server = http.createServer(async (req, res) => {
+  try {
+    if (!ALLOWED_HOSTS.has(req.headers.host)) return json(res, 403, { error: 'Forbidden.' });
+    const url = new URL(req.url, 'http://local');
+    const p = url.pathname;
+    const method = req.method;
+
+    // Anything that changes state must come from this page, as JSON (which forces a CORS preflight
+    // for other origins, and we reject their Origin anyway).
+    if (method !== 'GET' && method !== 'HEAD') {
+      if (!originOk(req)) return json(res, 403, { error: 'Forbidden.' });
+      if (method === 'POST' && !/^application\/json/i.test(req.headers['content-type'] || '')) {
+        return json(res, 415, { error: 'Expected JSON.' });
+      }
+    }
+
+    // ---- API ----
+    if (p === '/api/status' && method === 'GET') {
+      const bot = botState();
+      return json(res, 200, {
+        demo: DEMO,
+        chrome: await chromeUp(),
+        canva: await canvaStatusCached(),
+        bot,
+        running: current ? summary(current) : null,
+        queued: queue.length,
+      });
+    }
+    if (p === '/api/events' && method === 'GET') {
+      res.writeHead(200, {
+        'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store', Connection: 'keep-alive',
+        'X-Accel-Buffering': 'no',
+      });
+      res.write('retry: 3000\n\n');
+      sse.add(res);
+      const ka = setInterval(() => { try { res.write(': ping\n\n'); } catch {} }, 20_000);
+      req.on('close', () => { clearInterval(ka); sse.delete(res); });
+      return;
+    }
+    if (p === '/api/jobs' && method === 'GET') {
+      return json(res, 200, {
+        jobs: [...jobs.values()].map((j) => ({ ...summary(j), log: j.log.slice(-400) })),
+      });
+    }
+    if (p === '/api/jobs' && method === 'POST') {
+      const body = await readJson(req);
+      const v = validate(body);
+      if (v.error) return json(res, 400, { error: v.error });
+      const r = createJob(v);
+      if (r.error) return json(res, r.status, { error: r.error });
+      return json(res, 202, { job: summary(r.job) });
+    }
+    // Sithiji → Ashadi: a content card pushed from the Sithiji dashboard. The PC worker
+    // (sithiji/worker_pc.py) claims the request on the VPS and posts it here with the card's
+    // own pictures as the reference (base64 in JSON — this server only takes JSON).
+    if (p === '/api/sithiji/jobs' && method === 'POST') {
+      const b = await readJson(req, 48 * 1024 * 1024);
+      const cid = clampInt(b.cid, 1, 1e9, 0);
+      if (!cid) return json(res, 400, { error: 'Missing the Sithiji card id.' });
+      const dir = join(INBOX_DIR, `sithiji-${cid}-${Date.now()}`);
+      const refFiles = [];
+      for (const [i, f] of (Array.isArray(b.files) ? b.files : []).slice(0, 6).entries()) {
+        const ext = extname(String(f?.name || '')).toLowerCase();
+        if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext) || typeof f.b64 !== 'string') continue;
+        mkdirSync(dir, { recursive: true });
+        const file = join(dir, `ref-${String(i + 1).padStart(2, '0')}${ext}`);
+        writeFileSync(file, Buffer.from(f.b64, 'base64'));
+        refFiles.push(file);
+      }
+      const ig = String(b.source_url || '').match(IG_RE);
+      if (!refFiles.length && !ig) return json(res, 400, { error: 'The card has no picture and no Instagram link to copy.' });
+      const source = refFiles.length ? `Sithiji #${cid}` : `https://www.instagram.com/${ig[1].toLowerCase() === 'reels' ? 'reel' : ig[1].toLowerCase()}/${ig[2]}/`;
+      const r = createJob({
+        mode: 'design', source, instruction: String(b.instruction || '').slice(0, 500), count: 1,
+        refFiles, caption: String(b.caption || '').slice(0, 1500), tag: `sithiji-${cid}`, origin: 'sithiji',
+      });
+      if (r.error) return json(res, r.status, { error: r.error });
+      return json(res, 202, { job: summary(r.job) });
+    }
+    let m = p.match(/^\/api\/jobs\/([0-9a-f-]{36})$/);
+    if (m && method === 'DELETE') {
+      const r = cancelJob(m[1]);
+      return r.error ? json(res, r.status, { error: r.error }) : json(res, 200, { job: summary(r.job) });
+    }
+    if (p === '/api/runs' && method === 'GET') return json(res, 200, { runs: listRuns() });
+    m = p.match(/^\/api\/runs\/([^/]+)$/);
+    if (m && method === 'GET') {
+      const d = runDetail(decodeURIComponent(m[1]));
+      return d ? json(res, 200, d) : json(res, 404, { error: 'No such run.' });
+    }
+
+    // ---- Canva sign-in (one time; tokens refresh themselves after that) ----
+    if (p === '/api/canva' && method === 'GET') return json(res, 200, await canvaStatusCached(true));
+    if (p === '/canva/connect' && method === 'GET') {
+      if (!canvaConfigured()) return json(res, 400, { error: 'CANVA_CLIENT_ID / CANVA_CLIENT_SECRET are missing from .env.' });
+      res.writeHead(302, { Location: authorizeUrl(), 'Cache-Control': 'no-store' });
+      return res.end();
+    }
+    if (p === '/canva/callback' && method === 'GET') {
+      const err = url.searchParams.get('error');
+      let to = '/?canva=connected';
+      // Log every return from Canva (param NAMES only for the success case — never the code).
+      wlog(`CANVA callback: ${err ? `error=${err} ${url.searchParams.get('error_description') || ''}` : `params=${[...url.searchParams.keys()].join(',')}`}`);
+      if (err) {
+        to = `/?canva=error&reason=${encodeURIComponent(url.searchParams.get('error_description') || err)}`;
+      } else {
+        try {
+          await finishAuthorize(url.searchParams.get('code') || '', url.searchParams.get('state') || '');
+          canvaCache.at = 0;
+          wlog('CANVA connected');
+        }
+        catch (e) { wlog(`CANVA connect failed: ${e.message}`); to = `/?canva=error&reason=${encodeURIComponent(e.message)}`; }
+      }
+      res.writeHead(302, { Location: to, 'Cache-Control': 'no-store' });
+      return res.end();
+    }
+
+    // ---- design runs (Canva) ----
+    if (p === '/api/designs' && method === 'GET') return json(res, 200, { designs: listDesigns() });
+    m = p.match(/^\/api\/designs\/([^/]+)$/);
+    if (m && method === 'GET') {
+      const d = designDetail(decodeURIComponent(m[1]));
+      return d ? json(res, 200, d) : json(res, 404, { error: 'No such design.' });
+    }
+    m = p.match(/^\/api\/designs\/([^/]+)\/final$/);
+    if (m && method === 'POST') {
+      const name = decodeURIComponent(m[1]);
+      if (!NAME_RE.test(name) || !existsSync(join(DESIGN_DIR, name, 'design.json'))) return json(res, 404, { error: 'No such design.' });
+      const body = await readJson(req);
+      const { pullFinal } = await import('../design.mjs');
+      try {
+        await pullFinal(join(DESIGN_DIR, name), clampInt(body.variant, 0, 20, 0), { log: (...a) => wlog(`FINAL ${name} ${a.join(' ')}`) });
+      } catch (e) {
+        return json(res, 502, { error: `Couldn't pull the final from Canva: ${e.message}` });
+      }
+      emit('design', { id: name });
+      return json(res, 200, designDetail(name));
+    }
+    m = p.match(/^\/api\/designs\/([^/]+)\/retry-canva$/);
+    if (m && method === 'POST') {
+      const name = decodeURIComponent(m[1]);
+      if (!NAME_RE.test(name) || !existsSync(join(DESIGN_DIR, name, 'design.json'))) return json(res, 404, { error: 'No such design.' });
+      const { retryCanva } = await import('../design.mjs');
+      try {
+        await retryCanva(join(DESIGN_DIR, name), { log: (...a) => wlog(`RETRY ${name} ${a.join(' ')}`) });
+      } catch (e) {
+        return json(res, 502, { error: `Still couldn't send it to Canva: ${e.message}` });
+      }
+      emit('design', { id: name });
+      return json(res, 200, designDetail(name));
+    }
+    if (p.startsWith('/dfiles/') && (method === 'GET' || method === 'HEAD')) {
+      let rel;
+      try { rel = decodeURIComponent(p.slice('/dfiles/'.length)); } catch { return json(res, 400, { error: 'Bad path.' }); }
+      const abs = resolve(DESIGN_DIR, rel);
+      if (!abs.startsWith(DESIGN_DIR + sep) || !FILE_EXTS.has(extname(abs).toLowerCase())) return json(res, 404, { error: 'Not found.' });
+      return serveFile(req, res, abs, { download: url.searchParams.has('download'), cacheable: url.searchParams.has('v') });
+    }
+
+    // ---- files from past runs ----
+    if (p.startsWith('/files/') && (method === 'GET' || method === 'HEAD')) {
+      let rel;
+      try { rel = decodeURIComponent(p.slice('/files/'.length)); } catch { return json(res, 400, { error: 'Bad path.' }); }
+      const abs = resolve(REC_DIR, rel);
+      if (!abs.startsWith(REC_DIR + sep) || !FILE_EXTS.has(extname(abs).toLowerCase())) {
+        return json(res, 404, { error: 'Not found.' });
+      }
+      return serveFile(req, res, abs, { download: url.searchParams.has('download'), cacheable: url.searchParams.has('v') });
+    }
+
+    // ---- the page itself ----
+    if (method === 'GET' || method === 'HEAD') {
+      const name = p === '/' ? 'index.html' : p.slice(1);
+      if (STATIC.has(name)) return serveFile(req, res, join(PUBLIC_DIR, name));
+    }
+    return json(res, 404, { error: 'Not found.' });
+  } catch (e) {
+    if (!res.headersSent) json(res, e.status || 500, { error: e.status ? e.message : 'Server error.' });
+    if (!e.status) wlog(`ERR ${req.method} ${req.url}: ${e.stack || e.message}`);
+  }
+});
+
+server.on('error', (e) => {
+  console.error(e.code === 'EADDRINUSE'
+    ? `Port ${PORT} is already in use — is the web UI already running? (set IG2IMG_WEB_PORT to use another)`
+    : e.message);
+  process.exit(1);
+});
+server.listen(PORT, HOST, () => {
+  const msg = `ig2img web UI on http://${HOST}:${PORT}${DEMO ? '  [DEMO MODE — simulated runs]' : ''}`;
+  console.log(msg);
+  wlog(msg);
+});

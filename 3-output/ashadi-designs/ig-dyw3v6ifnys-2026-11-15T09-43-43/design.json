@@ -1,0 +1,83 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-15T09:43:43.569Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "scene-meta-a2-meta-01-raw.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 2,
+        "notes": "No people, so no hand/finger issues. The gold liquid pouring from the handbag into the shopping bag is intentionally surreal (CG-style molten pour) rather than a render defect, but the strands read as solid plastic/resin rather than flowing liquid — no surface tension, no droplets, no splash where it meets the bag rim, and the pooled gold at the bottom has a hard rubbery edge. The handbag is cropped at the left edge and its strap/handle terminates ambiguously around x 0-7%, y 38-48%. The watch at x 14-28%, y 51-60% has a blank, dial-less face (no hands, no markers) and its bracelet links flatten into the gold with no clear contact point; the perfume bottle at x 40-50%, y 51-61% has a plain untextured cap and a visually unsupported base that appears to float on the bag rim. The right half of the frame (roughly x 55-100%) is empty white, which is fine for Canva text but means the composition is entirely left-weighted. Background is pure white studio seamless with a faint soft shadow only at bottom-left."
+      },
+      "canva": {
+        "id": "DAHa-Tju-Yg",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzI4NzQ1MjYzfQ..jKcGIe3K7ffzbtbY.CEdRVI_wsB2KOCcZ5n_tcALaNViJdRUfrMY_v8IBp9RmH4wAi33e6fSlEEuikHND1OkeD21vwyhHyiDnKA2ABOfafkVZJfPVpa83PnyQAqsotEs.E4HIeTCnlNawsjFBD6YUbQ/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=f7eca269-411f-452f-8665-d91774311e57&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzI4NzQ1MjYzfQ..jKcGIe3K7ffzbtbY.CEdRVI_wsB2KOCcZ5n_tcALaNViJdRUfrMY_v8IBp9RmH4wAi33e6fSlEEuikHND1OkeD21vwyhHyiDnKA2ABOfafkVZJfPVpa83PnyQAqsotEs.E4HIeTCnlNawsjFBD6YUbQ/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=1827b398-b5f2-4825-9914-2c194b7c9032&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Two Kapruka logos in frame — one on handbag, one on gift bag",
+            "fix_in_canva": "Delete the handbag logo; keep only the gift-bag lockup"
+          },
+          {
+            "severity": "high",
+            "what": "Logo painted onto a handbag, a sellable product, not Kapruka packaging",
+            "fix_in_canva": "Remove it; logo belongs only on Kapruka bag/box assets"
+          },
+          {
+            "severity": "high",
+            "what": "Gold 'THE' and 'THAT' on white are near-invisible at thumbnail size",
+            "fix_in_canva": "Recolour both small words to Kapruka purple #340A5C"
+          },
+          {
+            "severity": "medium",
+            "what": "'THE' and 'THAT' align to no axis — not left, not centred",
+            "fix_in_canva": "Centre 'THE' over GIFTS and 'THAT' over ARRIVE exactly"
+          },
+          {
+            "severity": "medium",
+            "what": "Handbag logo sits perfectly horizontal on a tilted bag — reads as sticker",
+            "fix_in_canva": "Resolved by deleting it per issue one"
+          },
+          {
+            "severity": "medium",
+            "what": "Six pour strands versus reference's one — busier, weaker figure/ground",
+            "fix_in_canva": "Swap image for a 2–3 strand version; fewer, bigger, calmer"
+          },
+          {
+            "severity": "low",
+            "what": "'A world of choices' first word crowds the gold puddle at bottom-left",
+            "fix_in_canva": "Nudge the line up 30px to clear the puddle edge"
+          },
+          {
+            "severity": "low",
+            "what": "Handbag crops hard at left edge with cut strap dangling",
+            "fix_in_canva": "Shift bag right 20px so the strap reads intentionally"
+          }
+        ],
+        "strengths": [
+          "Reference's pour device rebuilt faithfully and cleanly",
+          "Spans three departments: handbag, watch, perfume",
+          "Generous white space, correct 4:5 crop"
+        ]
+      }
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "title": "The Gifts That Arrive",
+  "finishedAt": "2026-11-15T10:00:27.559Z"
+}

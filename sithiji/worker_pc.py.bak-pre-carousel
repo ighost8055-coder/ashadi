@@ -1,0 +1,318 @@
+"""Sithiji PC worker.
+
+The VPS holds the bot, the dashboard and the queue. This process runs on the
+PC (where the Claude CLI is logged in and Instagram links open from a home
+IP): it polls the VPS for waiting items, analyses them locally and pushes the
+result back. If the PC is off or offline, items simply wait on the VPS and
+are picked up in order the next time this starts.
+
+Needs in .env:  SITHIJI_REMOTE_URL (https://pricelens.lanka.info/sithiji)
+                SITHIJI_WORKER_KEY (same value as on the VPS)
+Run:  python sithiji/worker_pc.py     (or the "Sithiji Worker" scheduled task)
+"""
+from __future__ import annotations
+import base64
+import json
+import logging
+import os
+import sys
+import threading
+import time
+import traceback
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parent / "scripts"))
+
+import requests
+
+import analyze
+import core
+from _env import env
+
+LOG = HERE / "data" / "worker.log"
+logging.basicConfig(filename=LOG, level=logging.INFO, format="%(asctime)s %(message)s", encoding="utf-8")
+log = logging.getLogger("sithiji-worker")
+
+POLL_IDLE_S = 20
+LIMIT_BACKOFF_S = 600     # Claude session/usage limit: stop hammering, retry in 10 min
+TRANSIENT_MARKERS = ("exited 255", "^c", "timed out", "econnreset")   # CLI killed/interrupted: retry shortly
+MAX_TRANSIENT = 3
+_transient: dict = {}
+LIMIT_MARKERS = ("session limit", "usage limit", "rate limit", "hit your", "overloaded", "credit")
+MAX_VIDEO_PUSH = 25 * 1024 * 1024
+
+
+def cfg():
+    e = env()
+    import os
+    base = (os.environ.get("SITHIJI_REMOTE_URL") or e.get("SITHIJI_REMOTE_URL") or "").rstrip("/")
+    key = e.get("SITHIJI_WORKER_KEY")
+    if not base or not key:
+        raise SystemExit("SITHIJI_REMOTE_URL and SITHIJI_WORKER_KEY must be set in .env")
+    return base, {"X-Worker-Key": key}
+
+
+def pull_media(base, hdr, item) -> None:
+    d = core.MEDIA / str(item["id"])
+    d.mkdir(parents=True, exist_ok=True)
+    for fn in item.get("media") or []:
+        dest = d / fn
+        if dest.exists() and dest.stat().st_size > 0:
+            continue
+        r = requests.get(f"{base}/api/worker/media/{item['id']}/{fn}", headers=hdr, timeout=120)
+        r.raise_for_status()
+        dest.write_bytes(r.content)
+
+
+def files_to_push(item, thumb: str | None = None) -> list[Path]:
+    d = core.MEDIA / str(item["id"])
+    known = set(item.get("media") or [])
+    out = []
+    for f in sorted(d.iterdir()):
+        if f.name == thumb and f.name not in known:     # video cards use a frame as the thumbnail
+            out.append(f)
+            continue
+        if f.name in known or "_frame" in f.name:
+            continue
+        ext = f.suffix.lower()
+        if ext in analyze.IMG_EXT or (ext in analyze.VID_EXT and f.stat().st_size <= MAX_VIDEO_PUSH):
+            out.append(f)
+    return out
+
+
+def push(base, hdr, item, fields: dict) -> None:
+    files = files_to_push(item, fields.get("thumb")) if fields.get("analysis_state") in ("done", "needs_media") else []
+    handles = [open(f, "rb") for f in files]
+    try:
+        multipart = [("files", (f.name, h)) for f, h in zip(files, handles)]
+        for attempt in range(6):
+            try:
+                for h in handles:
+                    h.seek(0)
+                r = requests.post(f"{base}/api/worker/result/{item['id']}", headers=hdr,
+                                  data={"meta": json.dumps(fields, ensure_ascii=False)},
+                                  files=multipart or None, timeout=180)
+                if r.status_code == 404:
+                    log.info("#%s no longer exists on the VPS - dropped", item["id"])
+                    return
+                r.raise_for_status()
+                return
+            except Exception as e:
+                log.info("push #%s attempt %s failed: %s", item["id"], attempt + 1, e)
+                time.sleep(min(30 * (attempt + 1), 180))
+        log.info("push #%s gave up; the VPS will hand it out again after the claim expires", item["id"])
+    finally:
+        for h in handles:
+            h.close()
+
+
+def process(base, hdr, item) -> int:
+    """Returns extra seconds to sleep afterwards (non-zero when Claude is rate-limited)."""
+    cid = item["id"]
+    log.info("#%s start (%s)", cid, item.get("source_url") or item.get("source_type"))
+    try:
+        pull_media(base, hdr, item)
+        fields = analyze.run_analysis(item)
+    except Exception as e:
+        msg = str(e)
+        log.info("#%s failed: %s", cid, msg[:300])
+        if any(m in msg.lower() for m in LIMIT_MARKERS):
+            push(base, hdr, item, {"analysis_state": "pending"})   # requeue, no failure message to the user
+            log.info("#%s requeued (Claude limit); backing off %ss", cid, LIMIT_BACKOFF_S)
+            return LIMIT_BACKOFF_S
+        if any(m in msg.lower() for m in TRANSIENT_MARKERS):
+            _transient[cid] = _transient.get(cid, 0) + 1
+            if _transient[cid] <= MAX_TRANSIENT:
+                push(base, hdr, item, {"analysis_state": "pending"})
+                log.info("#%s requeued (transient failure %s/%s)", cid, _transient[cid], MAX_TRANSIENT)
+                return 60
+        if isinstance(e, requests.RequestException):   # lost the VPS mid-pull: just let the claim expire
+            return 0
+        push(base, hdr, item, {"analysis_state": "failed", "error": msg[:500]})
+        return 0
+    push(base, hdr, item, fields)
+    log.info("#%s done -> %s", cid, fields.get("analysis_state"))
+    return 0
+
+
+# ------------------------------------------------------------------ Ashadi bridge
+# A card pushed to Ashadi on the dashboard is claimed here, handed to the local Ashadi web
+# server (Claude Ads Team/tools/ig2img/web, port 5041) with the card's own pictures as the
+# reference, watched until it finishes, and the previews + Canva links are pushed back.
+ASHADI_URL = (os.environ.get("ASHADI_URL") or "http://127.0.0.1:5041").rstrip("/")
+ASHADI_POLL_S = 15
+MAX_REF_BYTES = 8 * 1024 * 1024
+DEFAULT_MSG = "Waiting for Ashadi"
+
+
+def ash_update(base, hdr, cid, meta, files=None) -> None:
+    mp = [("files", (n, b)) for n, b in (files or [])]
+    for attempt in range(5):
+        try:
+            r = requests.post(f"{base}/api/worker/ashadi_update/{cid}", headers=hdr,
+                              data={"meta": json.dumps(meta, ensure_ascii=False)}, files=mp or None, timeout=120)
+            if r.status_code == 404:
+                return
+            r.raise_for_status()
+            return
+        except Exception as e:
+            log.info("ashadi update #%s attempt %s failed: %s", cid, attempt + 1, e)
+            time.sleep(10 * (attempt + 1))
+
+
+def ash_local(method, path, **kw):
+    kw.setdefault("timeout", 60)
+    return requests.request(method, ASHADI_URL + path, **kw)
+
+
+def ash_fetch(path) -> bytes:
+    r = requests.get(ASHADI_URL + path, timeout=120)
+    r.raise_for_status()
+    return r.content
+
+
+def ash_design(base, hdr, item) -> None:
+    cid = item["id"]
+    log.info("ashadi #%s design start", cid)
+    try:
+        files = []
+        for fn in (item.get("media") or [])[:6]:
+            r = requests.get(f"{base}/api/worker/media/{cid}/{fn}", headers=hdr, timeout=120)
+            r.raise_for_status()
+            if len(r.content) <= MAX_REF_BYTES:
+                files.append({"name": fn, "b64": base64.b64encode(r.content).decode()})
+        note = (item.get("ashadi_msg") or "").strip()
+        body = {"cid": cid, "source_url": item.get("source_url") or "", "files": files,
+                "caption": "\n".join(x for x in (item.get("title"), item.get("summary")) if x),
+                "instruction": "" if note == DEFAULT_MSG else note}
+        try:
+            r = ash_local("POST", "/api/sithiji/jobs", json=body, timeout=180)
+        except requests.RequestException:
+            ash_update(base, hdr, cid, {"ashadi_state": "failed",
+                                        "ashadi_msg": "Ashadi isn't running on the PC. Press Send to Ashadi again once it is."})
+            return
+        if r.status_code >= 400:
+            try:
+                why = r.json().get("error", r.text)
+            except ValueError:
+                why = r.text
+            ash_update(base, hdr, cid, {"ashadi_state": "failed", "ashadi_msg": str(why)[:300]})
+            return
+        jid = r.json()["job"]["id"]
+        ash_update(base, hdr, cid, {"ashadi_state": "working", "ashadi_msg": "In Ashadi's queue"})
+        last = ""
+        while True:
+            time.sleep(ASHADI_POLL_S)
+            try:
+                jobs = ash_local("GET", "/api/jobs").json().get("jobs", [])
+            except requests.RequestException:
+                continue                                    # server restarting - keep waiting
+            j = next((x for x in jobs if x["id"] == jid), None)
+            if not j:
+                ash_update(base, hdr, cid, {"ashadi_state": "failed",
+                                            "ashadi_msg": "Ashadi lost this job (the server restarted). Send it again."})
+                return
+            msg = f"{j.get('message') or ''}"[:200]
+            if msg and msg != last:
+                last = msg
+                ash_update(base, hdr, cid, {"ashadi_state": "working", "ashadi_msg": msg})
+            if j["status"] in ("queued", "waiting", "running"):
+                continue
+            if j["status"] != "done":
+                ash_update(base, hdr, cid, {"ashadi_state": "failed",
+                                            "ashadi_msg": str(j.get("error") or j.get("message") or j["status"])[:300]})
+                return
+            run = j["runId"]
+            d = ash_local("GET", f"/api/designs/{run}").json()
+            canva, pushed = [], []
+            for i, v in enumerate(d.get("variants", [])):
+                kc = (d.get("concept") or {}).get("kapruka_concept") or {}
+                entry = {"engine": v.get("engine"), "editUrl": v.get("editUrl"), "run": run, "index": i,
+                         "verdict": (v.get("review") or {}).get("verdict"),
+                         "concept": kc.get("one_line"), "concept_why": kc.get("why_it_makes_sense"),
+                         "concept_warn": (d.get("concept") or {}).get("warnings") or []}
+                if v.get("preview"):
+                    name = f"ashadi_preview_{i + 1}.png"
+                    pushed.append((name, ash_fetch(v["preview"])))
+                    entry["preview"] = name
+                if v.get("editUrl"):
+                    canva.append(entry)
+            if not canva:
+                ash_update(base, hdr, cid, {"ashadi_state": "failed", "ashadi_msg": "Ashadi finished but nothing reached Canva."})
+                return
+            ash_update(base, hdr, cid, {"ashadi_state": "done",
+                                        "ashadi_msg": f"{len(canva)} design(s) in Canva - edit, then pull the final.",
+                                        "ashadi_canva": canva}, pushed)
+            log.info("ashadi #%s done (%s designs)", cid, len(canva))
+            return
+    except Exception as e:
+        log.info("ashadi #%s failed: %s", cid, traceback.format_exc()[-500:])
+        ash_update(base, hdr, cid, {"ashadi_state": "failed", "ashadi_msg": f"{type(e).__name__}: {e}"[:300]})
+
+
+def ash_final(base, hdr, item) -> None:
+    cid = item["id"]
+    log.info("ashadi #%s final pull", cid)
+    try:
+        canva = json.loads(item.get("ashadi_canva") or "[]")
+        got = []
+        for v in canva:
+            if not v.get("run"):
+                continue
+            r = ash_local("POST", f"/api/designs/{v['run']}/final", json={"variant": v.get("index", 0)}, timeout=240)
+            if r.status_code >= 400:
+                raise RuntimeError(str(r.json().get("error", r.text))[:200])
+            fin = (r.json().get("variants") or [])[v.get("index", 0)].get("final")
+            if fin:
+                got.append((f"ashadi_final_{int(time.time())}_{v.get('index', 0) + 1}.png", ash_fetch(fin)))
+        if not got:
+            raise RuntimeError("Canva returned no final image")
+        ash_update(base, hdr, cid, {"ashadi_state": "done", "ashadi_msg": "Final pulled from Canva."}, got)
+    except Exception as e:
+        log.info("ashadi #%s final failed: %s", cid, str(e)[:300])
+        ash_update(base, hdr, cid, {"ashadi_state": "done", "ashadi_msg": f"Couldn't pull the final: {e}"[:300]})
+
+
+def ashadi_loop() -> None:
+    base, hdr = cfg()
+    while True:
+        wait = ASHADI_POLL_S
+        try:
+            r = requests.post(f"{base}/api/worker/ashadi_claim", headers=hdr, timeout=30)
+            r.raise_for_status()
+            item = r.json().get("item")
+            if item:
+                (ash_final if item.get("kind") == "final" else ash_design)(base, hdr, item)
+                wait = 2
+        except requests.RequestException as e:
+            log.info("ashadi: VPS unreachable (%s)", type(e).__name__)
+        except Exception:
+            log.info("ashadi unexpected: %s", traceback.format_exc()[-600:])
+        time.sleep(wait)
+
+
+def main() -> None:
+    base, hdr = cfg()
+    log.info("worker started -> %s", base)
+    threading.Thread(target=ashadi_loop, daemon=True, name="ashadi-bridge").start()
+    while True:
+        wait = POLL_IDLE_S
+        try:
+            r = requests.post(f"{base}/api/worker/claim", headers=hdr, timeout=30)
+            r.raise_for_status()
+            item = r.json().get("item")
+            if item:
+                wait = process(base, hdr, item)   # go straight back for the next one unless backing off
+            else:
+                wait = POLL_IDLE_S
+        except requests.RequestException as e:
+            log.info("VPS unreachable (%s) - will retry", type(e).__name__)
+        except Exception:
+            log.info("unexpected: %s", traceback.format_exc()[-600:])
+        time.sleep(wait)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,885 @@
+'use strict';
+
+// All dynamic text goes through textContent (via h()) — captions, reviewer notes and
+// Instagram handles come from outside this page and must never be parsed as HTML.
+
+const $ = (sel, root = document) => root.querySelector(sel);
+
+function h(tag, props, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (v == null || v === false) continue;
+    if (k === 'class') el.className = v;
+    else if (k.startsWith('on') && typeof v === 'function') el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  for (const kid of kids.flat()) {
+    if (kid == null || kid === false) continue;
+    el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+  }
+  return el;
+}
+
+// Hosted behind a path prefix (the VPS hub at /ashadi): the hub fills <meta name="base-path">; locally it is empty.
+const BASEP = document.querySelector('meta[name="base-path"]')?.content || '';
+
+async function api(path, opts = {}) {
+  const res = await fetch(BASEP + path, {
+    ...opts,
+    headers: { ...(opts.body ? { 'Content-Type': 'application/json' } : {}), ...(opts.headers || {}) },
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
+  return data;
+}
+
+const ORIGIN = { web: 'Ashadi front end', telegram: 'Telegram', sithiji: 'Sithiji' };
+const KIND = { reference: 'Reference', persona: 'Persona promotion', promote: 'Promote' };
+const MODES = {
+  design: {
+    label: 'Design → Canva',
+    noun: 'Design from',
+    help: 'Give a reference (a link, or upload up to 3 images). Ashadi decides whether it is direct (same product as what you promote) or indirect (look only), rebuilds it for Kapruka with the real product, and puts it in Canva with every line as editable text. One design per reference.',
+    sourceLabel: 'Reference link (Instagram or Pinterest)',
+    placeholder: 'https://www.instagram.com/p/… or a Pinterest pin',
+    countLabel: '',
+    note: 'e.g. use the flower box, keep the headline under 5 words',
+    submit: 'Design it in Canva',
+  },
+  recreate: {
+    label: 'Recreate a post',
+    noun: 'Recreate',
+    help: 'Paste an Instagram post or reel. Ashadi reads it and rebuilds it as a Kapruka ad: a faithful copy, plus its own take.',
+    sourceLabel: 'Instagram link',
+    placeholder: 'https://www.instagram.com/p/…',
+    countLabel: 'Variations per prompt',
+    note: 'e.g. change only the headline to "Amma knows best"',
+    submit: 'Recreate this post',
+  },
+  idea: {
+    label: 'Persona promotion',
+    noun: 'Persona promotion',
+    help: 'Name a persona. The creative strategist picks the angle and the design is built from it. Add references below to follow them; with none, it works from the persona alone.',
+    sourceLabel: 'Persona',
+    placeholder: 'e.g. Romantic — local',
+    countLabel: 'How many designs (no references only)',
+    note: 'e.g. lean into Poya-day gifting',
+    submit: 'Get ideas',
+  },
+  promote: {
+    label: 'Promote',
+    noun: 'Promote',
+    help: 'Pick something Kapruka really offers. Claims are checked against the approved business facts. Add references and a product link to steer it; with none, the strategist decides.',
+    sourceLabel: 'What to promote',
+    placeholder: 'e.g. perfumes for Father\'s Day, or same-day delivery',
+    countLabel: 'How many designs (no references only)',
+    note: 'e.g. focus on last-minute birthdays',
+    submit: 'Promote this',
+  },
+};
+const MODE_ICON = { recreate: 'Recreate', idea: 'Persona promotion', promote: 'Promote', design: 'Canva design' };
+// "Canva for all links" (2026-11-15): Instagram links always go through Design → Canva;
+// the old flat-image Recreate tab is gone (its past runs still open from Past runs).
+const MODE_ORDER = ['design', 'idea', 'promote'];
+const STEP_LABELS = {
+  design: ['Reference', 'Measure', 'Adapt', 'Picture', 'Canva'],   // no-reference jobs: Brief takes the place of Measure + Adapt
+  recreate: ['Read post', 'Write prompts', 'Generate & review', 'Finish'],
+  idea: ['Research', 'Write prompts', 'Generate & review', 'Finish'],
+  promote: ['Check facts', 'Write prompts', 'Generate & review', 'Finish'],
+};
+const ACTIVE = ['queued', 'waiting', 'running'];
+
+const state = {
+  uploads: [],
+  tracker: new Map(),
+  view: localStorage.getItem('ashadi.view') === 'tracker' ? 'tracker' : 'create',
+  mode: MODE_ORDER.includes(localStorage.getItem('ashadi.mode')) ? localStorage.getItem('ashadi.mode') : 'design',
+  runKind: 'run',
+  jobs: new Map(),
+  logs: new Map(),
+  openLogs: new Set(),
+  runs: [],
+  runsFilter: 'all',
+  runsShown: 24,
+  runId: null,
+  detail: null,
+  status: null,
+  lightbox: { items: [], index: 0 },
+  tick: null,
+};
+
+/* ---------------------------------------------------------------- helpers */
+const fmtDate = (ms) => new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }).format(new Date(ms));
+const plural = (n, s) => `${n} ${s}${n === 1 ? '' : 's'}`;
+function fmtElapsed(ms) {
+  const s = Math.max(0, Math.round(ms / 1000));
+  return s < 60 ? `${s}s` : `${Math.floor(s / 60)}m ${String(s % 60).padStart(2, '0')}s`;
+}
+function toast(msg) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.hidden = false;
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => { t.hidden = true; }, 3500);
+}
+function jobTitle(j) {
+  if (j.description) return `${j.origin && j.origin !== 'web' ? `${ORIGIN[j.origin] || j.origin} · ` : ''}${j.description}`;
+  const code = j.source.match(/\/(?:p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i)?.[1];
+  if (j.mode === 'recreate') return `Recreate ${code || 'post'}`;
+  if (j.mode === 'design') return `${j.origin === 'sithiji' ? 'Sithiji · ' : ''}Design from ${code || j.source}`;
+  return `${MODES[j.mode].noun} ${j.source}`;
+}
+const shortTitle = (t) => { const s = String(t || '').replace(/^(FAITHFUL COPY|RECREATOR'S TAKE)\s*[—-]\s*/i, '').trim(); return s || String(t || ''); };
+
+/* ---------------------------------------------------------------- composer */
+const form = $('#composer');
+const srcInput = $('#source');
+const countSel = $('#count');
+const noteInput = $('#instruction');
+
+function setMode(mode) {
+  state.mode = mode;
+  localStorage.setItem('ashadi.mode', mode);
+  const m = MODES[mode];
+  for (const t of form.querySelectorAll('.tab')) {
+    const on = t.dataset.mode === mode;
+    t.setAttribute('aria-selected', on ? 'true' : 'false');
+    t.tabIndex = on ? 0 : -1;
+  }
+  $('#panel-main').setAttribute('aria-labelledby', `tab-${mode}`);
+  $('#mode-help').textContent = m.help;
+  $('#source-label').textContent = m.sourceLabel;
+  srcInput.placeholder = m.placeholder;
+  srcInput.setAttribute('inputmode', mode === 'recreate' ? 'url' : 'text');
+  if (mode === 'idea') srcInput.setAttribute('list', 'persona-list'); else srcInput.removeAttribute('list');
+  $('#count-label').textContent = m.countLabel;
+  $('.field-count').hidden = !m.countLabel;
+  $('#ref-hint').textContent = mode === 'design'
+    ? 'The link above counts as the first reference. Each reference becomes its own design.'
+    : 'Each reference becomes its own design. No references: the strategist decides the look.';
+  $('#refs-label').firstChild.textContent = mode === 'design' ? 'More references ' : 'References ';
+  noteInput.placeholder = m.note;
+  $('#submit').textContent = m.submit;
+  showError('');
+}
+function fillCounts() {
+  for (let i = 1; i <= 4; i++) countSel.append(h('option', { value: i }, i));
+}
+function showError(msg) {
+  const el = $('#form-error');
+  el.textContent = msg;
+  el.hidden = !msg;
+  srcInput.closest('.field').classList.toggle('invalid', !!msg);
+}
+
+form.querySelector('.tabs').addEventListener('click', (e) => {
+  const t = e.target.closest('.tab');
+  if (t) setMode(t.dataset.mode);
+});
+form.querySelector('.tabs').addEventListener('keydown', (e) => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+  const order = MODE_ORDER;
+  const next = order[(order.indexOf(state.mode) + (e.key === 'ArrowRight' ? 1 : order.length - 1)) % order.length];
+  setMode(next);
+  $(`#tab-${next}`).focus();
+  e.preventDefault();
+});
+srcInput.addEventListener('input', () => showError(''));
+
+/* ---- references: uploads (drop, paste, choose) + links -------------------------------------- */
+const MAX_REFS = 3;
+function refLinkLines() { return $('#ref-links').value.split(/\r?\n/).map((s) => s.trim()).filter(Boolean); }
+function renderThumbs() {
+  const box = $('#thumbs');
+  box.replaceChildren(...state.uploads.map((u, i) => h('div', { class: 'thumb' },
+    h('img', { src: u.dataUrl, alt: u.name }),
+    h('button', { type: 'button', class: 'thumb-x', 'aria-label': `Remove ${u.name}`, onclick: () => { state.uploads.splice(i, 1); renderThumbs(); } }, '×'))));
+}
+function addFiles(files) {
+  for (const f of files) {
+    if (!/^image\/(png|jpe?g|webp)$/i.test(f.type)) { toast('Only JPG, PNG or WebP images.'); continue; }
+    if (f.size > 10 * 1024 * 1024) { toast(`${f.name || 'That image'} is over 10 MB.`); continue; }
+    if (state.uploads.length + refLinkLines().length + (state.mode === 'design' && srcInput.value.trim() ? 1 : 0) >= MAX_REFS) { toast('Up to 3 references at a time.'); break; }
+    const r = new FileReader();
+    r.onload = () => {
+      const dataUrl = String(r.result);
+      state.uploads.push({ name: f.name && f.name !== 'image.png' ? f.name : `pasted-${Date.now()}.${(f.type.split('/')[1] || 'png').replace('jpeg', 'jpg')}`, b64: dataUrl.split(',')[1], dataUrl });
+      renderThumbs();
+    };
+    r.readAsDataURL(f);
+  }
+}
+$('#pick-files').addEventListener('click', () => $('#file-input').click());
+$('#file-input').addEventListener('change', (e) => { addFiles([...e.target.files]); e.target.value = ''; });
+const drop = $('#drop');
+drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); addFiles([...(e.dataTransfer?.files || [])]); });
+document.addEventListener('paste', (e) => {
+  if (state.view !== 'create') return;
+  const files = [...(e.clipboardData?.files || [])].filter((f) => f.type.startsWith('image/'));
+  if (files.length) { e.preventDefault(); addFiles(files); }
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = $('#submit');
+  btn.disabled = true;
+  showError('');
+  try {
+    const { jobs: made } = await api('/api/jobs', {
+      method: 'POST',
+      body: JSON.stringify({
+        mode: state.mode, source: srcInput.value, count: Number(countSel.value), instruction: noteInput.value,
+        refLinks: refLinkLines(), uploads: state.uploads.map(({ name, b64 }) => ({ name, b64 })),
+        productUrl: $('#product-url').value, relation: $('#relation').value,
+      }),
+    });
+    for (const job of made) state.jobs.set(job.id, job);
+    renderJobs();
+    srcInput.value = '';
+    noteInput.value = '';
+    $('#ref-links').value = '';
+    $('#product-url').value = '';
+    state.uploads = [];
+    renderThumbs();
+    toast(made.length > 1 ? `${made.length} designs added to the queue.` : made[0].status === 'running' ? 'Started.' : 'Added to the queue.');
+  } catch (err) {
+    showError(err.message);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+/* ---------------------------------------------------------------- status pills */
+function renderPills() {
+  const s = state.status;
+  const box = $('#pills');
+  box.replaceChildren();
+  if (!s) return;
+  if (s.ai) {
+    const cli = s.ai.cli || {};
+    for (const [m, id] of [['gemini', 'ai-gemini'], ['cli', 'ai-cli']]) $(`#${id}`).setAttribute('aria-pressed', s.ai.aiMethod === m ? 'true' : 'false');
+    if (s.ai.aiMethod === 'cli') box.append(h('span', { class: `pill ${cli.loggedIn ? 'ok' : 'warn'}`, title: cli.loggedIn ? 'The Claude CLI is signed in.' : 'The Claude CLI is not signed in — jobs will stop at once with a clear message. Run claude auth login, or switch to Non-CLI.' }, cli.loggedIn ? 'AI: CLI (Claude)' : 'AI: CLI — signed out'));
+    else box.append(h('span', { class: 'pill ok', title: 'Thinking steps run on Gemini in your automation Chrome. No Claude CLI needed.' }, 'AI: Non-CLI (Gemini)'));
+  }
+  const pill = (cls, text, title) => box.append(h('span', { class: `pill ${cls}`, title }, text));
+  if (s.demo) pill('warn', 'Demo mode', 'Runs are simulated — nothing is generated.');
+  if (s.hub) {
+    if (s.hub.laptopOnline) pill('ok', 'Laptop online', 'The laptop worker is connected — jobs run there.');
+    else pill('warn', 'Laptop offline', 'The laptop worker is not connected. New jobs wait in the queue and start when it is back.');
+  }
+  const active = [...state.jobs.values()];
+  const running = active.filter((j) => j.status === 'running').length;
+  const waiting = active.filter((j) => j.status === 'queued' || j.status === 'waiting').length;
+  if (running || waiting) {
+    // Clickable: jumps to the job in "Now & next" and opens its live log.
+    box.append(h('button', {
+      type: 'button', class: 'pill busy pill-link', title: 'Show what\'s running',
+      onclick: () => {
+        const j = active.find((x) => x.status === 'running') || active.find((x) => x.status === 'waiting' || x.status === 'queued');
+        if (j) { state.openLogs.add(j.id); renderJobs(); }
+        const el = j && $(`[data-job="${j.id}"]`);
+        (el || $('#jobs')).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el?.classList.add('flash');
+        setTimeout(() => el?.classList.remove('flash'), 1600);
+      },
+    }, `${running ? '1 running' : 'Waiting'}${waiting ? ` · ${waiting} queued` : ''} — view`));
+  } else pill('ok', 'Idle');
+  if (s.demo) { /* Chrome isn't used in demo mode */ } else if (s.chrome) pill('ok', 'Chrome ready', 'The automation Chrome is up.');
+  else pill('', 'Chrome starts on first job', 'The automation Chrome isn\'t running yet; it\'s launched automatically when a job starts.');
+  const cv = s.canva || {};
+  if (cv.connected) pill('ok', `Canva${cv.name ? ` · ${cv.name}` : ''}`, 'Canva is connected — designs can be sent to it and pulled back.');
+  else if (cv.configured) {
+    box.append(h('a', {
+      class: 'pill warn pill-link', href: BASEP + '/canva/connect',
+      title: cv.error ? `Canva: ${cv.error}` : 'Sign in to Canva once so Ashadi can import designs and pull finals back.',
+    }, 'Connect Canva'));
+  }
+  const b = s.bot || {};
+  const handle = b.username ? `@${b.username}` : 'Telegram bot';
+  if (b.state === 'working') pill('busy', `${handle} is busy`, 'The Telegram bot is running a job. Jobs from this page wait for it, because both share one Chrome.');
+  else if (b.state === 'unreachable') pill('warn', 'Telegram unreachable', `${handle} can't reach Telegram right now (${b.pollErrors} of its last 20 log lines are poll errors). This page doesn't use Telegram, so it keeps working.`);
+}
+
+/* ---------------------------------------------------------------- jobs */
+function stepsEl(job) {
+  const labels = STEP_LABELS[job.mode];
+  const done = job.status === 'done';
+  return h('ol', { class: `steps${labels.length === 5 ? ' five' : ''}`, 'aria-label': 'Progress' }, labels.map((l, i) => {
+    const n = i + 1;
+    const cls = done || n < job.step ? 'done' : n === job.step ? 'active' : '';
+    return h('li', { class: `step ${cls}`, 'aria-current': cls === 'active' ? 'step' : null }, l);
+  }));
+}
+
+function jobEl(job) {
+  const running = job.status === 'running';
+  const el = h('div', { class: `job is-${job.status}`, 'data-job': job.id });
+  el.append(h('div', { class: 'job-head' },
+    h('div', { style: null },
+      h('div', { class: 'job-title' }, jobTitle(job)),
+      h('div', { class: 'job-meta', 'data-meta': job.id }, metaText(job))),
+    h('span', { class: `status ${job.status}` }, job.status)));
+
+  if (running || job.status === 'waiting') el.append(stepsEl(job));
+  el.append(h('p', { class: `job-message${job.status === 'failed' ? ' is-error' : ''}`, 'data-msg': job.id }, job.message || ''));
+
+  const actions = h('div', { class: 'job-actions' });
+  if (job.runId && (job.status === 'done' || job.runKind === 'design')) {
+    actions.append(h('button', { type: 'button', class: 'btn btn-ghost btn-small', onclick: () => openRun(job.runId, true, job.runKind) },
+      job.status === 'done' ? 'View results' : 'See how far it got'));
+  }
+  if (job.status === 'queued' || job.status === 'waiting') {
+    actions.append(h('button', {
+      type: 'button', class: 'btn btn-ghost btn-small',
+      onclick: async () => { try { await api(`/api/jobs/${job.id}`, { method: 'DELETE' }); } catch (e) { toast(e.message); } },
+    }, 'Cancel'));
+  }
+  if (running && job.stoppable) {
+    actions.append(h('button', {
+      type: 'button', class: 'btn btn-stop btn-small', disabled: job.stopping,
+      onclick: async () => {
+        if (!confirm(`Stop "${jobTitle(job)}"?\n\nIt's cut off where it is — anything already made stays in its folder, nothing more is generated or sent to Canva.`)) return;
+        try { await api(`/api/jobs/${job.id}`, { method: 'DELETE' }); toast('Stopping…'); } catch (e) { toast(e.message); }
+      },
+    }, job.stopping ? 'Stopping…' : 'Stop'));
+  }
+  const hasLog = (state.logs.get(job.id) || []).length > 0;
+  if (hasLog) {
+    const open = state.openLogs.has(job.id);
+    actions.append(h('button', {
+      type: 'button', class: 'log-toggle', 'aria-expanded': open ? 'true' : 'false',
+      onclick: () => { if (open) state.openLogs.delete(job.id); else state.openLogs.add(job.id); renderJobs(); },
+    }, open ? 'Hide log' : 'Show log'));
+  }
+  if (actions.childNodes.length) el.append(actions);
+
+  if (state.openLogs.has(job.id)) {
+    const pre = h('pre', { class: 'log', 'data-log': job.id, tabindex: '0', 'aria-label': 'Run log' }, (state.logs.get(job.id) || []).join('\n'));
+    el.append(pre);
+    queueMicrotask(() => { pre.scrollTop = pre.scrollHeight; });
+  }
+  return el;
+}
+
+function metaText(job) {
+  if (job.status === 'running' && job.startedAt) return `Running for ${fmtElapsed(Date.now() - job.startedAt)}`;
+  if (job.finishedAt && job.startedAt) return `Took ${fmtElapsed(job.finishedAt - job.startedAt)}`;
+  if (job.mode !== 'recreate' || job.instruction) return job.instruction ? `Note: ${job.instruction}` : '';
+  return 'Added ' + fmtDate(job.createdAt);
+}
+
+function renderJobs() {
+  const box = $('#jobs');
+  const rank = { running: 0, waiting: 1, queued: 2 };
+  const list = [...state.jobs.values()].sort((a, b) => {
+    const ra = rank[a.status] ?? 9; const rb = rank[b.status] ?? 9;
+    return ra - rb || (ra === 9 ? (b.finishedAt || 0) - (a.finishedAt || 0) : a.createdAt - b.createdAt);
+  }).slice(0, 8);
+  box.replaceChildren(...(list.length
+    ? list.map(jobEl)
+    : [h('p', { class: 'empty' }, 'Nothing running. Start something above, or open a past run on the right.')]));
+  renderPills();
+}
+
+function onJobEvent(job) {
+  const prev = state.jobs.get(job.id);
+  state.jobs.set(job.id, { ...(prev || {}), ...job });
+  state.tracker.set(job.id, { ...(state.tracker.get(job.id) || {}), ...job });
+  renderTracker();
+  if (!prev || prev.status !== job.status) loadTracker();      // queue positions of the other rows shift when one starts or finishes
+  if (job.status === 'done' && job.runId && prev?.status !== 'done') {
+    toast(job.runKind === 'design' ? `Done — ${plural(job.imageCount ?? 0, 'design')} in Canva.` : `Done — ${plural(job.imageCount ?? 0, 'image')}.`);
+    refreshRuns().then(() => openRun(job.runId, true, job.runKind));
+  } else if (job.status === 'failed' && prev?.status !== 'failed') {
+    toast('A job failed — see the log for details.');
+  } else if (job.status === 'stopped' && prev?.status !== 'stopped') {
+    toast('Job stopped.');
+  }
+  renderJobs();
+}
+function onLogEvent({ id, line }) {
+  const lines = state.logs.get(id) || [];
+  const hadLog = lines.length > 0;
+  lines.push(line);
+  if (lines.length > 2000) lines.shift();
+  state.logs.set(id, lines);
+  if (!hadLog) { renderJobs(); return; }          // first line: the "Show log" toggle must appear
+  const pre = $(`[data-log="${id}"]`);
+  if (pre) {
+    const stick = pre.scrollHeight - pre.scrollTop - pre.clientHeight < 40;
+    pre.append(document.createTextNode('\n' + line));
+    if (stick) pre.scrollTop = pre.scrollHeight;
+  }
+}
+
+function connectEvents() {
+  const es = new EventSource(BASEP + '/api/events');
+  es.addEventListener('job', (e) => onJobEvent(JSON.parse(e.data)));
+  es.addEventListener('tracker-removed', (e) => { const { id } = JSON.parse(e.data); state.tracker.delete(id); state.jobs.delete(id); renderTracker(); });
+  es.addEventListener('log', (e) => onLogEvent(JSON.parse(e.data)));
+  es.addEventListener('design', (e) => {
+    const { id } = JSON.parse(e.data);
+    if (state.runKind === 'design' && state.runId === id) openRun(id, false, 'design');
+    refreshRuns();
+  });
+  es.addEventListener('open', () => { loadJobs(); loadStatus(); });
+}
+
+/* ---------------------------------------------------------------- tracker */
+async function removeRow(r) {
+  if (!confirm('Remove this row from the tracker? The design files stay on disk.')) return;
+  try {
+    await api(`/api/tracker/${r.id}`, { method: 'DELETE' });
+    state.tracker.delete(r.id); state.jobs.delete(r.id);
+    renderTracker();
+  } catch (e) { toast(e.message); }
+}
+async function rateJob(r, rating) {
+  let note = '';
+  if (rating === 'bad') note = (prompt('What was wrong with it? (optional — Ashadi learns from this)') ?? '').trim();
+  try {
+    await api(`/api/jobs/${r.id}/feedback`, { method: 'POST', body: JSON.stringify({ rating, note }) });
+    state.tracker.set(r.id, { ...(state.tracker.get(r.id) || r), rating });
+    renderTracker();
+    toast(rating === 'good' ? 'Thanks — Ashadi will lean on this style.' : 'Thanks — Ashadi will avoid this next time.');
+  } catch (e) { toast(e.message); }
+}
+function feedbackEl(r) {
+  if (r.status !== 'done') return null;
+  if (r.rating) return h('div', { class: 'tr-fb tr-sub' }, `You rated it: ${r.rating === 'good' ? 'good' : 'needs work'}`);
+  return h('div', { class: 'tr-fb' },
+    h('button', { type: 'button', class: 'btn btn-ghost btn-small', onclick: () => rateJob(r, 'good') }, 'Good'),
+    h('button', { type: 'button', class: 'btn btn-ghost btn-small', onclick: () => rateJob(r, 'bad') }, 'Needs work'));
+}
+function trackerStatus(r) {
+  const cls = r.status === 'running' ? 'running' : r.status === 'queued' || r.status === 'waiting' ? 'waiting' : r.status;
+  const label = r.status === 'queued' ? `Queued${r.position ? ` · #${r.position}` : ''}` : r.status === 'running' ? 'Running' : r.status === 'interrupted' ? 'Interrupted' : r.status.charAt(0).toUpperCase() + r.status.slice(1);
+  const msg = r.status === 'done' ? '' : String(r.message || '').slice(0, 110);
+  return h('div', null, h('span', { class: `status ${cls}` }, label), msg ? h('div', { class: 'tr-msg' }, msg) : null);
+}
+/** Per-row controls: Stop / Cancel while a job is active; Resume, Retry (or Run again) and Remove once it has finished. */
+function trackerActions(r) {
+  const btn = (label, cls, title, onclick, disabled = false) => h('button', { type: 'button', class: `btn ${cls} btn-small`, title, onclick, disabled }, label);
+  const post = async (path, msg) => { try { await api(path, { method: 'POST', body: '{}' }); toast(msg); } catch (e) { toast(e.message); } };
+  const del = async (msg) => { try { await api(`/api/jobs/${r.id}`, { method: 'DELETE' }); if (msg) toast(msg); } catch (e) { toast(e.message); } };
+  const kids = [];
+  if (ACTIVE.includes(r.status)) {
+    if (r.status === 'running') {
+      kids.push(btn(r.stopping ? 'Stopping…' : 'Stop', 'btn-stop', 'Stop this job where it is', async () => {
+        if (!confirm(`Stop "${r.description || r.source || 'this job'}"?\n\nIt is cut off where it is. Anything already made stays in its folder, and you can Resume it later.`)) return;
+        await del('Stopping…');
+      }, !!r.stopping));
+    } else {
+      kids.push(btn('Cancel', 'btn-ghost', 'Take this job out of the queue', () => del('Cancelled.')));
+    }
+  } else {
+    if (r.status !== 'done' && r.runId) kids.push(btn('Resume', 'btn-canva', 'Continue from where it stopped — finished steps are reused', () => post(`/api/jobs/${r.id}/resume`, 'Resuming — finished steps are reused.')));
+    kids.push(btn(r.status === 'done' ? 'Run again' : 'Retry', 'btn-ghost', 'Start over from the saved request', () => post(`/api/jobs/${r.id}/retry`, 'Started again from scratch.')));
+    kids.push(btn('Remove', 'btn-ghost', 'Remove this row from the tracker', () => removeRow(r)));
+  }
+  return h('div', { class: 'tr-fb tr-actions' }, ...kids);
+}
+function renderTracker() {
+  const rows = [...state.tracker.values()];
+  const rank = { running: 0, waiting: 1, queued: 2 };
+  rows.sort((a, b) => (rank[a.status] ?? 9) - (rank[b.status] ?? 9) || ((rank[a.status] ?? 9) < 9 ? (a.position || 0) - (b.position || 0) : (b.createdAt || 0) - (a.createdAt || 0)));
+  const active = rows.filter((r) => ACTIVE.includes(r.status)).length;
+  $('#tracker-count').textContent = active ? String(active) : '';
+  const body = $('#tracker-body');
+  if (!body) return;
+  body.replaceChildren(...(rows.length ? rows.map((r) => h('tr', { class: `tr-${r.status}` },
+    h('td', null, h('div', { class: 'tr-from' }, ORIGIN[r.origin] || r.origin || 'Ashadi front end'), h('div', { class: 'tr-sub' }, KIND[r.kind] || '')),
+    h('td', null, h('div', { class: 'tr-job' }, r.description || r.source || ''), r.aiMethod ? h('div', { class: 'tr-sub' }, `Method: ${r.aiMethod === 'cli' ? 'CLI (Claude)' : 'Non-CLI (Gemini)'}`) : null, r.instruction ? h('div', { class: 'tr-sub' }, `Note: ${r.instruction}`) : null, r.productUrl ? h('div', { class: 'tr-sub' }, `Product: ${r.productUrl.replace(/^https?:\/\/(www\.)?/, '')}`) : null),
+    h('td', null, trackerStatus(r)),
+    h('td', null, r.canvaUrl ? h('a', { class: 'btn btn-ghost btn-small', href: r.canvaUrl, target: '_blank', rel: 'noopener' }, 'Open in Canva') : h('span', { class: 'tr-sub' }, ACTIVE.includes(r.status) ? 'pending' : '—'),
+      r.finalUrl ? h('a', { class: 'tr-final', href: r.finalUrl, target: '_blank', rel: 'noopener' }, 'Final picture') : null,
+      feedbackEl(r),
+      trackerActions(r))))
+    : [h('tr', null, h('td', { colspan: '4', class: 'empty' }, 'No jobs yet. Create one and it shows up here.'))]));
+}
+async function loadTracker() {
+  try { const { rows } = await api('/api/tracker'); for (const r of rows) state.tracker.set(r.id, r); renderTracker(); } catch { /* shown empty */ }
+}
+function setView(v) {
+  state.view = v;
+  localStorage.setItem('ashadi.view', v);
+  $('#create-view').hidden = v !== 'create';
+  $('#tracker-view').hidden = v !== 'tracker';
+  $('#view-create').setAttribute('aria-pressed', v === 'create' ? 'true' : 'false');
+  $('#view-tracker').setAttribute('aria-pressed', v === 'tracker' ? 'true' : 'false');
+  if (v === 'tracker') loadTracker();
+}
+async function pickAi(method) {
+  try { const ai = await api('/api/settings', { method: 'POST', body: JSON.stringify({ aiMethod: method }) }); state.status = { ...(state.status || {}), ai }; renderPills(); toast(`AI method: ${ai.label}. It applies to the next job that starts.`); }
+  catch (e) { toast(e.message); }
+}
+$('#ai-gemini').addEventListener('click', () => pickAi('gemini'));
+$('#ai-cli').addEventListener('click', () => pickAi('cli'));
+$('#view-create').addEventListener('click', () => setView('create'));
+$('#view-tracker').addEventListener('click', () => setView('tracker'));
+
+async function loadJobs() {
+  try {
+    const { jobs } = await api('/api/jobs');
+    for (const j of jobs) {
+      const { log, ...rest } = j;
+      state.jobs.set(j.id, rest);
+      if (!state.logs.has(j.id) || state.logs.get(j.id).length < log.length) state.logs.set(j.id, log);
+    }
+    renderJobs();
+  } catch { /* the pills will show it's unreachable */ }
+}
+async function loadStatus() {
+  try { state.status = await api('/api/status'); } catch { state.status = null; }
+  renderPills();
+}
+
+/* ---------------------------------------------------------------- viewer */
+function viewerEmpty(loading) {
+  return [h('div', { class: 'viewer-empty' },
+    h('h2', null, loading ? 'Loading…' : 'Your results show up here'),
+    h('p', null, loading ? '' : 'Create something on the left, or open any past run below.'))];
+}
+
+function shotEl(im, items) {
+  const idx = items.indexOf(im);
+  const flag = im.passed ? h('span', { class: 'shot-flag' }, '★ Reviewer pick') : null;
+  return h('figure', { class: 'shot', style: null },
+    h('button', {
+      type: 'button', class: 'shot-img', 'aria-label': `Open ${im.name} full size`,
+      onclick: () => openLightbox(items, idx),
+    }, h('img', { src: im.url, alt: `${im.engine || 'Generated'} render: ${im.name}`, loading: 'lazy' }), flag),
+    h('figcaption', { class: 'shot-foot' },
+      h('div', { class: 'shot-row' },
+        h('span', { class: 'shot-engine' }, im.engine || ''),
+        h('a', { class: 'btn btn-ghost btn-small', href: `${im.url}${im.url.includes('?') ? '&' : '?'}download=1`, download: im.name }, 'Download')),
+      !im.passed && im.reason ? h('details', { class: 'shot-reason' },
+        h('summary', null, 'Didn’t fully pass review'),
+        h('p', null, im.reason)) : null));
+}
+
+function promptEl(p) {
+  if (!p.body) return null;
+  return h('details', { class: 'prompt' },
+    h('summary', null, 'View the prompt'),
+    h('div', { class: 'prompt-body' },
+      h('pre', null, p.body),
+      h('button', {
+        type: 'button', class: 'btn btn-ghost btn-small',
+        onclick: async () => {
+          try { await navigator.clipboard.writeText(p.body); toast('Prompt copied.'); } catch { toast('Couldn\'t copy — select the text instead.'); }
+        },
+      }, 'Copy prompt')));
+}
+
+/** A Canva design run: reference → Kapruka design in Canva → final pulled back. */
+function renderDesign(v, d) {
+  const finals = d.variants.filter((x) => x.final).length;
+  const inCanva = d.variants.filter((x) => x.editUrl).length;
+  const head = h('div', { class: 'viewer-head' },
+    h('h2', { class: 'viewer-title' }, d.label),
+    h('div', { class: 'badges' },
+      h('span', { class: 'badge brand' }, 'Canva design'),
+      h('span', { class: 'badge' }, fmtDate(d.at)),
+      h('span', { class: 'badge' }, `${plural(inCanva, 'design')} in Canva`),
+      finals ? h('span', { class: 'badge ok' }, `${plural(finals, 'final')} pulled back`) : null,
+      d.source ? h('a', { class: 'badge', href: d.source, target: '_blank', rel: 'noopener noreferrer' }, 'Source post ↗') : null),
+    d.instruction ? h('p', { class: 'note' }, h('b', null, 'Creative note: '), d.instruction) : null,
+    d.error ? h('p', { class: 'err' }, `This run stopped early: ${d.error}`) : null);
+  const parts = [head];
+
+  if (d.reference.length) {
+    parts.push(h('section', { class: 'section' },
+      h('h3', { class: 'section-title' }, 'Reference'),
+      h('div', { class: 'ref-row' }, d.reference.map((u, i) => h('img', {
+        src: u, alt: `Reference ${i + 1}`, loading: 'lazy',
+        onclick: () => openLightbox(d.reference.map((url, n) => ({ url, name: `reference-${n + 1}`, engine: 'Reference' })), i),
+      })))));
+  }
+
+  // The idea behind the design — what the reference means and how Kapruka says it.
+  const kc = d.concept?.kapruka_concept;
+  if (kc?.one_line) {
+    parts.push(h('section', { class: 'section' },
+      h('h3', { class: 'section-title' }, 'The idea'),
+      h('p', null, h('b', null, kc.one_line)),
+      d.concept.reference_idea ? h('p', { class: 'note' }, h('b', null, 'Reference meant: '), d.concept.reference_idea) : null,
+      kc.hook ? h('p', { class: 'note' }, h('b', null, 'Audience hook: '), kc.hook) : null,
+      kc.visual ? h('p', { class: 'note' }, h('b', null, 'Picture: '), kc.visual) : null,
+      kc.why_it_makes_sense ? h('p', { class: 'note' }, kc.why_it_makes_sense) : null,
+      (d.concept.warnings || []).length ? h('p', { class: 'note' }, h('b', null, 'Check: '), d.concept.warnings.join(' · ')) : null));
+  }
+
+  const box = h('section', { class: 'section' }, h('h3', { class: 'section-title' }, 'Designs'));
+  if (!d.variants.length) box.append(h('p', { class: 'empty' }, 'No design was made in this run.'));
+  const grid = h('div', { class: 'variants' });
+  for (const x of d.variants) {
+    const pics = [x.preview && { url: x.preview, label: 'As sent to Canva', cls: '' }, x.final && { url: x.final, label: 'Final from Canva', cls: 'final' }].filter(Boolean);
+    const lightItems = pics.map((p) => ({ url: p.url, name: p.label, engine: x.engine }));
+    const btnPull = h('button', { type: 'button', class: 'btn btn-ghost btn-small' }, x.final ? 'Pull again from Canva' : 'Pull final from Canva');
+    btnPull.addEventListener('click', async () => {
+      btnPull.disabled = true;
+      btnPull.textContent = 'Pulling from Canva…';
+      try {
+        state.detail = await api(`/api/designs/${encodeURIComponent(d.id)}/final`, { method: 'POST', body: JSON.stringify({ variant: x.index }) });
+        renderViewer();
+        toast('Final pulled from Canva.');
+        refreshRuns();
+      } catch (e) {
+        toast(e.message);
+        btnPull.disabled = false;
+        btnPull.textContent = 'Pull final from Canva';
+      }
+    });
+    // Not in Canva yet (the import failed): show the picture layer, and offer a re-send.
+    if (!pics.length && x.scene) pics.push({ url: x.scene, label: 'Picture layer (not in Canva yet)', cls: '' });
+    let btnRetry = null;
+    if (x.canRetry) {
+      btnRetry = h('button', { type: 'button', class: 'btn btn-canva btn-small' }, 'Retry sending to Canva');
+      btnRetry.addEventListener('click', async () => {
+        btnRetry.disabled = true;
+        btnRetry.textContent = 'Sending to Canva…';
+        try {
+          state.detail = await api(`/api/designs/${encodeURIComponent(d.id)}/retry-canva`, { method: 'POST', body: '{}' });
+          renderViewer();
+          toast('Sent to Canva.');
+          refreshRuns();
+        } catch (e) {
+          toast(e.message);
+          btnRetry.disabled = false;
+          btnRetry.textContent = 'Retry sending to Canva';
+        }
+      });
+    }
+    grid.append(h('div', { class: 'variant' },
+      pics.length ? h('div', { class: `variant-pair${pics.length === 1 ? ' single' : ''}` }, pics.map((p, i) => h('figure', null,
+        h('img', { src: p.url, alt: p.label, loading: 'lazy', onclick: () => openLightbox(lightItems, i) }),
+        h('figcaption', { class: p.cls }, p.label)))) : null,
+      h('div', { class: 'variant-foot' },
+        h('span', { class: 'shot-engine' }, `Picture by ${x.engine}${x.finalAt ? ` · final ${fmtDate(Date.parse(x.finalAt))}` : ''}`),
+        x.check ? h('ul', { class: 'checks' },
+          h('li', { class: x.check.paintedText?.length ? 'bad' : 'ok' }, x.check.paintedText?.length
+            ? `Text/logos still painted in the picture: ${x.check.paintedText.join(' · ')}` : `No text or logos painted in the picture${x.attempts > 1 ? ' (fixed on the 2nd try)' : ''}`),
+          x.check.clash?.length ? h('li', { class: 'bad' }, `Picture objects run into: "${x.check.clash.join('", "')}" — move or resize in Canva`) : null,
+          x.check.watermarkCropped ? h('li', { class: 'ok' }, 'AI watermark cropped off') : null,
+          x.check.watermarkLeft ? h('li', { class: 'bad' }, 'AI watermark found away from the edge — remove it in Canva') : null,
+          x.check.packagingLogos ? h('li', { class: 'ok' }, `Real Kapruka logo placed on ${plural(x.check.packagingLogos, 'bag/box')} as a Canva layer`) : null,
+          x.check.notes ? h('li', { class: 'note-li' }, `Checker: ${x.check.notes}`) : null) : null,
+        x.review ? h('div', { class: `review review-${x.review.verdict}` },
+          h('b', null, x.review.verdict === 'production-ready' ? '✓ Art director: production-ready'
+            : x.review.verdict === 'minor-fixes' ? 'Art director: minor fixes before posting' : 'Art director: not ready yet'),
+          x.review.issues?.length ? h('ul', null, x.review.issues.map((i) => h('li', { class: `sev-${i.severity}` },
+            h('span', null, i.what), i.fix_in_canva ? h('span', { class: 'fix' }, ` → ${i.fix_in_canva}`) : null))) : null) : null,
+        x.polish && (x.polish.applied?.length || x.polish.needsNewPicture || x.polish.unfixable?.length) ? h('div', { class: 'review' },
+          x.polish.applied?.length ? h('p', null, h('b', null, `Auto-fixed (${x.polish.rounds} round${x.polish.rounds === 1 ? '' : 's'}): `), x.polish.applied.join(' · ')) : null,
+          x.polish.needsNewPicture ? h('p', null, h('b', null, 'Needs a new picture: '), x.polish.needsNewPicture) : null,
+          x.polish.unfixable?.length ? h('p', { class: 'note' }, h('b', null, 'Left for you: '), x.polish.unfixable.join(' · ')) : null) : null,
+        x.canvaError ? h('p', { class: 'err' }, `Canva: ${x.canvaError}`) : null,
+        h('div', { class: 'variant-actions' },
+          btnRetry,
+          x.editUrl ? h('a', { class: 'btn btn-canva btn-small', href: x.editUrl, target: '_blank', rel: 'noopener noreferrer' }, 'Edit in Canva ↗') : null,
+          x.editUrl ? btnPull : null,
+          x.final ? h('a', { class: 'btn btn-ghost btn-small', href: `${x.final}&download=1`, download: x.finalName || 'final.png' }, 'Download final') : null))));
+  }
+  if (d.variants.length) box.append(grid);
+  parts.push(box);
+
+  const facts = [];
+  if (d.copy.length) facts.push(h('div', { class: 'fact' }, h('b', null, 'Kapruka copy (editable in Canva)'),
+    h('ul', null, d.copy.map((c) => h('li', { class: 'copy-line' }, `${c.role ? `${c.role}: ` : ''}${c.text}`)))));
+  if (d.changes.length) facts.push(h('div', { class: 'fact' }, h('b', null, 'What Ashadi changed from the reference'),
+    h('ul', null, d.changes.map((c) => h('li', null, c)))));
+  if (d.claims.length) facts.push(h('div', { class: 'fact' }, h('b', null, 'Claims used (checked against business context)'),
+    h('ul', null, d.claims.map((c) => h('li', null, typeof c === 'string' ? c : JSON.stringify(c))))));
+  if (facts.length) parts.push(h('section', { class: 'section' }, h('h3', { class: 'section-title' }, 'Details'), h('div', { class: 'facts' }, facts)));
+  if (d.scenePrompt) parts.push(promptEl({ body: d.scenePrompt }));
+  v.replaceChildren(...parts);
+}
+
+function renderViewer() {
+  const v = $('#viewer');
+  const d = state.detail;
+  if (!d) { v.replaceChildren(...viewerEmpty(!!state.runId)); return; }
+  if (d.kind === 'design') { renderDesign(v, d); return; }
+
+  const picks = d.images.filter((i) => i.passed).length;
+  const title = d.mode === 'recreate'
+    ? h('a', { href: d.source, target: '_blank', rel: 'noopener noreferrer' }, `Recreation of ${d.label}`)
+    : `${MODES[d.mode].noun} ${d.label}`;
+  const items = d.images;
+  const head = h('div', { class: 'viewer-head' },
+    h('h2', { class: 'viewer-title' }, title),
+    h('div', { class: 'badges' },
+      h('span', { class: 'badge brand' }, MODE_ICON[d.mode]),
+      h('span', { class: 'badge' }, fmtDate(d.at)),
+      h('span', { class: 'badge' }, plural(d.images.length, 'image')),
+      picks ? h('span', { class: 'badge ok' }, plural(picks, 'reviewer pick')) : null,
+      d.images.length && !picks ? h('span', { class: 'badge warn' }, 'No image fully passed review') : null),
+    d.instruction ? h('p', { class: 'note' }, h('b', null, 'Creative note: '), d.instruction) : null);
+
+  const parts = [head];
+
+  if (d.reference.length) {
+    parts.push(h('section', { class: 'section' },
+      h('h3', { class: 'section-title' }, d.reference.length > 1 ? 'Reference slides' : 'Reference'),
+      h('div', { class: 'ref-row' }, d.reference.map((u, i) => h('img', {
+        src: u, alt: `Reference slide ${i + 1}`, loading: 'lazy',
+        onclick: () => openLightbox(d.reference.map((url, n) => ({ url, name: `reference-${n + 1}`, engine: 'Reference' })), i),
+      }))),
+      d.caption ? h('p', { class: 'caption' }, d.caption) : null));
+  }
+
+  // Group renders under the prompt that produced them.
+  const byPrompt = new Map();
+  for (const im of d.images) {
+    const k = im.promptIndex || 0;
+    if (!byPrompt.has(k)) byPrompt.set(k, []);
+    byPrompt.get(k).push(im);
+  }
+  const promptByIdx = new Map(d.prompts.map((p) => [p.index, p]));
+  const keys = [...new Set([...d.prompts.map((p) => p.index), ...byPrompt.keys()])].sort((a, b) => a - b);
+
+  const results = h('section', { class: 'section' }, h('h3', { class: 'section-title' }, 'Results'));
+  if (!d.images.length) results.append(h('p', { class: 'empty' }, 'This run has no saved images.'));
+  for (const k of keys) {
+    const p = promptByIdx.get(k);
+    const ims = byPrompt.get(k) || [];
+    if (!ims.length && !p) continue;
+    results.append(h('div', { class: 'group' },
+      p ? h('h4', { class: 'group-title' }, h('span', { class: 'num' }, `Prompt ${p.index}`), shortTitle(p.title)) : null,
+      ims.length ? h('div', { class: 'images' }, ims.map((im) => shotEl(im, items))) : h('p', { class: 'empty' }, 'No image was generated for this prompt.'),
+      p ? promptEl(p) : null));
+  }
+  parts.push(results);
+  v.replaceChildren(...parts);
+}
+
+async function openRun(id, scroll, kind = 'run') {
+  state.runId = id;
+  state.runKind = kind;
+  state.detail = null;
+  renderViewer();
+  renderRuns();
+  try {
+    const d = await api(`/api/${kind === 'design' ? 'designs' : 'runs'}/${encodeURIComponent(id)}`);
+    if (state.runId !== id || state.runKind !== kind) return;   // user clicked something else meanwhile
+    state.detail = d;
+    renderViewer();
+    if (scroll) $('#viewer').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  } catch (e) {
+    state.runId = null;
+    renderViewer();
+    toast(e.message);
+  }
+}
+
+/* ---------------------------------------------------------------- past runs */
+function renderRuns() {
+  const box = $('#runs');
+  const all = state.runs;
+  const filtered = state.runsFilter === 'all' ? all : all.filter((r) => r.mode === state.runsFilter);
+  $('#runs-count').textContent = all.length ? `· ${all.length}` : '';
+  const shown = filtered.slice(0, state.runsShown);
+  box.replaceChildren(...(shown.length ? shown.map((r) => h('button', {
+    type: 'button', class: 'run', 'aria-current': r.id === state.runId && (r.kind || 'run') === state.runKind ? 'true' : null,
+    onclick: () => openRun(r.id, true, r.kind || 'run'),
+  },
+  r.thumb ? h('img', { class: 'run-thumb', src: r.thumb, alt: '', loading: 'lazy' }) : h('span', { class: 'run-thumb none' }, 'No image'),
+  h('span', { class: 'run-info' },
+    h('span', { class: 'run-label', title: r.label }, r.mode === 'recreate' || r.mode === 'design' ? r.label : `${MODES[r.mode].noun} ${r.label}`),
+    h('span', { class: 'run-meta' }, r.kind === 'design'
+      ? `${fmtDate(r.at)} · ${r.error ? 'stopped early' : `${r.imageCount} in Canva${r.finals ? ` · ${r.finals} final` : ''}`}`
+      : `${fmtDate(r.at)} · ${plural(r.imageCount, 'image')}`)))) : [h('p', { class: 'empty' }, all.length ? 'No runs of this type yet.' : 'No past runs found.')]));
+  const more = $('#runs-more');
+  more.hidden = filtered.length <= state.runsShown;
+  more.textContent = `Show more (${filtered.length - state.runsShown} left)`;
+}
+
+async function refreshRuns() {
+  const [runs, designs] = await Promise.all([
+    api('/api/runs').then((r) => r.runs.map((x) => ({ ...x, kind: 'run' }))).catch(() => []),
+    api('/api/designs').then((r) => r.designs).catch(() => []),
+  ]);
+  state.runs = [...designs, ...runs].sort((a, b) => b.at - a.at);
+  renderRuns();
+}
+
+$('#run-filters').addEventListener('click', (e) => {
+  const c = e.target.closest('.chip');
+  if (!c) return;
+  state.runsFilter = c.dataset.filter;
+  state.runsShown = 24;
+  for (const b of $('#run-filters').querySelectorAll('.chip')) b.setAttribute('aria-pressed', b === c ? 'true' : 'false');
+  renderRuns();
+});
+$('#runs-more').addEventListener('click', () => { state.runsShown += 24; renderRuns(); });
+
+/* ---------------------------------------------------------------- lightbox */
+const lb = $('#lightbox');
+function showLightbox() {
+  const { items, index } = state.lightbox;
+  const im = items[index];
+  if (!im) return;
+  $('#lb-img').src = im.url;
+  $('#lb-img').alt = im.name || '';
+  $('#lb-caption').textContent = `${index + 1} / ${items.length} — ${im.engine || ''}${im.passed ? ' · reviewer pick' : ''}`;
+  const dl = $('#lb-download');
+  dl.href = `${im.url}${im.url.includes('?') ? '&' : '?'}download=1`;
+  dl.setAttribute('download', im.name || 'image');
+  $('#lb-prev').disabled = index === 0;
+  $('#lb-next').disabled = index === items.length - 1;
+}
+function openLightbox(items, index) {
+  state.lightbox = { items, index };
+  showLightbox();
+  if (!lb.open) lb.showModal();
+}
+function stepLightbox(d) {
+  const n = state.lightbox.index + d;
+  if (n < 0 || n >= state.lightbox.items.length) return;
+  state.lightbox.index = n;
+  showLightbox();
+}
+$('#lb-close').addEventListener('click', () => lb.close());
+$('#lb-prev').addEventListener('click', () => stepLightbox(-1));
+$('#lb-next').addEventListener('click', () => stepLightbox(1));
+lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('lb-stage')) lb.close(); });
+lb.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') stepLightbox(-1);
+  else if (e.key === 'ArrowRight') stepLightbox(1);
+});
+
+/* ---------------------------------------------------------------- boot */
+{
+  // Back from the Canva sign-in page (/canva/callback redirects here).
+  const q = new URLSearchParams(location.search);
+  if (q.get('canva') === 'connected') toast('Canva connected.');
+  else if (q.get('canva') === 'error') toast(`Canva didn't connect: ${q.get('reason') || 'unknown error'}`);
+  if (q.has('canva')) history.replaceState(null, '', BASEP + '/');
+}
+fillCounts();
+setMode(state.mode);
+setView(state.view);
+loadTracker();
+renderJobs();
+renderViewer();
+Promise.all([loadStatus(), loadJobs(), refreshRuns()]).then(() => {
+  connectEvents();
+  // Open the most recent run so the page isn't empty on first load.
+  const live = [...state.jobs.values()].find((j) => j.status === 'done' && j.runId);
+  if (live) openRun(live.runId, false, live.runKind || 'run');
+  else if (state.runs[0]) openRun(state.runs[0].id, false, state.runs[0].kind || 'run');
+});
+setInterval(loadStatus, 15_000);
+// On the VPS hub the live event stream can be held back by the proxy, so also re-read the job list and tracker every few seconds.
+if (BASEP) setInterval(() => { loadJobs().catch(() => {}); loadTracker().catch(() => {}); }, 6_000);
+// Keep "Running for 1m 20s" ticking without re-rendering the whole list.
+setInterval(() => {
+  for (const j of state.jobs.values()) {
+    if (j.status !== 'running' || !j.startedAt) continue;
+    const el = $(`[data-meta="${j.id}"]`);
+    if (el) el.textContent = metaText(j);
+  }
+}, 1000);

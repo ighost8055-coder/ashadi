@@ -1,0 +1,77 @@
+{
+  "text_or_logos": [
+    {
+      "what": "Voi",
+      "box": {
+        "x": 20,
+        "y": 58,
+        "w": 3.5,
+        "h": 1.5
+      }
+    },
+    {
+      "what": "COFFEE SCRUB & WASH",
+      "box": {
+        "x": 18,
+        "y": 60,
+        "w": 7.5,
+        "h": 2.5
+      }
+    },
+    {
+      "what": "NATURAL FRUIT SEEDS Cleanses & exfoliates for glowing skin Alcohol free WHITENING EFFECT",
+      "box": {
+        "x": 18.5,
+        "y": 66,
+        "w": 7,
+        "h": 5
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "Voi Coffee Scrub & Wash bottle",
+      "box": {
+        "x": 16.5,
+        "y": 52.5,
+        "w": 11,
+        "h": 21
+      }
+    },
+    {
+      "what": "Chocolate mirror-glaze cake on gold board",
+      "box": {
+        "x": 29.5,
+        "y": 53,
+        "w": 30.5,
+        "h": 20.5
+      }
+    },
+    {
+      "what": "Woven basket filled with chocolates and treats",
+      "box": {
+        "x": 61.5,
+        "y": 52.5,
+        "w": 25,
+        "h": 21
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 16.5,
+    "y": 52.5,
+    "w": 70,
+    "h": 21
+  },
+  "notes": "Product packaging label text is rendered on the Voi Coffee Scrub & Wash bottle; small text lines under 'NATURAL FRUIT SEEDS' are slightly blurry/garbled.",
+  "size": {
+    "w": 1840,
+    "h": 2304
+  }
+}

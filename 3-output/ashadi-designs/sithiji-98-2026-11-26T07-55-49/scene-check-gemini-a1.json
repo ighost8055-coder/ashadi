@@ -1,0 +1,113 @@
+{
+  "text_or_logos": [
+    {
+      "what": "Juan Valdez red logo badge",
+      "box": {
+        "x": 83,
+        "y": 0,
+        "w": 9,
+        "h": 12
+      }
+    },
+    {
+      "what": "perdón tengo planes.",
+      "box": {
+        "x": 50.5,
+        "y": 32.5,
+        "w": 29,
+        "h": 3
+      }
+    },
+    {
+      "what": "los planes:",
+      "box": {
+        "x": 15.5,
+        "y": 40,
+        "w": 15,
+        "h": 2.5
+      }
+    },
+    {
+      "what": "Voi COFFEE SCRUB & WASH + garbled bottle label text",
+      "box": {
+        "x": 17,
+        "y": 58,
+        "w": 8,
+        "h": 13.5
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red brand flag tab",
+      "box": {
+        "x": 83,
+        "y": 0,
+        "w": 9,
+        "h": 12
+      }
+    },
+    {
+      "what": "blue speech bubble with text",
+      "box": {
+        "x": 47.5,
+        "y": 30.5,
+        "w": 37,
+        "h": 7.5
+      }
+    },
+    {
+      "what": "los planes text",
+      "box": {
+        "x": 15.5,
+        "y": 40,
+        "w": 15,
+        "h": 2.5
+      }
+    },
+    {
+      "what": "Voi coffee scrub bottle",
+      "box": {
+        "x": 15.5,
+        "y": 53,
+        "w": 11.5,
+        "h": 21
+      }
+    },
+    {
+      "what": "chocolate glazed cake on gold board",
+      "box": {
+        "x": 29,
+        "y": 52,
+        "w": 31,
+        "h": 22
+      }
+    },
+    {
+      "what": "woven chocolate gift basket",
+      "box": {
+        "x": 62,
+        "y": 52.5,
+        "w": 25,
+        "h": 21.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 15.5,
+    "y": 0,
+    "w": 76.5,
+    "h": 74
+  },
+  "notes": "The image contains baked-in reference layout elements (top-right Juan Valdez red logo badge, blue 'perdón tengo planes.' message bubble, and 'los planes:' text) that should be absent from a clean background layer, plus garbled pseudo-text on the lower label of the Voi Coffee Scrub & Wash bottle.",
+  "size": {
+    "w": 1844,
+    "h": 2304
+  }
+}

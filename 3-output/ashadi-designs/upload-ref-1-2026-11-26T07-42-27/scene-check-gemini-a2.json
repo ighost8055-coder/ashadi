@@ -1,0 +1,50 @@
+{
+  "text_or_logos": [
+    {
+      "what": "FANTECH wordmark and logo",
+      "box": {
+        "x": 47,
+        "y": 65.5,
+        "w": 6,
+        "h": 4
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "hands holding gaming controller",
+      "box": {
+        "x": 0,
+        "y": 59,
+        "w": 100,
+        "h": 41
+      }
+    },
+    {
+      "what": "television displaying game scene",
+      "box": {
+        "x": 16,
+        "y": 24,
+        "w": 73.5,
+        "h": 34.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 24,
+    "w": 100,
+    "h": 76
+  },
+  "notes": "The controller has a visible 'FANTECH' wordmark and logo in the center, and the person appears to be wearing metal watch bands on both wrists.",
+  "size": {
+    "w": 1840,
+    "h": 2304
+  }
+}

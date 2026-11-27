@@ -1,0 +1,105 @@
+{
+  "canvas": {
+    "w": 736,
+    "h": 1075,
+    "aspect": "4:5",
+    "background": "#1a131c",
+    "background_kind": "photo"
+  },
+  "layout_summary": "A full-bleed, symmetrically centered first-person gaming photograph stacked vertically in three focal tiers: a glowing red neon sign on the upper dark wall, a large flat-screen TV in the center displaying a warm sunset palace scene, and hands holding a white game controller in the foreground.",
+  "grid": {
+    "margins_pct": {
+      "top": 7,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    },
+    "alignment_axes": [
+      "Neon sign, TV screen, in-game character silhouette, and handheld controller share a vertical center axis at x=50%"
+    ],
+    "whitespace": [
+      "7% dark wall margin above the neon sign (y=0% to y=7%)",
+      "10.5% dark wall gap separating the neon sign from the top bezel of the TV (y=13.5% to y=24%)",
+      "3.5% dark gap between the bottom of the TV and top of the controller (y=53% to y=56.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 0,
+      "w": 100,
+      "h": 100
+    },
+    "kind": "photo",
+    "framing": "full-bleed",
+    "subject": "First-person view of a player's hands wearing metal-link watches holding a white dual-stick gamepad with a built-in mini display, facing a large flat-screen television on a media console in a dimly lit living room; both screens show a silhouetted figure walking toward a grand domed palace at sunset.",
+    "composition": "Strict central symmetry along x=50%; foreground arms enter from bottom corners (y=75% to 100%) framing the controller at y=56.5% to 78%, mid-ground TV spans x=16% to 89.5%, y=24% to 53%, flanked by blurred framed wall art and shelves.",
+    "camera": "Eye-level first-person POV, wide-to-normal lens (~35mm), shallow depth of field keeping the controller sharp while softening the TV and background room.",
+    "lighting": "Dim ambient room lit by red neon overhead spill, warm orange-gold glow from the TV screen, and cool cyan-blue rim light hitting the left hand and controller.",
+    "palette": [
+      "#1a131c",
+      "#ff2a2a",
+      "#f58a3e",
+      "#2b4c6f",
+      "#d8dce3"
+    ],
+    "negative_space": [
+      "Upper dark wall area surrounding the neon sign (x=15%, y=0%, w=70%, h=23%)"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "GCCAME",
+      "box": {
+        "x": 34,
+        "y": 7,
+        "w": 35,
+        "h": 6.5
+      },
+      "font": {
+        "family_guess": "Varela Round",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 62,
+        "cap_height_px": 48,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#ff8a8a",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Red neon tube outer glow and double-ringed stylized second 'C' letterform in the wall-mounted neon sign",
+      "box": {
+        "x": 32,
+        "y": 5.5,
+        "w": 39,
+        "h": 9.5
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1"
+  ],
+  "hierarchy": [
+    "e1",
+    "scene"
+  ],
+  "why_it_works": [
+    "Strong central vertical axis aligns the neon sign, palace dome, silhouette, and controller for immediate visual lock.",
+    "High-contrast color temperature split (red neon top, warm amber TV center, cool cyan rim-lit hands) separates depth planes clearly.",
+    "Mirroring the sunset palace scene on both the TV and the controller's mini-screen reinforces the immersive gaming focal point."
+  ]
+}

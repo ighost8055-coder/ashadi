@@ -1,0 +1,257 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "Asymmetric two-column poster: a photoreal red stiletto enters from the left edge with its heel melting into a pitchfork that stabs a dripping Biscoff jar, filling the left ~36% of the canvas top to bottom; a stacked, centred movie-title lockup in black-and-red serif sits on the right at mid-height. One red rounded-sans quote runs centred across the bottom like a film tagline, and the lower-right quadrant is left completely empty.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 9,
+      "bottom": 4.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "THE, DEVIL, EATS and BISCOFF are all centred on a shared vertical axis at x≈68.5%",
+      "DEVIL and BISCOFF share a left edge at x≈46.5% and a right edge at x≈90%, forming a justified block",
+      "Tagline is centred on the canvas axis x=50%",
+      "Heel stem, pitchfork and jar share a vertical axis at x≈24.5%",
+      "Shoe toe (bottom-left) at y≈52% and the BISCOFF baseline at y≈55.5% sit on roughly the same horizontal band"
+    ],
+    "whitespace": [
+      "Top band 0-10% is fully empty (above the shoe's heel counter)",
+      "Right column above the lockup, x 40-100% / y 0-31%, is empty white",
+      "Large empty lower-right quadrant, x 38-100% / y 56-92%",
+      "10% empty band between the jar drip (y≈82.5%) and the tagline cap-top (y≈92.5%)",
+      "≈10% horizontal gap between the jar's right edge (x≈35%) and the lockup's left edge (x≈46%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy red patent stiletto pump floating at a diagonal, toe cropped by the left edge; its stiletto heel melts into a thin red liquid stream that ends in a three-pronged pitchfork whose tines pierce the lid of a glass jar of caramel-brown biscuit spread. Thick caramel spread overflows the lid and drips down the jar's sides, pooling below it. The jar has a red wrap-around label with a biscuit illustration on its edge.",
+    "composition": "Shoe body spans x 0-36%, y 10-52.5%, rising from toe bottom-left (cropped at x=0, y≈50%) to the heel counter top-right (x≈30%, y≈10%). The heel stem drops vertically at x≈24.5% from y≈34% to the fork at y≈48-55%. Jar is upright at x 14.5-35%, y 56-82.5%, front-facing, filling about 20% of the width. Objects float on pure white with a faint contact shadow under the jar.",
+    "camera": "Straight-on eye level with the jar, slight three-quarter on the shoe; long-lens product-photo feel, everything sharp (deep focus), no perspective distortion",
+    "lighting": "Soft, bright studio light from the top-left; strong specular highlights on the patent shoe and the wet spread; soft contact shadow under the jar; neutral white colour",
+    "palette": [
+      "#D0141C",
+      "#8E0A10",
+      "#B8742F",
+      "#8A4E1C",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "{x:46, y:31, w:45, h:24.5} holds the title lockup on white",
+      "{x:38, y:56, w:62, h:36} kept empty",
+      "{x:5, y:91, w:90, h:6} holds the tagline"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "label",
+      "text": "THE",
+      "box": {
+        "x": 52,
+        "y": 31,
+        "w": 11.5,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Times New Roman (Didone-leaning transitional serif)",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 58,
+        "cap_height_px": 40,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B3141B",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Times New Roman (Didone-leaning transitional serif)",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 148,
+        "cap_height_px": 102,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "label",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Times New Roman (Didone-leaning transitional serif)",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 68,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B3141B",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 45,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Times New Roman (Didone-leaning transitional serif), set in small caps",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 165,
+        "cap_height_px": 114,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don’t be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Fredoka / VAG Rounded (Biscoff brand rounded sans)",
+        "category": "display",
+        "weight": 700,
+        "size_px": 44,
+        "cap_height_px": 31,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#C4161C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 14.5,
+        "y": 56,
+        "w": 20.5,
+        "h": 26.5
+      },
+      "description": "Real Lotus Biscoff Smooth jar packshot (part of the scene render): red label carrying the brand wordmark and flavour pill, overflowing with spread. The pack's own branding is the only logo in the frame — there is no separate logo lockup.",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Thin black diagonal arrow/devil-tail stroke rising from the V of DEVIL to an arrowhead above-right (replaces the V's right stroke, with a pitchfork/tail feel)",
+      "box": {
+        "x": 71,
+        "y": 31.5,
+        "w": 7,
+        "h": 11
+      }
+    },
+    {
+      "description": "The B of BISCOFF is a full cap with I-S-C-O-F-F in small caps — a typographic flourish, not a separate element",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 9,
+        "h": 8.5
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e6",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene (red stiletto, the most saturated mass)",
+    "e6 (pitchfork into jar)",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "One shape does three jobs: the stiletto heel becomes the devil's pitchfork, which becomes a spoon in the product, so the parody idea is clear in a second before you read a word.",
+    "The title lockup copies a famous film poster (serif caps, black and red alternating, small-caps surname), and that recognition does the work; the product then takes the place of the original title word.",
+    "Heavy left-side image against a light right-side type block, with lots of white space (the empty lower-right quadrant and the 10% band above the tagline), keeps it calm and premium, and the movie-quote tagline lands the joke in the brand's own rounded red font."
+  ]
+}

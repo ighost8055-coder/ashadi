@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red patent stiletto pump, including the heel that turns into a pitchfork, the red drip strand and the floor shadow under the toe",
+      "box": {
+        "x": 4.5,
+        "y": 17.5,
+        "w": 72.5,
+        "h": 70
+      }
+    },
+    {
+      "what": "glass jar of caramel spread with a blank red label band, caramel overflowing the lid and dripping down the sides, plus its contact shadow",
+      "box": {
+        "x": 52.5,
+        "y": 62.5,
+        "w": 33.5,
+        "h": 31
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 4.5,
+    "y": 17.5,
+    "w": 81.5,
+    "h": 76
+  },
+  "notes": "No text found. The jar label is a plain red band with nothing printed on it. There may be a very faint embossed mark on the inner heel near the seam, around x 47, y 54, which reads as a stitching or leather detail rather than lettering. Retouch it only if it shows up when zoomed in. The shoe has no visible insole branding. The heel turning into a pitchfork that stabs into the jar is a deliberate surreal choice, not a broken render. The caramel drips look plausible, and the red strand falling from the heel into the jar is intended. Nothing has melted wrongly and there are no extra parts. The background is clean white with soft shadows.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

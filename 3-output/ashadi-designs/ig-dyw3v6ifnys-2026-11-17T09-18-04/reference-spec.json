@@ -1,0 +1,252 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "An asymmetric poster on pure white: a red patent stiletto enters from the left edge in the upper-left area, and its heel melts into a three-pronged devil's fork that drips into a jar of caramel spread in the lower-left. A movie-title serif lockup sits in the right half, roughly level with the heel and the fork, and one centred line of red rounded-sans copy runs across the foot of the canvas.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 9,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "Title words DEVIL (46.5–89.5) and BISCOFF (46.0–91.0) share a centre axis at x≈68.5%, and EATS is centred on it (x≈69%)",
+      "DEVIL and BISCOFF share a left edge at x≈46.5% and a right edge at x≈90–91%",
+      "The red word THE is set off-centre, its left edge at x≈52% (over the 'E' of DEVIL), echoing the film-logo lockup",
+      "The tagline is centred on the canvas axis at x=50%",
+      "The drip and fork centre-line (x≈24.5%) sits about at the jar's centre-line (x≈24.5%), so the shoe-to-jar flow is one vertical axis",
+      "The top of the title (y≈31%) roughly lines up with the point where the heel leaves the shoe body (y≈31–34%)"
+    ],
+    "whitespace": [
+      "0–10% empty white band across the full top",
+      "Right column x 37–100%, y 0–30%: empty white above the title",
+      "Right column x 37–100%, y 56–92%: a large empty white block below the title (about 36% of the height)",
+      "About 10% vertical gap between the jar base (y≈82.5%) and the tagline cap-top (y≈92.7%)",
+      "About 10% horizontal gap between the right edge of the shoe/jar (x≈36%) and the left edge of the title (x≈46%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy red patent stiletto pump seen in side profile. Its stiletto heel turns into a thin stream of liquid red that ends in a three-pronged devil's pitchfork. The fork's tines are dipped into the top of a glass jar of smooth caramel-brown spread, and spread overflows the lid and runs down the jar's sides. The jar has a red wrap-around label with a speculoos-biscuit illustration on its right side. A soft contact shadow sits under the jar.",
+    "composition": "The shoe enters from the left edge. Its toe is cropped off-canvas at x=0, y≈42–52%, and it rises diagonally up and right to the heel counter, whose highest point is at x≈29%, y≈10%. The heel cup's rightmost point is at x≈36%, y≈25%. The heel drips straight down as a thin stem from y≈34% to the fork at y≈48–55%, with the fork centred at x≈24.5% and about 8% wide. The jar sits upright from x≈14.5–35%, y≈55.5–82.5%, about 20% of the canvas wide. Everything sits in the left 36% of the frame.",
+    "camera": "Straight side-on, eye-level product view. Long-lens, almost orthographic feel with no perspective distortion. Everything is in sharp focus.",
+    "lighting": "Soft, bright studio light from the upper left. Strong specular highlights run along the patent shoe and the glossy caramel. There is a gentle shadow under the jar and none on the background, which stays a clean white.",
+    "palette": [
+      "#C8121B",
+      "#8E0A10",
+      "#E8392F",
+      "#B8752F",
+      "#8A4E1C",
+      "#D9A160",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      {
+        "x": 40,
+        "y": 0,
+        "w": 60,
+        "h": 30
+      },
+      {
+        "x": 40,
+        "y": 57,
+        "w": 60,
+        "h": 34
+      },
+      {
+        "x": 5,
+        "y": 84,
+        "w": 90,
+        "h": 8
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.8,
+        "y": 31,
+        "w": 11.6,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Times New Roman (Bodoni-leaning transitional serif)",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 60,
+        "cap_height_px": 40,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.7,
+        "y": 35.2,
+        "w": 42.9,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Times New Roman (Bodoni-leaning transitional serif)",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 152,
+        "cap_height_px": 101,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#0A0A0A",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61.2,
+        "y": 43.9,
+        "w": 15.9,
+        "h": 3.8
+      },
+      "font": {
+        "family_guess": "Times New Roman (Bodoni-leaning transitional serif)",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 76,
+        "cap_height_px": 51,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46.2,
+        "y": 47.2,
+        "w": 44.6,
+        "h": 8.1
+      },
+      "font": {
+        "family_guess": "Times New Roman small caps (Bodoni-leaning transitional serif)",
+        "category": "serif",
+        "weight": 500,
+        "size_px": 165,
+        "cap_height_px": 110,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "upper",
+        "italic": false,
+        "color": "#0A0A0A",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don’t be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 6.9,
+        "y": 92.7,
+        "w": 86.1,
+        "h": 3.2
+      },
+      "font": {
+        "family_guess": "Nunito ExtraBold (Lotus-style rounded sans)",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 46,
+        "cap_height_px": 33,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#C8102E",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "A thin black devil's-tail arrow in the title lockup. It replaces the right stroke of the 'V' in DEVIL, rising from the V's base up and right, past the cap line, to a solid triangular arrowhead. It is the same weight as the hairline serif strokes.",
+      "box": {
+        "x": 70.5,
+        "y": 31.5,
+        "w": 7.5,
+        "h": 11
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "ornaments",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "One visual idea with no extra steps: the shoe's heel becomes the devil's fork, which dips into the jar. The movie parody and the product link up in one look, and the title confirms it.",
+    "Strict figure/ground: saturated red-and-caramel objects on pure white, with the black serif title opposite them. The left-object/right-type split leaves big calm white fields, so the eye moves from the shoe to the title to the line at the bottom.",
+    "The type follows the parody exactly: film-logo serif with red small words, and the brand's own rounded sans for the spoken punchline. The quote borrows the film's voice, so the copy feels familiar right away."
+  ]
+}

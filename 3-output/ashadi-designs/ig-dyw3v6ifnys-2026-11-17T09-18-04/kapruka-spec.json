@@ -1,0 +1,271 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "An asymmetric poster on pure white. A red patent stiletto sits in the upper-left area and its heel melts into a three-pronged devil's fork that drips into a jar of caramel-brown biscuit spread in the lower-left. A movie-title lockup sits in the right half, level with the heel and the fork, with the Kapruka logo above it on the same centre axis. One centred line of purple copy runs across the foot of the canvas. The layout matches the reference, except that the scene and the bottom line move in to respect the 100px margin.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.4,
+      "right": 9.3,
+      "bottom": 7.8,
+      "left": 9.5
+    },
+    "alignment_axes": [
+      "The title words DEVIL and BISCUITS and the logo share a centre axis at x≈68.5%, and EATS is centred on it (x≈69%)",
+      "DEVIL (48.9–88.2) and BISCUITS (46.8–90.2) roughly share their left and right edges, as DEVIL and BISCOFF did",
+      "THE sits off-centre, with its left edge at x≈51.8% (over the 'E' of DEVIL), echoing the film-logo lockup",
+      "The tagline is centred on the canvas axis at x=50%",
+      "The drip and fork centre-line (x≈30.5%) sits at the jar's centre-line (x≈30.5%), so the shoe-to-jar flow runs on one vertical axis",
+      "The top of the title (y≈31%) lines up with the point where the heel leaves the shoe body (y≈31–33%)"
+    ],
+    "whitespace": [
+      "A white band across the top above the shoe (0–13%). It is broken only by the logo in the right column.",
+      "Right column x 44–100%, y 14–30%: empty white between the logo and the title",
+      "Right column x 44–100%, y 56–88%: a large empty white block below the title",
+      "About 10% vertical gap between the jar base (y≈78.3%) and the tagline cap-top (y≈89.4%)",
+      "About 5% horizontal gap between the right edge of the shoe and jar (x≈41.9%) and the left edge of the title (x≈46.8%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 9.5,
+      "y": 13,
+      "w": 32.4,
+      "h": 65.3
+    },
+    "kind": "studio-photo",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy red patent stiletto pump seen in side profile. Its stiletto heel turns into a thin stream of liquid red that ends in a three-pronged devil's pitchfork. The fork's tines are dipped into the top of a glass jar of smooth caramel-brown biscuit spread. Spread overflows the lid and runs down the jar's sides. The jar keeps its exact shape, its red wrap-around label band and its overflowing spread, but the label is plain and blank, with no wordmark, illustration or text. A soft contact shadow sits under the jar.",
+    "composition": "The shoe enters from the left, with the toe tip at x≈9.5%, y≈47–55%. It rises diagonally up and to the right to the heel counter, whose highest point is at x≈35.5%, y≈13%. The heel cup's rightmost point is at x≈41.9%, y≈27%. The heel drips straight down as a thin stem from y≈35% to the fork at y≈48–55%. The fork is centred at x≈30.5% and is about 7% wide. The jar sits upright from x≈21.5–40%, y≈54–78.3%, about 18% of the canvas wide. Everything sits between x 9.5% and 42%.",
+    "camera": "Straight side-on, eye-level product view. Long lens with an almost orthographic feel and no perspective distortion. Everything is in sharp focus.",
+    "lighting": "Soft, bright studio light from the upper left. Strong specular highlights run along the patent shoe and the glossy spread. There is a gentle contact shadow under the jar and none on the background, which stays a clean white.",
+    "palette": [
+      "#C8121B",
+      "#8E0A10",
+      "#E8392F",
+      "#B8752F",
+      "#8A4E1C",
+      "#D9A160",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      {
+        "x": 44,
+        "y": 0,
+        "w": 56,
+        "h": 30
+      },
+      {
+        "x": 44,
+        "y": 56,
+        "w": 56,
+        "h": 32
+      },
+      {
+        "x": 5,
+        "y": 80,
+        "w": 90,
+        "h": 15
+      }
+    ],
+    "prompt": "Studio product photograph on a pure seamless white background, 4:5 portrait, 1080x1350. A glossy red patent-leather stiletto pump in exact side profile, its pointed toe at the left about 10% in from the left edge, rising diagonally to the heel counter near the top-left third. The stiletto heel melts into a thin stream of glossy liquid red that drips straight down and forms a small three-pronged devil's pitchfork. The fork's tines dip into the open top of an upright glass jar of smooth caramel-brown biscuit spread. Thick spread overflows the rim and runs in glossy drips down the jar's sides. The jar has a plain red wrap-around label band, completely blank. All objects sit inside the left 42% of the frame, between 13% and 78% of the height. Straight side-on eye-level view, long lens, almost orthographic, everything in sharp focus. Soft bright key light from the upper left, crisp specular highlights on the patent leather and the spread, one gentle real contact shadow under the jar, no shadow on the background. Real materials: true patent-leather reflections, real viscous spread, real glass. Keep these areas pure empty white for type: x 44-100% y 0-58% (title and logo), and x 5-95% y 84-95% (bottom line). Absolutely no text, letters, numbers, logos, labels, watermarks or brand marks anywhere, including on the jar and shoe. No plastic CG sheen, no HDR glow, no clutter, no extra props.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 59.25,
+        "y": 7.4,
+        "w": 18.5,
+        "h": 5.2
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.8,
+        "y": 31,
+        "w": 11.1,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 60,
+        "cap_height_px": 44,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 48.9,
+        "y": 35.2,
+        "w": 39.3,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 152,
+        "cap_height_px": 110,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 59.7,
+        "y": 43.9,
+        "w": 18.6,
+        "h": 3.8
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 76,
+        "cap_height_px": 55,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCUITS",
+      "box": {
+        "x": 46.8,
+        "y": 47.8,
+        "w": 43.4,
+        "h": 6.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 104,
+        "cap_height_px": 76,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don’t be silly, everybody wants this.",
+      "box": {
+        "x": 10.9,
+        "y": 89.4,
+        "w": 78.2,
+        "h": 3.3
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 44,
+        "cap_height_px": 32,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5",
+    "logo"
+  ],
+  "why_it_works": [
+    "One visual idea with no extra steps: the shoe's heel becomes the devil's fork, which dips into the jar. The movie parody and the product link up in one look, and the title confirms it.",
+    "Strict figure/ground: saturated red and caramel objects on pure white, with the deep-purple title opposite them. The left-object/right-type split leaves big calm white fields, so the eye moves from the shoe to the title to the line at the bottom.",
+    "The type keeps the parody's lockup rhythm (big main words with small accent words in a lighter purple), and the spoken punchline sits on its own at the foot of the canvas."
+  ],
+  "changes": [
+    "BISCOFF (a Lotus trademark) became BISCUITS, the plain generic word for the product. It has 8 characters against 7, within the 15% limit. Inter Bold caps are much wider than the reference's small-caps serif, so it is set at 104px instead of 165px to keep the DEVIL/BISCUITS shared-edge width inside the 980px margin.",
+    "The tagline drops the named person ('Andrea'). The line is now 'Don’t be silly, everybody wants this.' (37 characters, shorter than the reference's 44). It moved up to y≈89.4% and in to x 10.9–89.1%, and dropped to 44px so it fits between 100 and 980px and stays clear of the 1250px bottom margin.",
+    "All type is now Inter 700 instead of the serif and rounded sans. The main words (DEVIL, BISCUITS) are Retail Purple #340A5C, and the accent words (THE, EATS) plus the punchline are the lighter purple #6B3FA0, mirroring the reference's black/red hierarchy on a light ground.",
+    "The devil's-tail arrow ornament in the V of DEVIL is removed, because the rules allow no ornament shapes. The lockup's devil cue is now carried by the scene alone.",
+    "The scene moved from x=0 to x=9.5% and was scaled to about 90%. The shoe's toe is no longer cropped off the left edge, because no object may come within 100px of an edge. The fork-to-jar vertical axis and the shoe/title level relationship are kept.",
+    "The jar keeps its exact shape, colour, red label band and overflowing spread, but the Lotus/Biscoff label is now plain and blank (no wordmark or biscuit illustration). The shoe is unchanged.",
+    "The reference had no logo, so one Kapruka logo (on light) was added at the top of the calm right column. It sits on the title's centre axis with its top edge at 100px.",
+    "The tagline element keeps the reference's punchline and is not replaced with 'A world of choices', because replica mode keeps the reference wording word-for-word. This line is the spoken punchline, not a brand tagline."
+  ],
+  "claims_used": [
+    "None. The copy ('THE DEVIL EATS BISCUITS' / 'Don’t be silly, everybody wants this.') makes no factual claim about Kapruka, delivery, prices or offers, so 01-business-context.md does not need to support anything."
+  ]
+}

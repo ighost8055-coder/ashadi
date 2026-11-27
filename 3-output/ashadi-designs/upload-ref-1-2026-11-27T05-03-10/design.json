@@ -1,0 +1,12 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": "Feed 4:5, 1080x1350. Use Kapruka Purple #3C096C as the main ground, fading to #100223 at the bottom edge. Place two distinct watches as hero products, each occupying equal space in the middle range of the frame, side by side, resembling the two watch positioning in the reference image. Ensure each watch takes up 45-55% of the frame width collectively, leaving 35-45% of the frame empty. Use a light cream base #F5F4EB under each watch to create a soft contact shadow. On-image text in Inter Black: 'Discover your perfect timepiece' in white, centered above the watches. Highlight the word 'perfect' in Kapruka Yellow #FFC107. Ensure lighting is soft and premium. NEGATIVE: No price tags, discount badges, busy patterns, or additional logos.",
+  "startedAt": "2026-11-27T05:03:10.523Z",
+  "variants": [],
+  "reference": [
+    "ref-01.jpg"
+  ],
+  "caption": null,
+  "error": "could not check the product photos for people (The Claude CLI could not do \"people-checker\" (people-checker exited 1: You've hit your 5-hour limit ) — try again"
+}

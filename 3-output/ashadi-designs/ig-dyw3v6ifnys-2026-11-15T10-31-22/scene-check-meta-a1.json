@@ -1,0 +1,71 @@
+{
+  "text_or_logos": [
+    {
+      "what": "faint pale embossed squiggle on the handbag flap's lower-left — reads as illegible pseudo-lettering / a small brand stamp",
+      "box": {
+        "x": 0,
+        "y": 19.5,
+        "w": 3,
+        "h": 2.5
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "box",
+      "face": {
+        "x": 20.5,
+        "y": 75.5,
+        "w": 29.5,
+        "h": 21
+      },
+      "surface": "dark",
+      "angle": "front"
+    }
+  ],
+  "objects": [
+    {
+      "what": "purple patent leather handbag (cropped at top-left edge), with its flap, knot and gold clasp",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 29,
+        "h": 28
+      }
+    },
+    {
+      "what": "gold satin ribbon group — the purple-to-gold gradient strap, the long falling streamers, the bow gathered over the box and the satin pooled on the floor, incl. its soft shadow",
+      "box": {
+        "x": 2.5,
+        "y": 4.5,
+        "w": 70,
+        "h": 93.5
+      }
+    },
+    {
+      "what": "purple gift box standing on the floor beneath the ribbon",
+      "box": {
+        "x": 20.5,
+        "y": 75.5,
+        "w": 29.5,
+        "h": 21.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 73,
+    "h": 98
+  },
+  "notes": "Background is clean seamless white with usable empty space across the entire right half and the top-right. The flagged mark on the handbag is very faint and may be only a specular highlight in the patent leather — worth a human look before a Canva pass. No people, hands or limbs in frame. Ribbon physics are plausible; purple box faces are flat and matte with no printed surface detail. Gold metal clasp at the bag's lower edge (~x 3, y 25) is hardware, not a wordmark. Box sits slightly left of centre, so any text block should go right of x 55.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

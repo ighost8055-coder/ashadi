@@ -1,0 +1,272 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "Asymmetric two-column poster. A photoreal red patent stiletto floats in the left ~27% of the canvas. Its heel melts into a pitchfork that stabs a glossy chocolate fudge cake, and the ganache drips down the sides. A stacked, centred title lockup in purple Inter sits on the right at mid-height, and one Kapruka logo sits above it on the same centre line. 'A world of choices' runs centred across the bottom like a film tagline. The lower-right quadrant is left completely empty.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.4,
+      "right": 9.3,
+      "bottom": 7.4,
+      "left": 9.3
+    },
+    "alignment_axes": [
+      "THE, DEVIL, EATS, CAKE and the Kapruka logo are all centred on a shared vertical axis at x≈68.5%",
+      "DEVIL and CAKE are both centred on x≈68.5% inside boxes that start at x≈46-46.5% and end at x≤90.5%",
+      "Tagline is centred on the canvas axis x=50%",
+      "Heel stem, pitchfork and cake share a vertical axis at x≈24.5%",
+      "Shoe toe (bottom-left) at y≈50% and the CAKE baseline at y≈55.5% sit on roughly the same horizontal band"
+    ],
+    "whitespace": [
+      "Top band 0-10% is empty apart from the logo at the top of the right column",
+      "Right column between the logo and the lockup, x 40-100% / y 12-31%, is empty white",
+      "Large empty lower-right quadrant, x 38-100% / y 56-88%",
+      "6% empty band between the ganache pool (y≈82.5%) and the tagline cap-top (y≈88.5%)",
+      "≈10% horizontal gap between the cake's right edge (x≈35%) and the lockup's left edge (x≈46%)",
+      "100px clear margin on all four sides; no object, type or logo crosses it"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 9.5,
+      "y": 10,
+      "w": 26.5,
+      "h": 72.5
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy red patent stiletto pump floats at a diagonal with its whole toe visible. Its stiletto heel melts into a thin red liquid stream that ends in a three-pronged pitchfork. The tines pierce the top of a real, whole Kapruka chocolate fudge cake on a plain white cake stand. Thick, glossy dark chocolate ganache wells up around the tines, overflows the top edge and drips down the sides of the cake, pooling on the stand.",
+    "composition": "Shoe body spans x 9.5-36%, y 10-52.5%. It rises from the toe at the bottom left (x≈9.5%, y≈50%, fully inside the margin) to the heel counter at the top right (x≈30%, y≈10%). The heel stem drops vertically at x≈24.5% from y≈34% to the fork at y≈48-56%. The cake and stand stand upright at x 14.5-35%, y 56-82.5%, front-facing, filling about 20% of the width. Everything floats on pure white with a soft contact shadow under the stand.",
+    "camera": "Straight-on, at eye level with the cake, with a slight three-quarter view of the shoe. Long-lens product-photo look, deep focus so everything is sharp, no perspective distortion.",
+    "lighting": "Soft, bright studio light from the top left. Strong specular highlights on the patent shoe and the wet ganache. Soft contact shadow under the cake stand. Neutral white colour.",
+    "palette": [
+      "#D0141C",
+      "#8E0A10",
+      "#3B1F14",
+      "#5A3220",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "{x:46, y:31, w:44.5, h:24.5} holds the title lockup on white",
+      "{x:58.8, y:7.4, w:19.4, h:4.5} holds the Kapruka logo on white",
+      "{x:38, y:56, w:62, h:32} kept empty",
+      "{x:9.5, y:88.5, w:81, h:3} holds the tagline"
+    ],
+    "prompt": "Photoreal studio product image, 4:5 portrait (1080x1350), pure white seamless background (#FFFFFF), deep focus, long lens, no perspective distortion. In the left third only: a glossy red patent-leather stiletto pump (#D0141C with deep #8E0A10 shadows) floats at a rising diagonal. The whole shoe stays inside the frame: the toe is at lower left around x 10%, y 50%, and the heel counter is at upper right around x 30%, y 10%. Its stiletto heel melts into a thin glossy red liquid stream that drops straight down at x 24.5% and turns into a slim three-pronged red pitchfork. The tines pierce the top of a real, whole round chocolate fudge cake on a plain white cake stand (cake and stand at x 14.5-35%, y 56-82.5%). Thick, glossy dark chocolate ganache wells up around the tines, spills over the top edge, runs down the sides in heavy drips and pools on the stand. Soft, bright key light from the top left, crisp specular highlights on the patent leather and the wet ganache, and one soft, real contact shadow under the stand. True-to-life colour, real materials, appetising cake texture, no plastic sheen. Keep these areas pure, empty white: x 46-91% / y 31-56%, x 58-79% / y 6-12%, x 38-100% / y 56-90%, x 9-91% / y 88-92%. Nothing within 100px of any edge. Absolutely no text, letters, numbers, logos, labels, watermarks or markings anywhere, including on the shoe sole, the cake or the stand.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e0",
+      "type": "logo",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 58.8,
+        "y": 7.4,
+        "w": 19.4,
+        "h": 4.5
+      },
+      "description": "One Kapruka logo (full-colour version for a light ground), mark + wordmark only, nothing beneath it. Top edge at 100px; centred on the lockup axis x≈68.5%. Placed in Canva.",
+      "confidence": "high"
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "label",
+      "text": "THE",
+      "box": {
+        "x": 52,
+        "y": 31,
+        "w": 11.5,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 400,
+        "size_px": 58,
+        "cap_height_px": 42,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 148,
+        "cap_height_px": 107,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "label",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 400,
+        "size_px": 68,
+        "cap_height_px": 49,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "CAKE",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 165,
+        "cap_height_px": 120,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "A world of choices",
+      "box": {
+        "x": 9.5,
+        "y": 88.5,
+        "w": 81,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans",
+        "weight": 700,
+        "size_px": 44,
+        "cap_height_px": 32,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 14.5,
+        "y": 56,
+        "w": 20.5,
+        "h": 26.5
+      },
+      "description": "Real Kapruka chocolate fudge cake (Kapruka Cakes) on a plain white stand, ganache overflowing where the pitchfork stabs it. Part of the scene render, unbranded. The Kapruka logo e0 is the only logo in the frame.",
+      "confidence": "medium"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e6",
+    "e0",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene (red stiletto, the most saturated mass)",
+    "e6 (pitchfork into the chocolate cake)",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e0",
+    "e5"
+  ],
+  "why_it_works": [
+    "One shape still does three jobs. The stiletto heel becomes the devil's pitchfork, and the pitchfork becomes a fork in a rich chocolate cake, so the idea is clear in a second before you read a word.",
+    "The stacked film-title lockup keeps its recognition, and swapping the last word to CAKE says plainly what the frame shows: something too good to resist, on Kapruka.",
+    "A heavy image on the left against a light block of type on the right, with a large empty lower-right quadrant, keeps it calm and refined. The brand line then closes it the way a film tagline would."
+  ],
+  "changes": [
+    "Product: the Lotus Biscoff jar belongs to another brand, so I replaced it with the nearest Kapruka product, a Kapruka chocolate fudge cake with ganache dripping. It sits in the same box and the drip device is unchanged. The live Kapruka product search was denied permission this run, so the designer must check the cake against a real in-stock kapruka.com listing photo before rendering.",
+    "Shoe: Kapruka sells ladies' heels, so the red patent stiletto stays exactly as it is in the reference.",
+    "Margins: the shoe no longer bleeds off the left edge. It moved in to x≥9.5% and is shown whole, because nothing may come closer than 100px to an edge. The tagline moved up from y 92.5% to 88.5% and in from x 7% to 9.5% for the same reason, and the CAKE box's right edge was cut to 90.5%.",
+    "Copy: THE (3/3 chars) · DEVIL (5/5) · EATS (4/4) · CAKE (4 vs 7) · tagline 'A world of choices' (18 vs 44). Every line is within the +15% limit, and the movie quote became the brand tagline, on its own.",
+    "Type: all text is Inter. DEVIL and CAKE are headlines at 700; THE and EATS are labels at 400; the tagline is 700. Sizes, spacing, alignment and all-caps are kept. The small-caps flourish on BISCOFF is dropped so the whole lockup stays in one case.",
+    "Colour: black headline words became Retail Purple #340A5C. The red accent words (THE, EATS) and the red tagline became lighter purple #6B3FA0, which keeps the two-tone hierarchy legible on white. The ground stays editorial white.",
+    "Ornament removed: the arrow/devil-tail stroke on the V of DEVIL is gone, because no ornaments are allowed.",
+    "Logo: the reference had none apart from the pack branding. I added one Kapruka logo in the calm right column, top edge at 100px and centred on the lockup axis. scene.attach is empty because no packaging appears in the scene."
+  ],
+  "claims_used": [
+    "No factual claims in the copy. 'THE DEVIL EATS CAKE' is a title parody with no product, price, delivery or offer claim.",
+    "'A world of choices' is Kapruka's default brand tagline (_brand-assets.md, 'Palette + tagline — RESOLVED'). It is not a factual claim."
+  ]
+}

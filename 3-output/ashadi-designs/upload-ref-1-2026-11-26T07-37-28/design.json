@@ -1,0 +1,34 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": "Format: feed 4:5, 1080x1350. Background: Kapruka Purple #3C096C to #100223. Hero product: gaming console with a controller, placed centrally at 45-55% frame width, resting on a cream plinth #F5F4EB. On-image text: “Explore top gaming consoles” in Inter Black, white #FFFFFF. Support line: “Ultimate playtime awaits in Sri Lanka” in Inter Medium, white #FFFFFF. Lighting: soft, warm light emphasizing the console and controller. NEGATIVE: price tags, discount badges, stars, SHOP NOW buttons, app UI, watermarks, second Kapruka logo, busy patterns.",
+  "startedAt": "2026-11-26T07:37:28.887Z",
+  "variants": [],
+  "reference": [
+    "ref-01.png"
+  ],
+  "caption": null,
+  "relation": "direct",
+  "target": "Fantech Shooter Ii Gp13 Gaming Controller, Havit G180bt Android IOS Windows PS3 PS4 all Compatible Wireless Gaming controller, PS4 Sony DualShock Controller High Quality Official Product Singapore",
+  "products": {
+    "source": "category page",
+    "items": [
+      {
+        "title": "Fantech Shooter Ii Gp13 Gaming Controller",
+        "price": "RS.9,800",
+        "url": "https://www.kapruka.com/buyonline/fantech-shooter-ii-gp13-gaming/kid/ef_pc_elec0v701pod01172"
+      },
+      {
+        "title": "Havit G180bt Android IOS Windows PS3 PS4 all Compatible Wireless Gaming controller",
+        "price": "RS.9,600",
+        "url": "https://www.kapruka.com/buyonline/havit-g180bt-android-ios-windo/kid/ef_pc_elec0v701pod00842"
+      },
+      {
+        "title": "PS4 Sony DualShock Controller High Quality Official Product Singapore",
+        "price": "RS.12,450",
+        "url": "https://www.kapruka.com/buyonline/ps4-sony-dualshock-controller-/kid/ef_pc_elec0v2311pod00004"
+      }
+    ]
+  },
+  "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at https://gemini.google.com/app\nCall log:\n\u001b[2m  - navigating to \"https://gemini.google.com/app\", waiting until \"domcontentloaded\"\u001b[22m\n"
+}

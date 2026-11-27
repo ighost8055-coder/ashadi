@@ -1,0 +1,186 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#340A5C",
+    "background_kind": "solid"
+  },
+  "layout_summary": "A centered, vertical single-column layout on a flat Retail Purple (#340A5C) canvas featuring the Kapruka logo at the top within the safe margin, a two-line Bold Inter headline above a large hand-drawn white head outline containing a photographic Kapruka cake cutout, and the kapruka.com URL anchored inside the bottom 100px safe margin.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 22.5,
+      "bottom": 7.5,
+      "left": 22.5
+    },
+    "alignment_axes": [
+      "logo (e1), headline (e2), central illustration/product group (e3, ornament), and footer URL (e4) are all centered on the vertical axis at x=50%"
+    ],
+    "whitespace": [
+      "6.5% vertical gap between logo bottom (y=12.5%) and headline (y=19%)",
+      "6.5% vertical gap between headline bottom (y=28.5%) and top of head illustration (y=35%)",
+      "10.5% vertical gap between bottom of head illustration (y=79.5%) and footer URL (y=90%)",
+      "generous 22.5% to 25% horizontal margins flanking the central stack, keeping all elements well inside the 100px safe zone"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 42,
+      "y": 44.5,
+      "w": 25,
+      "h": 12.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "An isolated product cutout of the Royal Chocolate Berry Gateaux Chocolate Cake drawn exactly as shown on the attached product sheet, centered inside the cranial cavity of a hand-drawn white monoline head profile on a seamless flat Retail Purple (#340A5C) background.",
+    "composition": "Centered horizontally and slightly above vertical center inside the cranial window of the white monoline left-profile head illustration, surrounded by generous flat Retail Purple negative space.",
+    "camera": "Eye-level studio product photograph with sharp, crisp focus across the entire cake.",
+    "lighting": "Even, soft studio lighting highlighting the rich chocolate glaze and berry topping cleanly against the dark Retail Purple (#340A5C) ground.",
+    "palette": [
+      "#340A5C",
+      "#FFFFFF",
+      "#FFC107",
+      "#D9A441"
+    ],
+    "negative_space": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 35
+      },
+      {
+        "x": 0,
+        "y": 80,
+        "w": 100,
+        "h": 20
+      }
+    ],
+    "prompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, completely flat solid Retail Purple (#340A5C) background with zero vignette, gradient, texture, or borders. Centered inside the inset bounding box at x=22.5% to 77.5% and y=35% to 79.5% is a clean white (#FFFFFF) hand-drawn monoline illustration of a human head in left profile featuring a cutaway cranial window. Positioned directly inside that cranial window at x=42% to 67% and y=44.5% to 57% is the Royal Chocolate Berry Gateaux Chocolate Cake, drawn exactly as shown in the attached product sheet with identical shape, colours, chocolate finish, berry decorations, and exact spelling of any printed product details on its packaging or topper, with no alterations. Even, soft studio lighting illuminates the cake cleanly so its textures stand out clearly against the flat #340A5C ground, with no stray drop shadows bleeding outside the cutout. Keep the top 35% of the frame (x=0% to 100%, y=0% to 35%) and bottom 20% of the frame (x=0% to 100%, y=80% to 100%) completely empty solid #340A5C purple for overlaid logo and typography. Strictly no headlines, watermarks, price tags, or Kapruka brand logos painted anywhere in the image.",
+    "attach": [
+      "product-sheet.png"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "logo",
+      "brand": "Kapruka",
+      "box": {
+        "x": 40.7,
+        "y": 7.5,
+        "w": 18.6,
+        "h": 5
+      },
+      "on": "dark",
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "Why so quiet?\nWhat's on your mind?",
+      "box": {
+        "x": 25.5,
+        "y": 19,
+        "w": 49,
+        "h": 9.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 56,
+        "cap_height_px": 41,
+        "line_height": 1.25,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 42,
+        "y": 44.5,
+        "w": 25,
+        "h": 12.5
+      },
+      "description": "Isolated studio product cutout of the Royal Chocolate Berry Gateaux Chocolate Cake exactly matching the attached product sheet.",
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "cta",
+      "text": "kapruka.com",
+      "box": {
+        "x": 26,
+        "y": 90,
+        "w": 48,
+        "h": 2.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 400,
+        "size_px": 30,
+        "cap_height_px": 22,
+        "line_height": 1.2,
+        "letter_spacing_px": 0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#FFC107",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Hand-drawn white (#FFFFFF) monoline illustration of a human head in left profile with a cutaway cranial window framing the Royal Chocolate Berry Gateaux Chocolate Cake.",
+      "box": {
+        "x": 22.5,
+        "y": 35,
+        "w": 55,
+        "h": 44.5
+      }
+    }
+  ],
+  "z_order": [
+    "ornament_0",
+    "e3",
+    "e1",
+    "e2",
+    "e4"
+  ],
+  "hierarchy": [
+    "e3",
+    "ornament_0",
+    "e2",
+    "e1",
+    "e4"
+  ],
+  "changes": [
+    "Replaced dark burgundy background (#4A181B) with flat Kapruka Retail Purple (#340A5C) per brand guidelines.",
+    "Swapped Keyes Bakehouse logo for the Kapruka white wordmark + yellow smile logo, positioned at y=7.5% (101px from top) to comply with the 100px–110px top margin rule.",
+    "Changed headline font from EB Garamond Regular to Inter Bold (700) and refined line 1 to 'Why so quiet?' (13 chars vs 18 in reference) while keeping line 2 'What's on your mind?' (20 chars, exact match).",
+    "Replaced the Keyes Bakehouse strawberry slice with the real Kapruka Royal Chocolate Berry Gateaux Chocolate Cake from the attached product sheet.",
+    "Updated footer URL from www.keyesbakehouse.com.my to kapruka.com in Inter Regular (400) and Kapruka Yellow (#FFC107), moved up from y=93% to y=90% (1215px, leaving 101px bottom margin) to satisfy the 100px edge margin rule."
+  ],
+  "claims_used": [
+    "kapruka.com — Official platform domain confirmed in 01-business-context.md Section 1 ('Kapruka is Sri Lanka's largest locally-owned e-commerce and gifting platform (kapruka.com)').",
+    "No promotional, pricing, or delivery claims are made in the headline or footer copy; the visual relies purely on the playful product-on-your-mind gag."
+  ]
+}

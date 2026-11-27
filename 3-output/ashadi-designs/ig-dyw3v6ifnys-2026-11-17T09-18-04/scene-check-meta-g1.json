@@ -1,0 +1,49 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red patent stiletto pump, heel stretching down into a liquid red devil's trident",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 47,
+        "h": 57
+      }
+    },
+    {
+      "what": "glass jar of caramel/peanut-butter spread with a blank red label, caramel overflowing and dripping down the sides, trident prongs stuck into the top",
+      "box": {
+        "x": 16,
+        "y": 55,
+        "w": 34,
+        "h": 38
+      }
+    },
+    {
+      "what": "faint contact shadow under the jar base",
+      "box": {
+        "x": 16.5,
+        "y": 91.5,
+        "w": 33,
+        "h": 2
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 93.5
+  },
+  "notes": "No text, logos or pseudo-text anywhere; the jar label is a plain blank red band. The shoe and jar are one connected group because the trident prongs go into the jar. The shoe is cropped at the top and left edges. The right half (x 50-100) is clean empty white, so there is plenty of room for copy. The jar is a product/prop, not Kapruka packaging. The heel-melting-into-trident is clearly surreal and looks intentional, not a defect. The left prong tip looks slightly odd, with a doubled arrowhead at about x 22-26, y 54-56. No fake-looking surfaces.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

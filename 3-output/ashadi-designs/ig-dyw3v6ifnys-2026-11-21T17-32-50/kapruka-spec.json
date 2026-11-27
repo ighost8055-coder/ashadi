@@ -1,0 +1,265 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "An asymmetric parody poster layout on a pure white canvas, pairing a glossy red stiletto heel whose pitchfork tip dips into a dripping chocolate fudge cake on the left with a stacked Inter Bold Kapruka title lockup on the right, a Kapruka logo in the top-right corner, and a single-line punchline across the bottom margin.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.5,
+      "bottom": 7.5,
+      "left": 9.5
+    },
+    "alignment_axes": [
+      "DEVIL (e2) and KAPRUKA (e4) share an approximate left edge around x=46.0%–46.5%",
+      "Logo (logo), DEVIL (e2), and KAPRUKA (e4) align along the right safe margin around x=89.5%–90.5%",
+      "Bottom punchline (e5) is horizontally centered on the canvas (x=9.5% to x=90.5%, center x=50.0%)"
+    ],
+    "whitespace": [
+      "10.0% empty white band above the highest point of the shoe",
+      "10.0% horizontal gutter separating the shoe/cake visual (right edge x=36.0%) from the title lockup (left edge x=46.0%)",
+      "18.5% empty white space between the top-right logo (bottom y=12.0%) and the title lockup (top y=30.5%)",
+      "33.5% empty white space below the title lockup on the right half (y=55.5% to y=89.0%)",
+      "6.5% empty vertical gap between the bottom of the ganache drip (y=82.5%) and the bottom punchline (y=89.0%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy crimson red patent-leather high-heeled pump (#C90E13, deep shadow #8E0508) angled upward from the left edge, its stiletto heel morphing into a glossy three-pronged red metal pitchfork dipping into the top of a tall round chocolate fudge cake overflowing with thick glossy chocolate-caramel ganache dripping down the right side onto the pure white surface.",
+    "composition": "Positioned in the left third of the canvas; the back of the red shoe crops off the left edge between y=41.0% and y=52.5%, while the round chocolate fudge cake sits grounded near the lower left (x=14.5%–35.0%, y=55.5%–82.5%) casting a soft shadow to its left.",
+    "camera": "Eye-level studio product shot with a normal-to-short-telephoto lens feel and deep focus keeping both the red stiletto pitchfork and chocolate fudge cake crisp.",
+    "lighting": "Bright, soft studio lighting from the upper right, creating sharp specular white highlights along the red patent leather shoe and glossy ganache, and a soft diffused contact shadow falling to the bottom-left of the cake.",
+    "palette": [
+      "#C90E13",
+      "#8E0508",
+      "#4A2511",
+      "#7A4424",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      {
+        "x": 36,
+        "y": 0,
+        "w": 64,
+        "h": 89
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 10
+      },
+      {
+        "x": 0,
+        "y": 82.5,
+        "w": 100,
+        "h": 17.5
+      }
+    ],
+    "prompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a seamless, pure solid white (#FFFFFF) background with a cutout-on-ground framing and no visible horizon or picture edge. Positioned in the left third of the frame (x=0% to 36%, y=10% to 82.5%), a glossy crimson red patent-leather high-heeled stiletto pump (#C90E13, deep shadow #8E0508) enters from the left edge (cropped between y=41% and 52.5%) angled sharply upward, its slender red stiletto heel morphing seamlessly into a glossy three-pronged red metal pitchfork. The three red prongs dip directly into the top of a small, tall, round chocolate fudge cake grounded at the lower left (x=14.5% to 35%, y=55.5% to 82.5%), coated in thick, rich glossy chocolate-caramel ganache overflowing the rim with a heavy, lustrous drip running down the right side of the cake onto the white surface. Shot with a normal-to-short-telephoto lens and deep focus keeping the patent leather, red trident prongs, and moist cake ganache tack-sharp. Bright, soft studio lighting from the upper right casts crisp white specular highlights along the red shoe and glossy ganache, with a soft diffused contact shadow falling to the bottom-left of the cake. Real materials, natural photographic realism, no plastic AI sheen. Keep the rest of the frame pure, completely uncluttered flat white (#FFFFFF) negative space for typography and logo overlays at x=72%–90.5% y=7.5%–12%, x=46%–90.5% y=30.5%–55.5%, and x=9.5%–90.5% y=89%–92.5%. Strictly no text, letters, numbers, words, logos, labels, watermarks, or signage anywhere.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 72,
+        "y": 7.5,
+        "w": 18.5,
+        "h": 4.5
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 30.5,
+        "w": 12,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 31.5,
+        "w": 43,
+        "h": 11
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 138,
+        "cap_height_px": 100,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "BUYS",
+      "box": {
+        "x": 60.5,
+        "y": 44,
+        "w": 16.5,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "KAPRUKA",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 155,
+        "cap_height_px": 113,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly, everybody wants this.",
+      "box": {
+        "x": 9.5,
+        "y": 89,
+        "w": 81,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 48,
+        "cap_height_px": 35,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5",
+    "logo"
+  ],
+  "why_it_works": [
+    "Instant cultural recognition: preserves the iconic movie-poster composition, generous white negative space, and red stiletto pitchfork visual device while swapping the third-party jar for a rich dripping chocolate fudge cake.",
+    "Strong left-to-right visual balance: the tall crimson stiletto and ganache-dripping cake on the left counterweight the stacked Kapruka purple title lockup on the right without cluttering the white ground.",
+    "Clean brand consistency: unified Inter Bold typography in Kapruka Retail Purple (#340A5C) and lighter accent purple (#6B3FA0) preserves the reference's two-tone lockup hierarchy while keeping the Kapruka logo calm in the top-right safe margin."
+  ],
+  "changes": [
+    "Replaced the third-party Lotus Biscoff jar with a tall round chocolate fudge cake overflowing with glossy ganache, while keeping the glossy crimson red stiletto and red three-pronged pitchfork device unchanged.",
+    "Rewrote the stacked parody lockup to THE / DEVIL / BUYS / KAPRUKA (matching exact 3/5/4/7 character counts) and adapted the bottom spoken punchline to 'Don't be silly, everybody wants this.' (37 chars, single line).",
+    "Switched all typography from Garamond and VAG Rounded to Inter Bold (weight 700) per the standing Inter-only rule.",
+    "Mapped text colours to Kapruka's palette on a light ground: primary headline words in Retail Purple #340A5C and accent words (THE, BUYS, bottom punchline) in legible lighter purple #6B3FA0.",
+    "Added the Kapruka logo on light ground in the calmest top-right corner (x=72%, y=7.5%, top edge 101px) within the 100px safe margin and 110px top-edge rule.",
+    "Moved the bottom punchline (e5) inside the 100px safe margins (x=9.5%–90.5%, y=89%–92.5%) and trimmed e4 width slightly to 44.5% so all text stays inside 100px–980px horizontally and 100px–1250px vertically.",
+    "Removed the devil-tail arrow ornament on the letter V per the no-ornaments rule."
+  ],
+  "claims_used": [
+    "No factual, pricing, offer, or delivery claims are made in the copy; the ad relies purely on brand awareness for Kapruka (kapruka.com) as a gifting and e-commerce platform selling cakes, supported by 01-business-context.md Section 1 and 00-brand-guidelines.md Section 6."
+  ]
+}

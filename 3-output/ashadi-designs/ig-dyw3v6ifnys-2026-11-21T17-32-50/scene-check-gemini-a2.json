@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red high-heel shoe with trident heel",
+      "box": {
+        "x": 0,
+        "y": 12.5,
+        "w": 34.5,
+        "h": 53
+      }
+    },
+    {
+      "what": "chocolate cake with drips and shadow",
+      "box": {
+        "x": 1,
+        "y": 63.5,
+        "w": 35,
+        "h": 18
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 12.5,
+    "w": 36,
+    "h": 69
+  },
+  "notes": "",
+  "size": {
+    "w": 818,
+    "h": 1024
+  }
+}

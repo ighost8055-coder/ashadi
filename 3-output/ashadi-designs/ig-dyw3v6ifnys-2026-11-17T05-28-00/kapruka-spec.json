@@ -1,0 +1,270 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A full-height white page split vertically: a tilted desk globe bleeding off the left edge whose brass meridian arc melts into a stream of warm gold that pours into a plain purple Kapruka gift bag occupying the lower-left column, and a four-line movie-poster title stack parked in the right half at mid-height. One Kapruka logo sits quietly in the lower-right field, and a single wide tagline line runs across the bottom edge, centred on the canvas.",
+  "grid": {
+    "margins_pct": {
+      "top": 10.5,
+      "right": 9.5,
+      "bottom": 3.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "GIFTS and ARRIVE share a left edge at x=47%",
+      "GIFTS and ARRIVE share a right edge at x=90.5% (GIFTS 89.5%, ARRIVE 90.5% — optically flush)",
+      "THAT is centred at x=69.5%, within 1% of the GIFTS/ARRIVE block centre at x=68.7%",
+      "THE is centred at x=57.5% — deliberately off the block centre, sitting over the G-I-F of GIFTS",
+      "The bottom tagline is centred on the canvas centreline x=50% (box 6.9% left, 93.4% right)",
+      "The logo's right edge sits on the same x=90.5% axis as the title block",
+      "The meridian arc, the three-pronged pour and the bag's mouth all stack on a single vertical axis at x=24.5%",
+      "Bag horizontal centre (x=24.5%) and globe arc contact point (x=24%) share that same axis"
+    ],
+    "whitespace": [
+      "Entire top-right quadrant empty: x 36–100%, y 0–31% — nothing above the headline",
+      "11.5% empty vertical corridor between the globe/bag column right edge (x=35.5%) and the headline left edge (x=47%)",
+      "~10.5% empty band between the bag base (y=82.5%) and the tagline cap-top (y=92.5%)",
+      "Tall empty right-hand field between the ARRIVE baseline (y=54.7%) and the tagline (y=92.5%), broken only by the small logo at y=78–83%",
+      "3.5% clear margin below the tagline descender to the bottom edge",
+      "Vertical gaps inside the title stack: THE baseline→GIFTS cap-top 2.7%; GIFTS baseline→THAT cap-top 2.4%; THAT baseline→ARRIVE cap-top 1.8%"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10.5,
+      "w": 35.5,
+      "h": 72
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A vintage desk globe — matte deep-purple oceans, raised warm-gold landmasses in genuine relief, completely unmarked — tilted and cropped so its left side runs off the left edge of the page; its slender antique-brass meridian arc runs down from the globe's base and partway down stops being metal and turns molten, pouring as a thick stream of warm gold that splits into three claw-like prongs and lands in the open mouth of a squat matte purple paper gift bag with white twisted-rope handles, which is overflowing — gold slumps over the rim and runs down the far left and right edges of the bag, pooling in a small blob beside the base. Rising from the bag's mouth: fresh red roses and a gold-cased wristwatch hooked over the rim. The bag is painted plain and blank — no logo, wordmark, text, smile arc or pattern — with its flat front panel left clean and clearly visible for the real logo to be placed in Canva afterwards.",
+    "composition": "Single left-hand column. Globe occupies the upper third (y 10.5–45.5%), tilted roughly 30° with its axis high-right and its body exiting frame at left between y=37% and y=45.5%; its widest point reaches x=35.5% at y=25%. The melting arc runs from y=33% down to a three-pronged fork at y=48–54.5%. The bag sits bottom-left, x 14–35%, y 56–82.5%, upright and frontal, roughly 21% of canvas width. Scene and type never overlap — the globe's right extremity (35.5%) clears the headline's left edge (47%) by 11.5%.",
+    "camera": "Eye-level to very slightly above the bag, straight-on frontal product view with a long-lens flat perspective (minimal convergence on the bag's front panel). Deep focus throughout — every edge sharp, no depth-of-field falloff, no visible lens distortion.",
+    "lighting": "Bright, even high-key studio lighting on a pure white seamless ground. Key high and slightly front-left (highlight runs along the globe's upper curve and the left shoulder of the bag), with broad fill from the right killing almost all cast shadow — only a faint soft contact shadow under the bag base. Specular highlights hard and mirror-like on the brass arc, soft and waxy on the molten gold, matte on the paper bag. Neutral-white colour temperature; no colour cast.",
+    "palette": [
+      "#FFFFFF",
+      "#4B2386",
+      "#340A5C",
+      "#241044",
+      "#D9A441",
+      "#F6C96A",
+      "#F5F4EB",
+      "#A81D2B"
+    ],
+    "negative_space": [
+      "Top-right field, x 36–100% / y 0–31% — the headline's breathing room",
+      "Lower-right field, x 36–100% / y 55–92% — empty white under the title stack, logo only",
+      "Full-width band x 0–100% / y 83–92% — clear run above the tagline",
+      "Narrow corridor x 36–46% / y 10–83% — the gutter separating scene from type"
+    ],
+    "prompt": "High-key product still life on a pure white seamless studio ground. 4:5 portrait. Left column only. Upper left: a vintage desk globe, tilted, cropped so its left side runs off the left edge — matte deep-purple oceans, raised warm-gold landmasses in genuine relief with no markings, borders or engraving, and a slender antique-brass meridian arc curving down from its base. Partway down the arc stops being metal and becomes a thick molten stream of warm liquid gold that forks into three pointed prongs and falls into the open mouth of a squat matte purple paper shopping bag with white twisted-rope handles, upright and frontal in the lower left. The bag is plain and unprinted, no marks, pattern or decoration, its flat front panel clean and clearly visible; gold slumps over the rim and runs down only the far left and right edges, pooling in one small blob beside the base. Rising from the bag's mouth: fresh red roses and a gold-cased wristwatch hooked over the rim. Light: bright, even, high-key; key high and slightly front-left, broad fill from the right; no cast shadow except a faint contact shadow under the bag. Long lens, straight-on, eye-level, deep focus, every edge sharp. Real brass, paper, petals and metal; real contact shadows; fine natural grain; no plastic sheen, no CG look. Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage or UI anywhere, including on the bag, globe and products. Keep empty and calm white: x 36-100% / y 0-31%; x 47-91% / y 31-55%; x 36-100% / y 55-92%; full width y 92-100%.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51,
+        "y": 31,
+        "w": 13,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 56,
+        "cap_height_px": 39,
+        "line_height": 1,
+        "letter_spacing_px": 8,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "GIFTS",
+      "box": {
+        "x": 47,
+        "y": 34.5,
+        "w": 42.5,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 142,
+        "cap_height_px": 100,
+        "line_height": 1,
+        "letter_spacing_px": 6,
+        "case": "upper",
+        "italic": false,
+        "color": "#241044",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "THAT",
+      "box": {
+        "x": 61.5,
+        "y": 44.5,
+        "w": 16,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 54,
+        "cap_height_px": 38,
+        "line_height": 1,
+        "letter_spacing_px": 9,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "ARRIVE",
+      "box": {
+        "x": 47,
+        "y": 49,
+        "w": 43.5,
+        "h": 5.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 108,
+        "cap_height_px": 75,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#241044",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "A world of choices",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86.5,
+        "h": 4
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 56,
+        "cap_height_px": 40,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "logo",
+      "role": "logo",
+      "text": "Kapruka logo (mark + wordmark only)",
+      "on": "light",
+      "box": {
+        "x": 71.5,
+        "y": 78,
+        "w": 19,
+        "h": 5
+      },
+      "font": null,
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5",
+    "e6"
+  ],
+  "hierarchy": [
+    "scene (purple globe, upper-left)",
+    "e2",
+    "e4",
+    "scene (Kapruka gift bag, lower-left)",
+    "e1",
+    "e3",
+    "e5",
+    "e6"
+  ],
+  "why_it_works": [
+    "Hard diagonal split: all imagery is locked into the left 35% and all type into the right 47–90.5%, so neither ever competes — the eye reads picture, then title, then tagline with no overlap to untangle.",
+    "The melting meridian arc is a single continuous line from the top-left corner down to the bag at 82% — it drags the eye the full height of the frame and physically connects the world to the Kapruka bag, which is the claim the tagline makes in words.",
+    "Only two tones do any work on a pure white ground (Retail Purple and near-black Deep Purple), so the purple globe at top-left and the purple tagline at the bottom bracket the layout and make the near-black title stack the sole mid-page stop; all warmth is spent on the gold pour, where the product story is."
+  ],
+  "changes": [
+    "Subject swap, device kept exactly: red stiletto → tilted purple desk globe cropped off the left edge; Biscoff jar → plain Kapruka purple gift bag; caramel → molten warm gold. The trick is unchanged — a thin stem melts, forks into three prongs, and the vessel below overflows. Every box, crop, camera and light value held.",
+    "Scene rendered as photography, not a glossy 3D render — brand guidelines ban glossy 3D/plastic-looking product scenes. Composition, framing (cutout-on-ground), camera and high-key studio light are unchanged.",
+    "Copy swapped line-for-line inside the ±15% character limit: THE (3 vs 3) / GIFTS (5 vs DEVIL 5) / THAT (4 vs EATS 4) / ARRIVE (6 vs BISCOFF 7). Plain spoken words, no wordplay.",
+    "The bottom caption slot carries the brand tagline 'A world of choices' on its own, since the measured role is 'tagline' and the tagline may never be extended into a sentence. It is shorter than the reference line, so the fixed box cannot overflow; box, size, weight and centring on x=50% are unchanged.",
+    "Didot → Poppins 700 across all five text blocks (brand guidelines' headline face, and on the Canva list). Every size_px, cap height, case, letter-spacing, line-height, alignment and line count is held exactly, so the rhythm of the stack survives the face change.",
+    "Colour roles mapped: reference near-black hero lines → Deep Purple #241044; reference crimson accent lines and caption → Retail Purple #340A5C. Gold and yellow are deliberately kept out of type on a white ground (too low in contrast, and strokes to rescue them are banned) — the warm accent lives in the gold pour instead.",
+    "The devil's-tail arrow on the 'I' is deleted — no ornaments, strokes or swooshes as shapes. The three-pronged drip stays, because it is part of the photographed scene, not a graphic layer.",
+    "One Kapruka logo added in the calmest corner (lower-right, x 71.5–90.5% / y 78–83%), right edge sitting on the title block's existing 90.5% axis, inside the 9.5% right margin, on light. The reference had none. The bag itself stays plain blank purple with its front panel clear, per the packaging rule; scene.attach = []."
+  ],
+  "claims_used": [
+    "'GIFTS' — Kapruka is Sri Lanka's largest locally-owned e-commerce and gifting platform; Gifting is Line A (01-business-context.md §1 'What Kapruka Is', §2 'Line A — Gifting').",
+    "'ARRIVE' — the moat: reliable, island-wide delivery on a date the buyer chooses, backed by 'millions of gifts delivered' (01-business-context.md §1, CONFIRMED PROOF block, approved for ad use 2026-07-04). No specific speed, date or route is promised in the copy.",
+    "'A world of choices' — the approved default brand-level tagline (_brand-assets.md, human decision 2026-07-18), and supported by the business fact that Kapruka delivers 'from anywhere in the world to anywhere in Sri Lanka' (01-business-context.md §1).",
+    "The globe as the scene's icon — supported by 'from anywhere in the world to anywhere in Sri Lanka' and the named diaspora markets Australia, USA, Canada, UAE (01-business-context.md §1 CONFIRMED PROOF). It is an icon, not a claim of global shipping.",
+    "The gifts in frame (fresh red roses + a gold-cased wristwatch) — two separate departments, per the confirmed top gifting categories (flowers) and the wider catalogue (jewellery & watches); real, finished, sellable gifts, no SKU, price or offer stated (01-business-context.md §6 item 7; CLAUDE.md Core Rule 12).",
+    "No delivery-speed, price, discount or offer claim appears anywhere in the copy — the scope rule 'no product/offer advertising until the human flags one' is respected (01-business-context.md §2 Line C note; CLAUDE.md scope)."
+  ]
+}

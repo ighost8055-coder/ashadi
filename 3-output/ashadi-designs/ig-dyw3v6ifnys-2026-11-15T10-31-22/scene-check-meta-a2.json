@@ -1,0 +1,61 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "box",
+      "face": {
+        "x": 10.5,
+        "y": 63,
+        "w": 48,
+        "h": 28
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    }
+  ],
+  "objects": [
+    {
+      "what": "purple patent leather handbag with shadow",
+      "box": {
+        "x": 0,
+        "y": 1.5,
+        "w": 24.5,
+        "h": 32
+      }
+    },
+    {
+      "what": "gold satin ribbon streamer running from bag handle down to the box",
+      "box": {
+        "x": 23,
+        "y": 19.5,
+        "w": 20,
+        "h": 45
+      }
+    },
+    {
+      "what": "purple gift box with gold ribbon bow and pooled ribbon tails",
+      "box": {
+        "x": 2.5,
+        "y": 58.5,
+        "w": 82,
+        "h": 36
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 1.5,
+    "w": 84.5,
+    "h": 93
+  },
+  "notes": "Clean white seamless backdrop, no text anywhere. Right ~15% and bottom ~5% are empty white. Minor render oddities: the ribbon emerging from the handbag handle has no plausible anchor point (it just morphs out of the strap), and the box's left front face edge is slightly soft/warped near 12% x, 75% y. Box face is largely obscured by ribbon — the clearest uninterrupted dark panel for a logo is roughly x 38-50%, y 70-85%.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

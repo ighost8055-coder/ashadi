@@ -1,0 +1,1234 @@
+// design.mjs — Ashadi's "design" job: a reference creative in, an editable Kapruka design
+// in Canva out.
+//
+//   [1/5] reference   Instagram link (scraped in the automation Chrome) or local image files
+//   [2/5] measure     lib/designer.mjs reverseEngineer()  → reference-spec.json
+//   [3/5] adapt       lib/designer.mjs adaptToKapruka()   → kapruka-spec.json (+ text-free scene prompt)
+//   [4/5] picture     text-free picture layer on Meta AI, then a vision check (inspectScene):
+//                     painted text/logos → regenerate once with the defect named;
+//                     an AI watermark at an edge → cropped off;
+//                     blank packaging faces → found, so the REAL logo goes on them in Canva
+//   [5/5] Canva       lib/layered.mjs → .pptx (picture + shapes + editable text + real logos)
+//                     → lib/canva.mjs import → design link + PNG preview
+//
+// Every logo — the layout's own and the one on any bag/box — is a separate Canva layer
+// using the real Kapruka files; the image model never paints a logo or a letter.
+// Each run gets its own timestamped folder under 3-output/ashadi-designs/.
+import { mkdirSync, writeFileSync, copyFileSync, readFileSync, existsSync, readdirSync } from 'node:fs';
+import { fitSize } from './lib/textfit.mjs';
+import { join, basename, extname } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { ROOT } from './lib/env.mjs';
+import { connectChrome } from './lib/chrome.mjs';
+import { scrapeInstagram, normaliseIgUrl } from './lib/ig.mjs';
+import { generateInMeta } from './lib/meta.mjs';
+import { generateInGemini } from './lib/gemini.mjs';
+import { reverseEngineer, conceptualise, adaptToKapruka, inspectScene, reviewDesign, fixDesign, setAgentLogger, setReviewContext } from './lib/designer.mjs';
+import { specFromBrief, fetchProducts, classifyRelation, strategist } from './lib/oneflow.mjs';
+import { recordRun } from './lib/promptbook.mjs';
+import { buildLayeredPptx } from './lib/layered.mjs';
+import { importDesign, exportPng, exportPages } from './lib/canva.mjs';
+
+export const DESIGN_DIR = join(ROOT, '3-output', 'ashadi-designs');
+// Standing human rules (2026-11-17), enforced in code on every design, never just requested:
+export const SAFE_PX = 100;            // 100px margin on all four sides (top, bottom, left, right)
+export const LOGO_TOP_MAX_PX = 110;    // the logo's top edge is within 110px of the top of the page
+export const BRAND_FONT = 'Inter';     // all Canva text is Inter (Regular / Bold)
+const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40) || 'design';
+const stamp = () => new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+const py = (code, ...args) => execFileSync('python', ['-c', code, ...args], { env: { ...process.env, PYTHONUTF8: '1' }, encoding: 'utf8' }).trim();
+
+// Both engines paint every design (human request, 2026-11-15); each result becomes its own
+// Canva design so the better one can be picked.
+const ENGINES = {
+  meta: { label: 'Meta AI', run: generateInMeta },
+  gemini: { label: 'Gemini', run: generateInGemini },
+};
+// One design per reference (human decision 2026-11-22): Gemini is the engine; Meta AI only steps in when Gemini gives nothing.
+const DEFAULT_ENGINES = (process.env.ASHADI_ENGINES || 'gemini').split(',').map((s) => s.trim()).filter(Boolean);
+
+// The picture layer's own prompt frame. Deliberately NOT the engines' house preamble,
+// which talks about on-image copy and attached logos.
+const TEXT_FREE = 'THIS IS THE PICTURE LAYER ONLY. There is NO on-image copy in this image at all: no headline, '
+  + 'no words, no letters, no numbers, no logo, no wordmark, no watermark, no label, no sign, no UI, and nothing printed '
+  + 'on any bag, box, product, garment or screen. All type and every logo are added later by a designer on top.';
+const SCENE_RULES = [
+  'Photographic realism: real materials (fabric weave, paper fibre, skin pores), one consistent soft light direction,',
+  'real contact shadows, gentle film grain, natural depth of field. No plastic AI sheen, no CG look, no HDR glow.',
+  'Correct anatomy and construction — no melted, fused or duplicated objects or fingers.',
+  'Any product the scene description names is reproduced EXACTLY as described — same shape, colour, finish, packaging and details; never redesigned, restyled or "improved".',
+  'No alcohol of any kind. No third-party brands or logos. 4:5 portrait framing.',
+].join(' ');
+
+/**
+ * Picture layer → high-quality JPEG. A WebP→PNG conversion balloons ~5x (210 KB → 1.1 MB)
+ * and the Canva upload is the step that dies on a flaky connection, so keep it small.
+ */
+function toJpg(file) {
+  if (/\.jpe?g$/i.test(file)) return file;
+  const out = file.replace(/\.\w+$/, '.jpg');
+  py('import sys;from PIL import Image;Image.open(sys.argv[1]).convert("RGB").save(sys.argv[2],quality=93,subsampling=0)', file, out);
+  return out;
+}
+
+/** PowerPoint/Canva take PNG/JPEG reliably; WebP is converted. */
+function toPng(file) {
+  if (!/\.webp$/i.test(file)) return file;
+  const out = file.replace(/\.webp$/i, '.png');
+  py('import sys;from PIL import Image;Image.open(sys.argv[1]).convert("RGB").save(sys.argv[2])', file, out);
+  return out;
+}
+
+/**
+ * Crop an AI watermark off the edge it sits on. Returns { file, crop } where crop is the
+ * fraction removed from each edge (0-1), so measured boxes can be remapped.
+ */
+function cropWatermark(file, wm) {
+  const b = wm?.box;
+  if (!wm?.present || !b) return { file, crop: null };
+  const crop = { top: 0, bottom: 0, left: 0, right: 0 };
+  const pad = 1;                                                    // +1% safety margin
+  // Cut along whichever axis removes the least of the picture.
+  const cutBottom = 100 - b.y + pad; const cutTop = b.y + b.h + pad;
+  const cutRight = 100 - b.x + pad; const cutLeft = b.x + b.w + pad;
+  const vertical = Math.min(cutBottom, cutTop); const horizontal = Math.min(cutRight, cutLeft);
+  if (Math.min(vertical, horizontal) > 15) return { file, crop: null, tooBig: true };   // not an edge stamp
+  if (vertical <= horizontal) { if (cutBottom <= cutTop) crop.bottom = cutBottom / 100; else crop.top = cutTop / 100; }
+  else if (cutRight <= cutLeft) crop.right = cutRight / 100; else crop.left = cutLeft / 100;
+  const out = file.replace(/(\.\w+)$/, '-clean$1');
+  py(`import sys;from PIL import Image
+im=Image.open(sys.argv[1]);W,H=im.size;t,b,l,r=map(float,sys.argv[3:7])
+im.crop((round(W*l),round(H*t),round(W*(1-r)),round(H*(1-b)))).save(sys.argv[2])`,
+  file, out, String(crop.top), String(crop.bottom), String(crop.left), String(crop.right));
+  return { file: out, crop };
+}
+
+/** A box measured on the uncropped picture → the same box on the cropped picture (% units). */
+function remapAfterCrop(box, crop) {
+  if (!crop) return box;
+  const kw = 1 - crop.left - crop.right; const kh = 1 - crop.top - crop.bottom;
+  return { x: (box.x - crop.left * 100) / kw, y: (box.y - crop.top * 100) / kh, w: box.w / kw, h: box.h / kh };
+}
+
+/**
+ * Where the real Kapruka logo goes on each blank bag/box face, in CANVAS % — accounting
+ * for how the picture is cover-fitted (and cropped) into the layout's scene box.
+ */
+function packagingLogos(qa, crop, sceneBox, canvas, pic, mapper = null) {
+  const out = [];
+  // ONE logo per image (brand rule), and only on a real gift bag / gift box — never on a
+  // handbag or product (seen 2026-11-15: a logo stamped on a handbag + a 2nd on the bag).
+  // Use the biggest, most frontal bag/box face.
+  const faces = (qa.packaging || []).filter((p) => (p.kind === 'bag' || p.kind === 'box') && p.face?.w > 0)
+    .sort((a, b) => ((b.angle === 'front') - (a.angle === 'front')) || (b.face.w * b.face.h - a.face.w * a.face.h))
+    .slice(0, 1);
+  const bx = (sceneBox.x / 100) * canvas.w; const by = (sceneBox.y / 100) * canvas.h;
+  const bw = (sceneBox.w / 100) * canvas.w; const bh = (sceneBox.h / 100) * canvas.h;
+  const s = Math.max(bw / pic.w, bh / pic.h);                  // cover fit, centred
+  const dw = pic.w * s; const dh = pic.h * s;
+  const ox = bx + (bw - dw) / 2; const oy = by + (bh - dh) / 2;
+  for (const [i, p] of faces.entries()) {
+    const f = remapAfterCrop(p.face, crop);
+    // Same spot as on the real bag/box: centred, in the lower third of the face.
+    const lw = f.w * 0.62; const lh = f.h * 0.14;
+    const lx = f.x + (f.w - lw) / 2; const ly = f.y + f.h * 0.66;
+    // mapper (placed picture) or the cover-fit maths (picture filling its box).
+    const m = mapper ? mapper({ x: lx, y: ly, w: lw, h: lh })
+      : { x: ox + (lx / 100) * dw, y: oy + (ly / 100) * dh, w: (lw / 100) * dw, h: (lh / 100) * dh };
+    const { x, y, w, h } = m;
+    // Only if the face is actually visible on the page.
+    const vis = mapper ? { x: 0, y: 0, w: canvas.w, h: canvas.h } : { x: bx, y: by, w: bw, h: bh };
+    if (x < vis.x - 1 || y < vis.y - 1 || x + w > vis.x + vis.w + 1 || y + h > vis.y + vis.h + 1 || w < 0.04 * canvas.w) continue;
+    out.push({
+      id: `pkg-logo-${i + 1}`, type: 'logo', on: p.surface === 'light' ? 'light' : 'dark', anchor: 'center',
+      box: { x: (x / canvas.w) * 100, y: (y / canvas.h) * 100, w: (w / canvas.w) * 100, h: (h / canvas.h) * 100 },
+    });
+  }
+  return out;
+}
+
+/**
+ * A logo layer that sits on the product itself (the reference printed its logo on the box):
+ * its centre lies inside the objects' area. It is not an obstacle for placing the picture —
+ * it moves WITH the picture as the packaging logo (packagingLogos) — and a stale copy at the
+ * reference's coordinates would be left floating, white on white (seen 2026-11-17: a ghost
+ * logo mid-page, and a picture shrunk to 63% to dodge it).
+ */
+function onProductLogo(e, area) {
+  if (e.type !== 'logo' || !e.box || !area) return false;
+  const cx = e.box.x + e.box.w / 2; const cy = e.box.y + e.box.h / 2;
+  return cx >= area.x && cx <= area.x + area.w && cy >= area.y && cy <= area.y + area.h;
+}
+
+/**
+ * Picture placement for "cutout-on-ground" layouts (2026-11-15). The image models do not
+ * keep objects inside a requested area (both spread to 60-75% of the frame when asked for
+ * the left 36%, running into the type), so the picture is PLACED instead of trusted:
+ * scaled and positioned so the measured objects land exactly inside the layout's object
+ * area — anything that bleeds off a picture edge keeps bleeding off the same page edge —
+ * and composited onto a full page of the picture's own backdrop colour with feathered
+ * edges, so it reads as one seamless photograph. Returns { file, map } where map turns a
+ * box in picture % into canvas px; null when the layout isn't a cutout or nothing was measured.
+ */
+export function placeObjects(file, ob, pic, k, outFile, objects = null) {
+  const L = sceneLayout(k);
+  if (!L.objectsIn || !ob?.w || !ob?.h) return null;
+  const cw = 1080; const ch = Math.round((Number(k.canvas?.h) || 1350) * (1080 / (Number(k.canvas?.w) || 1080)));
+  const px = (v, d) => (v / 100) * d;
+  const o = { x1: px(ob.x, pic.w), y1: px(ob.y, pic.h), x2: px(ob.x + ob.w, pic.w), y2: px(ob.y + ob.h, pic.h) };
+  // No object may run off a page edge: the 100px margin applies on all four sides (human rule 2026-11-17).
+  const bleed = { l: false, t: false, r: false, b: false };
+  const A = L.objectsIn;
+  // Search for the LARGEST scale (and a position) where no individual object touches any
+  // text/logo box — the free space is usually L-shaped (a column beside the title + the
+  // area under it), which a single box can't use. Bleed edges stay bleeding; among the
+  // positions that fit, take the one closest to the reference's object area.
+  const pad = 0.04;                                     // art-director finding 2026-11-17: 2.5% let a puddle crowd the tagline
+  const obstacles = (k.elements || []).filter((e) => (e.type === 'text' || e.type === 'logo') && e.box && !onProductLogo(e, A)).map((e) => ({
+    x1: px(e.box.x - pad * 100, cw), y1: px(e.box.y - pad * 100, ch), x2: px(e.box.x + e.box.w + pad * 100, cw), y2: px(e.box.y + e.box.h + pad * 100, ch),
+  }));
+  const parts = (objects?.length ? objects : [{ box: ob }]).filter((q) => q.box?.w > 0)
+    .map((q) => ({ x1: px(q.box.x, pic.w), y1: px(q.box.y, pic.h), x2: px(q.box.x + q.box.w, pic.w), y2: px(q.box.y + q.box.h, pic.h) }));
+  const margin = SAFE_PX * (cw / 1080);
+  const fits = (s, ox, oy) => {
+    const ux1 = ox + o.x1 * s; const uy1 = oy + o.y1 * s; const ux2 = ox + o.x2 * s; const uy2 = oy + o.y2 * s;
+    if ((!bleed.l && ux1 < margin) || (!bleed.t && uy1 < margin) || (!bleed.r && ux2 > cw - margin) || (!bleed.b && uy2 > ch - margin)) return false;
+    return parts.every((q) => obstacles.every((b) => (ox + q.x2 * s) <= b.x1 || (ox + q.x1 * s) >= b.x2 || (oy + q.y2 * s) <= b.y1 || (oy + q.y1 * s) >= b.y2));
+  };
+  const tcx = px(A.x + A.w / 2, cw); const tcy = px(A.y + A.h / 2, ch);
+  const sMax = Math.min(cw / (o.x2 - o.x1), ch / (o.y2 - o.y1));
+  let best = null;
+  for (let s = sMax; s > sMax * 0.2 && !best; s *= 0.97) {
+    const xs = bleed.l ? [-o.x1 * s] : bleed.r ? [cw - o.x2 * s] : Array.from({ length: 41 }, (_, i) => -o.x1 * s + (i / 40) * (cw - (o.x2 - o.x1) * s));
+    const ys = bleed.t ? [-o.y1 * s] : bleed.b ? [ch - o.y2 * s] : Array.from({ length: 41 }, (_, i) => -o.y1 * s + (i / 40) * (ch - (o.y2 - o.y1) * s));
+    for (const ox of xs) for (const oy of ys) {
+      if (!fits(s, ox, oy)) continue;
+      const d = Math.hypot(ox + ((o.x1 + o.x2) / 2) * s - tcx, oy + ((o.y1 + o.y2) / 2) * s - tcy);
+      if (!best || d < best.d) best = { s, ox, oy, d };
+    }
+  }
+  if (!best) return null;
+  const { s } = best; const offX = best.ox; const offY = best.oy;
+  // A dark brand ground (purple posters) is set EXACTLY as the page colour, and the picture fades into it around the objects
+  // (seam fix, 2026-11-22: the picture's own backdrop is a lighter gradient, so a rectangle of it showed on the flat page).
+  // A light ground keeps the picture's own backdrop colour, as before.
+  const gl = String(k.canvas?.background || '').match(/^#([0-9a-f]{6})$/i);
+  const lum = gl ? (0.2126 * parseInt(gl[1].slice(0, 2), 16) + 0.7152 * parseInt(gl[1].slice(2, 4), 16) + 0.0722 * parseInt(gl[1].slice(4, 6), 16)) / 255 : 1;
+  const forced = gl ? gl[1].toUpperCase() : '-';           // every flat ground (dark or light): the page colour is exact; only a non-flat ground keeps the picture's own backdrop
+  const bgHex = py(`import sys,statistics as st
+from PIL import Image,ImageDraw,ImageFilter,ImageChops
+src,out=sys.argv[1],sys.argv[2];cw,ch=int(sys.argv[3]),int(sys.argv[4]);s,ox,oy=map(float,sys.argv[5:8]);bl=sys.argv[8]
+il,it,ir,ib=[int(float(v)) for v in sys.argv[9:13]]   # per-side feather: never wider than half the gap to the objects
+forced=sys.argv[13];zx1,zy1,zx2,zy2=[float(v) for v in sys.argv[14:18]]   # forced page colour (hex or -) and the objects' box in picture px
+im=Image.open(src).convert("RGB");W,H=im.size;p=im.load();b=max(2,min(W,H)//100);pts=[]
+for x in range(0,W,max(1,W//200)):
+    for y in list(range(b))+list(range(H-b,H)): pts.append(p[x,y])
+for y in range(0,H,max(1,H//200)):
+    for x in list(range(b))+list(range(W-b,W)): pts.append(p[x,y])
+bg=tuple(int(st.median(c)) for c in zip(*pts))     # the picture's own backdrop
+page_bg=tuple(int(forced[i:i+2],16) for i in (0,2,4)) if forced!='-' else bg
+sw,sh=max(1,round(W*s)),max(1,round(H*s));sc=im.resize((sw,sh),Image.LANCZOS)
+if s>1.02: sc=sc.filter(ImageFilter.UnsharpMask(radius=1.4,percent=60,threshold=2))   # enlarged picture: recover the edges (same pass as the hand-built flow)
+import numpy as np
+a=np.asarray(sc).astype(float);pgv=np.array(page_bg,dtype=float)
+# The backdrop is usually a gradient, so ONE median colour leaves its darker/lighter parts behind as a visible rectangle (seen 2026-11-22).
+# Estimate the backdrop PER PIXEL instead: fill the objects' box from its left/right neighbours row by row, then blur heavily.
+fld=np.asarray(im).astype(float);fx1,fy1,fx2,fy2=max(1,int(zx1)),max(0,int(zy1)),min(W-1,int(zx2)),min(H,int(zy2))
+if fx2>fx1+2 and fy2>fy1:
+    tt=np.linspace(0,1,fx2-fx1)[None,:,None];fld[fy1:fy2,fx1:fx2]=fld[fy1:fy2,fx1-1:fx1]*(1-tt)+fld[fy1:fy2,fx2:fx2+1]*tt
+fim=Image.fromarray(fld.astype(np.uint8)).filter(ImageFilter.GaussianBlur(max(6,min(W,H)//20))).resize((sw,sh),Image.BILINEAR)
+bgv=np.asarray(fim).astype(float);d=np.abs(a-bgv).max(axis=2)
+wt=np.clip((d-6)/20,0,1)**0.7                       # pixels within ~6 of the backdrop become exactly the page colour (no ghost rectangle)
+sc=Image.fromarray((a*wt[...,None]+pgv*(1-wt[...,None])).astype(np.uint8))
+f=max(2,max(il,it,ir,ib));m=Image.new("L",(sw,sh),0);d=ImageDraw.Draw(m)
+d.rectangle([0 if "l" in bl else il,0 if "t" in bl else it,sw-1 if "r" in bl else sw-1-ir,sh-1 if "b" in bl else sh-1-ib],fill=255)
+m=m.filter(ImageFilter.GaussianBlur(f/2));d=ImageDraw.Draw(m)
+if "l" in bl: d.rectangle([0,0,f*2,sh],fill=255)
+if "t" in bl: d.rectangle([0,0,sw,f*2],fill=255)
+if "r" in bl: d.rectangle([sw-f*2,0,sw,sh],fill=255)
+if "b" in bl: d.rectangle([0,sh-f*2,sw,sh],fill=255)
+if forced!="-":
+    pad=max(14,int(0.1*min(sw,sh)));zone=Image.new("L",(sw,sh),0)
+    ImageDraw.Draw(zone).rectangle([zx1*s-pad,zy1*s-pad,zx2*s+pad,zy2*s+pad],fill=255)
+    zone=zone.filter(ImageFilter.GaussianBlur(pad*0.8));m=ImageChops.multiply(m,zone)   # a soft glow around the objects, flat page colour everywhere else
+page=Image.new("RGB",(cw,ch),page_bg);page.paste(sc,(round(ox),round(oy)),m);page.save(out,quality=93,subsampling=0)
+ar=np.asarray(page).astype(int);x1,y1=max(0,round(ox)),max(0,round(oy));x2,y2=min(cw,round(ox)+sw),min(ch,round(oy)+sh);sm=[0]
+def cmp(i,o):
+    if i.size and o.size: sm.append(float(np.median(np.abs(i-o).max(axis=-1))))
+if y1>=4: cmp(ar[y1+1,x1:x2],ar[y1-3,x1:x2])
+if y2<=ch-4: cmp(ar[y2-2,x1:x2],ar[y2+2,x1:x2])
+if x1>=4: cmp(ar[y1:y2,x1+1],ar[y1:y2,x1-3])
+if x2<=cw-4: cmp(ar[y1:y2,x2-2],ar[y1:y2,x2+2])
+print("%02X%02X%02X %d"%(page_bg+(int(round(max(sm))),)))`, file, outFile, String(cw), String(ch), String(s), String(offX), String(offY),
+  `${bleed.l ? 'l' : ''}${bleed.t ? 't' : ''}${bleed.r ? 'r' : ''}${bleed.b ? 'b' : ''}` || '-',
+  ...[o.x1, o.y1, pic.w - o.x2, pic.h - o.y2].map((gap) => String(Math.max(2, Math.min(0.06 * Math.min(pic.w, pic.h) * s, gap * s * 0.5)))),
+  forced, String(o.x1), String(o.y1), String(o.x2), String(o.y2));
+  const map = (box) => ({ x: offX + px(box.x, pic.w) * s, y: offY + px(box.y, pic.h) * s, w: px(box.w, pic.w) * s, h: px(box.h, pic.h) * s });
+  const [hexOut, seamOut] = String(bgHex).trim().split(/\s+/);
+  return { file: outFile, map, canvas: { w: cw, h: ch }, bg: `#${hexOut.slice(-6)}`, seam: Number(seamOut) || 0 };
+}
+
+/**
+ * Brand-purple correction (art-director finding 2026-11-17: "bag purple reads muted grey-violet,
+ * off brand #4B2386"). Image models drift the purple; pull every purple-hued pixel toward the
+ * Kapruka purple's hue and saturation, keeping its light/shadow. Gold, reds and the white
+ * backdrop (no saturation) are untouched. Returns the corrected file (or the original on error).
+ */
+export function brandPurple(file, pageHex = '') {
+  const out = file.replace(/(\.\w+)$/, '-brand$1');
+  try {
+    py(`import sys,numpy as np
+from PIL import Image,ImageFilter
+im=Image.open(sys.argv[1]).convert("RGB");hsv=np.array(im.convert("HSV")).astype(float)
+h,s,v=hsv[...,0],hsv[...,1],hsv[...,2];H=h*360/255
+# soft weights (hard thresholds left blotchy patches): hue ramps in/out around purple, saturation ramps from grey
+wh=np.clip(np.minimum((H-205)/30,(325-H)/30),0,1)
+ws=np.clip((s-10)/45,0,1)
+m=wh*ws*np.clip((v-20)/40,0,1)
+ph=sys.argv[3] if len(sys.argv)>3 else ''
+if len(ph)==6:                          # leave the flat page colour (and its soft glow edge) exactly as it is
+    pc=np.array([int(ph[i:i+2],16) for i in (0,2,4)],dtype=float);dist=np.abs(np.asarray(im).astype(float)-pc).max(axis=2)
+    m=m*np.clip((dist-10)/30,0,1)
+m=np.array(Image.fromarray((m*255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(2))).astype(float)/255
+th,ts=186.0,194.0                       # #4B2386 -> hue 262deg, saturation 0.76 (PIL 0-255 scale)
+ns=s+(ts-s)*0.7
+hsv[...,0]=h*(1-m)+th*m;hsv[...,1]=np.clip(s*(1-m)+ns*m,0,255)
+Image.fromarray(hsv.astype(np.uint8),"HSV").convert("RGB").save(sys.argv[2],quality=93,subsampling=0)`, file, out, String(pageHex || '').replace('#', ''));
+    return out;
+  } catch { return file; }
+}
+
+/**
+ * Edges the picture's objects are cut off by where the LAYOUT leaves a margin (art-director
+ * finding 2026-11-17: "globe clipped hard at top edge"). An edge the reference itself bleeds off
+ * (the shoe off the left) is fine; a margin edge that the objects touch means they are clipped.
+ */
+function clippedEdges(ob, A) {
+  if (!ob?.w || !A) return [];
+  const out = [];
+  if (ob.x <= 1.5) out.push('left');
+  if (ob.y <= 1.5) out.push('top');
+  if (ob.x + ob.w >= 98.5) out.push('right');
+  if (ob.y + ob.h >= 98.5) out.push('bottom');
+  return out;
+}
+
+/**
+ * Which text/logo layers would the picture's objects run into? Maps the checker's
+ * objects_box (picture %) onto the canvas the same way the picture is cover-fitted, then
+ * reports every text layer it covers more than a sliver of (seen 2026-11-15: a perfume
+ * bottle through "ARRIVE", a gold puddle under the tagline).
+ */
+function objectsClash(qa, k) {
+  const o = qa.objects_box;
+  if (!o?.w || !o?.h) return [];
+  const L = sceneLayout(k);
+  const cw = 1080; const ch = Math.round((Number(k.canvas?.h) || 1350) * (1080 / (Number(k.canvas?.w) || 1080)));
+  const bx = (L.box.x / 100) * cw; const by = (L.box.y / 100) * ch; const bw = (L.box.w / 100) * cw; const bh = (L.box.h / 100) * ch;
+  const s = Math.max(bw / qa.size.w, bh / qa.size.h); const dw = qa.size.w * s; const dh = qa.size.h * s;
+  const ox = bx + (bw - dw) / 2; const oy = by + (bh - dh) / 2;
+  const obj = { x: ox + (o.x / 100) * dw, y: oy + (o.y / 100) * dh, w: (o.w / 100) * dw, h: (o.h / 100) * dh };
+  const hits = [];
+  for (const e of k.elements || []) {
+    if (e.type !== 'text' || !e.box) continue;
+    const t = { x: (e.box.x / 100) * cw, y: (e.box.y / 100) * ch, w: (e.box.w / 100) * cw, h: (e.box.h / 100) * ch };
+    const ix = Math.max(0, Math.min(obj.x + obj.w, t.x + t.w) - Math.max(obj.x, t.x));
+    const iy = Math.max(0, Math.min(obj.y + obj.h, t.y + t.h) - Math.max(obj.y, t.y));
+    if ((ix * iy) / (t.w * t.h) > 0.08) hits.push(String(e.text || e.id).replace(/\s+/g, ' ').slice(0, 30));
+  }
+  return hits;
+}
+
+// ---- type QA rules applied to every layout (art-director findings, 2026-11-15) ----
+const lum = (hex) => {
+  const v = String(hex || '#000').replace('#', '').padEnd(6, '0').match(/../g).map((x) => parseInt(x, 16) / 255)
+    .map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2];
+};
+const contrast = (a, b) => { const x = lum(a); const y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+
+/** The colour behind a text box: the topmost flat block under its centre, else the page. */
+function groundBehind(e, els, page) {
+  const cx = e.box.x + e.box.w / 2; const cy = e.box.y + e.box.h / 2;
+  let g = page;
+  for (const s of els) {
+    if (s === e) break;
+    if (s.type === 'shape' && s.fill && cx >= s.box.x && cx <= s.box.x + s.box.w && cy >= s.box.y && cy <= s.box.y + s.box.h) g = s.fill;
+  }
+  return g;
+}
+
+/**
+ * Readable type: every text layer must reach WCAG contrast against what it sits on
+ * (3:1 for large type ≥ 40px, 4.5:1 below). Failing colours switch to Kapruka purple on
+ * light grounds / white on dark (seen: gold "THE" on white, ~2.3:1 — invisible at thumbnail).
+ */
+function fixContrast(e, ground) {
+  const need = (Number(e.font?.size_px) || 40) >= 40 ? 3 : 4.5;
+  const font = { ...e.font };
+  const swap = lum(ground) > 0.4 ? '#340A5C' : '#FFFFFF';
+  if (contrast(font.color || '#000', ground) < need) font.color = swap;
+  const highlights = (e.highlights || []).map((h) => (contrast(h.color, ground) < need ? { ...h, color: font.color } : h));
+  return { ...e, font, highlights };
+}
+
+/**
+ * Lockup alignment: stacked, centred lines that belong together (overlapping columns,
+ * small vertical gaps) share ONE centre line — the biggest line's (seen: small "THE" /
+ * "THAT" floating off-axis from "GIFTS" / "ARRIVE").
+ */
+function alignLockups(texts) {
+  // Group stacked lines: overlapping columns, small vertical gaps.
+  const groups = [];
+  for (const e of texts.filter((t) => t.box).sort((a, b) => a.box.y - b.box.y)) {
+    const g = groups.find((gr) => gr.some((o) => {
+      const ov = Math.min(o.box.x + o.box.w, e.box.x + e.box.w) - Math.max(o.box.x, e.box.x);
+      const gap = e.box.y - (o.box.y + o.box.h);
+      return ov > 0.3 * Math.min(o.box.w, e.box.w) && gap < 8;
+    }));
+    if (g) g.push(e); else groups.push([e]);
+  }
+  // Decide each group's axis from its geometry: if most lines share a centre line, it's a
+  // centred lockup; if most share a left edge, it's left-aligned. Snap the strays onto it.
+  const median = (xs) => { const s = [...xs].sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
+  const moved = new Map();
+  for (const g of groups) {
+    if (g.length < 2) continue;
+    const centres = g.map((e) => e.box.x + e.box.w / 2); const lefts = g.map((e) => e.box.x);
+    const mc = median(centres); const ml = median(lefts);
+    const onC = centres.filter((c) => Math.abs(c - mc) <= 1.5).length;
+    const onL = lefts.filter((l) => Math.abs(l - ml) <= 1.5).length;
+    const need = Math.ceil(g.length * 0.6);
+    // One typeface per lockup (art-director finding: a serif "THE GIFTS COME" over a sans
+    // "WRAPPED" read as two designs). The biggest line's family wins.
+    const anchor = [...g].sort((a, b) => (b.font?.size_px || 0) - (a.font?.size_px || 0))[0];
+    const fam = anchor.font?.family || anchor.font?.family_guess;
+    const unify = (e) => ({ ...e.font, ...(fam ? { family: fam, family_guess: fam } : {}) });
+    // Even rhythm: when the gaps between stacked lines differ a lot (a 3x gap above one line),
+    // set them all to the median gap, keeping the first line where it is.
+    const ord = [...g].sort((a, b) => a.box.y - b.box.y);
+    if (ord.length >= 3) {
+      const gaps = ord.slice(1).map((e, i) => e.box.y - (ord[i].box.y + ord[i].box.h));
+      if (Math.max(...gaps) > 2 * Math.max(0.5, Math.min(...gaps))) {
+        const mg = median(gaps); let y = ord[0].box.y + ord[0].box.h;
+        for (const e of ord.slice(1)) { y += mg; g.find((x) => x.id === e.id).box = { ...e.box, y }; y += e.box.h; }
+      }
+    }
+    if (onC >= need && onC >= onL) {
+      for (const e of g) moved.set(e.id, { ...e, box: { ...e.box, x: mc - e.box.w / 2 }, font: { ...unify(e), align: 'center' } });
+    } else if (onL >= need) {
+      for (const e of g) moved.set(e.id, { ...e, box: { ...e.box, x: ml }, font: { ...unify(e), align: 'left' } });
+    } else {
+      for (const e of g) moved.set(e.id, { ...e, font: unify(e) });
+    }
+  }
+  return moved;
+}
+
+const FILLED = new Set(['rect', 'roundRect', 'pill', 'ellipse']);
+const FULL = { x: 0, y: 0, w: 100, h: 100 };
+
+/**
+ * Where the picture layer goes. A "cutout-on-ground" layout (objects floating on the page
+ * colour, like the Biscoff poster) must NOT be a boxed photo — a box shows its own
+ * backdrop edge and clips objects (seen 2026-11-15: grey panel seam, shoe cut off, dead
+ * band under it). So it's painted FULL-PAGE with the objects kept inside the measured
+ * area and an even backdrop in the page colour everywhere else.
+ */
+export function sceneLayout(k) {
+  const box = k.scene?.box || FULL;
+  const partial = box.x > 0.5 || box.y > 0.5 || box.x + box.w < 99.5 || box.y + box.h < 99.5;
+  const framing = k.scene?.framing
+    || (partial && (k.canvas?.background_kind || 'flat') === 'flat' ? 'cutout-on-ground' : partial ? 'framed-panel' : 'full-bleed');
+  if (!partial || framing === 'full-bleed') return { box: FULL, framing: 'full-bleed', objectsIn: null };
+  if (framing === 'cutout-on-ground') {
+    const cw = 1080; const ch = Math.round((Number(k.canvas?.h) || 1350) * (1080 / (Number(k.canvas?.w) || 1080)));
+    const sx = (SAFE_PX / cw) * 100; const sy = (SAFE_PX / ch) * 100;
+    const x1 = Math.max(box.x, sx); const y1 = Math.max(box.y, sy);
+    const x2 = Math.min(box.x + box.w, 100 - sx); const y2 = Math.min(box.y + box.h, 100 - sy);
+    return { box: FULL, framing, objectsIn: x2 - x1 > 5 && y2 - y1 > 5 ? { x: x1, y: y1, w: x2 - x1, h: y2 - y1 } : box };
+  }
+  return { box, framing: 'framed-panel', objectsIn: null };
+}
+
+/**
+ * Layout sketch for the image engines (human choice, 2026-11-17): the models ignore a layout
+ * given in words, so they get a picture of it — page colour everywhere, one soft grey
+ * silhouette where the objects go. No letters anywhere in it (the models would copy them).
+ * Returns the file, or null when the layout has no object area.
+ */
+export function buildSketch(k, outFile) {
+  const L = sceneLayout(k);
+  if (!L.objectsIn) return null;
+  const cw = 1080; const ch = Math.round((Number(k.canvas?.h) || 1350) * (1080 / (Number(k.canvas?.w) || 1080)));
+  const b = L.objectsIn;
+  const bleed = { l: b.x <= 0.5, t: b.y <= 0.5, r: b.x + b.w >= 99.5, b: b.y + b.h >= 99.5 };
+  py(`import sys
+from PIL import Image,ImageDraw,ImageFilter
+out=sys.argv[1];cw,ch=int(sys.argv[2]),int(sys.argv[3]);x,y,w,h=map(float,sys.argv[4:8]);bg=sys.argv[8];bl=sys.argv[9]
+im=Image.new("RGB",(cw,ch),bg);d=ImageDraw.Draw(im)
+x1,y1,x2,y2=x/100*cw,y/100*ch,(x+w)/100*cw,(y+h)/100*ch
+if "l" in bl:x1-=200
+if "t" in bl:y1-=200
+if "r" in bl:x2+=200
+if "b" in bl:y2+=200
+r=min(x2-x1,y2-y1)*0.18
+d.rounded_rectangle([x1,y1,x2,y2],radius=r,fill=(150,150,150))
+im.save(out)`, outFile, String(cw), String(ch), String(b.x), String(b.y), String(b.w), String(b.h),
+  k.canvas?.background || '#FFFFFF', `${bleed.l ? 'l' : ''}${bleed.t ? 't' : ''}${bleed.r ? 'r' : ''}${bleed.b ? 'b' : ''}` || '-');
+  return outFile;
+}
+
+/** Prompt paragraph that goes with the sketch attachment. */
+const SKETCH_RULE = 'LAYOUT SKETCH ATTACHED: the attached image is a plain layout diagram, NOT a style reference. '
+  + 'Output an image of the SAME 4:5 frame in which every object described below fills the GREY area of the diagram '
+  + '(as large as the grey area allows, same position and proportions) and the rest of the frame is the empty page '
+  + 'colour. Do NOT paint the grey colour, the diagram, or any rectangle — the grey only marks where the objects go.';
+
+/** Extra composition rule for the picture prompt, from the layout. */
+function compositionRule(k) {
+  const L = sceneLayout(k);
+  if (!L.objectsIn) return '';
+  const b = L.objectsIn; const r = (v) => Math.round(v);
+  const bg = k.canvas?.background || '#FFFFFF';
+  return `\n\nCOMPOSITION (hard rule): this picture fills the WHOLE ad frame. Keep every object entirely inside the area `
+    + `x ${r(b.x)}–${r(b.x + b.w)}% and y ${r(b.y)}–${r(b.y + b.h)}% of the frame (from the top-left), with nothing cut off by the frame edge. `
+    + `The backdrop is ONE seamless studio sweep in exactly ${bg} — the page colour — with no visible floor line, horizon, `
+    + 'gradient or vignette, and no props outside the object area. REALISM (hard rule): every object that rests on '
+    + 'something sits on the backdrop with a soft, natural CONTACT SHADOW directly beneath it and a gentle ambient '
+    + 'occlusion where it touches, lit by one large soft key light — exactly like a real product photograph on a '
+    + 'studio sweep. Objects must never look pasted on or floating with no shadow. Apart from those shadows close to '
+    + 'the objects, the backdrop stays perfectly even, because type is set on the empty area.';
+}
+
+/**
+ * Margins and logo position, enforced on the finished layer list (called by toLayers and again after
+ * every fixer patch, so nothing can drift out of the rules):
+ *  - every text layer and the header logo sit inside a SAFE_PX margin on all four sides
+ *  - the header logo's top edge is within LOGO_TOP_MAX_PX of the top (and not inside the top margin)
+ * Packaging logos live on the product inside the picture and are not moved.
+ */
+export function enforceLayout(L) {
+  const cw = L.canvas.w; const ch = L.canvas.h;
+  const sx = (SAFE_PX / cw) * 100; const sy = (SAFE_PX / ch) * 100;
+  const els = L.elements.map((e) => ({ ...e, ...(e.box ? { box: { ...e.box } } : {}) }));
+  for (const e of els) {
+    if (!e.box || (e.type !== 'text' && e.type !== 'logo') || /^pkg-logo/.test(e.id || '')) continue;
+    const b = e.box;
+    b.w = Math.min(b.w, 100 - 2 * sx); b.h = Math.min(b.h, 100 - 2 * sy);
+    b.x = Math.min(Math.max(b.x, sx), 100 - sx - b.w);
+    b.y = Math.min(Math.max(b.y, sy), 100 - sy - b.h);
+    // Fit the TYPE inside that box (human request 2026-11-25: art director kept flagging supporting lines that ran to the edges).
+    // Only for text meant to sit on its own line(s): a box tall enough for an extra wrapped line is a paragraph and is left alone.
+    if (e.type === 'text' && e.text && Number(e.font?.size_px) > 0) {
+      const size = Number(e.font.size_px); const lh = Number(e.font.line_height) || 1.15;
+      const lines = String(e.text).split(/\r?\n/).length;
+      const wraps = (b.h / 100) * ch >= (lines + 1) * size * lh * 0.95;
+      if (!wraps) {
+        const fitted = fitSize(e.text, size, (b.w / 100) * cw * 0.96, { bold: Number(e.font.weight) >= 600, letterSpacingPx: Number(e.font.letter_spacing_px) || 0 });
+        if (fitted < size - 0.5) {
+          const r = fitted / size;
+          e.font = { ...e.font, size_px: fitted, ...(e.font.cap_height_px ? { cap_height_px: e.font.cap_height_px * r } : {}), ...(e.font.letter_spacing_px ? { letter_spacing_px: e.font.letter_spacing_px * r } : {}) };
+        }
+      }
+    }
+  }
+  const logo = els.find((e) => e.type === 'logo' && !/^pkg-logo/.test(e.id || ''));
+  if (logo) {
+    // Fit the box to the logo (625x110 file, 5.68:1): padding inside a taller box pushed the visible mark
+    // ~5px below the box top (art director measured 110px with a 105px box).
+    const AR = 5.68; const bw = (logo.box.w / 100) * cw; const bh = (logo.box.h / 100) * ch;
+    const lw = Math.min(bw, bh * AR); const cx = logo.box.x + logo.box.w / 2;
+    logo.box.w = (lw / cw) * 100; logo.box.h = (lw / AR / ch) * 100;
+    logo.box.x = Math.min(Math.max(cx - logo.box.w / 2, sx), 100 - sx - logo.box.w);
+    logo.box.y = Math.min(Math.max(logo.box.y, sy), ((LOGO_TOP_MAX_PX - 5) / ch) * 100);
+  }      // 105px nominal: slack under the 110px limit
+  return { ...L, elements: els };
+}
+
+/** Kapruka spec → layer list for lib/layered.mjs, normalised to a 1080-px-wide canvas. */
+export function toLayers(k, sceneFile, title, extra = []) {
+  const f = 1080 / (Number(k.canvas?.w) || 1080);
+  const canvas = { w: 1080, h: Math.round((Number(k.canvas?.h) || 1350) * f), background: k.canvas?.background || '#340A5C' };
+  const scaleFont = (font = {}) => ({
+    ...font,
+    ...(font.size_px ? { size_px: font.size_px * f } : {}),
+    ...(font.cap_height_px ? { cap_height_px: font.cap_height_px * f } : {}),
+    ...(font.letter_spacing_px ? { letter_spacing_px: font.letter_spacing_px * f } : {}),
+  });
+  // Type QA before layering: shared centre lines for centred lockups, then readable contrast
+  // against whatever each line sits on (a flat block under it, else the page colour).
+  const ordered = [...new Set([...(k.z_order || []), ...(k.elements || []).map((e) => e.id)])]
+    .map((id) => (k.elements || []).find((e) => e.id === id)).filter(Boolean);
+  const moved = alignLockups(ordered.filter((e) => e.type === 'text'));
+  const prepped = ordered.map((e) => moved.get(e.id) || e)
+    .map((e, i, all) => (e.type === 'text' && e.box ? fixContrast(e, groundBehind(e, all, canvas.background)) : e));
+  const byId = new Map(prepped.map((e) => [e.id, e]));
+  const out = []; const seenIds = new Set();
+  const push = (id) => {
+    if (seenIds.has(id)) return;
+    seenIds.add(id);
+    if (id === 'scene') {
+      const L = sceneLayout(k);
+      // A framed panel keeps its edge on purpose; anything else is full-page (no seam possible).
+      if (sceneFile && k.scene?.present !== false) out.push({ type: 'image', src: sceneFile, box: L.box, fit: 'cover', blend: L.framing === 'framed-panel' });
+      return;
+    }
+    const e = byId.get(id);
+    if (!e) return;
+    if (e.type === 'image' && !e.src) return;                      // inset images are not generated yet
+    // Only flat filled blocks are rebuilt as shapes; a stroke/arrow drawn as a filled box
+    // becomes a solid bar (seen 2026-11-15: a "ribbon tail" rendered as a purple block).
+    if (e.type === 'shape' && (!FILLED.has(e.shape) || !e.fill || e.box?.w < 1 || e.box?.h < 1)) return;
+    // Brand rule: headlines are Poppins Bold. Canva honours only Regular/Bold on imported
+    // text (tested 2026-11-15 — "Poppins ExtraBold/Black/SemiBold" all fall back to Regular),
+    // so a headline the adapter set at 400 (copying a reference serif) came out thin.
+    // The face is enforced too (art director, 2026-11-17: a serif copied from the reference leaked through).
+    // Human rule 2026-11-17: ALL text is Inter in Canva (this supersedes the Poppins line in the brand file).
+    const font = e.type === 'text'
+      ? { ...e.font, family: BRAND_FONT, family_guess: BRAND_FONT,
+        weight: ['headline', 'label', 'badge', 'cta', 'price'].includes(e.role) ? Math.max(700, Number(e.font?.weight) || 0) : (Number(e.font?.weight) >= 600 ? 700 : 400) }
+      : e.font;
+    out.push(e.type === 'text' ? { ...e, font: scaleFont(font) }
+      : e.type === 'shape' ? { ...e, radius_px: (Number(e.radius_px) || 0) * f } : e);
+  };
+  if (!(k.z_order || []).includes('scene')) push('scene');
+  (k.z_order || []).forEach(push);
+  (k.elements || []).forEach((e) => push(e.id));
+  // Packaging logos sit directly on the picture: right after it, under the type.
+  const at = out.findIndex((e) => e.type === 'image' && e.src === sceneFile);
+  out.splice(at + 1, 0, ...extra);
+  // The brand logo is always present in the header, 105px from the top (human rule 2026-11-17),
+  // whether or not the reference had one, and even when the product carries its own logo too.
+  if (!out.some((e) => e.type === 'logo' && !/^pkg-logo/.test(e.id || ''))) {
+    out.push({ id: 'brand-logo', type: 'logo', on: lum(canvas.background) > 0.4 ? 'light' : 'dark', anchor: 'center',
+      box: { x: 41.5, y: (105 / canvas.h) * 100, w: 17, h: 5.5 } });
+  }
+  return enforceLayout({ title, canvas, elements: out });
+}
+
+/** "THE / GIFTS / COME / ON TIME" → "The Gifts Come On Time" — all headline lines, top to bottom. */
+function designTitle(k, fallback) {
+  const heads = (k.elements || []).filter((e) => e.type === 'text' && e.role === 'headline').sort((a, b) => (a.box?.y ?? 0) - (b.box?.y ?? 0));
+  const text = (heads.length ? heads : (k.elements || []).filter((e) => e.type === 'text').slice(0, 1))
+    .map((e) => String(e.text || '').replace(/\s*\n\s*/g, ' ')).join(' ').replace(/\s+/g, ' ').trim();
+  if (!text) return fallback;
+  const nice = text === text.toUpperCase() ? text.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()) : text;
+  return nice.slice(0, 60);
+}
+
+
+// ---- repair loop: art-director issues -> layer patches -> rebuild -> re-review (any design) ----
+const VERDICT_RANK = { 'production-ready': 2, 'minor-fixes': 1, 'not-ready': 0 };
+const issueWeight = (i) => (i.severity === 'high' ? 10 : i.severity === 'medium' ? 3 : 1);
+export const reviewScore = (r) => (VERDICT_RANK[r?.verdict] ?? 0) * 1000 - (r?.issues || []).reduce((a, i) => a + issueWeight(i), 0);
+const fixable = (r) => (r?.issues || []).filter((i) => i.severity !== 'low');
+
+/** Apply the fixer's patches to a layer list, clamped to safe limits. Returns { layers, applied, changed }. */
+export function applyFixes(L, fixes, sceneSrc, { bleed = {}, fullBleed = false } = {}) {
+  const num = (v, lo, hi, d) => (Number.isFinite(Number(v)) ? Math.min(hi, Math.max(lo, Number(v))) : d);
+  const applied = [];
+  const els = L.elements.map((e) => ({ ...e, ...(e.box ? { box: { ...e.box } } : {}), ...(e.font ? { font: { ...e.font } } : {}) }));
+  for (const p of fixes?.elements || []) {
+    const i = els.findIndex((e) => e.id === p.id);
+    if (i < 0) continue;
+    const e = els[i];
+    const label = e.type === 'text' ? `"${String(e.text || '').replace(/\s+/g, ' ').slice(0, 18)}"` : e.id;
+    if (p.remove) {
+      if (e.type === 'logo') continue;                                  // the logo is never removed
+      els.splice(i, 1); applied.push(`removed ${label}`); continue;
+    }
+    if (p.box && e.box) {
+      const b = {
+        x: num(p.box.x, 0, 99, e.box.x), y: num(p.box.y, 0, 99, e.box.y),
+        w: num(p.box.w, 1, 100, e.box.w), h: num(p.box.h, 0.5, 100, e.box.h),
+      };
+      if (b.x + b.w <= 100.5 && b.y + b.h <= 100.5) { e.box = b; applied.push(`moved ${label}`); }
+    }
+    if (e.type === 'text') {
+      if (typeof p.text === 'string' && p.text.trim()) { e.text = p.text; applied.push(`reworded ${label}`); }
+      const f = p.font || {};
+      if (f.size_px) { e.font.size_px = num(f.size_px, (e.font.size_px || 40) * 0.6, (e.font.size_px || 40) * 1.5, e.font.size_px); applied.push(`resized ${label}`); }
+      if (/^#[0-9a-f]{6}$/i.test(f.color || '')) { e.font.color = f.color; applied.push(`recoloured ${label}`); }
+      if (f.weight) { e.font.weight = Number(f.weight) >= 600 ? 700 : 400; applied.push(`weight of ${label}`); }
+    }
+  }
+  const sc = fixes?.scene;
+  const img = sceneSrc ? els.find((e) => e.type === 'image' && e.src === sceneSrc) : null;
+  if (sc && img && (sc.scale || sc.dx || sc.dy)) {
+    // A full-bleed photo must keep covering the page (never shrink). A cutout picture that bleeds off a
+    // page edge must keep bleeding off it: scale toward that edge and don't slide away from it, or the
+    // picture's own edge shows as a hard cut (seen in the 2026-11-17 mechanics test).
+    const k = num(sc.scale, fullBleed ? 1 : 0.7, 1.15, 1);
+    const dx = bleed.l || bleed.r ? 0 : num(sc.dx, -12, 12, 0); const dy = bleed.t || bleed.b ? 0 : num(sc.dy, -12, 12, 0);
+    if (k !== 1 || dx || dy) {
+      const cx = img.box.x + img.box.w / 2; const cy = img.box.y + img.box.h / 2;
+      const px = bleed.l ? 0 : bleed.r ? 100 : cx; const py2 = bleed.t ? 0 : bleed.b ? 100 : cy;
+      const move = (b) => ({ x: px + (b.x - px) * k + dx, y: py2 + (b.y - py2) * k + dy, w: b.w * k, h: b.h * k });
+      img.box = move(img.box);
+      for (const e of els) if (/^pkg-logo/.test(e.id || '') && e.box) e.box = move(e.box);     // packaging logos ride with the picture
+      applied.push(`picture ${k !== 1 ? `scaled ${Math.round(k * 100)}%` : ''}${dx || dy ? ` nudged ${dx},${dy}` : ''}`.trim());
+    }
+  }
+  return { layers: enforceLayout({ ...L, elements: els }), applied, changed: applied.length > 0 };
+}
+
+/**
+ * After the art director's check: while the design isn't production-ready and has fixable issues,
+ * have the fixer patch the layers, rebuild, send to Canva and re-review — keeping whichever
+ * version scores better (never leaves it worse than it found it). Max 2 rounds.
+ */
+async function polish({ v, layers, sceneSrc, sceneOpts = {}, regen = null, outDir, n, title, refFiles, concept, replica = false, log, maxRounds = 3 }) {
+  let best = { layers, sceneSrc, sceneOpts, t: { canva: v.canva, preview: v.preview, pptx: v.pptx, review: v.review, scene: v.scene } };
+  const applied = []; let leftover = null; let rounds = 0; let regenDone = false;
+  for (let round = 1; round <= maxRounds; round++) {
+    const rev = best.t.review;
+    if (!rev || rev.verdict === 'production-ready' || !fixable(rev).length) break;
+    let fixes;
+    try { fixes = await fixDesign({ previewFile: join(outDir, best.t.preview), layers: best.layers, issues: fixable(rev), concept, replica, log }); }
+    catch (e) { log(`  ! fixer failed: ${e.message}`); break; }
+    const wantsPicture = !!fixes.regenerate_picture?.needed;
+    leftover = { regenerate: wantsPicture ? fixes.regenerate_picture.note || 'a new picture is needed' : null, unfixable: fixes.unfixable || [] };
+    let cand = null;
+    // Issues only a new picture can fix (expression, wrong colour, odd object): generate ONE new picture with
+    // the art director's note, rebuild it under the same rules, and let the patches apply on top of it.
+    if (wantsPicture && regen && !regenDone) {
+      regenDone = true;
+      try {
+        const g = await regen(fixes.regenerate_picture.note || 'fix the problems listed', round);
+        if (g) {
+          const pt = applyFixes(g.layers, { elements: fixes.elements, scene: null }, g.sceneSrc, g.sceneOpts);
+          cand = { layers: pt.layers, sceneSrc: g.sceneSrc, sceneOpts: g.sceneOpts, applied: ['generated a new picture', ...pt.applied], scene: basename(g.sceneSrc) };
+        }
+      } catch (e) { log(`  ! picture regeneration failed (${e.message}) — fixing the layers instead`); }
+    }
+    if (!cand) {
+      const next = applyFixes(best.layers, fixes, best.sceneSrc, best.sceneOpts);
+      if (!next.changed) { log('  · fixer found nothing it can safely change in the layers'); break; }
+      cand = { layers: next.layers, sceneSrc: best.sceneSrc, sceneOpts: best.sceneOpts, applied: next.applied, scene: best.t.scene };
+    }
+    rounds = round;
+    log(`  · fix round ${round}: ${cand.applied.join('; ')}`);
+    const pptx = await buildLayeredPptx(cand.layers, join(outDir, `design-${n}-r${round}.pptx`), { log });
+    const t = { engine: v.engine, pptx: basename(pptx), scene: cand.scene };
+    await sendToCanva(t, outDir, `${n}-r${round}`, title, log);
+    if (!t.preview) { log('  ! the fixed version did not reach Canva — keeping the previous one'); break; }
+    try { t.review = await reviewDesign({ previewFile: join(outDir, t.preview), refFiles, concept, replica, log }); }
+    catch (e) { log(`  ! re-check failed: ${e.message}`); break; }
+    log(`  · after fixes: art director says ${t.review.verdict} (${(t.review.issues || []).length} issue(s))`);
+    if (reviewScore(t.review) > reviewScore(best.t.review)) { best = { layers: cand.layers, sceneSrc: cand.sceneSrc, sceneOpts: cand.sceneOpts, t }; applied.push(...cand.applied); }
+    else { log('  · the fixes did not improve it — keeping the previous version'); if (!cand.applied.includes('generated a new picture')) break; }
+  }
+  Object.assign(v, { canva: best.t.canva, preview: best.t.preview, pptx: best.t.pptx, review: best.t.review, ...(best.t.scene ? { scene: best.t.scene } : {}) });
+  v.polish = { rounds, applied, needsNewPicture: leftover?.regenerate && !regenDone ? leftover.regenerate : null, unfixable: leftover?.unfixable || [] };
+}
+
+export async function runDesign({
+  igUrl = '', refFiles = [], caption = '', instruction = '', title = '', engines = DEFAULT_ENGINES,
+  // The one pipeline (human spec 2026-11-22): relation = how the reference relates to what we promote —
+  // 'direct' (same product/category), 'indirect' (different product: look only) or 'none' (no reference: a strategist brief).
+  relation = 'auto', target = '', products = null, brief = null, productUrl = '', kind = 'reference', text = '',
+  // 'adapt' (default, human decision 2026-11-17: "i want exact thing kapruka adapted - thats it"): the SAME design —
+  // layout, spacing, hierarchy, visual device, composition — rebuilt with Kapruka's copy, product, logo and brand. No
+  // creative reinterpretation. Optional: ASHADI_STYLE=creative (concept step) or =replica (source wording kept).
+  style = ['creative', 'replica'].includes(process.env.ASHADI_STYLE) ? process.env.ASHADI_STYLE : 'adapt',
+  log = console.log, tag = '',
+  // Resume (human request 2026-11-25): continue an earlier run IN ITS OWN FOLDER, reusing the steps it already finished
+  // (products, strategist brief, reference measurement, relation, adapted layout). onRunDir tells the caller the folder early.
+  resumeRunId = '', onRunDir = null,
+} = {}) {
+  const url = igUrl ? normaliseIgUrl(igUrl) : '';
+  const name = tag || (url ? `ig-${url.replace(/\/$/, '').split('/').pop()}`
+    : relation === 'none' ? `${kind === 'persona' ? 'persona' : 'promo'}-${String(text || 'brief').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 30) || 'brief'}`
+    : `upload-${basename(refFiles[0] || 'ref', extname(refFiles[0] || ''))}`);
+  const resumeDirPath = resumeRunId ? join(DESIGN_DIR, basename(String(resumeRunId))) : '';
+  const resuming = !!resumeDirPath && existsSync(resumeDirPath);
+  if (resumeRunId && !resuming) log(`  · cannot resume: the run folder ${resumeRunId} is gone — starting a fresh run`);
+  const outDir = resuming ? resumeDirPath : join(DESIGN_DIR, `${slug(name)}-${stamp()}`);
+  const refDir = join(outDir, 'reference');
+  mkdirSync(refDir, { recursive: true });
+  try { if (onRunDir) onRunDir(outDir); } catch { /* the caller only wants to know the folder */ }
+  if (resuming) log(`↺ Resuming the earlier run in ${basename(outDir)} — finished steps are reused, the rest is redone.`);
+  const result = { kind: 'design', source: url || null, instruction: instruction || null, startedAt: new Date().toISOString(), variants: [] };
+  const save = () => writeFileSync(join(outDir, 'design.json'), JSON.stringify(result, null, 2));
+
+  let chrome = null;
+  setAgentLogger(log);
+  const getChrome = async () => (chrome ||= await connectChrome());
+  const reuse = (file, what, ok = (x) => !!x) => {
+    if (!resuming) return null;
+    try { const x = JSON.parse(readFileSync(join(outDir, file), 'utf8')); if (!ok(x)) return null; log(`  ↺ resuming: reusing ${what}`); return x; } catch { return null; }
+  };
+  const reuseProducts = () => reuse('products.json', 'the product pictures already fetched', (p) => p?.sheet && existsSync(p.sheet));
+  try {
+    // [1/5] reference
+    log('\n[1/5] Reference');
+    setReviewContext({ relation, productWords: products?.labelWords || [], productNames: (products?.products || []).map((p) => p.title), subject: relation === 'none' ? String(text || target || '').trim() : '' });
+    if (relation === 'none') {
+      refFiles = [];
+      log('  · no reference for this job — the strategist writes the brief');
+      // Human rule 2026-11-26 (replaces 2026-11-25): without a link, pick catalogue products only when they genuinely relate to the
+      // request. Word matching once forced a puppy, a bouquet and a gift set into a "Reliable WhatsApp Updates" promo, so the
+      // picker judges relevance and may pick nothing; then the strategist decides what, if anything, to show.
+      if (!products && resuming) products = reuseProducts();
+      if (!products && productUrl) {
+        log('\n[1/5] Products');
+        products = await fetchProducts({ productUrl, hint: `${text} ${instruction}`, outDir, chrome: await getChrome(), log });
+        if (products && !target) target = products.products.map((p) => p.title).join(', ');
+      } else if (!products) {
+        log('\n[1/5] Products');
+        products = await fetchProducts({ productUrl: '', hint: `${text || target || ''} ${instruction}`, outDir, chrome: await getChrome(), log }).catch((e) => { log(`  · no catalogue product fetched (${String(e.message).slice(0, 90)})`); return null; });
+        if (products && !target) target = products.products.map((p) => p.title).join(', ');
+        if (!products) log('  · no closely related product — the strategist decides what to show');
+      }
+      if (!brief) { const old = reuse('strategist-brief.json', 'the strategist brief', (b) => b?.scene_prompt && b?.headline_line_1); if (old) brief = old; }
+      if (!brief) brief = await strategist({ kind, text: text || target, instruction, products, chrome: await getChrome(), outDir, log });
+    } else if (url) {
+      const oldRefs = resuming ? readdirSync(refDir).filter((f) => /^ref-.*\.(png|jpe?g)$/i.test(f)).sort() : [];
+      if (oldRefs.length) {
+        const oldCaption = reuse('design.json', 'the saved reference pictures and caption')?.caption || '';
+        refFiles = oldRefs.map((f) => join(refDir, f)); caption ||= oldCaption;
+      } else {
+        chrome = await connectChrome();
+        const ref = await scrapeInstagram(chrome, url, refDir, { log });
+        refFiles = ref.files;
+        caption ||= ref.caption || '';
+      }
+    } else {
+      if (!refFiles.length) throw new Error('a design job needs an Instagram link or at least one reference image');
+      refFiles = refFiles.map((f, i) => {
+        const dest = join(refDir, `ref-${String(i + 1).padStart(2, '0')}${extname(f).toLowerCase() || '.jpg'}`);
+        copyFileSync(f, dest);
+        return toPng(dest);
+      });
+    }
+    result.reference = refFiles.map((f) => basename(f));
+    result.caption = caption || null;
+    save();
+    if (relation !== 'none') {
+      log(`📥 Reference ready (${refFiles.length} image${refFiles.length > 1 ? 's' : ''}).`);
+      // the real product(s): the given link first; else, once we know what the reference advertises, the matching Kapruka product
+      if (!products && resuming) products = reuseProducts();
+      if (!products && productUrl) {
+        log('\n[1/5] Products');
+        products = await fetchProducts({ productUrl, hint: `${text} ${instruction}`, caption, refFiles, outDir, chrome: await getChrome(), log });
+      }
+      if (products && !target) target = products.products.map((p) => p.title).join(', ');
+      if (!target && text) target = text;
+      const rel = reuse('relation.json', 'the reference/product relation', (r) => r?.relation) || await classifyRelation({ refFiles, target, override: relation === 'auto' ? '' : relation, chrome: await getChrome(), outDir, log });
+      relation = rel.relation;
+      if (!products && !productUrl && rel.ref_subject) {
+        log('\n[1/5] Products');
+        products = await fetchProducts({ productUrl: '', hint: `${target || rel.ref_subject} ${instruction}`, caption, refFiles, outDir, chrome: await getChrome(), log }).catch((e) => { log(`  · no catalogue product fetched (${String(e.message).slice(0, 90)})`); return null; });
+        if (!products) log('  · no matching Kapruka product in the catalogue snapshot — the picture uses the nearest product described in words');
+      }
+      setReviewContext({ relation, productWords: products?.labelWords || [], productNames: (products?.products || []).map((p) => p.title), subject: relation === 'none' ? String(text || target || '').trim() : '' });
+      log(`  · reference mode: ${relation.toUpperCase()}${products ? ` · real product${products.products.length > 1 ? 's' : ''}: ${products.products.map((p) => p.title).join(' | ').slice(0, 120)}` : ''}`);
+      log('  → measuring the layout…');
+    }
+
+    const replica = style === 'replica';
+    let concept = null; let kSpec;
+    result.relation = relation; result.target = target || null;
+    result.products = products ? { source: products.source, items: products.products.map((p) => ({ title: p.title, price: p.price, url: p.url })) } : null;
+    if (relation === 'none') {
+      // [2-3/5] no reference: the strategist's brief becomes the spec (built-in layout template + brief copy)
+      log('\n[2/5] Strategist brief → layout');
+      if (!brief) throw new Error('a job with no reference needs a strategist brief');
+      kSpec = specFromBrief(brief);
+      kSpec.scene.prompt = brief.scene_prompt; kSpec.scene.attach = [];
+      kSpec.changes = [`no reference: built from the strategist brief (${brief.angle})`]; kSpec.claims_used = [];
+      writeFileSync(join(outDir, 'kapruka-spec.json'), JSON.stringify(kSpec, null, 2));
+      result.brief = brief; result.style = 'brief';
+      result.title = title || `${brief.headline_line_1} ${brief.headline_line_2}`.replace(/\s+/g, ' ').trim();
+      save();
+      log(`🧠 Brief ready: "${result.title}". Painting the picture layer…`);
+    } else {
+      // [2/5] measure
+      log('\n[2/5] Reverse-engineer');
+      const refSpec = reuse('reference-spec.json', 'the layout measurement', (r) => r?.canvas) || await reverseEngineer({ refFiles, caption, outDir, log });
+
+      // [3/5] concept → adapt. The idea first (what the reference means, rebuilt for Kapruka),
+      // THEN the layout is filled with it — a copied layout with no idea behind it made no sense.
+      log('\n[3/5] Concept + Kapruka adaptation');
+      // No fallback: a design built without the concept is the "copied layout, no idea" failure.
+      concept = style === 'creative' ? (reuse('concept.json', 'the concept') || await conceptualise({ refSpec, refFiles, caption, instruction, outDir, log })) : null;
+      result.concept = concept;
+      result.style = style;
+      save();
+      if (style === 'adapt') log(`  · ${relation} reference: ${relation === 'indirect' ? 'the look is kept, the hero becomes what we promote' : 'the same design, rebuilt for Kapruka'}`);
+      if (replica) log('  · replica mode: source wording kept');
+      kSpec = reuse('kapruka-spec.json', 'the adapted layout', (k) => k?.scene?.prompt) || await adaptToKapruka({ refSpec, refFiles, instruction, concept, replica, target, relation, products, outDir, log });
+      result.title = title || designTitle(kSpec, name);
+      save();
+      log(`🧠 Layout measured and adapted: "${result.title}". Painting the picture layer…`);
+    }
+
+    // [4/5] picture — text-free, checked, cleaned
+    log('\n[4/5] Picture (text-free)');
+    chrome ||= await connectChrome();
+    const sketch = buildSketch(kSpec, join(outDir, 'layout-sketch.png'));
+    if (sketch) log('  · drew a layout sketch (grey = where the objects go) to guide the picture');
+    const hasSheet = !!products?.sheet;
+    const textFree = hasSheet
+      ? TEXT_FREE.replace('no label, ', '').replace('nothing printed on any bag, box, product, garment or screen', 'nothing printed on any bag, garment or screen — the ONLY printed words allowed are the ones already on the real products from the attached product sheet, spelled exactly as there')
+      : TEXT_FREE;
+    const sceneRules = hasSheet ? SCENE_RULES.replace('No third-party brands or logos.', 'No other third-party brands or logos than those printed on the real products.') : SCENE_RULES;
+    // Attachments, in order (Gemini takes up to 3): layout sketch, the reference (direct = composition, indirect = mood only), the real product sheet.
+    const attachFiles = []; const roles = [];
+    if (sketch) { attachFiles.push(sketch); roles.push(`Image ${attachFiles.length} is a plain LAYOUT DIAGRAM, not a style reference: every object described fills its GREY area (same position and proportions) and the rest of the frame is the empty page colour. Never paint the grey or the diagram.`); }
+    if (relation !== 'none' && refFiles[0]) {
+      attachFiles.push(refFiles[0]);
+      roles.push(relation === 'direct'
+        ? `Image ${attachFiles.length} is the REFERENCE AD: recreate its composition, camera angle, lighting and colour mood, with the real products from the product sheet instead of its own. Copy none of its text, logos, brand names, characters or products.`
+        : `Image ${attachFiles.length} is a MOOD REFERENCE ONLY: match its lighting and overall feel; do not copy its subject, objects, layout, text, logos or characters.`);
+    }
+    if (hasSheet) {
+      attachFiles.push(products.sheet);
+      roles.push(`Image ${attachFiles.length} is a sheet of the REAL PRODUCTS: draw every product exactly as it appears there — identical shape, cap, colour, label design and every printed word`
+        + `${products.labelWords?.length ? ` (spelled exactly: ${products.labelWords.map((w) => JSON.stringify(w)).join(', ')})` : ''}. Turn each product so its label faces the camera, large and legible. Do not change, mix up, rename or invent any product.`);
+    }
+    const attachRule = roles.length ? `ATTACHED IMAGES (in order):\n${roles.join('\n')}` : '';
+    const basePrompt = `${textFree}\n\n${attachRule ? `${attachRule}\n\n` : ''}${kSpec.scene.prompt}${compositionRule(kSpec)}\n\n${sceneRules}\n\n${textFree}`;
+    log(`  · picture layout: ${sceneLayout(kSpec).framing}`);
+    const scenes = [];
+    // Each engine runs on its own Chrome tab, in parallel; each picture is checked and cleaned on its own.
+    // A cutout layout's picture is PLACED afterwards (placeObjects), so objects spilling
+    // into the type area is fixed by placement, not by regenerating.
+    const placedLayout = !!sceneLayout(kSpec).objectsIn;
+    // One engine failing (or its check hanging) must never sink the other engine's result
+    // (seen 2026-11-15: a timed-out Gemini check failed the whole job, Meta's result too).
+    const runEngine = async (key) => { try {
+      let steer = ''; let prev = null;
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        let file;
+        try {
+          const prompt = basePrompt + steer;
+          const files = await ENGINES[key].run(chrome, prompt, join(outDir, 'renders'), {
+            slug: `scene-${key}-a${attempt}`, body: prompt, rawPrompt: true, logo: false, attach: attachFiles, log,
+          });
+          file = toJpg(files[0]);
+        } catch (e) {
+          log(`  ! ${ENGINES[key].label} failed: ${String(e.message).split('\n')[0]}`);
+          // One more try before giving up on this engine (a tab that wasn't ready is the usual cause); a refusal is not retried.
+          if (attempt === 1 && !e.refused) { log(`  · trying ${ENGINES[key].label} once more…`); await new Promise((r) => setTimeout(r, 8000)); continue; }
+          break;
+        }
+        let qa;
+        try { qa = await inspectScene({ sceneFile: file, outDir, log }); } catch (e) {
+          log(`  · ${ENGINES[key].label} picture check didn't finish (${e.message}) — retrying once…`);
+          qa = await inspectScene({ sceneFile: file, outDir, log });
+        }
+        writeFileSync(join(outDir, `scene-check-${key}-a${attempt}.json`), JSON.stringify(qa, null, 2));
+        const lw = (products?.labelWords || []).map((w) => String(w).toLowerCase());
+        const isLabel = (t) => { const x = String(t || '').toLowerCase(); return lw.some((w) => x.includes(w) || (x.length > 2 && w.includes(x))); };   // the real products' own printed words are not a defect
+        let painted = qa.text_or_logos.map((t) => t.what).filter(Boolean).filter((t) => !isLabel(t));
+        let clash = placedLayout ? [] : objectsClash(qa, kSpec);
+        let clipped = clippedEdges(qa.objects_box, sceneLayout(kSpec).objectsIn);
+        log(`  · ${ENGINES[key].label} check: ${painted.length ? `painted text/logos: ${painted.join(' | ')}` : 'no painted text or logos'}`
+          + `${clash.length ? `; objects run into the text "${clash.join('", "')}"` : placedLayout ? '; objects will be placed into their area' : '; objects clear of the text'}`
+          + `${clipped.length ? `; objects are cut off at the ${clipped.join(' + ')} edge (the layout leaves a margin there)` : ''}`
+          + `${qa.watermark.present ? `; watermark at ${qa.watermark.edge}` : ''}`);
+        if ((painted.length || clash.length || clipped.length) && attempt === 1) {
+          const L = sceneLayout(kSpec).objectsIn;
+          steer = '\n\n⚠️ REGENERATION NOTE — the previous attempt had real defects. '
+            + (painted.length ? `It painted text/logos into the picture: ${painted.join('; ')} — every surface must be completely blank. ` : '')
+            + (clash.length && L ? `Objects spilled out of their area and into where the type goes — keep EVERY object, drip, `
+              + `puddle and shadow inside x ${Math.round(L.x)}–${Math.round(L.x + L.w)}% and y ${Math.round(L.y)}–${Math.round(L.y + L.h)}%, smaller if needed. ` : '')
+            + (clipped.length ? `An object was CUT OFF by the ${clipped.join(' and ')} edge of the frame (seen: a globe clipped at the top). `
+              + 'Every object must be shown COMPLETE, with clear empty margin between it and that edge — make the objects smaller if needed. ' : '')
+            + 'Keep everything else the same.';
+          log(`  · regenerating ${ENGINES[key].label} once with the defect named…`);
+          prev = { file, qa, painted, clash, clipped };
+          continue;
+        }
+        // The second picture is not automatically better: keep whichever of the two has fewer defects.
+        if (attempt === 2 && prev && (prev.painted.length + prev.clash.length + prev.clipped.length) < (painted.length + clash.length + clipped.length)) {
+          log('  · the first picture had fewer defects than the retry — keeping the first');
+          ({ file, qa, painted, clash, clipped } = prev);
+        }
+        const cleaned = cropWatermark(file, qa.watermark);
+        if (cleaned.crop) log(`  ✓ cropped the AI watermark off the ${qa.watermark.edge} edge`);
+        if (cleaned.tooBig) log('  ! watermark is not at an edge — left in place, flagged for you');
+        const pic = cleaned.crop
+          ? { w: Math.round(qa.size.w * (1 - cleaned.crop.left - cleaned.crop.right)), h: Math.round(qa.size.h * (1 - cleaned.crop.top - cleaned.crop.bottom)) }
+          : qa.size;
+        scenes.push({ key, engine: ENGINES[key].label, file: cleaned.file, qa, crop: cleaned.crop, pic, attempts: attempt, leftoverText: painted, clash });
+        break;
+      }
+    } catch (e) { log(`  ! ${ENGINES[key].label} dropped: ${e.message}`); } };
+    await Promise.all(engines.filter((e) => ENGINES[e]).map(runEngine));
+    if (!scenes.length && !engines.includes('meta')) { log('  · no usable picture from Gemini — trying Meta AI as the fallback'); await runEngine('meta'); }
+    if (!scenes.length) throw new Error('no picture was generated by any engine');
+    scenes.sort((a, b) => engines.indexOf(a.key) - engines.indexOf(b.key));   // stable order: Meta, then Gemini
+
+    // [5/5] layered file → Canva
+    log('\n[5/5] Canva');
+    const canvasW = 1080;
+    const canvasH = Math.round((Number(kSpec.canvas?.h) || 1350) * (1080 / (Number(kSpec.canvas?.w) || 1080)));
+    // One picture -> placed picture + layers. Used for the first build and for any regenerated picture.
+    const buildFromScene = (s, n) => {
+      const sceneBox = sceneLayout(kSpec).box;
+      // Cutout layouts: place the picture so the objects sit exactly in their area.
+      const ob = s.qa.objects_box ? remapAfterCrop(s.qa.objects_box, s.crop) : null;
+      const parts = (s.qa.objects || []).map((q) => ({ ...q, box: remapAfterCrop(q.box, s.crop) }));
+      const placed = placedLayout ? placeObjects(s.file, ob, s.pic, kSpec, join(outDir, `placed-${n}.jpg`), parts) : null;
+      if (placed) {
+        log(`  · placed the ${s.engine} picture so its objects sit inside their area (page colour ${placed.bg}); seam check: ${placed.seam <= 4 ? 'clean' : `VISIBLE edge (step ${placed.seam}/255)`}`);
+        s.file = placed.file;
+      }
+      s.file = brandPurple(s.file, placed?.bg);
+      const kForPage = placed ? { ...kSpec, canvas: { ...kSpec.canvas, background: placed.bg } } : kSpec;
+      const logos = packagingLogos(s.qa, s.crop, sceneBox, { w: canvasW, h: canvasH }, s.pic, placed?.map);
+      if (logos.length) log(`  · placing the real Kapruka logo on ${logos.length} bag/box face${logos.length > 1 ? 's' : ''} (a Canva layer)`);
+      const area = sceneLayout(kSpec).objectsIn;
+      // The layout's own logo copy that sat ON the product is replaced by the packaging logo; the brand
+      // logo itself always goes in the header (enforceLayout keeps it within 110px of the top).
+      const spec = logos.length
+        ? { ...kForPage, elements: (kForPage.elements || []).filter((e) => e.type !== 'logo' || !onProductLogo(e, area)) }
+        : kForPage;
+      if (logos.length) log('  · packaging logo placed on the product; brand logo goes in the header (within 110px of the top)');
+      const layers = toLayers(spec, s.file, result.title, logos);
+      return { layers, logos, placed, sceneSrc: s.file, sceneOpts: { bleed: {}, fullBleed: !placed } };
+    };
+    // A fresh picture from the same engine with the art director's note added (one shot, no retry loop).
+    const regenFor = (s0) => async (note, round) => {
+      log(`  · regenerating the ${s0.engine} picture from the art director's note…`);
+      const prompt = `${basePrompt}\n\n⚠️ REGENERATION NOTE — fix these problems in the picture and change nothing else: ${note}`;
+      const files = await ENGINES[s0.key].run(chrome, prompt, join(outDir, 'renders'), {
+        slug: `scene-${s0.key}-g${round}`, body: prompt, rawPrompt: true, logo: false, attach: attachFiles, log,
+      });
+      const file = toJpg(files[0]);
+      const qa = await inspectScene({ sceneFile: file, outDir, log });
+      writeFileSync(join(outDir, `scene-check-${s0.key}-g${round}.json`), JSON.stringify(qa, null, 2));
+      if ((qa.text_or_logos || []).length) { log('  ! the new picture painted text or logos — discarding it'); return null; }
+      if (clippedEdges(qa.objects_box, sceneLayout(kSpec).objectsIn).length) { log('  ! the new picture has objects cut off by an edge — discarding it'); return null; }
+      const cleaned = cropWatermark(file, qa.watermark);
+      const pic = cleaned.crop
+        ? { w: Math.round(qa.size.w * (1 - cleaned.crop.left - cleaned.crop.right)), h: Math.round(qa.size.h * (1 - cleaned.crop.top - cleaned.crop.bottom)) }
+        : qa.size;
+      return buildFromScene({ key: s0.key, engine: s0.engine, file: cleaned.file, qa, crop: cleaned.crop, pic, attempts: (s0.attempts || 1) + 1, leftoverText: [], clash: [] }, `${s0.n}-g${round}`);
+    };
+    for (const [i, s] of scenes.entries()) {
+      const n = String(i + 1).padStart(2, '0');
+      s.n = n;
+      const { layers, logos, placed } = buildFromScene(s, n);
+      const pptx = await buildLayeredPptx(layers, join(outDir, `design-${n}.pptx`), { log });
+      const v = {
+        engine: s.engine, scene: basename(s.file), pptx: basename(pptx), attempts: s.attempts,
+        check: {
+          paintedText: s.leftoverText, clash: s.clash || [], watermarkCropped: !!s.crop, watermarkLeft: !!(s.qa.watermark.present && !s.crop),
+          packagingLogos: logos.length, notes: s.qa.notes || '',
+        },
+      };
+      await sendToCanva(v, outDir, n, result.title, log);
+      if (v.preview) {
+        try {
+          v.review = await reviewDesign({ previewFile: join(outDir, v.preview), refFiles, concept, replica, log });
+          log(`  · art director: ${v.review.verdict}${v.review.issues?.length ? ` — ${v.review.issues.length} issue(s)` : ''}`);
+        } catch (e) { log(`  ! art-director check failed: ${e.message}`); }
+        // Fix what the art director found — for ANY design, not just known bugs.
+        if (v.review) {
+          try {
+            await polish({ v, layers, sceneSrc: s.file, sceneOpts: { bleed: {}, fullBleed: !placed }, regen: regenFor(s), outDir, n, title: result.title, refFiles, concept, replica, log });
+          }
+          catch (e) { log(`  ! repair pass failed (${e.message}) — keeping the design as first built`); }
+        }
+      }
+      result.variants.push(v);
+      save();
+    }
+    result.finishedAt = new Date().toISOString();
+    const ok = result.variants.filter((v) => v.canva).length;
+    if (!ok) {
+      // Don't report "Done" when nothing reached Canva — the design is saved, so it can be
+      // re-sent with "Retry sending to Canva" without regenerating anything.
+      result.error = `The design was made, but sending it to Canva failed: ${result.variants[0]?.canvaError || 'unknown error'}. Use "Retry sending to Canva".`;
+      save();
+      throw new Error(result.error);
+    }
+    save();
+    // The learning loop: remember this prompt, the conditions it ran under and how it turned out.
+    try {
+      const n = recordRun({ runDir: outDir, result, kSpec, relation, kind, target, hasProducts: !!products?.sheet, attached: roles.map((r) => r.replace(/^Image \d+ is /, '').slice(0, 60)) });
+      if (n) log(`  · playbook: recorded ${n} design${n === 1 ? '' : 's'} to learn from`);
+    } catch (e) { log(`  · playbook not updated (${String(e.message).slice(0, 80)})`); }
+    // Final output: every run ends with a finished PNG per design plus FINAL.png (the better one), so the
+    // pipeline reaches "final" without anyone clicking "pull final". Editing in Canva and pulling again
+    // still works and simply adds a newer final-NN file.
+    try {
+      log('[final] exporting the final PNGs from Canva…');
+      let bestIdx = -1;
+      for (let i = 0; i < result.variants.length; i++) {
+        const v = result.variants[i];
+        if (!v.canva?.id) continue;
+        await pullFinal(outDir, i, { log });
+        const sc = reviewScore(v.review);
+        if (bestIdx < 0 || sc > reviewScore(result.variants[bestIdx].review)) bestIdx = i;
+      }
+      if (bestIdx >= 0) {
+        const fresh = JSON.parse(readFileSync(join(outDir, 'design.json'), 'utf8'));
+        const bv = fresh.variants[bestIdx];
+        copyFileSync(join(outDir, bv.final), join(outDir, 'FINAL.png'));
+        fresh.best = bestIdx;
+        writeFileSync(join(outDir, 'design.json'), JSON.stringify(fresh, null, 2));
+        Object.assign(result, { variants: fresh.variants, best: bestIdx });
+        log(`  ✓ final output: FINAL.png = design ${bestIdx + 1} (${bv.engine}, art director: ${bv.review?.verdict || 'n/a'})`);
+      }
+    } catch (e) { log(`  ! final export failed (${String(e.message).slice(0, 120)}) — use "pull final" on the design`); }
+    log(`✅ Done — ${ok} design${ok === 1 ? '' : 's'} in Canva.`);
+    log(`\nDone → ${outDir}`);
+    return { outDir, images: result.variants.map((v) => v.preview).filter(Boolean), result };
+  } catch (err) {
+    result.error = err.message;
+    save();
+    log(`\nFAILED: ${err.message}`);
+    throw Object.assign(err, { outDir });
+  } finally {
+    await chrome?.close();
+  }
+}
+
+/**
+ * Pixel audit of what Canva actually rendered (the automated version of the hand-built audit9.py): diff the export against
+ * the plain picture plate to isolate the text/logo layers, group them into blocks, and report each block's margins and how
+ * far it sits from the page centre. Informational: it is logged and stored on the variant (v.audit); the art director fixes.
+ */
+export function auditMargins(previewFile, plateFile, log = () => {}) {
+  if (!plateFile || !existsSync(plateFile)) return null;
+  const out = py(`import sys,json,numpy as np
+from PIL import Image
+from scipy import ndimage as ndi
+W,H,M=1080,1350,%d
+ex=np.asarray(Image.open(sys.argv[1]).convert("RGB").resize((W,H))).astype(int)
+bg=np.asarray(Image.open(sys.argv[2]).convert("RGB").resize((W,H))).astype(int)
+mask=np.abs(ex-bg).max(axis=2)>70
+mask=ndi.binary_opening(mask,iterations=1)
+blocks,k=ndi.label(ndi.binary_dilation(mask,structure=np.ones((9,41))))
+res=[]
+for i in range(1,k+1):
+    ys,xs=np.where((blocks==i)&mask)
+    if len(xs)<150: continue
+    x0,x1,y0,y1=int(xs.min()),int(xs.max()),int(ys.min()),int(ys.max())
+    res.append({"x0":x0,"x1":x1,"y0":y0,"y1":y1,"left":x0,"right":W-1-x1,"top":y0,"bottom":H-1-y1,"off_centre":int(round((x0+x1)/2-W/2))})
+print(json.dumps(res))`.replace('%d', String(Math.round(SAFE_PX * 0.9))), previewFile, plateFile);
+  const blocks = JSON.parse(out.split('\n').pop());
+  const M = Math.round(SAFE_PX * 0.9);
+  const flags = [];
+  for (const b of blocks) {
+    const where = `block at y ${b.y0}–${b.y1}`;
+    if (b.left < M) flags.push(`${where}: left margin ${b.left}px`);
+    if (b.right < M) flags.push(`${where}: right margin ${b.right}px`);
+    if (b.top < M) flags.push(`${where}: top margin ${b.top}px`);
+    if (b.bottom < M) flags.push(`${where}: bottom margin ${b.bottom}px`);
+    if (Math.abs(b.off_centre) > 14 && Math.abs(b.left - b.right) > 28 && b.left > M && b.right > M && (b.x1 - b.x0) < 900) flags.push(`${where}: sits ${b.off_centre > 0 ? '+' : ''}${b.off_centre}px off centre`);
+  }
+  log(`  · margin audit: ${blocks.length} text/logo block(s) measured${flags.length ? ` — ${flags.join('; ')}` : ', all inside the margins'}`);
+  return { blocks: blocks.length, flags };
+}
+
+/** Import one variant's layered file into Canva and export a preview. Records the outcome on v. */
+async function sendToCanva(v, outDir, n, title, log) {
+  try {
+    const [d] = await importDesign(join(outDir, v.pptx), `Ashadi · ${title}`.slice(0, 50), { log });
+    v.canva = { id: d.id, editUrl: d.editUrl, viewUrl: d.viewUrl };
+    delete v.canvaError;
+    const preview = await exportPng(d.id, join(outDir, `preview-${n}.png`), { log });
+    v.preview = basename(preview);
+    log(`  ✓ in Canva: design ${d.id} (${v.engine})`);
+    try { v.audit = auditMargins(join(outDir, v.preview), v.scene ? join(outDir, v.scene) : '', log); } catch (e) { log(`  · margin audit skipped (${String(e.message).split('\n')[0].slice(0, 80)})`); }
+  } catch (e) {
+    v.canvaError = e.message;
+    log(`  ! Canva step failed for ${v.engine}: ${e.message} — the layered file is saved; it can be re-sent`);
+  }
+}
+
+/**
+ * Rebuild a run's design from its EXISTING picture (no new generation): re-check the
+ * picture, re-place packaging logos, rebuild the layers with the current code, send to
+ * Canva and review. Used after layout fixes, so an old run gets the improvements.
+ */
+export async function rebuildDesign(runDir, { log = console.log } = {}) {
+  const file = join(runDir, 'design.json');
+  const result = JSON.parse(readFileSync(file, 'utf8'));
+  const kSpec = JSON.parse(readFileSync(join(runDir, 'kapruka-spec.json'), 'utf8'));
+  const refSpec = JSON.parse(readFileSync(join(runDir, 'reference-spec.json'), 'utf8'));
+  const refFiles = (result.reference || []).map((f) => join(runDir, 'reference', f));
+  result.title = designTitle(kSpec, result.title || 'design');
+  const old = result.variants?.[0];
+  if (!old?.scene) throw new Error('this run has no picture to rebuild from');
+  let sceneFile = toJpg(join(runDir, 'renders', old.scene));
+  const qa = await inspectScene({ sceneFile, outDir: runDir, log });
+  writeFileSync(join(runDir, 'scene-check-rebuild.json'), JSON.stringify(qa, null, 2));
+  const cleaned = cropWatermark(sceneFile, qa.watermark);
+  sceneFile = cleaned.file;
+  const pic = cleaned.crop
+    ? { w: Math.round(qa.size.w * (1 - cleaned.crop.left - cleaned.crop.right)), h: Math.round(qa.size.h * (1 - cleaned.crop.top - cleaned.crop.bottom)) }
+    : qa.size;
+  const canvasH = Math.round((Number(kSpec.canvas?.h) || 1350) * (1080 / (Number(kSpec.canvas?.w) || 1080)));
+  const n = String((result.variants || []).length + 1).padStart(2, '0');
+  // Same placement + one-logo rules as runDesign.
+  const ob = qa.objects_box ? remapAfterCrop(qa.objects_box, cleaned.crop) : null;
+  const parts = (qa.objects || []).map((q) => ({ ...q, box: remapAfterCrop(q.box, cleaned.crop) }));
+  const placed = sceneLayout(kSpec).objectsIn ? placeObjects(sceneFile, ob, pic, kSpec, join(runDir, `placed-${n}.jpg`), parts) : null;
+  if (placed) sceneFile = placed.file;
+  sceneFile = brandPurple(sceneFile, placed?.bg);
+  const kForPage = placed ? { ...kSpec, canvas: { ...kSpec.canvas, background: placed.bg } } : kSpec;
+  const logos = packagingLogos(qa, cleaned.crop, sceneLayout(kSpec).box, { w: 1080, h: canvasH }, pic, placed?.map);
+  const area = sceneLayout(kSpec).objectsIn;
+  const spec = logos.length
+    ? { ...kForPage, elements: (kForPage.elements || []).filter((e) => e.type !== 'logo' || !onProductLogo(e, area)) }
+    : kForPage;
+  const pptx = await buildLayeredPptx(toLayers(spec, sceneFile, result.title, logos), join(runDir, `design-${n}.pptx`), { log });
+  const v = {
+    engine: old.engine, scene: basename(sceneFile).replace(/^/, ''), pptx: basename(pptx), attempts: 1, rebuilt: true,
+    check: { paintedText: qa.text_or_logos.map((t) => t.what), watermarkCropped: !!cleaned.crop, watermarkLeft: !!(qa.watermark.present && !cleaned.crop), packagingLogos: logos.length, notes: qa.notes || '' },
+  };
+  // the picture may live in renders/ — keep the path relative to the run for the viewer
+  if (sceneFile.includes(`${join(runDir, 'renders')}`)) v.scene = basename(sceneFile);
+  await sendToCanva(v, runDir, n, result.title, log);
+  if (v.preview) {
+    try { v.review = await reviewDesign({ previewFile: join(runDir, v.preview), refFiles, concept: result.concept || null, log }); } catch (e) { log(`  ! art-director check failed: ${e.message}`); }
+  }
+  result.variants = [v, ...(result.variants || [])];
+  if (v.canva) delete result.error;
+  writeFileSync(file, JSON.stringify(result, null, 2));
+  return { result, variant: v };
+}
+
+/** Re-send every variant that never reached Canva (the picture and layers are reused). */
+export async function retryCanva(runDir, { log = console.log } = {}) {
+  const file = join(runDir, 'design.json');
+  const result = JSON.parse(readFileSync(file, 'utf8'));
+  const todo = (result.variants || []).map((v, i) => ({ v, i })).filter(({ v }) => !v.canva && v.pptx);
+  if (!todo.length) throw new Error('nothing to re-send — every design is already in Canva');
+  for (const { v, i } of todo) await sendToCanva(v, runDir, String(i + 1).padStart(2, '0'), result.title || 'design', log);
+  const ok = (result.variants || []).some((v) => v.canva);
+  if (ok) { delete result.error; result.finishedAt = new Date().toISOString(); }
+  writeFileSync(file, JSON.stringify(result, null, 2));
+  if (!ok) throw new Error(todo[0].v.canvaError || 'Canva import failed again');
+  return result;
+}
+
+/** Pull the edited design back out of Canva as the final PNG. */
+export async function pullFinal(runDir, variantIndex = 0, { log = console.log } = {}) {
+  const file = join(runDir, 'design.json');
+  const result = JSON.parse(readFileSync(file, 'utf8'));
+  const v = result.variants?.[variantIndex];
+  if (!v?.canva?.id) throw new Error('this design was never imported into Canva');
+  const out = join(runDir, `final-${String(variantIndex + 1).padStart(2, '0')}-${stamp()}.png`);
+  if ((v.pages || 1) > 1) {
+    // a carousel: one PNG per page of the project, in page order
+    const saved = await exportPages(v.canva.id, out.replace(/\.png$/, ''), { width: 1080, pages: Array.from({ length: v.pages }, (_, i) => i + 1), log });
+    v.finals = saved.map((f) => basename(f));
+    v.final = v.finals[0];
+    v.finalAt = new Date().toISOString();
+    writeFileSync(file, JSON.stringify(result, null, 2));
+    return saved[0];
+  }
+  await exportPng(v.canva.id, out, { width: 1080, log });
+  v.final = basename(out);
+  v.finalAt = new Date().toISOString();
+  writeFileSync(file, JSON.stringify(result, null, 2));
+  return out;
+}

@@ -1,0 +1,37 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "bag",
+      "face": {
+        "x": 12,
+        "y": 60,
+        "w": 40.5,
+        "h": 33.5
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    },
+    {
+      "kind": "other",
+      "face": {
+        "x": 0,
+        "y": 3,
+        "w": 39.5,
+        "h": 36
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    }
+  ],
+  "notes": "No people, so no hand/finger issues. The gold liquid pouring from the handbag into the shopping bag is intentionally surreal (CG-style molten pour) rather than a render defect, but the strands read as solid plastic/resin rather than flowing liquid — no surface tension, no droplets, no splash where it meets the bag rim, and the pooled gold at the bottom has a hard rubbery edge. The handbag is cropped at the left edge and its strap/handle terminates ambiguously around x 0-7%, y 38-48%. The watch at x 14-28%, y 51-60% has a blank, dial-less face (no hands, no markers) and its bracelet links flatten into the gold with no clear contact point; the perfume bottle at x 40-50%, y 51-61% has a plain untextured cap and a visually unsupported base that appears to float on the bag rim. The right half of the frame (roughly x 55-100%) is empty white, which is fine for Canva text but means the composition is entirely left-weighted. Background is pure white studio seamless with a faint soft shadow only at bottom-left.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

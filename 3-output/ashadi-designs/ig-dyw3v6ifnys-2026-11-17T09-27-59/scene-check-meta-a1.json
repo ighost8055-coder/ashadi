@@ -1,0 +1,49 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red patent stiletto pump, floating",
+      "box": {
+        "x": 5,
+        "y": 4,
+        "w": 47.5,
+        "h": 47.5
+      }
+    },
+    {
+      "what": "red glossy drip running from the heel down and forming a three-tine pitchfork stuck into the cake",
+      "box": {
+        "x": 34,
+        "y": 26,
+        "w": 13.5,
+        "h": 45
+      }
+    },
+    {
+      "what": "chocolate drip cake on a white pedestal cake stand, with glaze puddles on the plate and a soft shadow under the stand",
+      "box": {
+        "x": 5,
+        "y": 66,
+        "w": 53,
+        "h": 31
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 5,
+    "y": 4,
+    "w": 53,
+    "h": 93
+  },
+  "notes": "No text, logos or watermark anywhere. The shoe, drip and cake form one connected group: the drip from the heel becomes a red pitchfork whose tines go into the cake. This is a deliberate surreal device but reads as melted, liquid red. The heel tip and the start of the drip blend a little where they meet at about x 45-47, y 26-30. The shoe floats with no shadow on the backdrop. The glaze is very glossy and slightly CG-looking. The cake crumb and the stand look clean, with no obvious artefacts. The whole right side (x 58-100) and the top-left corner are empty white space, usable for copy.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

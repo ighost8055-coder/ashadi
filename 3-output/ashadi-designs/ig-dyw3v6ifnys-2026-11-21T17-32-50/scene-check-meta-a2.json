@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red patent leather high-heel shoe with devil pitchfork heel",
+      "box": {
+        "x": 3,
+        "y": 13,
+        "w": 78.5,
+        "h": 59.5
+      }
+    },
+    {
+      "what": "chocolate cake with dripping chocolate glaze, puddle, and cast shadow",
+      "box": {
+        "x": 3,
+        "y": 69.5,
+        "w": 53.5,
+        "h": 25
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 3,
+    "y": 13,
+    "w": 78.5,
+    "h": 81.5
+  },
+  "notes": "",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

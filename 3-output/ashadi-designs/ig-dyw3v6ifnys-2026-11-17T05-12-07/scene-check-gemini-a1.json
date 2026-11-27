@@ -1,0 +1,31 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "flat grey rounded-rectangle shape, cropped off the left edge, on a plain white background",
+      "box": {
+        "x": 0,
+        "y": 10,
+        "w": 35.5,
+        "h": 73.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 10,
+    "w": 35.5,
+    "h": 73.5
+  },
+  "notes": "This is not a usable scene render. The entire frame is plain flat white except for a single uniform mid-grey rounded rectangle bleeding off the left edge (0-35.5% wide, 10-83.5% tall). No products, no people, no packaging, no texture, no lighting, no shadow, no gradient - the grey is a solid untextured fill, the white is a solid untextured fill. It reads as a placeholder/failed generation or a UI mask, not a photograph. Nothing to use as an ad background; recommend regenerating.",
+  "size": {
+    "w": 1080,
+    "h": 1350
+  }
+}

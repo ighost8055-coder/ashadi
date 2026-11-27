@@ -1,0 +1,58 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red patent stiletto pump, floating",
+      "box": {
+        "x": 5.5,
+        "y": 8,
+        "w": 44,
+        "h": 27.5
+      }
+    },
+    {
+      "what": "stiletto heel stretching down into a red devil's-trident fork (connects the shoe to the jar)",
+      "box": {
+        "x": 40.5,
+        "y": 18,
+        "w": 9.5,
+        "h": 43
+      }
+    },
+    {
+      "what": "glass caramel/dulce de leche jar with a blank red label, caramel overflowing and dripping down the sides",
+      "box": {
+        "x": 33,
+        "y": 60.5,
+        "w": 25.5,
+        "h": 32.5
+      }
+    },
+    {
+      "what": "soft cast shadow of the jar, running to the right",
+      "box": {
+        "x": 34,
+        "y": 89.5,
+        "w": 43.5,
+        "h": 4.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 5.5,
+    "y": 8,
+    "w": 72,
+    "h": 86
+  },
+  "notes": "No text, logos or watermark found. The red jar label is a plain blank surface. There is no gift bag or gift box: the jar is a product, so packaging is empty. The heel melting into a trident is the intended surreal device, not a rendering fault; the trident tines look clean. The shoe looks real and has no deformities. The shadow is faint and only slightly darker than the white backdrop.",
+  "size": {
+    "w": 825,
+    "h": 1024
+  }
+}

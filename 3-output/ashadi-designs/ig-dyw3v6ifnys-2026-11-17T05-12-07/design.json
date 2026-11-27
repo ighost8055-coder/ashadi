@@ -1,0 +1,164 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-17T05:12:07.679Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "placed-01.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 1,
+        "notes": "Clean background layer — no lettering, numerals, brand marks, labels or pseudo-text anywhere, including on the purple bag panels and the handbag surface. No AI badge or corner stamp. Right third and bottom-right of the frame are empty white, so there is open space for Canva type. The purple bag front face (16-51.5% x, 53-93.5% y) is the flat dark panel a logo would sit on, but the gold pour crosses its right side from about x=44 to x=51 between y=55 and y=92 — keep any mark left of x=42. Shadow/contact under the bag is very faint and nearly invisible against the white backdrop, so the bag reads slightly as if floating. The melting handbag and gold flow are intentionally surreal, not render errors; no hands, faces or anatomy in frame. Handbag quilting and seams are consistent; no melted or duplicated hardware."
+      },
+      "canva": {
+        "id": "DAHbJTIktBo",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDg1MDc2MTc0fQ..Bqvh9HZJJsoPBklB.hSwZV4v8ztteVS74RS1IPQ02kVptWibog9wZM5hCqwDT947PnfFlCGRk9jynAXQ84bhtJ74GhWuBO7HRkyBcweJGhyP2lUGJO-Zf7j9fwJJsCV4.UNkqB6nIoha7VhWy006AAg/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=346ff69e-c181-4cc8-9dd3-e7b41b2b3174&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDg1MDc2MTc0fQ..Bqvh9HZJJsoPBklB.hSwZV4v8ztteVS74RS1IPQ02kVptWibog9wZM5hCqwDT947PnfFlCGRk9jynAXQ84bhtJ74GhWuBO7HRkyBcweJGhyP2lUGJO-Zf7j9fwJJsCV4.UNkqB6nIoha7VhWy006AAg/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=faee5a98-ffac-4c87-b35d-a795c515b60d&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Second ghost Kapruka wordmark faintly visible below the bag — two logos in frame",
+            "fix_in_canva": "Delete the faded duplicate logo element below the bag; keep only the one on the bag"
+          },
+          {
+            "severity": "high",
+            "what": "Headline set in a serif face, not bold Poppins as brand requires",
+            "fix_in_canva": "Select all headline text, set font to Poppins Bold, re-balance line sizes"
+          },
+          {
+            "severity": "high",
+            "what": "Large dead white zone from y~850 to the tagline; composition top-heavy, unbalanced",
+            "fix_in_canva": "Scale bag+pour group up ~20% and shift down, or raise tagline closer"
+          },
+          {
+            "severity": "medium",
+            "what": "'THE WHOLE / LIST / ONE BAG' doesn't parse in one second; 'LIST' orphaned",
+            "fix_in_canva": "Rewrite to a direct line, e.g. 'THE WHOLE LIST / IN ONE BAG'"
+          },
+          {
+            "severity": "medium",
+            "what": "Gold pour runs down the bag's front face and pools outside — reads as spill",
+            "fix_in_canva": "Move drip so stems enter the bag opening; remove the front-face run and floor pool"
+          },
+          {
+            "severity": "medium",
+            "what": "Handbag cropped hard by both top and left edges; reference kept top breathing room",
+            "fix_in_canva": "Nudge handbag down ~60px so chain and top edge sit inside the frame"
+          },
+          {
+            "severity": "medium",
+            "what": "Headline right edge nearly touches canvas; margin tighter than reference",
+            "fix_in_canva": "Shift headline block left ~30px to match the bottom tagline's margin"
+          },
+          {
+            "severity": "low",
+            "what": "Gold drip reads metallic gold, not Kapruka yellow; brand colour link is weak",
+            "fix_in_canva": "Adjust drip hue toward #FFD21E, or accept as declared metallic treatment"
+          }
+        ],
+        "strengths": [
+          "Pour-into-product device faithfully echoes the reference",
+          "Correct 4:5 frame and true Kapruka purple bag",
+          "Headline block vertically aligns with the product, like reference"
+        ]
+      }
+    },
+    {
+      "engine": "Gemini",
+      "scene": "placed-02.jpg",
+      "pptx": "design-02.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": "This is not a usable scene render. The entire frame is plain flat white except for a single uniform mid-grey rounded rectangle bleeding off the left edge (0-35.5% wide, 10-83.5% tall). No products, no people, no packaging, no texture, no lighting, no shadow, no gradient - the grey is a solid untextured fill, the white is a solid untextured fill. It reads as a placeholder/failed generation or a UI mask, not a photograph. Nothing to use as an ad background; recommend regenerating."
+      },
+      "canva": {
+        "id": "DAHbJflBrQw",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDg1MTU0OTgzfQ..GV91BKddOPKm8ehB.Paj33baClTdKkEKt126A7BaxHM4tfymeKGrJmo63c-4k08lQ1M-g6eeKyMAduD-2C44DesK8Rd-7nRj41k5Q-UDVElFbZHpoUoYxo6BKH3i4mZI.QJJoYVyUWFtYDAVV2tDiVw/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=02758aa3-b8ba-494e-8357-3c1aa513a013&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3NDg1MTU0OTgzfQ..GV91BKddOPKm8ehB.Paj33baClTdKkEKt126A7BaxHM4tfymeKGrJmo63c-4k08lQ1M-g6eeKyMAduD-2C44DesK8Rd-7nRj41k5Q-UDVElFbZHpoUoYxo6BKH3i4mZI.QJJoYVyUWFtYDAVV2tDiVw/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=dfe95e2e-101a-4cb7-a06e-849431cfb527&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-02.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Hero image missing — grey placeholder box instead of the product visual",
+            "fix_in_canva": "Replace grey rectangle with the generated bag/product PNG, transparent background"
+          },
+          {
+            "severity": "high",
+            "what": "Placeholder box bleeds off left and top edges, breaking reference margins",
+            "fix_in_canva": "Inset image to match reference: full left margin, centred vertically in upper two-thirds"
+          },
+          {
+            "severity": "high",
+            "what": "Kapruka logo renders as near-white ghost, only the yellow arc visible",
+            "fix_in_canva": "Set logo to purple #4B2386 version at full opacity over the white ground"
+          },
+          {
+            "severity": "high",
+            "what": "Logo sits orphaned mid-canvas over empty white, no anchor",
+            "fix_in_canva": "Move logo to bottom area above tagline, or bottom-left corner, consistent size"
+          },
+          {
+            "severity": "medium",
+            "what": "Headline block not in bold Poppins — it is a serif face",
+            "fix_in_canva": "Reset all four headline lines to Poppins Bold per brand rules"
+          },
+          {
+            "severity": "medium",
+            "what": "Headline right edge nearly touches canvas edge; no right margin",
+            "fix_in_canva": "Shift headline block left ~60px so right margin matches bottom tagline margin"
+          },
+          {
+            "severity": "medium",
+            "what": "Huge dead white band between logo and bottom tagline",
+            "fix_in_canva": "Scale hero image larger and lift tagline up to close the gap"
+          },
+          {
+            "severity": "medium",
+            "what": "Headline vertical centre sits far below image centre; blocks unaligned",
+            "fix_in_canva": "Align headline optical centre to the hero image's vertical centre"
+          },
+          {
+            "severity": "low",
+            "what": "Tagline is the only element in bold Poppins, inconsistent with headline",
+            "fix_in_canva": "After font fix, size tagline smaller than headline to restore hierarchy"
+          },
+          {
+            "severity": "low",
+            "what": "\"THE\" and \"LIST\" tracking looks tighter than reference's airy small caps",
+            "fix_in_canva": "Increase letter spacing on THE and LIST to roughly 200"
+          }
+        ],
+        "strengths": [
+          "Headline word-stack rhythm faithfully mirrors the reference",
+          "Clean white ground and strong purple give good contrast",
+          "Tagline centred cleanly with correct bottom margin"
+        ]
+      }
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "title": "The Whole List One Bag",
+  "finishedAt": "2026-11-17T05:26:25.845Z"
+}

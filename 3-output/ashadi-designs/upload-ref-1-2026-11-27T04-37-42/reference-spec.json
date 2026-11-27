@@ -1,0 +1,113 @@
+{
+  "canvas": {
+    "w": 736,
+    "h": 1024,
+    "aspect": "~5:7 (0.719; not true 4:5)",
+    "background": "#DC6266",
+    "background_kind": "photo"
+  },
+  "layout_summary": "A full-bleed studio photo built as a set: a coral-red wall wraps in an L shape around a sky-blue rectangle that fills the upper right. A dark textured pole runs down the centre, six arms reach in from alternating sides and hold it like a crowded bus rail, each wearing a different watch, and a seventh hand points at a red stop button on a cyan sleeve fitted to the pole.",
+  "grid": {
+    "margins_pct": {
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    },
+    "alignment_axes": [
+      "The pole is the master vertical axis: x=47.5% to 52.5%, centre at x=50%, bleeding off the top and bottom edges",
+      "All hands that grip the pole share its left edge: their knuckles stack at x≈43% (top-right, mid-right and lower-right arms) and their fingers wrap to x≈57% (the pink-sleeve and tattooed hands)",
+      "The four right-hand sleeves all bleed off the right edge and begin at x≈72–73% (green, floral) or x≈70% (gingham)",
+      "The watch faces sit in two rough columns: left-side arms at x≈30–37% and right-side arms at x≈61–71%",
+      "The blue panel's left edge at x=24.5% runs almost exactly along the cuff ends of the pink and navy sleeves (x≈26–29%)",
+      "The pointing fingertip (x≈41%, y≈55%) is level with the red button (x≈50%, y≈56%), so the two read as one horizontal line"
+    ],
+    "whitespace": [
+      "Top band, y=0–8%: only the pole and blue/red wall; the first fingertip enters at y≈7.5%",
+      "Upper-left red column, x=0–24.5%, y=0–26%: empty coral wall",
+      "Left blue gap, x=24.5–43%, y=39–53%: open blue between the pink arm and the pointing hand",
+      "Right blue gap, x=60–100%, y=47–66%: the largest calm area, open blue to the right of the button sleeve",
+      "Bottom band, x=58–100%, y=82–100%: open coral below the gingham arm (lower-right corner carries a UI overlay — see ornaments)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 0,
+      "w": 100,
+      "h": 100
+    },
+    "kind": "photo",
+    "framing": "full-bleed",
+    "subject": "A studio set with a coral-red wall and a sky-blue rectangular panel. A vertical grab pole has a dark charcoal knurled or diamond-texture grip and a smooth cyan sleeve with a round red stop button. Seven forearms reach in horizontally from the left and right edges. They have diverse skin tones and each wears a different wristwatch: rose gold and teal on mesh, pink dial on a pink leather strap, rose and black chronograph on a black strap, purple dial on a purple strap, green dial on gold mesh, and blue chronograph on steel mesh. The sleeves are a green tailored jacket with three cuff buttons and a striped knit cuff, a pink wool coat, a navy jacket with a crane/floral print, a purple and lilac sleeve with a large polka dot, a black and white gingham coat, and a navy textured jacket with a white shirt cuff and four buttons. The bottom hand has heavy floral tattoos. Six hands grip the pole; one hand with a red-manicured index finger points at the red button.",
+    "composition": "Arms alternate sides as they go down the frame: right (green) y=8–28%; left (pink) y=22.5–39%; right (floral) y=34–47%; left (pointing) y=53.5–62%; right (gingham) y=65–82%; left (navy/tattoo) y=77–92.5%. Each arm is cropped by its canvas edge and fills roughly 55–60% of the width. Pole: x=47.5–52.5%, full height. Cyan sleeve: x=47.5–52.5%, y=49–65.5%. Red button: centre x=50%, y=56%, diameter ≈3.5%. Blue panel: x=24.5–100%, y=0–69.5%. The coral wall is an L shape: the left column x=0–24.5% across the full height, plus the bottom band y=69.5–100% across the full width. Watches sit at: green-arm x=63–67%, y=16–21%; pink x=30–37%, y=27–33.5%; floral x=64–71%, y=37–44%; pointing x=11–16%, y=53.5–60%; gingham x=61–68%, y=69–76%; tattoo x=30–37.5%, y=81–89%.",
+    "camera": "Straight-on, eye-level and orthographic in feel. It looks like a long lens with no perspective convergence, and the pole is perfectly vertical. Deep depth of field: every watch dial and fabric weave is sharp.",
+    "lighting": "Soft, even, high-key studio light from the front and slightly above. Shadows on the walls are minimal, with gentle shading under fingers and sleeves and small specular highlights on the watch cases and crystals. Neutral white balance.",
+    "palette": [
+      "#DC6266",
+      "#8EC9EE",
+      "#3A3D44",
+      "#2BA6D8",
+      "#D3312C",
+      "#4F7A4E",
+      "#E8AAA3",
+      "#2A2E45",
+      "#F2F2F2",
+      "#C9A27A"
+    ],
+    "negative_space": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 24.5,
+        "h": 22
+      },
+      {
+        "x": 60,
+        "y": 47,
+        "w": 40,
+        "h": 18
+      },
+      {
+        "x": 24.5,
+        "y": 39.5,
+        "w": 18,
+        "h": 13
+      },
+      {
+        "x": 58,
+        "y": 83,
+        "w": 42,
+        "h": 17
+      }
+    ]
+  },
+  "elements": [],
+  "ornaments": [
+    {
+      "description": "Pinterest visual-search (lens) UI button: a semi-transparent dark-red circle with a white rounded-corner viewfinder and magnifier icon. It is a screenshot artifact, NOT part of the creative, so exclude it when rebuilding. Confidence: high that it is an overlay.",
+      "box": {
+        "x": 85.5,
+        "y": 89.5,
+        "w": 11.5,
+        "h": 8
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "ornament (UI overlay, discard)"
+  ],
+  "hierarchy": [
+    "scene: red button on the cyan sleeve, the only saturated warm dot on the central axis (x=50%, y=56%)",
+    "scene: pointing hand with red nail, which leads the eye straight to the button",
+    "scene: the six gripping arms and their watch faces, read in a zig-zag from top to bottom",
+    "scene: sleeve fabrics, which reveal a different person per arm"
+  ],
+  "why_it_works": [
+    "It passes the Living Frame Test: six strangers share one commuter pole, and the pointing hand catches someone about to press 'stop', a moment everyone recognises with nothing explained in words.",
+    "Range by casting: each arm is a different person with a different style and a different watch, so one category shows breadth through variety rather than count. The diagonal zig-zag keeps the eye moving.",
+    "The figure/ground is clean: two flat colour fields with the pole and arms on top, and the one red button as the unmistakable first stop. Hierarchy comes from colour, not type."
+  ]
+}

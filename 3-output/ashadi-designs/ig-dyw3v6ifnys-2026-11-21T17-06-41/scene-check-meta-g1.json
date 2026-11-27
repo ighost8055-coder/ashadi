@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "purple patent high-heel shoe with three fork-like prongs extending from the sole",
+      "box": {
+        "x": 5,
+        "y": 7.5,
+        "w": 61,
+        "h": 64
+      }
+    },
+    {
+      "what": "round chocolate cake with dripping chocolate ganache, puddle, and shadow",
+      "box": {
+        "x": 3,
+        "y": 68.5,
+        "w": 79.5,
+        "h": 26
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 3,
+    "y": 7.5,
+    "w": 79.5,
+    "h": 87
+  },
+  "notes": "",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

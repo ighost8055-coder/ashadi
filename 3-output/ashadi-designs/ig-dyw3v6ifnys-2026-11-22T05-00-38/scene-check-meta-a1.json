@@ -1,0 +1,113 @@
+{
+  "text_or_logos": [
+    {
+      "what": "DOLCE & GABBANA The Only One",
+      "box": {
+        "x": 22,
+        "y": 24.5,
+        "w": 20.5,
+        "h": 5.5
+      }
+    },
+    {
+      "what": "EAU DE PARFUM 100 ML 3.38 FL. OZ.",
+      "box": {
+        "x": 28,
+        "y": 37.5,
+        "w": 8.5,
+        "h": 4
+      }
+    },
+    {
+      "what": "BOSS HUGO BOSS UNLIMITED",
+      "box": {
+        "x": 52.5,
+        "y": 36.5,
+        "w": 13.5,
+        "h": 21.5
+      }
+    },
+    {
+      "what": "EAU DE TOILETTE 100 ML 3.2 FL. OZ.",
+      "box": {
+        "x": 54.5,
+        "y": 59,
+        "w": 7.5,
+        "h": 2.5
+      }
+    },
+    {
+      "what": "هوس HAWAS ELIXIR",
+      "box": {
+        "x": 38,
+        "y": 64,
+        "w": 8.5,
+        "h": 8.5
+      }
+    },
+    {
+      "what": "الرصاصي / ZACLO (garbled text)",
+      "box": {
+        "x": 38,
+        "y": 78,
+        "w": 8.5,
+        "h": 4.5
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "Dolce & Gabbana The Only One perfume bottle",
+      "box": {
+        "x": 19.5,
+        "y": 5,
+        "w": 25.5,
+        "h": 39.5
+      }
+    },
+    {
+      "what": "Hugo Boss Unlimited perfume bottle",
+      "box": {
+        "x": 48,
+        "y": 22.5,
+        "w": 22.5,
+        "h": 40.5
+      }
+    },
+    {
+      "what": "Hawas Elixir perfume bottle",
+      "box": {
+        "x": 28.5,
+        "y": 50,
+        "w": 23.5,
+        "h": 34
+      }
+    },
+    {
+      "what": "Tiered translucent purple acrylic display stand with shadow",
+      "box": {
+        "x": 2,
+        "y": 42,
+        "w": 91.5,
+        "h": 54.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 2,
+    "y": 5,
+    "w": 91.5,
+    "h": 91.5
+  },
+  "notes": "Garbled embossed pseudo-text ('ZACLO') at the bottom base of the gold Hawas Elixir bottle instead of 'RASASI'.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

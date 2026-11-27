@@ -1,0 +1,93 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": "Format: feed 4:5, 1080x1350. Background: Kapruka Purple #3C096C to #100223. Hero product: gaming console with a controller, placed centrally at 45-55% frame width, resting on a cream plinth #F5F4EB. On-image text: “Explore top gaming consoles” in Inter Black, white #FFFFFF. Support line: “Ultimate playtime awaits in Sri Lanka” in Inter Medium, white #FFFFFF. Lighting: soft, warm light emphasizing the console and controller. NEGATIVE: price tags, discount badges, stars, SHOP NOW buttons, app UI, watermarks, second Kapruka logo, busy patterns.",
+  "startedAt": "2026-11-26T07:42:27.656Z",
+  "variants": [
+    {
+      "engine": "Gemini",
+      "scene": "scene-gemini-a2-gemini-01-raw-brand.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": "The controller has a visible 'FANTECH' wordmark and logo in the center, and the person appears to be wearing metal watch bands on both wrists."
+      },
+      "canva": {
+        "id": "DAHb_zUfGJw",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjcxNDk3MzU2fQ..kY8vRu0v-9hsxc-t.dRog_mmEsDpT0zf-UakA5-KqOqK5252tTGPtpQW53OOFWUk9bwknk3D5b9M9MxRjEpyRPRQoYFq3ODeErZ2C3HDBTKWPa-joaYm9Iph6BwC7V1U.cP0AuE49NRbS5z91Y6ClUA/edit?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=842301f5-bb15-4387-a600-6c535146d1d5&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjcxNDk3MzU2fQ..kY8vRu0v-9hsxc-t.dRog_mmEsDpT0zf-UakA5-KqOqK5252tTGPtpQW53OOFWUk9bwknk3D5b9M9MxRjEpyRPRQoYFq3ODeErZ2C3HDBTKWPa-joaYm9Iph6BwC7V1U.cP0AuE49NRbS5z91Y6ClUA/view?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=fa8cf08d-c134-4484-9924-51651a25a112&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "audit": null,
+      "review": {
+        "verdict": "minor-fixes",
+        "issues": [
+          {
+            "severity": "medium",
+            "what": "Brand guidelines require Poppins ExtraBold/Bold for headlines and a clear CTA, which is missing here.",
+            "fix_in_canva": "Verify headline font matches Inter/Poppins rule and add a concise yellow CTA if required by campaign."
+          },
+          {
+            "severity": "low",
+            "what": "Kapruka logo top edge sits slightly high near the 110px threshold on the 1080x1350 canvas.",
+            "fix_in_canva": "Nudge the Kapruka logo down 10-15px to ensure safe clearance within 110px from top."
+          },
+          {
+            "severity": "low",
+            "what": "FANTECH wordmark on the controller is slightly soft from AI rendering.",
+            "fix_in_canva": "Sharpen or overlay a crisp vector FANTECH logo onto the controller center."
+          }
+        ],
+        "strengths": [
+          "Faithfully recreates reference POV composition, lighting, and TV scene",
+          "Accurately swaps in black Fantech Shooter II GP13 controller",
+          "Clean white 'GAME ON' headline and Kapruka smile logo"
+        ]
+      },
+      "polish": {
+        "rounds": 1,
+        "applied": [],
+        "needsNewPicture": null,
+        "unfixable": []
+      },
+      "final": "final-01-2026-11-26T07-55-25.png",
+      "finalAt": "2026-11-26T07:55:30.014Z"
+    }
+  ],
+  "reference": [
+    "ref-01.png"
+  ],
+  "caption": null,
+  "relation": "direct",
+  "target": "Fantech Shooter Ii Gp13 Gaming Controller, Havit G180bt Android IOS Windows PS3 PS4 all Compatible Wireless Gaming controller, PS4 Sony DualShock Controller High Quality Official Product Singapore",
+  "products": {
+    "source": "category page",
+    "items": [
+      {
+        "title": "Fantech Shooter Ii Gp13 Gaming Controller",
+        "price": "RS.9,800",
+        "url": "https://www.kapruka.com/buyonline/fantech-shooter-ii-gp13-gaming/kid/ef_pc_elec0v701pod01172"
+      },
+      {
+        "title": "Havit G180bt Android IOS Windows PS3 PS4 all Compatible Wireless Gaming controller",
+        "price": "RS.9,600",
+        "url": "https://www.kapruka.com/buyonline/havit-g180bt-android-ios-windo/kid/ef_pc_elec0v701pod00842"
+      },
+      {
+        "title": "PS4 Sony DualShock Controller High Quality Official Product Singapore",
+        "price": "RS.12,450",
+        "url": "https://www.kapruka.com/buyonline/ps4-sony-dualshock-controller-/kid/ef_pc_elec0v2311pod00004"
+      }
+    ]
+  },
+  "concept": null,
+  "style": "adapt",
+  "title": "Game On",
+  "finishedAt": "2026-11-26T07:55:25.592Z",
+  "best": 0
+}

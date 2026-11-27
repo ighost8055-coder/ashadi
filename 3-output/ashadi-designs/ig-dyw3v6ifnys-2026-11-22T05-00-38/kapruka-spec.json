@@ -1,0 +1,249 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "An asymmetric split composition on a pure flat white background places a vertical tiered studio display of three real perfume bottles inset on the left against a stacked two-tone Kapruka purple Inter headline block on the right, with a Kapruka logo at top right and a single-line spoken caption anchoring the bottom within 100px margins.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.5,
+      "bottom": 7.5,
+      "left": 9.5
+    },
+    "alignment_axes": [
+      "SCENT (x=46.5%) and IT ALL (x=46%) share an optical left alignment axis near x=46%",
+      "SCENT (right edge x=89.5%), IT ALL (right edge x=90.5%), and the Kapruka logo (right edge x=90.5%) share an optical right alignment axis near x=90%",
+      "ONE (center x=57.5%) and SAYS (center x=69%) are staggered asymmetrically inside the SCENT/IT ALL block",
+      "Bottom caption is horizontally centered on the canvas (x=9.5% to x=90.5%, center x=50%)"
+    ],
+    "whitespace": [
+      "10% empty top margin above the perfume display and 30.5% above the title block",
+      "7% horizontal gutter separating the right edge of the perfume display (x=39%) from the title block (x=46%)",
+      "33.5% open white band beneath the title block (y=55.5% to y=89%) on the right half",
+      "6.5% vertical gap between the bottom of the perfume display (y=82.5%) and the bottom caption (y=89%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 9.5,
+      "y": 10,
+      "w": 29.5,
+      "h": 72.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A clean vertical tiered studio arrangement of three real perfumes drawn exactly from the attached product sheet — Dolce And Gabbana The Only One Edp Perfume For Women 100ml, Hugo Boss Bottled Unlimited Edt Perfume 100ml, and Hawas Elixir Perfume — displayed upright on three staggered glossy #340A5C purple acrylic risers",
+    "composition": "Positioned strictly inside the left inset column (x=9.5% to 39%, y=10% to 82.5%) with full clearance from the canvas edges, stacking the three bottles cleanly from top to bottom so every bottle silhouette and printed label is front-facing and unobstructed",
+    "camera": "Straight-on eye-level studio product angle, sharp focus front to back, slight telephoto compression",
+    "lighting": "Bright, crisp studio lighting from the upper right with clean specular highlights on the glass bottles and glossy #340A5C risers, casting a soft diffused contact shadow fully contained inside the inset placement box",
+    "palette": [
+      "#340A5C",
+      "#6B3FA0",
+      "#D9A441",
+      "#1A1A1A",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "x=39% to x=100%, y=0% to y=100% (entire right side is pure flat #FFFFFF white for the logo and typography)",
+      "x=0% to x=100%, y=82.5% to y=100% (clean white lower band for the bottom caption)"
+    ],
+    "prompt": "Eye-level straight-on studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background with cutout-on-ground framing, no frame border, no horizon line, and no picture edge. Anchored strictly inside the inset placement box x=9.5% to 39%, y=10% to 82.5%, a clean, physically plausible vertical tiered studio display on three staggered glossy #340A5C purple acrylic risers showcases the three real perfumes drawn exactly as in the attached product sheet, matching every bottle shape, colour, cap, packaging, and label detail: Dolce And Gabbana The Only One Edp Perfume For Women 100ml on the top tier, Hugo Boss Bottled Unlimited Edt Perfume 100ml on the middle tier, and Hawas Elixir Perfume on the lower front tier. All bottles stand upright, unobstructed, and front-facing with sharp focus and slight telephoto compression. Spell every printed word on the products exactly: BOSS, HUGO, UNLIMITED, BOTTER, UNLIMI, DOLCE, GABBANA, The, Only, One, هوس, HAWAS, ELIXIR, 100, ML, EAU, DE, PARFUM, 3.38, FL, الرصاصي. Bright, crisp studio lighting from the upper right creates realistic glass specular highlights and a soft, diffused contact shadow fully contained within x=9.5% to 39%, y=10% to 82.5%. Real materials, no plastic AI sheen, no morphing gimmicks. Keep the entire right and lower canvas pure flat #FFFFFF white and completely empty for later layout: logo (x=71.5%-90.5%, y=7.5%-12%), headline (x=46%-90.5%, y=30.5%-55.5%), and bottom line (x=9.5%-90.5%, y=89%-92.5%). Zero Kapruka logos, headlines, price tags, stickers, watermarks, or any text outside the product bottles.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 71.5,
+        "y": 7.5,
+        "w": 19,
+        "h": 4.5
+      }
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "ONE",
+      "box": {
+        "x": 51.5,
+        "y": 30.5,
+        "w": 12,
+        "h": 4
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 74,
+        "cap_height_px": 54,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "SCENT",
+      "box": {
+        "x": 46.5,
+        "y": 31.5,
+        "w": 43,
+        "h": 11.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 160,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "SAYS",
+      "box": {
+        "x": 61,
+        "y": 43.5,
+        "w": 16,
+        "h": 4.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 84,
+        "cap_height_px": 61,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "IT ALL",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 160,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "A gift everyone wants, delivered island-wide.",
+      "box": {
+        "x": 9.5,
+        "y": 89,
+        "w": 81,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 48,
+        "cap_height_px": 35,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5",
+    "logo"
+  ],
+  "why_it_works": [
+    "Preserves the asymmetric white-space split, crisp studio product column, and staggered two-tone headline lockup of the reference while adapting cleanly to perfumes.",
+    "Over 60% pure flat #FFFFFF negative space keeps the three real perfume bottles and high-contrast Kapruka purple typography uncluttered and readable on mobile.",
+    "Visual-to-copy flow leads the eye down the tiered fragrance column, across to the punchy four-line headline, and down to the spoken gifting line anchoring the base."
+  ],
+  "changes": [
+    "Replaced the Biscoff jar and stiletto-pitchfork morph entirely with a physically plausible tiered studio display of the three real promoted perfumes (indirect reference rule + playbook anti-morph lesson).",
+    "Inset scene.box to x=9.5%-39%, y=10%-82.5% so all bottles and shadows respect the 100px canvas margin without hard left-edge cropping.",
+    "Replaced parody Biscoff copy with original perfume gifting copy ('ONE SCENT SAYS IT ALL' and 'A gift everyone wants, delivered island-wide.') matching line counts and character limits.",
+    "Switched all text layers to Inter Bold (700) per the standing Canva font rule.",
+    "Mapped typography colours to Kapruka Retail Purple (#340A5C) for primary headline lines and legible lighter purple (#6B3FA0) for accent lines on the white ground.",
+    "Added the Kapruka logo in the calm top-right corner (x=71.5%, y=7.5%, top edge 101px) on a light ground.",
+    "Moved the bottom caption inward to x=9.5%, w=81%, y=89% so it sits strictly inside the 100px margin on all edges.",
+    "Removed the devil-tail arrowhead ornament per the no-ornaments rule."
+  ],
+  "claims_used": [
+    "delivered island-wide — supported by 1-foundation/01-business-context.md Section 1 CONFIRMED PROOF (2026-07-04): 'Island-wide delivery — anywhere in Sri Lanka.'"
+  ]
+}

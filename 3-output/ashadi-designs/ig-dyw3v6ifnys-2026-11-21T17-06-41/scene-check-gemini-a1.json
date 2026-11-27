@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "purple high-heel shoe with stiletto heel and two detached prong-like spikes",
+      "box": {
+        "x": 0,
+        "y": 17.5,
+        "w": 38,
+        "h": 45
+      }
+    },
+    {
+      "what": "chocolate cake with dripping glaze and puddles",
+      "box": {
+        "x": 0,
+        "y": 58.5,
+        "w": 39,
+        "h": 24.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 17.5,
+    "w": 39,
+    "h": 65.5
+  },
+  "notes": "Both the purple high-heel shoe and the chocolate cake are heavily cropped at the left edge of the frame. Two detached, malformed purple-and-chocolate spike artifacts protrude upward from the cake on either side of the stiletto heel instead of forming a cohesive trident heel. Note: ref-01-grid.png shows a different image than scene-gemini-a1-gemini-01-raw.jpg, so coordinates were measured directly on scene-gemini-a1-gemini-01-raw.jpg.",
+  "size": {
+    "w": 818,
+    "h": 1024
+  }
+}

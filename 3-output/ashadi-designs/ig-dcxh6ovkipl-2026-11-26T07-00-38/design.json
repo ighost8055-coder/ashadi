@@ -1,0 +1,82 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DcxH6OVkipL/",
+  "instruction": null,
+  "startedAt": "2026-11-26T07:00:38.090Z",
+  "variants": [
+    {
+      "engine": "Gemini",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01-r1.pptx",
+      "attempts": 1,
+      "check": {
+        "paintedText": [],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": ""
+      },
+      "canva": {
+        "id": "DAHb_4fGGCg",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjY5MjYzNjE3fQ..l9MYbD0ruRgwbJWc.2UiBfm5Bt-dHYrXoI9O-FFf764zoyPTKTay5HK9wCKRrJBxbjB7m5okB2nm2wRKgGJRmsL3xVjXWyOPYbL6Hgz9w_5d8IMucn7X9ZhGsO-MueO8.bSI0UwGdszxtXMD21sPyBw/edit?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=b1f2353d-807c-4285-a4af-91dec0d9eacc&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk4MjY5MjYzNjE3fQ..l9MYbD0ruRgwbJWc.2UiBfm5Bt-dHYrXoI9O-FFf764zoyPTKTay5HK9wCKRrJBxbjB7m5okB2nm2wRKgGJRmsL3xVjXWyOPYbL6Hgz9w_5d8IMucn7X9ZhGsO-MueO8.bSI0UwGdszxtXMD21sPyBw/view?utm_source=OC-AaIWnj2FJmG8&utm_medium=referral&utm_term=2ec71be9-5b56-4fbb-9c00-fe043ec74995&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01-r1.png",
+      "audit": {
+        "blocks": 4,
+        "flags": []
+      },
+      "review": {
+        "verdict": "production-ready",
+        "issues": [],
+        "strengths": [
+          "Faithful layout adaptation keeping the head line-art visual device",
+          "Clean Kapruka logo, Inter typography, and #340A5C purple palette",
+          "Well-balanced composition respecting 100px safe margins throughout"
+        ]
+      },
+      "polish": {
+        "rounds": 1,
+        "applied": [
+          "reworded \"Why so quiet? What\""
+        ],
+        "needsNewPicture": null,
+        "unfixable": []
+      },
+      "final": "final-01-2026-11-26T07-15-17.png",
+      "finalAt": "2026-11-26T07:15:21.722Z"
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "Kuala Lumpur, Malaysia",
+  "relation": "direct",
+  "target": null,
+  "products": {
+    "source": "catalogue snapshot",
+    "items": [
+      {
+        "title": "Royal Chocolate Berry Gateaux Chocolate Cake",
+        "price": "RS.6,620",
+        "url": "https://www.kapruka.com/buyonline/royal-chocolate-berry-gateaux-/kid/cake00ka002113"
+      },
+      {
+        "title": "White Forest Royale Gateaux Cake",
+        "price": "RS.7,500",
+        "url": "https://www.kapruka.com/buyonline/white-forest-royale-gateaux-ca/kid/cake00ka002201"
+      },
+      {
+        "title": "Happy Birthday Rainbow Unicorn Dream Kid`s Happy Birthday Ribbon Tower Cake For",
+        "price": "RS.12,500",
+        "url": "https://www.kapruka.com/buyonline/happy-birthday-rainbow-unicorn/kid/cake00ka001924"
+      }
+    ]
+  },
+  "concept": null,
+  "style": "adapt",
+  "title": "Why so quiet? What's on your mind?",
+  "finishedAt": "2026-11-26T07:15:17.387Z",
+  "best": 0
+}

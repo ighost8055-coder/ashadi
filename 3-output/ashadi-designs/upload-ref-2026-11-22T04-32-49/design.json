@@ -1,0 +1,112 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": null,
+  "startedAt": "2026-11-22T04:32:49.632Z",
+  "variants": [
+    {
+      "engine": "Gemini",
+      "scene": "placed-01-brand.jpg",
+      "pptx": "design-01.pptx",
+      "attempts": 2,
+      "check": {
+        "paintedText": [
+          "Rasasi Arabic logo on bottle"
+        ],
+        "clash": [],
+        "watermarkCropped": false,
+        "watermarkLeft": false,
+        "packagingLogos": 0,
+        "notes": "Product packaging contains garbled/misspelled AI text: 'BOTTER UNLIMITE' on the BOSS box instead of 'BOTTLED UNLIMITED', and slightly garbled small print ('3.38 FL.CC') along the bottom of the Hawas Elixir box."
+      },
+      "canva": {
+        "id": "DAHbnMt0sfY",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3OTE0NzUyNzI4fQ..KBNr5WTDYsOQUCZF.8pBR4CgnDhKn3Qu1--JphoXxS4qhser7eUVz5m5XzG184Pk6Xr88JyKOO8m-28cVxMpgfnQq2RdlITJFncQ60ldrroRpcu3o_R-aHKmk3KkQcLc.lWyN4yEhVDoVRpWT0O67pw/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=09b5ef19-bcac-460c-b56a-bc7f74874340&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3OTE0NzUyNzI4fQ..KBNr5WTDYsOQUCZF.8pBR4CgnDhKn3Qu1--JphoXxS4qhser7eUVz5m5XzG184Pk6Xr88JyKOO8m-28cVxMpgfnQq2RdlITJFncQ60ldrroRpcu3o_R-aHKmk3KkQcLc.lWyN4yEhVDoVRpWT0O67pw/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=1cd21103-cfdb-4f5d-93b0-c0c7d429291c&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png",
+      "review": {
+        "verdict": "not-ready",
+        "issues": [
+          {
+            "severity": "high",
+            "what": "Visible rectangular seam where the lighter purple product photo meets the darker background.",
+            "fix_in_canva": "Remove product background or match canvas color to #340A5C and feather edges seamlessly."
+          },
+          {
+            "severity": "high",
+            "what": "AI-garbled text on Hugo Boss box ('BOTTER UNLIMIT') and blurry Dolce & Gabbana label.",
+            "fix_in_canva": "Replace with real, high-resolution product photography of the exact perfume bottles."
+          },
+          {
+            "severity": "medium",
+            "what": "Canvas background is darker than Retail Purple (#340A5C), increasing contrast against product photo.",
+            "fix_in_canva": "Set main background rectangle fill to solid Retail Purple (#340A5C)."
+          },
+          {
+            "severity": "low",
+            "what": "Logo top edge sits slightly closer than 100px to the top canvas edge.",
+            "fix_in_canva": "Nudge the Kapruka logo down so its top edge sits at 100–110px."
+          }
+        ],
+        "strengths": [
+          "Strong emotional headline with effective single-word yellow highlight.",
+          "Clean, uncluttered hierarchy with generous breathing room.",
+          "Authentic Kapruka brand feel with crisp, legible Inter typography."
+        ]
+      },
+      "polish": {
+        "rounds": 0,
+        "applied": [],
+        "needsNewPicture": null,
+        "unfixable": [
+          "Canvas background colour (#2C1744 vs #340A5C) — no background rectangle layer exists to patch; must be resolved via canvas page colour and picture regeneration."
+        ]
+      },
+      "final": "final-01-2026-11-22T05-00-08.png",
+      "finalAt": "2026-11-22T05:00:16.350Z"
+    }
+  ],
+  "reference": [],
+  "caption": null,
+  "relation": "none",
+  "target": "Hugo Boss Bottled Unlimited Edt Perfume 100ml, Dolce And Gabbana The Only One Edp Perfume For Women 100ml, Hawas Elixir Perfume",
+  "products": {
+    "source": "category page",
+    "items": [
+      {
+        "title": "Hugo Boss Bottled Unlimited Edt Perfume 100ml",
+        "price": "RS.26,900",
+        "url": "https://www.kapruka.com/buyonline/hugo-boss-bottled-unlimited-ed/kid/ef_pc_perf0v5310pod00015"
+      },
+      {
+        "title": "Dolce And Gabbana The Only One Edp Perfume For Women 100ml",
+        "price": "RS.34,800",
+        "url": "https://www.kapruka.com/buyonline/dolce-and-gabbana-the-only-one/kid/ef_pc_perf0v5310pod00064"
+      },
+      {
+        "title": "Hawas Elixir Perfume",
+        "price": "RS.19,000",
+        "url": "https://www.kapruka.com/buyonline/hawas-elixir-perfume/kid/ef_pc_perf0v2774p00048"
+      }
+    ]
+  },
+  "brief": {
+    "angle": "Remind local adult children that their parents always put everyone else first and never buy themselves a real bottle of perfume, so sending one straight to their door is an effortless, thoughtful surprise.",
+    "audience": "Parents - local (Sri Lankan adult children gifting their parents locally)",
+    "layout": "purple-hero",
+    "headline_line_1": "They never treat",
+    "headline_line_2": "themselves.",
+    "supporting_line": "Delivered to their door, island-wide.",
+    "scene_prompt": "Eye-level studio product photograph in 4:5 portrait aspect ratio on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside an inset left column (x=9.5% to 39%, y=10% to 82.5%), a clean vertical tiered arrangement of three real fragrance bottles drawn exactly as they appear on the attached product sheet, matching identical bottle shapes, colours, caps, packaging, and printed details. On the top matte #340A5C geometric riser stands the Dolce And Gabbana The Only One Edp Perfume For Women 100ml; on the middle matte #340A5C riser sits the Hugo Boss Bottled Unlimited Edt Perfume 100ml with its white box; on the lower matte #340A5C riser rests the Hawas Elixir Perfume with its gold box. All bottles, risers, and soft grounded contact shadows stay fully inside the inset bounding box. Clean, even studio lighting gives crisp glass reflections and a warm gifting mood, with no logos, wordmarks, or text.",
+    "why": "It turns a universal family truth into a two-second scroll-stopper backed by Kapruka's island-wide delivery moat and dominant purple brand identity.",
+    "playbook": {
+      "entries": 13,
+      "lessons": 1
+    }
+  },
+  "style": "brief",
+  "title": "They never treat themselves.",
+  "finishedAt": "2026-11-22T05:00:08.899Z",
+  "best": 0
+}

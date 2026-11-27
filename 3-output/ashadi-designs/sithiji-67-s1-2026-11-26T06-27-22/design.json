@@ -1,0 +1,8 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": "(This is slide 1 of 5 of ONE carousel: keep the same look, palette, type and voice as the other slides.)",
+  "startedAt": "2026-11-26T06:27:22.425Z",
+  "variants": [],
+  "error": "ENOENT: no such file or directory, copyfile 'C:\\Users\\fari\\Desktop\\Claude Ads Team\\3-output\\ashadi-inbox\\sithiji-67-1795604967596\\ref-01.jpg' -> 'C:\\Users\\gothami\\Desktop\\Ashadi-Sithiji\\3-output\\ashadi-designs\\sithiji-67-s1-2026-11-26T06-27-22\\reference\\ref-01.jpg'"
+}

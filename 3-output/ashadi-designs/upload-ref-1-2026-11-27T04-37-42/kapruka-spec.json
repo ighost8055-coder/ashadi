@@ -1,0 +1,189 @@
+{
+  "canvas": {
+    "w": 736,
+    "h": 1024,
+    "aspect": "4:5 (feed portrait, per the requester's note; the reference layout is scaled by percentage)",
+    "background": "#340A5C",
+    "background_kind": "photo"
+  },
+  "layout_summary": "A full-bleed studio photo built as a set. A Deep Purple #241044 wall wraps in an L shape around a Retail Purple #340A5C rectangle that fills the upper right. A charcoal knurled grab pole runs down the centre, and arms reach in from alternating sides and hold it like a crowded bus rail. A hand with a red manicure points at the red stop button on a cyan sleeve fitted to the pole. Only three wrists wear watches: the GIORDANO couple pair on the two arms either side of the button, and the GIORDANO men's analog watch on the top arm. The other wrists are bare. The Kapruka logo sits in the empty top-left column, and the headline and support line sit in the calm area to the right of the button.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.41,
+      "right": 9.26,
+      "bottom": 7.41,
+      "left": 9.26
+    },
+    "alignment_axes": [
+      "The pole is the master vertical axis: x=47.5% to 52.5%, centre x=50%, bleeding off the top and bottom edges (as in the reference)",
+      "The gripping knuckles stack at x≈43% and the fingers wrap to x≈57%",
+      "The right-hand sleeves bleed off the right edge and begin at x≈70–73%",
+      "The watch faces sit in two columns: the left arm at x≈11–16%, the right arms at x≈61–68%. All three sit inside the 100px margin box",
+      "The panel's left edge at x=24.5% runs along the cuff ends of the left arms. The logo's left edge sits on the 100px margin at x=9.26%",
+      "The pointing fingertip (x≈41%, y≈55%) is level with the red button (x=50%, y=56%). The headline's top line (y≈48%) sits just above that axis, so the eye goes from finger to button to type"
+    ],
+    "whitespace": [
+      "Top band, y=0–8%: only the pole and the two purple fields",
+      "Upper-left column, x=0–24.5%, y=0–26%: empty Deep Purple wall that holds only the logo",
+      "Left gap, x=24.5–43%, y=39–53%: open Retail Purple between the upper-left arm and the pointing hand",
+      "Right gap, x=60–100%, y=47–66%: the largest calm area, which now holds the headline and support line",
+      "Bottom band, x=58–100%, y=82–100%: open Deep Purple below the gingham arm, kept empty (the Pinterest UI overlay is removed)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 0,
+      "w": 100,
+      "h": 100
+    },
+    "kind": "photo",
+    "framing": "full-bleed",
+    "subject": "A studio set with a flat matte Deep Purple #241044 L-shaped wall and a flat matte Retail Purple #340A5C rectangular panel. The device is unchanged: a vertical grab pole with a charcoal #3A3D44 diamond-knurled grip, a smooth glossy cyan #2BA6D8 sleeve, and one round glossy red #D3312C stop button. Six forearms reach in horizontally from the edges and a seventh hand points. They have diverse natural skin tones and keep the reference sleeves: a green tailored jacket with three cuff buttons and a striped knit cuff, a pink wool coat, a navy crane-print jacket, a purple-and-lilac polka-dot sleeve, a black-and-white gingham coat, and a navy textured jacket with a white shirt cuff and four buttons. The bottom hand has floral tattoos. The green arm wears the GIORDANO GD 1193 11 men's analog watch. The pointing hand (red-manicured index finger) wears the ladies' watch of the GIORDANO GD 1207 22 couple set, and the gingham arm directly below the button wears the men's watch of the same set. The other three wrists are bare.",
+    "composition": "Arms alternate sides down the frame: right (green, watch GD 1193 11) y=8–28%, watch at x=63–67%, y=16–21%; left (pink, bare wrist) y=22.5–39%; right (floral, bare wrist) y=34–47%; left (pointing, couple ladies' watch) y=53.5–62%, watch at x=11–16%, y=53.5–60%; right (gingham, couple men's watch) y=65–82%, watch at x=61–68%, y=69–76%; left (navy/tattoo, bare wrist) y=77–92.5%. Pole: x=47.5–52.5%, full height. Cyan sleeve: x=47.5–52.5%, y=49–65.5%. Red button: centre x=50%, y=56%, diameter ≈3.5%. Retail Purple panel: x=24.5–100%, y=0–69.5%. Deep Purple L-wall: x=0–24.5% at full height, plus y=69.5–100% at full width.",
+    "camera": "Straight-on, eye-level and orthographic in feel. Long lens, no perspective convergence, the pole perfectly vertical. Deep depth of field, so every dial and fabric weave is sharp.",
+    "lighting": "Soft, even, high-key studio light from the front and slightly above. Minimal wall shadows, gentle contact shading under fingers and sleeves, small specular highlights on the watch cases and crystals. Neutral white balance.",
+    "palette": [
+      "#340A5C",
+      "#241044",
+      "#3A3D44",
+      "#2BA6D8",
+      "#D3312C",
+      "#4F7A4E",
+      "#E8AAA3",
+      "#2A2E45",
+      "#F2F2F2",
+      "#C9A27A"
+    ],
+    "negative_space": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 24.5,
+        "h": 22
+      },
+      {
+        "x": 60,
+        "y": 47,
+        "w": 40,
+        "h": 18
+      },
+      {
+        "x": 24.5,
+        "y": 39.5,
+        "w": 18,
+        "h": 13
+      },
+      {
+        "x": 58,
+        "y": 83,
+        "w": 42,
+        "h": 17
+      }
+    ],
+    "prompt": "Eye-level, straight-on studio photograph, 4:5 portrait. Long lens with an orthographic feel and deep depth of field. Set: a flat matte Deep Purple #241044 wall in an L shape (left column x=0–24.5% at full height, plus a bottom band at y=69.5–100%), and a flat matte Retail Purple #340A5C panel filling x=24.5–100%, y=0–69.5%. Clean seams, no gradient, no vignette. A perfectly vertical bus grab pole with a charcoal #3A3D44 diamond-knurled grip runs top to bottom at x=47.5–52.5%. It carries a smooth glossy cyan #2BA6D8 sleeve at y=49–65.5% with one round glossy red #D3312C stop button at y=56%. Forearms with diverse natural skin tones reach in from alternating sides and grip the pole. Top right: a green tailored jacket, wearing the GIORDANO GD 1193 11 men's analog watch. Left: a pink wool coat, bare wrist. Right: a navy crane-print jacket, bare wrist. Left, at y=53.5–62%: a purple-and-lilac polka-dot sleeve, whose red-manicured index finger points at the button; it wears the ladies' watch of the GIORDANO GD 1207 22 couple set. Right, at y=65–82%: a black-and-white gingham coat, wearing that set's men's watch. Bottom left: a navy jacket with a white cuff and a floral-tattooed hand, bare wrist. Draw all three watches exactly as in the attached product sheet, dials facing the camera, with \"GIORDANO\" spelled exactly, fully inside x=10–90%, y=8–92%. Soft, even, high-key front light, small speculars on the crystals, real contact shadows, natural skin texture, no plastic sheen. Keep x=9–25%, y=7–13% and x=60–91%, y=47–64% calm and empty. No text, letters, numbers, logos or signage except the dial print.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "kind": "logo",
+      "on": "dark",
+      "box": {
+        "x": 9.26,
+        "y": 7.41,
+        "w": 14.8,
+        "h": 4.4
+      },
+      "note": "One Kapruka logo, composited flat in Canva on the empty Deep Purple column. Top edge at 100px (≤110px rule). Mark and wordmark only, nothing beneath it."
+    },
+    {
+      "id": "headline",
+      "kind": "text",
+      "box": {
+        "x": 61,
+        "y": 48,
+        "w": 29.5,
+        "h": 11
+      },
+      "lines": [
+        "Matching",
+        "watches",
+        "for two."
+      ],
+      "font": {
+        "family": "Inter",
+        "weight": 700,
+        "size_px": 48,
+        "case": "sentence",
+        "line_height": 1,
+        "letter_spacing_px": -0.5,
+        "align": "left",
+        "color": "#FFFFFF"
+      },
+      "highlights": [
+        {
+          "text": "for two.",
+          "color": "#FFC107"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "kind": "text",
+      "box": {
+        "x": 61,
+        "y": 60.5,
+        "w": 29.5,
+        "h": 2.6
+      },
+      "lines": [
+        "For your memorable moments"
+      ],
+      "font": {
+        "family": "Inter",
+        "weight": 400,
+        "size_px": 22,
+        "case": "sentence",
+        "line_height": 1.2,
+        "letter_spacing_px": 0,
+        "align": "left",
+        "color": "#F5F4EB"
+      }
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "headline",
+    "support",
+    "logo"
+  ],
+  "hierarchy": [
+    "scene: the red stop button on the cyan sleeve, the only saturated warm dot on the central axis (x=50%, y=56%)",
+    "scene: the pointing hand wearing the GIORDANO couple ladies' watch, which leads to the button, and the matching men's watch on the gingham arm just below it",
+    "headline: 'Matching watches for two.', flush-left in the calm right gap, with 'for two.' in yellow",
+    "scene: the top arm with the GIORDANO GD 1193 11, then the bare-wristed arms read as the crowd",
+    "support line, then the logo"
+  ],
+  "why_it_works": [
+    "The commuter-pole moment stays intact: strangers share one rail and one hand is about to press stop. The only matching pair of watches belongs to the two hands nearest the button, so the couple reads as the people getting off together.",
+    "Only three wrists carry watches (the two real products, three watch faces), so the products are never the quietest thing in frame. The bare-wristed arms are the crowd, and the watched wrists are the story. Fewer, bigger, calmer.",
+    "The headline completes the picture rather than describing it: the line names the pair and the picture places them side by side among strangers. The type is flat and composited, with the logo in the one empty corner."
+  ],
+  "changes": [
+    "Grounds remapped by role: coral L-wall → Deep Purple #241044, sky-blue panel → Retail Purple #340A5C. The darker bottom and side wall covers the requester's 'fade to #100223' without a gradient, which the brand guide and the playbook both ban.",
+    "The device is kept exactly (charcoal knurled pole, cyan sleeve, red stop button, red manicure, the sleeves, the tattoos). Only the watches changed: six other-brand watches → the two real GIORDANO products (3 watch faces), and the other wrists are left bare so the real products stay the hero.",
+    "The couple set sits on the pointing hand and the arm just below the button, which turns the strangers-on-a-pole moment into a pair getting off together. Men's GD 1193 11 sits on the top arm.",
+    "Added the Kapruka logo top-left (the calmest corner; top-centre is taken by the pole), at x=100px, y=100px.",
+    "Added a headline and support line in the largest calm area (right of the button), per the requester's note. 'Gift a luxury timepiece' was rewritten because 'luxury' is a banned word. The headline is Inter 700, not Black, and the support is Inter 400, not Medium, because Canva honours only 400/700.",
+    "Dropped the requester's cream plinth and single centred product: it would replace the reference's visual device and layout, which must be kept.",
+    "Removed the Pinterest visual-search UI overlay (a screenshot artifact).",
+    "All watches and text are kept inside the 100px margin box. The arms and pole still bleed off the edges, as the measured full-bleed framing requires."
+  ],
+  "claims_used": [
+    "'Matching watches for two.' describes the GIORDANO GD 1207 22 couple watch set as listed on its product page (a his-and-hers pair). It is a product description, not a business claim. 01-business-context.md is not needed for it, and no price, offer or delivery promise is made.",
+    "'For your memorable moments' is the requester's own emotional line. It contains no factual claim."
+  ]
+}

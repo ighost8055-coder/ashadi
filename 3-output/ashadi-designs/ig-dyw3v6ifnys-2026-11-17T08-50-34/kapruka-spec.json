@@ -1,0 +1,305 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#F5F4EB",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A two-column poster. A Sri Lankan mother leans in from the left edge with her face visible. One palm is raised high in a firm 'no', and her other hand comes down to push a dessert fork into a cake that already has a slice missing. The cake sits in an open, blank purple Kapruka cake box in the lower left. The right column holds a stacked, film-title-style serif headline at mid-height. One centred line of rounded bold purple copy runs across the bottom as the sign-off.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 7,
+      "bottom": 4.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "GIFTS and AMMA share a left edge at x=46.5% and very nearly a right edge at x≈90%",
+      "The descending forearm, the fork and the cake box share one vertical axis at x≈24%",
+      "The bottom tagline is centred on the canvas axis x=50% (spans 7%–93%)",
+      "The headline block's top (y=31%) sits level with the mother's raised palm and shoulder line, and its bottom (y=55.5%) sits level with the cake top (y≈56%)"
+    ],
+    "whitespace": [
+      "~10% empty band between the cake-box base (y≈82.5%) and the tagline cap-top (y≈92.5%)",
+      "Large calm quadrant to the right of the cake box and below the headline: x 37–100%, y 56–92%",
+      "Empty band above the headline: x 40–100%, y 0–31%, apart from the raised palm's fingertips reaching to x≈36%",
+      "~10% gap between the figure's right edge (x≈36%) and the headline's left edge (x=46.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "photo-cutout",
+    "framing": "cutout-on-ground",
+    "subject": "A Sri Lankan mother in her late 50s, wearing a simple cotton house dress, leans in from the left edge. Her shoulder and back are cropped by the edge, and her face is in three-quarter profile turned right. One hand is raised palm-out in a firm 'no, no, why did you spend money' gesture as she frowns at someone off-frame to the right. Her other hand pushes a dessert fork into an open chocolate cake that is already missing one slice. A small smudge of icing sits at the corner of her lips. The cake sits in a plain, blank, matte-purple cake box with its lid pushed back. Nothing else is in frame.",
+    "composition": "The figure runs diagonally from the lower-left edge (x=0, y≈52%) up to her raised palm at x≈24–36%, y≈10–28%. Her face is at x≈4–21%, y≈15–33%. Her other forearm drops vertically along x≈24% from y≈34% to y≈48%, where her hand and the fork span x≈21.5–28%, y≈48–55%. The cake box sits at x≈14.5–35%, y≈56–82.5% with its centre on the forearm axis, and its flat front face (x 15.5–31%, y 65–74.5%) is left blank for the logo. The figure is cropped at the left edge; the cake and box are complete.",
+    "camera": "Straight-on side view at about cake-box height for the box, and a near-profile three-quarter view of the mother. Long-lens feel with little perspective distortion, and everything sharp.",
+    "lighting": "Soft daylight key from the upper left with natural highlights on the chocolate glaze and skin, plus a faint soft contact shadow under the box. Clean neutral cream ground.",
+    "palette": [
+      "#4B2386",
+      "#3A1F14",
+      "#6B4226",
+      "#C98A5A",
+      "#E0A458",
+      "#F5F4EB"
+    ],
+    "negative_space": [
+      {
+        "x": 40,
+        "y": 0,
+        "w": 60,
+        "h": 30
+      },
+      {
+        "x": 37,
+        "y": 56,
+        "w": 63,
+        "h": 36
+      },
+      {
+        "x": 0,
+        "y": 83,
+        "w": 100,
+        "h": 9
+      }
+    ],
+    "prompt": "Photographic cutout poster, 4:5 portrait, on a flat seamless warm-cream ground (#F5F4EB) with no room, no horizon and no backdrop texture. A Sri Lankan mother in her late fifties, in a simple muted-marigold cotton house dress, leans in from the left edge. Her shoulder and back are cropped by the frame, and her face is visible in three-quarter profile turned right, at about 4–21% across and 15–33% down. Mid-protest, she raises one palm high in a firm 'no' (fingertips near 36% across, 10% down) and frowns at someone off-frame to the right. Caught out, her other forearm drops straight down at about 24% across and pushes a dessert fork into a real chocolate cake. One slice is clearly gone, and a little icing is smudged at the corner of her lips. The cake sits in an open cake box, lid pushed back, at 14–35% across and 56–82% down. The box is matte purple #4B2386 and completely unprinted, with its flat front face fully visible. Soft daylight comes from the upper left, with one consistent light direction, a real soft contact shadow under the box, true skin texture and real fabric weave, and no plastic sheen. Straight-on long-lens view, everything sharp. Keep these areas empty, flat cream and detail-free: 46–91% across, 31–56% down; 7–93% across, 92–96% down; the box front at 15–31% across, 65–75% down. Absolutely no text, letters, numbers, logos, labels, patterns or watermarks anywhere.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "NO\nGIFTS\nSAID\nAMMA",
+      "box": {
+        "x": 46.5,
+        "y": 31,
+        "w": 44.5,
+        "h": 24.5
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 153,
+        "cap_height_px": 101,
+        "line_height": 0.62,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "middle"
+      },
+      "highlights": [
+        {
+          "words": "NO",
+          "color": "#6B3FA0"
+        },
+        {
+          "words": "SAID",
+          "color": "#6B3FA0"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "e1a",
+      "type": "text",
+      "role": "label",
+      "text": "NO",
+      "box": {
+        "x": 52,
+        "y": 31,
+        "w": 11.5,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 64,
+        "cap_height_px": 42,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e1b",
+      "type": "text",
+      "role": "headline",
+      "text": "GIFTS",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 153,
+        "cap_height_px": 101,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e1c",
+      "type": "text",
+      "role": "label",
+      "text": "SAID",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 76,
+        "cap_height_px": 50,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e1d",
+      "type": "text",
+      "role": "headline",
+      "text": "AMMA",
+      "box": {
+        "x": 46.5,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 168,
+        "cap_height_px": 111,
+        "line_height": 1,
+        "letter_spacing_px": -1,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "tagline",
+      "text": "Send it anyway. Delivered island-wide by Kapruka.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3.2
+      },
+      "font": {
+        "family_guess": "Poppins Bold",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 48,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e3",
+      "type": "logo",
+      "brand": "Kapruka (placed in Canva on the blank front face of the purple cake box, never painted by the image model)",
+      "box": {
+        "x": 15.5,
+        "y": 65,
+        "w": 15.5,
+        "h": 9.5
+      },
+      "on": "dark",
+      "confidence": "medium"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e3",
+    "e1b",
+    "e1d",
+    "e1a",
+    "e1c",
+    "e2"
+  ],
+  "hierarchy": [
+    "scene",
+    "e1b",
+    "e1d",
+    "e1a",
+    "e1c",
+    "e2"
+  ],
+  "why_it_works": [
+    "Almost every Sri Lankan family has heard Amma say 'don't buy me anything'. The stacked title turns that line into a quote you read in one second.",
+    "The picture works without the headline: one hand says no while the other is already in the cake, with a slice gone and icing on her lip. The fork plays the part of the reference's pitchfork.",
+    "Figure and ground stay strict on flat cream. The only saturated masses are the purple box, the chocolate cake and the mother; the type is deep purple with two lighter-purple accents. The eye travels face → fork → box/logo → title → sign-off."
+  ],
+  "changes": [
+    "Subject: the red stiletto melting into a pitchfork over a Biscoff jar becomes Amma, raised palm saying no and fork already in the cake. The melt/drip device is dropped because the concept doesn't need it; the fork stays as the plain, real-life version of the pitchfork.",
+    "Headline: 'THE / DEVIL / EATS / BISCOFF' becomes 'NO / GIFTS / SAID / AMMA'. The concept's two-line quote ('Don't buy me anything.' — Amma, every year) is 24 and 18 characters and can't fit the 3/5/4/7-character line limits, so it is shortened to the same meaning in 4 lines of 2/5/4/4 characters, all caps as in the reference.",
+    "Sign-off: 'Don't be silly Andrea, everybody wants this.' (44 chars) becomes the concept's supporting line 'Send it anyway. Delivered island-wide by Kapruka.' (49 chars, within the 50-char limit). It replaces 'A world of choices'; the two never run together.",
+    "Fonts: the Times-style film serif becomes Playfair Display 700, which keeps the high-contrast title rhythm the stacked lockup depends on (DM Serif Display has no 700). The tagline moves from rounded Nunito ExtraBold to Poppins Bold, the brand face.",
+    "Colours: the white ground becomes Soft Cream #F5F4EB, black type becomes Retail Purple #340A5C, and the red accent words and tagline become light purple #6B3FA0, which stays readable on a light ground. The red/caramel scene palette becomes Kapruka box purple #4B2386 with chocolate and skin tones.",
+    "Logo: the on-pack Biscoff label becomes ONE Kapruka logo in the same box, placed in Canva on the blank front of the purple cake box (on: dark). The image model paints the box plain and unprinted, and scene.attach is empty under the 2026-11-15 packaging rule.",
+    "Ornament removed: the arrow/devil-tail stroke through the V in DEVIL is dropped, since only flat blocks are allowed and the new word has no V.",
+    "Kept 'cutout-on-ground' framing as measured, so the concept's living-room setting is dropped: the mother and the cake box sit on the flat cream page with no room behind them. Her house dress keeps the at-home feel."
+  ],
+  "claims_used": [
+    "'Delivered island-wide' — 01-business-context.md §1 confirmed proof: 'Island-wide delivery — anywhere in Sri Lanka' (approved for ad use 2026-07-04).",
+    "'by Kapruka' — brand name, no claim.",
+    "'NO GIFTS SAID AMMA' — a quoted, relatable family line, not a factual claim. Cake as the gift is backed by §6 resolved item 7 (cakes are a top gifting category by revenue); the copy states no price, speed or offer."
+  ]
+}

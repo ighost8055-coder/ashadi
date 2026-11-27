@@ -1,0 +1,26 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": null,
+  "startedAt": "2026-11-27T04:49:54.481Z",
+  "variants": [],
+  "reference": [
+    "ref-01.png"
+  ],
+  "caption": null,
+  "relation": "direct",
+  "target": "Portugal Parfois Brand Gold Plated Watch With Stainless Steel Strap Bracelet - Jewello - Watches",
+  "products": {
+    "source": "product page",
+    "items": [
+      {
+        "title": "Portugal Parfois Brand Gold Plated Watch With Stainless Steel Strap Bracelet - Jewello - Watches",
+        "price": "RS.23,500",
+        "url": "https://www.kapruka.com/buyonline/portugal-parfois-brand-gold-pl/kid/ef_pc_jewe0v3966pod00095"
+      }
+    ]
+  },
+  "concept": null,
+  "style": "adapt",
+  "error": "The Claude CLI could not do \"kapruka-adapter\" (kapruka-adapter exited 1: You've hit your 5-hour limit · resets 2pm (Asia/Colombo) · out of usage credits ). The AI method is set to CLI — fix the CLI (claude auth login) or switch to Non-CLI in the header."
+}

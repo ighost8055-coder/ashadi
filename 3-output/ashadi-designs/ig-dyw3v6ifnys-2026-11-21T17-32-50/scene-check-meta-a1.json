@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red patent high-heel shoe with metallic trident heel",
+      "box": {
+        "x": 0,
+        "y": 3.5,
+        "w": 58.5,
+        "h": 61.5
+      }
+    },
+    {
+      "what": "chocolate cake with dripping glaze, chocolate puddles, and cast shadow",
+      "box": {
+        "x": 4,
+        "y": 61.5,
+        "w": 74.5,
+        "h": 35
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 3.5,
+    "w": 78.5,
+    "h": 93
+  },
+  "notes": "Grid file ref-01-grid.png does not match clean render scene-meta-a1-meta-01-raw.jpg (different scale, angle, and composition); all coordinates were measured on scene-meta-a1-meta-01-raw.jpg.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

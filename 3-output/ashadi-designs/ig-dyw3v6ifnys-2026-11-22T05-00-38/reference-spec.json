@@ -1,0 +1,230 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "An asymmetric split composition on a pure white background places a composite product-and-shoe visual bleeding off the left edge against a stacked parody title block on the right. A single-line red tagline anchors the bottom across nearly the full width of the canvas.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 7,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL (x=46.5%) and BISCOFF (x=46%) share an optical left alignment axis near x=46%",
+      "DEVIL (right edge x=89.5%) and BISCOFF (right edge x=90.5%) share an optical right alignment axis near x=90%",
+      "THE (center x=57.5%) and EATS (center x=69%) are staggered asymmetrically inside the DEVIL/BISCOFF block",
+      "Bottom tagline is horizontally centered on the canvas (x=7% to x=93%, center x=50%)"
+    ],
+    "whitespace": [
+      "10% empty top margin above the shoe tip and 30.5% above the title block",
+      "10% horizontal gutter separating the right edge of the shoe/jar (x=36%) from the title block (x=46%)",
+      "37% open white band beneath the title block (y=55.5% to y=92.5%) on the right half",
+      "9.5% vertical gap between the bottom of the jar drip (y=83%) and the bottom tagline (y=92.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 73
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy crimson high-heeled stiletto shoe whose thin heel morphs into a three-pronged red pitchfork dipping directly into an open glass jar of smooth caramel-brown biscuit spread, with thick spread overflowing and dripping down the right side of the jar onto the ground",
+    "composition": "Positioned in the left third, the shoe enters from the left edge at a steep diagonal (y=10% to y=52.5%) while its pitchfork heel descends vertically along x=24.5% into the open jar sitting at y=55.5% to y=83%",
+    "camera": "Straight-on eye-level studio product angle, sharp focus front to back, slight telephoto compression",
+    "lighting": "Bright, crisp studio lighting from upper right with strong specular white highlights along the glossy red shoe and caramelized spread drips, casting a soft diffused ground shadow to the left of the jar base",
+    "palette": [
+      "#B80F14",
+      "#7A080C",
+      "#C27532",
+      "#8E4B18",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "x=36% to x=100%, y=0% to y=100% (entire right two-thirds is pure white ground for the typography)",
+      "x=0% to x=100%, y=83% to y=100% (clean white lower band for the tagline)"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 30.5,
+        "w": 12,
+        "h": 4
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 74,
+        "cap_height_px": 54,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 31.5,
+        "w": 43,
+        "h": 11.5
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 160,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 43.5,
+        "w": 16,
+        "h": 4.5
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 84,
+        "cap_height_px": 61,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 160,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "VAG Rounded Bold",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 48,
+        "cap_height_px": 35,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#B5121B",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Devil-tail arrowhead extending upward from the right diagonal stroke of the letter V in DEVIL",
+      "box": {
+        "x": 74.5,
+        "y": 31.5,
+        "w": 3.5,
+        "h": 3.5
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "Instant cultural recognition: replicates the iconic white-space, crimson stiletto-pitchfork, and serif title lockup of The Devil Wears Prada poster.",
+    "Generous negative space (over 60% pure white) keeps the glossy red shoe, overflowing spread jar, and high-contrast black/red typography crisp and uncluttered.",
+    "Visual-to-copy flow pulls the eye down the red heel into the branded jar, across to the punchline title, and down to the red quote anchoring the base."
+  ]
+}

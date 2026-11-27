@@ -1,0 +1,185 @@
+{
+  "text_or_logos": [
+    {
+      "what": "DOLCE & GABBANA The Only One",
+      "box": {
+        "x": 46.5,
+        "y": 36.5,
+        "w": 11.5,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "BOSS HUGO BOSS",
+      "box": {
+        "x": 25,
+        "y": 49.5,
+        "w": 5.5,
+        "h": 11.5
+      }
+    },
+    {
+      "what": "BOTTER UNLIMI",
+      "box": {
+        "x": 22,
+        "y": 61.5,
+        "w": 9,
+        "h": 1.5
+      }
+    },
+    {
+      "what": "BOSS HUGO BOSS UNLIMITED",
+      "box": {
+        "x": 33.5,
+        "y": 51,
+        "w": 8,
+        "h": 12.5
+      }
+    },
+    {
+      "what": "Arabic script and HAWAS",
+      "box": {
+        "x": 51,
+        "y": 61,
+        "w": 7,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "ELIXIR",
+      "box": {
+        "x": 52.5,
+        "y": 66,
+        "w": 4,
+        "h": 1.5
+      }
+    },
+    {
+      "what": "Rasasi Arabic logo",
+      "box": {
+        "x": 52.5,
+        "y": 71.5,
+        "w": 3.5,
+        "h": 2
+      }
+    },
+    {
+      "what": "Arabic script and HAWAS",
+      "box": {
+        "x": 66,
+        "y": 56.5,
+        "w": 7,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "ELIXIR",
+      "box": {
+        "x": 67.5,
+        "y": 64.5,
+        "w": 4,
+        "h": 1
+      }
+    },
+    {
+      "what": "EAU DE PARFUM 3.38 FL.OZ",
+      "box": {
+        "x": 62.5,
+        "y": 72.5,
+        "w": 14.5,
+        "h": 2
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "Dolce & Gabbana perfume bottle",
+      "box": {
+        "x": 45.5,
+        "y": 25,
+        "w": 14.5,
+        "h": 23
+      }
+    },
+    {
+      "what": "Hugo Boss perfume box",
+      "box": {
+        "x": 17.5,
+        "y": 41,
+        "w": 17,
+        "h": 24.5
+      }
+    },
+    {
+      "what": "Hugo Boss Unlimited perfume bottle",
+      "box": {
+        "x": 30.5,
+        "y": 42,
+        "w": 14,
+        "h": 24.5
+      }
+    },
+    {
+      "what": "Hawas Elixir perfume bottle",
+      "box": {
+        "x": 46,
+        "y": 51.5,
+        "w": 17,
+        "h": 24.5
+      }
+    },
+    {
+      "what": "Hawas Elixir perfume box",
+      "box": {
+        "x": 60,
+        "y": 50,
+        "w": 22.5,
+        "h": 25.5
+      }
+    },
+    {
+      "what": "back-center purple cylindrical pedestal",
+      "box": {
+        "x": 40.5,
+        "y": 46.5,
+        "w": 26,
+        "h": 11.5
+      }
+    },
+    {
+      "what": "left purple cylindrical pedestal with shadow",
+      "box": {
+        "x": 13.5,
+        "y": 63.5,
+        "w": 33,
+        "h": 18
+      }
+    },
+    {
+      "what": "front-right purple polygonal pedestal with shadow",
+      "box": {
+        "x": 38.5,
+        "y": 73,
+        "w": 49,
+        "h": 11.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 13.5,
+    "y": 25,
+    "w": 74,
+    "h": 59.5
+  },
+  "notes": "Garbled text on the Hugo Boss box reads 'BOTTER UNLIMI' instead of 'BOTTLED UNLIMITED'; small bottom text on the Hawas box is slightly garbled.",
+  "size": {
+    "w": 818,
+    "h": 1024
+  }
+}

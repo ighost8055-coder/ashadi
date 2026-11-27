@@ -1,0 +1,25 @@
+{
+  "kind": "design",
+  "source": "https://www.instagram.com/p/DYW3V6IFNYs/",
+  "instruction": null,
+  "startedAt": "2026-11-15T07:33:51.418Z",
+  "variants": [
+    {
+      "engine": "Meta AI",
+      "scene": "scene-meta-meta-01-raw.png",
+      "pptx": "design-01.pptx",
+      "canva": {
+        "id": "DAHa9w-6zv0",
+        "editUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzIwNjAxNTAyfQ..2ufN5iVf197xIcXa.LTPMVDDGLLSokRNRu0Ha42tMNIH2RXT8nSy9hCWzJ4bMlcsnpEnAxfc8qryqpxgqDnGvPjDLZTecnU_UqeKN9jwyz7mxP4cPjAOFfsurtmErlA8.uioUFT7i3tnvkHQnorJ5UQ/edit?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=0ae6712b-56b4-4129-aab1-abe1c233e74e&utm_campaign=public_api_design_import_design_clicked_hyperlink",
+        "viewUrl": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzk3MzIwNjAxNTAyfQ..2ufN5iVf197xIcXa.LTPMVDDGLLSokRNRu0Ha42tMNIH2RXT8nSy9hCWzJ4bMlcsnpEnAxfc8qryqpxgqDnGvPjDLZTecnU_UqeKN9jwyz7mxP4cPjAOFfsurtmErlA8.uioUFT7i3tnvkHQnorJ5UQ/view?utm_source=OC-AaHd8mR4S-QE&utm_medium=referral&utm_term=49d48452-7788-41b0-ba77-2c122b3e5d9d&utm_campaign=public_api_design_import_design_clicked_hyperlink"
+      },
+      "preview": "preview-01.png"
+    }
+  ],
+  "reference": [
+    "ig-01.jpg"
+  ],
+  "caption": "biscoff__uk\n \n26w\nThat's all! 👠",
+  "title": "THE",
+  "finishedAt": "2026-11-15T07:43:30.766Z"
+}

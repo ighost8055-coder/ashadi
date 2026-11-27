@@ -1,0 +1,290 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A tall two-column poster on pure white: the left column is a single vertical 'melt' column — a glossy gold patent handbag up top whose lower corner liquefies into molten gold and pours down into a plain matte purple Kapruka gift bag at the bottom — while the empty right half carries a centred, four-line movie-poster serif title lockup. A full-width gold sans tagline sits alone across the very bottom, far below everything else.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 6.5,
+      "bottom": 4.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "WHOLE and ONE BAG share a left edge at x=47.0% (the title block's left rail)",
+      "WHOLE (right edge 89.0%) and ONE BAG (right edge 90.5%) share a near-identical right rail at x≈89-90.5% — the two long lines are optically justified to the same width",
+      "THE, WHOLE, LIST, ONE BAG are stacked on one optical centre axis at x≈68.0% (LIST centre 69.3%, WHOLE centre 68.0%); THE is deliberately kicked left of it at centre 57.7%, tucked over the W-H",
+      "The bottom tagline is centred on the canvas centre line x=50.0%",
+      "The handbag, the gold pour and the gift bag all hang on one vertical axis at x≈24.0%",
+      "Gift-bag right edge (34.6%) and handbag right edge (35.2%) share a soft right rail at x≈35%, leaving a clean 11.5% channel before the title starts"
+    ],
+    "whitespace": [
+      "Entire top-right quadrant empty: x 36→100%, y 0→31% (≈31% of canvas height of untouched white above the title)",
+      "11.5% vertical empty channel between the product column (ends x=35.2%) and the title block (starts x=46.9%)",
+      "Large empty lower-right field: x 36→100%, y 55→92% — nothing between the ONE BAG baseline and the tagline on that side",
+      "9.4% empty band across the full width between the gift bag's bottom drip (y=83%) and the tagline cap-top (y=92.4%)",
+      "4.5% bottom margin below the tagline descender; 10% white above the handbag's top edge"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 35.5,
+      "h": 73
+    },
+    "kind": "product-photography",
+    "framing": "cutout-on-ground",
+    "subject": "A high-gloss metallic-gold patent leather handbag, a real finished sellable gift, angled up toward the top-right and cropped off the left edge of the frame, with a slim gold chain strap and real grained leather sheen. Its lower corner does not end in a seam — it liquefies, stretching downward into a long viscous rope of molten warm gold that splits into three slender strands, each tapering to a fine point. The strands plunge into the open mouth of a squat matte deep-purple paper gift bag whose rim is overflowing with the same thick molten gold, which slumps over the shoulder of the bag, runs in heavy ribbons down one side, and pools into a small puddle with a trailing drip at the bag's base. The gift bag is completely plain and unprinted — no logo, no wordmark, no text, no smile arc, no pattern — with white twisted-rope handles and a flat, clearly visible, evenly lit front face. No background, no surface, no horizon — all objects float directly on flat white.",
+    "composition": "Strict left-column stack occupying only the left third of the frame. Handbag fills y 10→45% and bleeds off the left edge (roughly 20% of the bag is cropped away); the melting corner/pour bridges y 45→55%; the gift bag anchors the bottom at y 55.5→82%, a touch smaller than the handbag so the handbag reads as the hero. The pour is the spine connecting the two — one continuous top-to-bottom vertical gesture with no horizontal spread. Right two-thirds of the frame left completely empty for type.",
+    "camera": "Eye-level to very slightly above, straight-on product view; moderate telephoto feel (~85-105mm) with near-zero perspective distortion and no converging verticals. Everything in sharp focus front to back — no depth of field falloff, no bokeh.",
+    "lighting": "Bright, high-key, essentially shadowless against the white — only a whisper of real contact shadow where the gift bag meets the ground. A large soft key from the upper left plus a second fill from the upper right create long specular highlights down the handbag's flank and a hot rim on the chain. The molten gold is lit to read glossy and wet, with bright warm speculars on every ridge and dripping edge. Neutral-to-slightly-warm white light; colour clean and true, never blown or oversaturated.",
+    "palette": [
+      "#FFFFFF",
+      "#4B2386",
+      "#340A5C",
+      "#241044",
+      "#D9A441",
+      "#F6C96A",
+      "#FFC107",
+      "#F5F4EB",
+      "#B8862F",
+      "#E8CFA0"
+    ],
+    "negative_space": [
+      "x 36→100%, y 0→31% — the white field the title's top line lands in",
+      "x 36→100%, y 55→92% — the white field below the title",
+      "x 0→100%, y 83→92% — the white band the tagline floats above"
+    ],
+    "prompt": "Photographic product still life, 4:5 portrait, on a pure flat white seamless background with no horizon and no cast ground shadow. Everything sits in the left third of the frame. Top left, cropped off the left edge of the frame, a glossy metallic-gold patent leather handbag angled up toward the top right, real grained leather with a polished sheen and a slim gold chain strap. Its lower corner liquefies: the leather turns into a thick viscous rope of molten warm gold that stretches straight down, splits into three slender tapering strands, and plunges into the open mouth of a squat matte deep-purple paper gift bag below. That bag is completely plain and unprinted, with white twisted-rope handles and a flat, clearly visible, evenly lit front face. Molten gold brims over its rim, slumps over one shoulder, ribbons down the right side and pools in a small puddle with a trailing drip at the base. Bright high-key light, large soft key from upper left with a second fill from upper right, long speculars, glossy wet gold, true clean colour, a real contact shadow only where the bag meets the ground, no plastic sheen. Sharp front to back, 85-105mm, straight-on eye level. Keep pure empty white and completely uncluttered: x 36-100% y 0-92%, and x 0-100% y 83-100%. Keep the bag's front face at x 15-33% y 65-73% flat, blank and softly lit. Absolutely no text, letters, numbers, words, logos, labels, signage, watermarks or UI anywhere in the image, including on the bag, the handbag and the background.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51,
+        "y": 31,
+        "w": 13,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 54,
+        "cap_height_px": 38,
+        "line_height": 1,
+        "letter_spacing_px": 6,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "WHOLE",
+      "box": {
+        "x": 47,
+        "y": 34.5,
+        "w": 42,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 147,
+        "cap_height_px": 103,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "LIST",
+      "box": {
+        "x": 61.5,
+        "y": 44.5,
+        "w": 16,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 56,
+        "cap_height_px": 40,
+        "line_height": 1,
+        "letter_spacing_px": 8,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "ONE BAG",
+      "box": {
+        "x": 47,
+        "y": 48.5,
+        "w": 43.5,
+        "h": 6.5
+      },
+      "font": {
+        "family_guess": "Playfair Display",
+        "category": "serif",
+        "weight": 700,
+        "size_px": 126,
+        "cap_height_px": 89,
+        "line_height": 1,
+        "letter_spacing_px": 5,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "A world of choices",
+      "box": {
+        "x": 28.5,
+        "y": 92.4,
+        "w": 43,
+        "h": 3.1
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 46,
+        "cap_height_px": 34,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 14.4,
+        "y": 55.5,
+        "w": 20.8,
+        "h": 27.5
+      },
+      "description": "Squat matte deep-purple #4B2386 Kapruka paper gift bag with white twisted-rope handles, cut out on white, completely plain and unprinted (no logo, wordmark, text, smile arc or pattern — the real logo is placed on it afterwards in Canva). Overflowing at the rim with thick molten gold that slumps over the shoulder, ribbons down the right side and pools at the base with a trailing drip. Front face left flat, blank and clearly visible. Bottom of the lowest drip reaches y≈83%.",
+      "confidence": "high"
+    },
+    {
+      "id": "e7",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 0,
+        "y": 10,
+        "w": 35.2,
+        "h": 45
+      },
+      "description": "Glossy metallic-gold patent leather handbag with a slim gold chain strap, angled up and to the right, cropped off the left canvas edge. Its lower corner melts into a rope of molten gold that splits into three slender tapering strands descending to the gift bag's mouth at y≈55%. A real, finished, sellable gift — no branding, lettering or hardware logos.",
+      "confidence": "high"
+    },
+    {
+      "id": "e8",
+      "type": "logo",
+      "brand": "Kapruka",
+      "box": {
+        "x": 15.5,
+        "y": 67,
+        "w": 17.5,
+        "h": 5.5
+      },
+      "on": "dark",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e7",
+    "e6",
+    "e8",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "hierarchy": [
+    "e7",
+    "e2",
+    "e6",
+    "e4",
+    "e3",
+    "e1",
+    "e5"
+  ],
+  "why_it_works": [
+    "One continuous top-to-bottom gesture — handbag melting into pour melting into gift bag — occupies a single narrow left column, so the entire right two-thirds stays empty and the title has nothing to fight.",
+    "The movie-poster title architecture (small gold line, huge purple line, small gold line, huge purple line) does all the pacing work with just size and two brand colours, and the fashion-becomes-gold melt carries the breadth idea without adding a single extra element.",
+    "The gold of the handbag, the gold of THE/LIST and the purple of the gift bag and the title triangulate across the frame, tying the picture to the type and pulling the eye down to the closing line through 9% of deliberate white."
+  ],
+  "changes": [
+    "Scene subject swapped shoe→gold patent handbag and Biscoff jar→plain matte purple Kapruka gift bag, keeping the exact melt-and-pour visual device, the three tapering strands, the crop off the left edge, the camera, the high-key light and the cutout-on-white framing. Handbag + gift packaging spans fashion and gifting, so the breadth tagline is not sitting over a single-department frame (Core Rule 12).",
+    "Gift bag painted completely plain and unprinted in #4B2386 with white twisted-rope handles, front face flat and clearly visible, so the real logo goes on in Canva (packaging rule 2026-11-15); scene.attach = [].",
+    "Red→Kapruka palette by role: near-black display lines → Retail Purple #340A5C; red accent lines → Luxury Gold #D9A441; the red product → molten warm gold (#D9A441/#F6C96A) against the purple bag.",
+    "Tagline colour set to #340A5C rather than gold — gold at 46px on white falls below readable contrast, and the closing line has to survive the one-second test; the gold in the scene still triangulates the frame.",
+    "Copy rewritten to the same job and line count, each line inside ±15% of the reference's character count: THE (3=3) · WHOLE (5=5) · LIST (4=4) · ONE BAG (7=7).",
+    "Tagline replaced with the brand tagline 'A world of choices' (18 chars vs 44). It is shorter than the reference line, so the box was narrowed and re-centred on the same x=50% axis at the same baseline and type size — the brand tagline may never be extended into a longer sentence.",
+    "Two jar logos merged into ONE Kapruka logo on the bag's front face, inside the combined reference logo area, on dark.",
+    "Both ornaments dropped: the devil-tail arrow on the 'I' was a drawn graphic (no added ornament shapes allowed), and the barbed strand tips are now described inside the scene as plain tapering gold, not as elements."
+  ],
+  "claims_used": [
+    "'THE WHOLE LIST / ONE BAG' — claims only that a whole gift list can be covered in a single Kapruka order. Supported by 01-business-context.md §1: Kapruka is 'Sri Lanka's largest locally-owned e-commerce and gifting platform' operating three lines (Gifting, Corporate, Ecom) across cakes, flowers, hampers, gifts, chocolates, electronics, groceries, household, fashion and books. No SKU, price, offer or delivery promise is made.",
+    "'A world of choices' — the approved default brand-level tagline, confirmed in _brand-assets.md (human decision 2026-07-18). A brand line about selection, not a factual delivery or price claim.",
+    "Kapruka logo on the gift bag — identity only, no claim attached.",
+    "No delivery-speed, timing, years-in-operation or volume claim is used anywhere in this creative, so none needed sourcing."
+  ]
+}

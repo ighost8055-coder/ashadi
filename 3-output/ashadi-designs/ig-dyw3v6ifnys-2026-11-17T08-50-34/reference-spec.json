@@ -1,0 +1,299 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A two-column poster: a glossy red stiletto bleeds in from the left edge, its heel melting into a pitchfork-shaped drip that stabs into a Biscoff jar in the lower-left; the right column holds a stacked movie-title-style serif headline set at mid-height. A single centred line of rounded bold red copy sits across the bottom as a sign-off.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 7,
+      "bottom": 4.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL and BISCOFF share a left edge at x=46.5% and very nearly a right edge at x≈90%",
+      "The heel drip, the pitchfork and the jar share one vertical axis at x≈24%",
+      "The bottom tagline is centred on the canvas axis x=50% (spans 7%–93%)",
+      "The headline block's top (y=31%) sits level with the shoe's upper curve, and its bottom (y=55.5%) sits level with the jar lid (y≈56%)"
+    ],
+    "whitespace": [
+      "~10% empty band between the jar base (y≈82.5%) and the tagline cap-top (y≈92.5%)",
+      "Large calm quadrant to the right of the jar and below the headline: x 37–100%, y 56–92%",
+      "Empty band above the headline: x 40–100%, y 0–31%, apart from the shoe toe reaching to x≈36%",
+      "~10% gap between the shoe's right edge (x≈36%) and the headline's left edge (x=46.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A high-gloss lacquered red stiletto pump in profile, toe cropped off the left edge. Its stiletto heel melts into a thin red liquid stream that ends in a three-pronged pitchfork; the pitchfork tips turn into caramel-brown spread and plunge into the open top of a glass jar of smooth caramelised biscuit spread with a red label. Thick spread overflows the rim and runs down the sides and over the label, pooling at the base. A biscuit is pressed against the side of the jar.",
+    "composition": "The shoe runs diagonally from the lower-left edge (x=0, y≈52%) up to its heel cup at x≈36%, y≈10%. The heel drip falls vertically at x≈24% from y≈34% to y≈48%, where the pitchfork spans x≈21.5–28%, y≈48–55%. The jar sits at x≈14.5–35%, y≈56–82.5% with its centre on the drip axis. The shoe is cropped at the left edge, and the jar is complete.",
+    "camera": "Straight-on side view at about jar height for the jar, pure profile for the shoe. Long-lens product feel with little perspective distortion and everything sharp.",
+    "lighting": "Soft studio key from upper left with crisp specular highlights on the patent shoe and glossy spread, plus a faint soft contact shadow under the jar. Clean neutral white.",
+    "palette": [
+      "#C8141E",
+      "#8E0A10",
+      "#E8352A",
+      "#B86A2A",
+      "#D08A45",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      {
+        "x": 40,
+        "y": 0,
+        "w": 60,
+        "h": 30
+      },
+      {
+        "x": 37,
+        "y": 56,
+        "w": 63,
+        "h": 36
+      },
+      {
+        "x": 0,
+        "y": 83,
+        "w": 100,
+        "h": 9
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE\nDEVIL\nEATS\nBISCOFF",
+      "box": {
+        "x": 46.5,
+        "y": 31,
+        "w": 44.5,
+        "h": 24.5
+      },
+      "font": {
+        "family_guess": "Times New Roman (film-poster title serif, high contrast)",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 153,
+        "cap_height_px": 101,
+        "line_height": 0.62,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#0B0B0B",
+        "align": "left",
+        "valign": "middle"
+      },
+      "highlights": [
+        {
+          "words": "THE",
+          "color": "#B3121B"
+        },
+        {
+          "words": "EATS",
+          "color": "#B3121B"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "e1a",
+      "type": "text",
+      "role": "label",
+      "text": "THE",
+      "box": {
+        "x": 52,
+        "y": 31,
+        "w": 11.5,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Times New Roman",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 64,
+        "cap_height_px": 42,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B3121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e1b",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Times New Roman",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 153,
+        "cap_height_px": 101,
+        "line_height": 1,
+        "letter_spacing_px": -2,
+        "case": "upper",
+        "italic": false,
+        "color": "#0B0B0B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e1c",
+      "type": "text",
+      "role": "label",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Times New Roman",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 76,
+        "cap_height_px": 50,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#B3121B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e1d",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46.5,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Times New Roman (small caps: initial B cap ≈111px, ISCOFF ≈73px)",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 168,
+        "cap_height_px": 111,
+        "line_height": 1,
+        "letter_spacing_px": -1,
+        "case": "upper",
+        "italic": false,
+        "color": "#0B0B0B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don’t be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3.2
+      },
+      "font": {
+        "family_guess": "Nunito ExtraBold (rounded geometric, close to Biscoff's brand sans)",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 48,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#C8141E",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e3",
+      "type": "logo",
+      "brand": "Lotus Biscoff (on-pack label only, part of the product render, not a separate graphic layer)",
+      "box": {
+        "x": 15.5,
+        "y": 65,
+        "w": 15.5,
+        "h": 9.5
+      },
+      "on": "dark",
+      "confidence": "medium"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Thin black arrow that forms the right stroke of the V in DEVIL and continues up and to the right past the cap line, ending in a small arrowhead (a devil-tail/pitchfork nod), stroke weight matching the serif hairline-to-stem",
+      "box": {
+        "x": 71,
+        "y": 31.5,
+        "w": 7,
+        "h": 11
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e3",
+    "e1b",
+    "e1d",
+    "e1a",
+    "e1c",
+    "ornaments",
+    "e2"
+  ],
+  "hierarchy": [
+    "scene",
+    "e1b",
+    "e1d",
+    "e1a",
+    "e1c",
+    "e2"
+  ],
+  "why_it_works": [
+    "Recognising a borrowed film title does the work in about a second: one swapped word ('Wears' → 'Eats') plus the red stiletto makes the parody instant, and the product is the punchline.",
+    "The image holds up without the headline: a heel melting into a devil's pitchfork that stabs the jar reads as 'devilish temptation' with no words at all.",
+    "There is strict figure/ground on pure white: the only saturated mass is the red shoe and the caramel jar, while the type stays black with small red accents. A large calm right-hand quadrant and a 10% bottom band give the eye a clean path: shoe → jar → title → sign-off line."
+  ]
+}

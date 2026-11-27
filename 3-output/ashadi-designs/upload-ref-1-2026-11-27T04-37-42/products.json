@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "title": "GIORDANO COUPLE WATCHES GD 1207 22",
+      "price": "RS.45,500",
+      "url": "https://www.kapruka.com/buyonline/giordano-couple-watches-gd-120/kid/jewelleryw001371",
+      "file": "C:\\Users\\gothami\\Desktop\\Ashadi-Sithiji\\3-output\\ashadi-designs\\upload-ref-1-2026-11-27T04-37-42\\product\\p-1.webp"
+    },
+    {
+      "title": "GIORDANO ANALOG WATCH FOR MEN GD 1193 11",
+      "price": "RS.24,670",
+      "url": "https://www.kapruka.com/buyonline/giordano-analog-watch-for-men-/kid/jewelleryw001381",
+      "file": "C:\\Users\\gothami\\Desktop\\Ashadi-Sithiji\\3-output\\ashadi-designs\\upload-ref-1-2026-11-27T04-37-42\\product\\p-2.webp"
+    }
+  ],
+  "sheet": "C:\\Users\\gothami\\Desktop\\Ashadi-Sithiji\\3-output\\ashadi-designs\\upload-ref-1-2026-11-27T04-37-42\\product\\product-sheet.png",
+  "cuts": [
+    "C:\\Users\\gothami\\Desktop\\Ashadi-Sithiji\\3-output\\ashadi-designs\\upload-ref-1-2026-11-27T04-37-42\\product\\cut-1.png",
+    "C:\\Users\\gothami\\Desktop\\Ashadi-Sithiji\\3-output\\ashadi-designs\\upload-ref-1-2026-11-27T04-37-42\\product\\cut-2.png"
+  ],
+  "labelWords": [
+    "GIORDANO"
+  ],
+  "source": "category page",
+  "peopleRemoved": false
+}

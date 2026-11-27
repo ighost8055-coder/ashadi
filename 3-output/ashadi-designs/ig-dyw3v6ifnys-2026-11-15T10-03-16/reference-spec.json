@@ -1,0 +1,258 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A pure white poster split diagonally: a glossy red stiletto bleeding off the top-left corner pours a rope of caramel spread straight down into a jar in the lower-left quadrant, while a four-line movie-title lockup stacks in the right half between 31% and 55% height. A single heavy red one-liner runs full width across the very bottom edge, leaving a large empty band of white between the title and that line.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 9,
+      "bottom": 1.4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL and BISCOFF share a left edge at x=47.0%",
+      "DEVIL (x=89.3%) and BISCOFF (x=90.9%) are optically flush on the right, ~90%",
+      "the four title lines are optically centred on a vertical axis at x≈68.7%",
+      "the bottom caption is centred on the canvas centreline x=50.0% (spans 7.2%-93.4%)",
+      "the jar's vertical centre (x≈24.5%) sits on the same axis as the pouring stream and the shoe heel above it",
+      "the shoe's lowest point, the stream and the jar form one continuous vertical column in the left third (x=14%-36%)"
+    ],
+    "whitespace": [
+      "entire right half above the title is empty: x 40-100%, y 0-31%",
+      "13% empty band between the jar/shadow bottom (y=82.5%) and the caption cap-top (y=95.1%)",
+      "large empty quadrant right of the jar and below the title: x 40-100%, y 55-94%",
+      "3.2% gap between THE baseline (34.0%) and DEVIL cap-top (34.5%) is near-zero; 2.7% gap between DEVIL baseline (41.7%) and EATS cap-top (44.4%); 1.6% gap between EATS baseline (47.3%) and BISCOFF cap-top (49.0%)",
+      "bottom margin is almost nil (1.4%) — the caption is deliberately pinned to the edge",
+      "left edge has zero margin: the shoe is cropped hard off-canvas"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36.5,
+      "h": 72.5
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A high-gloss patent red stiletto court shoe, pointed toe up and to the right, cropped off the left edge of the frame. Its stiletto heel does not end in a point — it melts and stretches downward into a thin taut rope of caramel-brown spread that splits into three slender prongs just above a glass jar of smooth caramel-coloured spread, each prong tipped like a tiny barbed fork. The jar sits upright below, its open rim overflowing with thick glossy spread that has flooded the lid, run in heavy rounded drips down the front and right side of the glass, and pooled in a small blob on the ground at the jar's right foot. The jar wears a red wrap band with a gold lozenge panel and a pale biscuit-tone border; a crisp faint contact shadow sits beneath it.",
+    "composition": "Occupies only the left third of the canvas. Shoe reads top-left, angled roughly 35° with the toe rising to x=36%, y=11% and the body cropped at the left edge between y=28% and y=45%. The melting heel/stream runs vertically at x≈23-25% from y=40% to y=55%. The jar is centred at x≈24.5%, standing from y=55.5% to y=82%, about 21% of canvas width wide. Scale is exaggerated: the shoe reads about twice the jar's size, making a heavy top-left mass that balances the type on the right.",
+    "camera": "Straight-on product viewpoint at the jar's mid-height, slight downward tilt so the jar rim reads as a shallow ellipse; long-lens/orthographic feel with no perspective distortion; everything tack-sharp front to back, no depth-of-field falloff.",
+    "lighting": "Clean studio lighting: a large soft key from the upper right plus a broad fill from upper left, producing long specular streaks down the patent shoe and wet highlights on every drip. Neutral white light, no colour cast; a soft grey contact shadow directly under the jar and a faint one under the heel area. Nothing else grounds the objects — they float on pure white.",
+    "palette": [
+      "#FFFFFF",
+      "#D1131F",
+      "#B8101A",
+      "#C8832F",
+      "#B1702A",
+      "#8A5418",
+      "#D4192C",
+      "#C19133",
+      "#F2EDE4",
+      "#E8E8E8"
+    ],
+    "negative_space": [
+      "x 40-100%, y 0-30% (title sits in the lower part of this field)",
+      "x 40-100%, y 56-94%",
+      "x 0-100%, y 83-94% (the band above the caption)"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 31.3,
+        "w": 12.5,
+        "h": 2.8
+      },
+      "font": {
+        "family_guess": "Didot",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 54,
+        "cap_height_px": 38,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#B21F25",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 47,
+        "y": 34.5,
+        "w": 42.3,
+        "h": 7.2
+      },
+      "font": {
+        "family_guess": "Didot",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 138,
+        "cap_height_px": 97,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#0E0E10",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61.7,
+        "y": 44.4,
+        "w": 15.6,
+        "h": 2.9
+      },
+      "font": {
+        "family_guess": "Didot",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 56,
+        "cap_height_px": 39,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#B21F25",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 47,
+        "y": 49,
+        "w": 43.9,
+        "h": 5.4
+      },
+      "font": {
+        "family_guess": "Didot",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 104,
+        "cap_height_px": 73,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#0E0E10",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7.2,
+        "y": 95.1,
+        "w": 86.2,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Gotham Bold",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 52,
+        "cap_height_px": 36,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#CA1A33",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "logo",
+      "brand": "Lotus (printed on the jar label, part of the product — not a separate graphic layer)",
+      "box": {
+        "x": 17,
+        "y": 65.3,
+        "w": 10.3,
+        "h": 2.8
+      },
+      "on": "dark",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "The stem of the letter I in DEVIL extends above the cap line and curves to the right into a slim tapered arrow with a barbed arrowhead, drawn in the same black as the type — a devil-tail flick grafted onto the letterform.",
+      "box": {
+        "x": 72.5,
+        "y": 30.8,
+        "w": 5.5,
+        "h": 4.2
+      }
+    }
+  ],
+  "z_order": [
+    "canvas background",
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "arrow ornament",
+    "e5",
+    "e6 (inside scene)"
+  ],
+  "hierarchy": [
+    "scene (red shoe, top-left mass)",
+    "e2",
+    "e4",
+    "scene (jar, lower-left)",
+    "e5",
+    "e1",
+    "e3",
+    "e6"
+  ],
+  "why_it_works": [
+    "The red shoe and the red type sit on opposite diagonals of a pure white field, so the eye crosses the frame once and lands on the headline — the white is doing all the work no shape or scrim would.",
+    "The melted heel is the whole idea in one read: the shoe becomes the product with no caption needed, and the type only names the joke rather than explaining it.",
+    "Three red accents (shoe, THE/EATS, bottom line) and two black words form a strict two-colour system, which lets a hairline Didone survive against a heavy glossy render without any box, rule or badge."
+  ]
+}

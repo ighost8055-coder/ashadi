@@ -1,0 +1,32 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "bag",
+      "face": {
+        "x": 11.5,
+        "y": 59.5,
+        "w": 41.5,
+        "h": 33.5
+      },
+      "surface": "dark",
+      "angle": "front"
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 74,
+    "h": 95.5
+  },
+  "notes": "Clean of all type/marks: watch dial is blank (no numerals, brand or logo), headphone cups and bag are unbranded, no signage or packaging print anywhere. Minor realism issues: the watch face is featureless with no hands or crown detail, which reads slightly fake up close; the globe is cut off at the top-left frame edge and is tethered by a gold ribbon so it reads as a balloon rather than a globe; the gold ribbon changes width/thickness where it passes behind the bag rim (~x 33-45%, y 50-62%) and its continuity is hard to follow; bag's lower-left bottom corner geometry is slightly soft/undefined around x 10-14%, y 90-94%. Right half of the frame (x>75%) is empty white backdrop — ample clear space for Canva type.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

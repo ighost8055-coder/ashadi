@@ -1,0 +1,77 @@
+{
+  "text_or_logos": [
+    {
+      "what": "faint engraved maker's mark / pseudo-text on middle fork handle",
+      "box": {
+        "x": 53.5,
+        "y": 30.5,
+        "w": 2.5,
+        "h": 4.5
+      }
+    },
+    {
+      "what": "faint engraved maker's mark / pseudo-text on left fork handle",
+      "box": {
+        "x": 29,
+        "y": 39.5,
+        "w": 3,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "faint engraved maker's mark / pseudo-text on right fork handle",
+      "box": {
+        "x": 80,
+        "y": 33,
+        "w": 3,
+        "h": 4
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "three forks stuck into the cake slice",
+      "box": {
+        "x": 15.5,
+        "y": 18,
+        "w": 79,
+        "h": 45
+      }
+    },
+    {
+      "what": "glazed chocolate layer cake with slice cut out, plus crumbs",
+      "box": {
+        "x": 13,
+        "y": 49.5,
+        "w": 63,
+        "h": 32.5
+      }
+    },
+    {
+      "what": "white plate with crumbs and soft shadow",
+      "box": {
+        "x": 3.5,
+        "y": 59.5,
+        "w": 75,
+        "h": 27.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 3.5,
+    "y": 18,
+    "w": 91,
+    "h": 69.5
+  },
+  "notes": "There is no packaging and no Kapruka bag or box. The forks are gripped in mid-air with no hands visible, which reads as staged or floating. Their tines go into the slice at angles that don't quite make sense physically. The middle fork's prongs merge into the slice. The cut slice sits wedged against the cake's cut face, but this looks plausible. The tiny engravings on the fork handles are faint, so retouch them only if they show at full size. There are no extra limbs, melting or fake surfaces.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

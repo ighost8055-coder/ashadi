@@ -1,0 +1,131 @@
+{
+  "canvas": {
+    "w": 736,
+    "h": 1075,
+    "aspect": "4:5",
+    "background": "#340A5C",
+    "background_kind": "photo"
+  },
+  "layout_summary": "A full-bleed, symmetrically centered first-person gaming photograph set in a Retail Purple (#340A5C) lit room, stacked vertically in three focal tiers: the Kapruka logo and bold white headline near the top wall, a large flat-screen TV in the center displaying a warm sunset palace scene, and a player's hands holding the real Fantech Shooter II GP13 gaming controller resting in the foreground.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.41,
+      "right": 9.26,
+      "bottom": 7.41,
+      "left": 9.26
+    },
+    "alignment_axes": [
+      "Kapruka logo, headline, TV screen, in-game character silhouette, and handheld Fantech Shooter II GP13 controller share a strict vertical center axis at x=50%"
+    ],
+    "whitespace": [
+      "7.41% (100px) top margin above the Kapruka logo and headline safe zone",
+      "8.5% dark purple wall gap separating the headline from the top bezel of the TV",
+      "3.5% dark gap between the bottom of the TV and the top of the handheld controller",
+      "9.26% (100px) left and right margins framing all typography and logo layers"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 0,
+      "w": 100,
+      "h": 100
+    },
+    "kind": "photo",
+    "framing": "full-bleed",
+    "subject": "First-person POV photograph of a player's hands wearing metal-link watches holding the exact Fantech Shooter II GP13 gaming controller (matte black dual-stick wired/wireless controller with red and white accents and exact 'FANTECH' branding as shown on the attached product sheet), facing a large flat-screen television on a dark media console in a dimly lit Retail Purple (#340A5C) living room; the TV screen displays a silhouetted adventurer walking toward a grand domed palace at warm golden sunset.",
+    "composition": "Strict central symmetry along x=50%; foreground arms enter cleanly from bottom corners (y=75% to 100%) cradling the Fantech Shooter II GP13 controller at x=30% to 70%, y=56.5% to 78%; mid-ground flat-screen TV spans x=16% to 84%, y=24% to 53%, flanked by softly blurred framed wall art and dark shelving.",
+    "camera": "Eye-level first-person POV, 35mm lens, shallow depth of field keeping the Fantech Shooter II GP13 controller crisp and in sharp focus while softly blurring the TV screen and background wall.",
+    "lighting": "Dim ambient room bathed in Retail Purple (#340A5C) overhead glow, warm amber-gold (#F6C96A) screen light radiating from the television, and cool cyan-blue rim light catching the edges of the hands and controller.",
+    "palette": [
+      "#340A5C",
+      "#241044",
+      "#FFC107",
+      "#F6C96A",
+      "#F5F4EB",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "Upper dark Retail Purple (#340A5C) wall area (x=15% to 85%, y=0% to 23%) kept smooth, low-detail, and completely free of text or signage for Canva logo and headline placement"
+    ],
+    "prompt": "Full-bleed eye-level first-person POV studio photograph in 4:5 portrait aspect ratio set in a dimly lit living room bathed in deep Retail Purple (#340A5C) ambient wall light. In the foreground, a player's hands wearing silver metal-link watches enter cleanly from the bottom frame edges (y=75% to 100%), holding the exact Fantech Shooter II GP13 gaming controller drawn exactly as in the attached product sheet (matching its exact ergonomic black body, thumbstick layout, face buttons, red accent details, and crisp 'FANTECH' printed wordmark on the front, unobstructed and sharply in focus at x=30% to 70%, y=56.5% to 78%). Facing the player at mid-ground (x=16% to 84%, y=24% to 53%) is a large sleek black flat-screen television resting on a dark wood media console, displaying a warm golden-amber (#F6C96A) sunset scene of a lone adventurer walking toward a grand domed palace, flanked by softly blurred framed wall art and shelves. The upper Retail Purple (#340A5C) wall zone (x=15% to 85%, y=0% to 23%) is completely smooth, uncluttered, and dark with zero neon signs, letters, or graphics so the Kapruka logo and headline can be placed cleanly later. Shallow depth of field, natural skin texture, warm screen glow against #340A5C purple shadows and subtle cool rim light on the hands, realistic contact shadows, zero text, logos, price tags, stickers, or watermarks anywhere except the exact 'FANTECH' print on the controller.",
+    "attach": [
+      "product-sheet.png"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e0",
+      "type": "logo",
+      "role": "brand_logo",
+      "on": "dark",
+      "box": {
+        "x": 40.74,
+        "y": 7.41,
+        "w": 18.52,
+        "h": 4.2
+      }
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "GAME ON",
+      "box": {
+        "x": 30,
+        "y": 13,
+        "w": 40,
+        "h": 5.5
+      },
+      "font": {
+        "family": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 72,
+        "cap_height_px": 52,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [
+        {
+          "text": "ON",
+          "color": "#FFC107"
+        }
+      ],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e0",
+    "e1"
+  ],
+  "hierarchy": [
+    "e0",
+    "e1",
+    "scene"
+  ],
+  "why_it_works": [
+    "Strict central vertical axis at x=50% aligns the Kapruka logo, 'GAME ON' headline, palace dome, player silhouette, and Fantech Shooter II GP13 controller for immediate visual lock.",
+    "Replacing the red wall neon with Retail Purple (#340A5C) ambient wall lighting and crisp white/yellow (#FFFFFF / #FFC107) Inter typography keeps the reference's glowing focal hierarchy while adhering to Kapruka brand rules.",
+    "Sharp foreground focus on the exact Fantech Shooter II GP13 controller paired with the warm sunset TV screen creates strong depth separation and an authentic gifting or self-purchase gaming moment."
+  ],
+  "changes": [
+    "Converted canvas to 1080x1350 (4:5) with #340A5C Retail Purple ground and enforced 100px (9.26% horizontal, 7.41% vertical) safe margins on all text and logo layers.",
+    "Replaced the reference's generic white gamepad with the exact Fantech Shooter II GP13 gaming controller from the attached product sheet, preserving its exact shape, colours, and 'FANTECH' print.",
+    "Removed the AI-rendered red wall neon sign ('GCCAME') from the background photo so the upper wall remains clean and text-free, moving the headline into an editable Canva Inter Bold (700) vector layer.",
+    "Adapted the 1-line all-caps headline to 'GAME ON' (7 chars, matching the reference's compact 1-line punch) in #FFFFFF with 'ON' highlighted in Kapruka Yellow #FFC107.",
+    "Added the Kapruka logo centered at the top (top edge at 100px / 7.41%, inside the 110px maximum rule) on the dark purple upper wall.",
+    "Shifted the ambient wall lighting from red (#ff2a2a) to Kapruka Retail Purple (#340A5C) while preserving the warm amber TV glow and cool rim light on the hands."
+  ],
+  "claims_used": [
+    "No external promotional claims, prices, or unverified superlatives are used in the ad copy ('GAME ON'); the creative focuses purely on the real Fantech Shooter II GP13 product available via Kapruka's Ecom electronics catalog (01-business-context.md §2 Line C — Ecom)."
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A tall two-column poster on pure white: a red patent stiletto bleeds off the upper-left corner and its heel melts downward into a jar of spread in the lower-left, while a stacked film-title typographic lockup occupies the right half at mid-height. A single full-width red one-liner sits as a footer band at the very bottom, centred on the canvas.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 6.9,
+      "bottom": 3.2,
+      "left": 0
+    },
+    "alignment_axes": [
+      "'DEVIL' and 'BISCOFF' share a left edge at x=46.8%",
+      "'DEVIL' and 'BISCOFF' share an optical right edge at x≈90% (89.4% / 91.2%)",
+      "'EATS' is centred on the title-block centre axis at x≈68.5%, as is the whole DEVIL/BISCOFF lockup",
+      "'THE' is deliberately NOT centred on the lockup — it is pushed left (centre x≈57.9%) to counterbalance the arrow in the upper-right of 'DEVIL'",
+      "The footer line is centred on the canvas centre axis x=50%",
+      "The stiletto heel stem, the pitchfork prongs and the jar centre all stack on a single vertical axis at x≈24%",
+      "Scene right edge (35.5%) and title left edge (46.8%) form a clean vertical gutter"
+    ],
+    "whitespace": [
+      "11.3% empty vertical gutter between the scene and the title block (x=35.5%→46.8%, full height of the title)",
+      "A large empty quadrant occupies the lower right: x=36%→100%, y=57%→92% (~22% of the canvas) with nothing in it",
+      "9.5% empty band between the bottom of the jar (y≈83.5%) and the cap-top of the footer line (y≈92.9%)",
+      "10% empty band across the top of the canvas above the shoe toe (y=0%→10%)",
+      "Empty upper-right block x=40%→100%, y=0%→31% above the title",
+      "3.2% clear band below the footer line to the bottom edge"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 35.5,
+      "h": 73.5
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy scarlet patent-leather pointed-toe stiletto pump, seen in profile, tilted toe-up toward the upper right so its sole and opening face the viewer's left. The shoe's slim stiletto heel does not end in a tip — it stretches downward into a long tapering stem that changes material partway, turning from red lacquer into thick golden-brown caramel spread, and splits into three downward-pointing prongs like a small pitchfork. The prongs plunge into the open mouth of a squat cylindrical glass jar of smooth caramel-brown spread sitting upright below; the spread has overflowed, pouring in heavy glossy ribbons over the jar's screw rim and down its sides, with a few thick rivulets running to the base and pooling on the ground.",
+    "composition": "Shoe occupies the upper-left and is cropped hard by the left canvas edge — roughly a third of the shoe (the back of the sole and part of the vamp) runs off-frame. Toe points up-right and nearly touches the 35% vertical. The heel/stem falls through the vertical centre of the left column at x≈24% and lands on the jar, which is centred on the same axis and scaled to about a fifth of the canvas width. Shoe and jar together form a single top-left to bottom-centre-left diagonal; nothing crosses into the right half.",
+    "camera": "Straight-on eye-level product view, long-lens feel with no perspective distortion, deep focus — everything is sharp front to back, no depth-of-field falloff.",
+    "lighting": "Bright, even studio lighting from the front-upper-left with a large soft source; strong specular highlights run along the shoe's top curve and the wet caramel ribbons. Shadows are almost entirely suppressed — only a faint soft contact shadow under the jar — so the objects read as cut-outs floating on white.",
+    "palette": [
+      "#FFFFFF",
+      "#D40D1B",
+      "#A8060F",
+      "#C8832F",
+      "#A4601E",
+      "#C8102E",
+      "#D9A441",
+      "#F2E3CF"
+    ],
+    "negative_space": [
+      "Right half below the title: x=36%→100%, y=57%→92% — fully empty white",
+      "Upper right: x=40%→100%, y=0%→31% — empty white the title sits beneath",
+      "Band x=0%→100%, y=84%→92% — empty white the footer line sits on"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 50.9,
+        "y": 31.3,
+        "w": 13.9,
+        "h": 3.1
+      },
+      "font": {
+        "family_guess": "Bodoni Std / Didot",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 48,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": 5,
+        "case": "upper",
+        "italic": false,
+        "color": "#C01420",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.8,
+        "y": 34.6,
+        "w": 42.6,
+        "h": 8
+      },
+      "font": {
+        "family_guess": "Bodoni Std / Didot",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 150,
+        "cap_height_px": 105,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#111111",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 44.3,
+        "w": 16.8,
+        "h": 3.4
+      },
+      "font": {
+        "family_guess": "Bodoni Std / Didot",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 64,
+        "cap_height_px": 45,
+        "line_height": 1.1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#C01420",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46.8,
+        "y": 48.5,
+        "w": 44.4,
+        "h": 6.1
+      },
+      "font": {
+        "family_guess": "Bodoni Std / Didot (small-caps setting — initial B at full cap height, remaining letters at ~82% cap height)",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 118,
+        "cap_height_px": 82,
+        "line_height": 1,
+        "letter_spacing_px": 1.5,
+        "case": "upper",
+        "italic": false,
+        "color": "#111111",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7.2,
+        "y": 92.9,
+        "w": 85.9,
+        "h": 3.9
+      },
+      "font": {
+        "family_guess": "Gilroy ExtraBold / Montserrat ExtraBold",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 58,
+        "cap_height_px": 42,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#CC2029",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "The 'I' of DEVIL is replaced by a devil-tail arrow: a single stroke that leaves the baseline, rises as a slightly curved diagonal up and to the right past the cap line, and ends in a solid two-barb arrowhead pointing up-right. Solid black, same weight as the letter stems, breaking the cap line of the word by about 5% of canvas height.",
+      "box": {
+        "x": 71,
+        "y": 29.6,
+        "w": 7.2,
+        "h": 13
+      }
+    },
+    {
+      "description": "Three-pronged pitchfork/trident formed where the stiletto heel stem meets the jar — part of the rendered scene, but it reads as a graphic device: the caramel stem splits into three short tapered downward spikes entering the jar mouth.",
+      "box": {
+        "x": 18.5,
+        "y": 54.5,
+        "w": 12,
+        "h": 6.5
+      }
+    }
+  ],
+  "z_order": [
+    "canvas-background",
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "ornament-arrow",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e3",
+    "e1",
+    "e5"
+  ],
+  "why_it_works": [
+    "The whole poster is one borrowed frame — a film title-card layout (tracked small line, huge serif name, small red verb, huge serif name) — so the joke lands before a single word is read.",
+    "Left half carries the image, right half carries the type, with a clean 11% gutter and nothing crossing it; the eye never has to separate figure from ground.",
+    "The red stiletto, the red of 'THE'/'EATS', the red jar label and the red footer line lock the entire page to a single hue against pure white, so the lone black title reads as the hardest contrast in frame."
+  ]
+}

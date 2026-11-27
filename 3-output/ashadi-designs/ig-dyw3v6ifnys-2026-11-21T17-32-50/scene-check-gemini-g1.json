@@ -1,0 +1,40 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red high-heeled shoe with pitchfork heel",
+      "box": {
+        "x": 0,
+        "y": 23,
+        "w": 29.5,
+        "h": 41
+      }
+    },
+    {
+      "what": "chocolate drip cake with crumbs and shadow",
+      "box": {
+        "x": 0,
+        "y": 63,
+        "w": 36.5,
+        "h": 18.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 23,
+    "w": 36.5,
+    "h": 58.5
+  },
+  "notes": "",
+  "size": {
+    "w": 818,
+    "h": 1024
+  }
+}

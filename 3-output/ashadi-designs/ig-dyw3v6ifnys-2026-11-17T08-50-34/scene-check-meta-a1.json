@@ -1,0 +1,52 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "box",
+      "face": {
+        "x": 4.5,
+        "y": 76,
+        "w": 25.5,
+        "h": 19.5
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    }
+  ],
+  "objects": [
+    {
+      "what": "older woman, frowning, raised open palm, holding a fork in the cake",
+      "box": {
+        "x": 0,
+        "y": 4.5,
+        "w": 68.5,
+        "h": 75
+      }
+    },
+    {
+      "what": "open purple cake box with half-eaten chocolate cake, flaps and soft contact shadow",
+      "box": {
+        "x": 0,
+        "y": 64,
+        "w": 53,
+        "h": 31.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 4.5,
+    "w": 68.5,
+    "h": 91
+  },
+  "notes": "No text, logos or watermark anywhere. The box is plain purple with only small die-cut or score marks on the front-left panel (about x 17-21, y 85-87); these are not text. Both hands have five fingers and look anatomically fine. The fork is intact. Chocolate crumbs at the corners of her mouth fit the joke. The box's left flap and the woman's body are cut off by the left edge of the frame. The front-left face of the box is the best place for a logo. It slopes at the top, from about y 76 on the left to about y 83 at the corner near x 30, so the safe flat area is roughly x 6-28, y 83-93.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

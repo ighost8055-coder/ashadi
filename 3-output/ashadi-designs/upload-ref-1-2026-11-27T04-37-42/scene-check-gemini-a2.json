@@ -1,0 +1,157 @@
+{
+  "text_or_logos": [
+    {
+      "what": "watch dial brand wordmark, logo mark and printed numerals/indices (top-right watch, green-sleeve arm)",
+      "box": {
+        "x": 62,
+        "y": 16,
+        "w": 6.5,
+        "h": 7.5
+      }
+    },
+    {
+      "what": "watch dial brand wordmark, small printed text and numerals (left watch, pointing arm)",
+      "box": {
+        "x": 14,
+        "y": 54,
+        "w": 5.5,
+        "h": 6.5
+      }
+    },
+    {
+      "what": "watch dial brand wordmark, small printed text, numerals and date window (bottom-right watch, plaid-sleeve arm)",
+      "box": {
+        "x": 60,
+        "y": 69,
+        "w": 7,
+        "h": 8
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "black knurled vertical pole running the full height of the frame",
+      "box": {
+        "x": 47,
+        "y": 0,
+        "w": 6.5,
+        "h": 100
+      }
+    },
+    {
+      "what": "blue sleeve with red push-button on the pole",
+      "box": {
+        "x": 47,
+        "y": 49,
+        "w": 6,
+        "h": 14.5
+      }
+    },
+    {
+      "what": "steel watch with turquoise dial (top right)",
+      "box": {
+        "x": 62,
+        "y": 16,
+        "w": 6.5,
+        "h": 7.5
+      }
+    },
+    {
+      "what": "steel watch with light-blue dial (left, pointing arm)",
+      "box": {
+        "x": 14,
+        "y": 54,
+        "w": 5.5,
+        "h": 6.5
+      }
+    },
+    {
+      "what": "steel watch with turquoise dial (bottom right)",
+      "box": {
+        "x": 60,
+        "y": 69,
+        "w": 7,
+        "h": 8
+      }
+    },
+    {
+      "what": "arm in green blazer sleeve gripping pole (top right)",
+      "box": {
+        "x": 43.5,
+        "y": 7.5,
+        "w": 56.5,
+        "h": 21.5
+      }
+    },
+    {
+      "what": "arm in pink wool sleeve gripping pole (left)",
+      "box": {
+        "x": 0,
+        "y": 22.5,
+        "w": 57,
+        "h": 17
+      }
+    },
+    {
+      "what": "arm in black crane-print bomber sleeve gripping pole (right)",
+      "box": {
+        "x": 43.5,
+        "y": 34,
+        "w": 56.5,
+        "h": 13
+      }
+    },
+    {
+      "what": "arm in polka-dot sleeve pointing at the red button (left)",
+      "box": {
+        "x": 0,
+        "y": 53,
+        "w": 42,
+        "h": 9.5
+      }
+    },
+    {
+      "what": "arm in black-and-white check sleeve gripping pole (right)",
+      "box": {
+        "x": 43,
+        "y": 64.5,
+        "w": 57,
+        "h": 17.5
+      }
+    },
+    {
+      "what": "tattooed arm in navy leopard-jacquard suit sleeve gripping pole (bottom left)",
+      "box": {
+        "x": 0,
+        "y": 77,
+        "w": 57,
+        "h": 16
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 100,
+    "h": 100
+  },
+  "people": [
+    "top-right hand + forearm in green blazer sleeve, wearing a watch, gripping the pole",
+    "left hand + forearm in pink wool coat sleeve, gripping the pole",
+    "right hand + forearm in black crane-print bomber sleeve, gripping the pole",
+    "left hand + forearm in polka-dot blouse sleeve, index finger pointing, red nail polish, wearing a watch",
+    "right hand + forearm (dark skin) in black-and-white check sleeve, wearing a watch, gripping the pole",
+    "bottom-left tattooed hand + forearm with white shirt cuff and navy leopard-jacquard suit sleeve, gripping the pole"
+  ],
+  "notes": "No watermark. Main issue: all three watch dials carry tiny brand wordmarks, logo marks, printed text and numerals, so they need cleaning or masking. Tattoos are drawings, not text. Six real human arms and hands fill the frame from edge to edge; finger counts look normal. The pole runs the full height, so the objects box covers the whole frame. Hands and sleeves are part of the composition and overlap the objects.",
+  "size": {
+    "w": 1840,
+    "h": 2304
+  }
+}

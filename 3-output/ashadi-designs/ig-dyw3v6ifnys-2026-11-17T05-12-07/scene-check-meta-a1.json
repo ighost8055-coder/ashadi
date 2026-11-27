@@ -1,0 +1,70 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "bag",
+      "face": {
+        "x": 16,
+        "y": 53,
+        "w": 35.5,
+        "h": 40.5
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    }
+  ],
+  "objects": [
+    {
+      "what": "gold quilted handbag with gold chain strap (upper left, tipping/melting)",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 43,
+        "h": 38.5
+      }
+    },
+    {
+      "what": "molten gold strands and pour running from the handbag into and over the purple bag",
+      "box": {
+        "x": 23,
+        "y": 29,
+        "w": 30,
+        "h": 63
+      }
+    },
+    {
+      "what": "purple Kapruka-style shopping bag with white rope handle",
+      "box": {
+        "x": 10,
+        "y": 49,
+        "w": 42,
+        "h": 47
+      }
+    },
+    {
+      "what": "gold puddle at the base with hanging drip",
+      "box": {
+        "x": 39.5,
+        "y": 89.5,
+        "w": 17.5,
+        "h": 9.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 57,
+    "h": 99
+  },
+  "notes": "Clean background layer — no lettering, numerals, brand marks, labels or pseudo-text anywhere, including on the purple bag panels and the handbag surface. No AI badge or corner stamp. Right third and bottom-right of the frame are empty white, so there is open space for Canva type. The purple bag front face (16-51.5% x, 53-93.5% y) is the flat dark panel a logo would sit on, but the gold pour crosses its right side from about x=44 to x=51 between y=55 and y=92 — keep any mark left of x=42. Shadow/contact under the bag is very faint and nearly invisible against the white backdrop, so the bag reads slightly as if floating. The melting handbag and gold flow are intentionally surreal, not render errors; no hands, faces or anatomy in frame. Handbag quilting and seams are consistent; no melted or duplicated hardware.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

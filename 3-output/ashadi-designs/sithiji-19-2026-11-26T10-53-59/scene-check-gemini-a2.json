@@ -1,0 +1,58 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red rose mixed bouquet in black and white wrapping with gold ribbon",
+      "box": {
+        "x": 9,
+        "y": 23.5,
+        "w": 28,
+        "h": 28
+      }
+    },
+    {
+      "what": "pink and white lily bouquet in light blue wrapping with pink ribbon",
+      "box": {
+        "x": 13,
+        "y": 50.5,
+        "w": 23.5,
+        "h": 27.5
+      }
+    },
+    {
+      "what": "orange tabby kitten lying on its back",
+      "box": {
+        "x": 37,
+        "y": 26,
+        "w": 26,
+        "h": 48.5
+      }
+    },
+    {
+      "what": "purple and white chrysanthemum bouquet in mesh wrapping with white ribbon",
+      "box": {
+        "x": 65,
+        "y": 33.5,
+        "w": 25,
+        "h": 34
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 9,
+    "y": 23.5,
+    "w": 81,
+    "h": 54.5
+  },
+  "notes": "",
+  "size": {
+    "w": 1840,
+    "h": 2304
+  }
+}

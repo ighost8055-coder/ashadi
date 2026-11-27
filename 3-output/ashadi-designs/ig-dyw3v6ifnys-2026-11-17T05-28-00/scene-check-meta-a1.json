@@ -1,0 +1,97 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "bag",
+      "face": {
+        "x": 15.5,
+        "y": 63.5,
+        "w": 33,
+        "h": 32.5
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    }
+  ],
+  "objects": [
+    {
+      "what": "purple-and-gold globe on its gold stand/meridian ring (cropped at top and left edge)",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 39.5,
+        "h": 41
+      }
+    },
+    {
+      "what": "molten gold stream pouring from the globe stem down toward the bag, with hanging teardrops",
+      "box": {
+        "x": 18,
+        "y": 40,
+        "w": 11.5,
+        "h": 22
+      }
+    },
+    {
+      "what": "molten gold spill coating the bag rim, running down the bag's left edge and pooling on the floor",
+      "box": {
+        "x": 1.5,
+        "y": 60,
+        "w": 48,
+        "h": 38
+      }
+    },
+    {
+      "what": "purple paper gift/shopping bag (body, side panel and base)",
+      "box": {
+        "x": 10,
+        "y": 60.5,
+        "w": 39,
+        "h": 37
+      }
+    },
+    {
+      "what": "bunch of red roses with green leaves inside the bag",
+      "box": {
+        "x": 27.5,
+        "y": 48.5,
+        "w": 23,
+        "h": 14.5
+      }
+    },
+    {
+      "what": "white twisted rope handle of the bag",
+      "box": {
+        "x": 27,
+        "y": 65.5,
+        "w": 17,
+        "h": 14.5
+      }
+    },
+    {
+      "what": "gold wristwatch hanging over the bag's right edge",
+      "box": {
+        "x": 41.5,
+        "y": 62.5,
+        "w": 6,
+        "h": 12
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 0,
+    "w": 50.5,
+    "h": 98
+  },
+  "notes": "No text, logos, labels or watermark found anywhere — the bag face, globe, roses and floor are all blank. One thing to verify at full resolution: the watch dial (approx x 42.5, y 69.5, w 4, h 4) carries faint indistinct markings that could resolve into garbled pseudo-text or a fake brand name at print size; it was too small to read here. Other observations: the globe is cropped hard at the top and left edges, so it reads as a partial object; the gold pour reads as frozen/solid metal rather than flowing liquid where it meets the bag rim, and the rivulet down the bag's left edge merges with the puddle in a slightly melted, unphysical way; the bag's left side panel and the gold coating overlap with no clear shadow separating bag from floor — the bag casts almost no ground shadow, so it floats slightly against the white backdrop; no people or hands in frame, so no finger/anatomy issues.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

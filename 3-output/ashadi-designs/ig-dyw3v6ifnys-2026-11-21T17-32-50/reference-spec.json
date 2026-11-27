@@ -1,0 +1,246 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "An asymmetric parody poster layout on a pure white canvas, pairing a red stiletto heel whose pitchfork tip dips into an open spread jar on the left with a stacked serif title lockup on the right. A single-line bold red tagline spans the full width across the bottom margin to anchor the composition.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 7,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL (e2) and BISCOFF (e4) share an approximate left edge around x=46.0%–46.5%",
+      "DEVIL (e2) and BISCOFF (e4) share an approximate right edge around x=89.5%–91.0%",
+      "Bottom tagline (e5) is horizontally centered on the canvas (x=7.0% to x=93.0%, center x=50.0%)"
+    ],
+    "whitespace": [
+      "10.0% empty white band above the highest point of the shoe",
+      "10.0% horizontal gutter separating the shoe/jar visual (right edge x=36.0%) from the title lockup (left edge x=46.0%)",
+      "30.5% empty white space above the title lockup on the right half",
+      "37.0% empty white space below the title lockup on the right half (y=55.5% to y=92.5%)",
+      "10.0% empty vertical gap between the bottom of the spread drip (y=82.5%) and the bottom tagline (y=92.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy crimson high-heeled pump angled upward from the left edge, its stiletto heel morphing into a three-pronged red pitchfork dipping into an open glass jar overflowing with smooth caramel-brown biscuit spread, with a thick drip running down the right side of the jar onto the surface.",
+    "composition": "Positioned in the left third of the canvas; the back of the shoe crops off the left edge between y=41.0% and y=52.5%, while the jar sits grounded near the lower left (x=14.5%–35.0%, y=55.5%–82.5%) casting a soft shadow to its left.",
+    "camera": "Eye-level studio product shot with a normal-to-short-telephoto lens feel and deep focus keeping both shoe and jar crisp.",
+    "lighting": "Bright, soft studio lighting from the upper right, creating sharp specular white highlights along the red patent leather shoe and glossy spread, and a soft diffused contact shadow falling to the bottom-left of the jar.",
+    "palette": [
+      "#C90E13",
+      "#8E0508",
+      "#B56A2C",
+      "#D48C46",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      {
+        "x": 36,
+        "y": 0,
+        "w": 64,
+        "h": 92.5
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 10
+      },
+      {
+        "x": 0,
+        "y": 82.5,
+        "w": 100,
+        "h": 10
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 30.5,
+        "w": 12,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Garamond",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#B2151B",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 31.5,
+        "w": 43,
+        "h": 11
+      },
+      "font": {
+        "family_guess": "Garamond",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 138,
+        "cap_height_px": 101,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 60.5,
+        "y": 44,
+        "w": 16.5,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Garamond",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#B2151B",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 45,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Garamond",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 155,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "VAG Rounded",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 48,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#B2151B",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Elongated right arm of the letter 'V' in 'DEVIL' extending upward and terminating in a pointed black devil-tail arrowhead",
+      "box": {
+        "x": 70.5,
+        "y": 31.5,
+        "w": 7.5,
+        "h": 11
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "Instant cultural recognition: replicates the iconic movie-poster typography, red-and-black palette, and white negative space while seamlessly swapping the stiletto heel into a pitchfork dipping into the product.",
+    "Strong left-to-right visual balance: the tall, high-contrast red shoe and overflowing jar on the left counterweight the stacked serif title lockup on the right without cluttering the white ground.",
+    "Clear typographic contrast: pairing classic editorial serifs for the parody title with a friendly rounded brand sans-serif for the bottom quote separates the joke from the brand voice."
+  ]
+}

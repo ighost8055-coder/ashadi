@@ -1,0 +1,262 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A tall two-column poster on pure white: a deep-purple patent court shoe bleeding off the left edge and pouring into a plain purple gift bag occupies the left third from the top-left corner down to 82% height, while a centred four-line title lockup sits in the right half between 36.5% and 61.5%. One Kapruka logo sits alone in the quiet white block below the lockup, and a single one-line purple kicker in heavy sans runs full-width across the bottom at 93%.",
+  "grid": {
+    "margins_pct": {
+      "top": 8.5,
+      "right": 4.5,
+      "bottom": 3.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "All four headline lines ('THE', 'WORLD', 'IN A', 'Gift Bag') are centred on a shared vertical axis at x=68%",
+      "'WORLD' and 'Gift Bag' are optically width-matched to a shared left edge at x=47.5% and right edge at x=89.5% (track to fit; Poppins sets wider than the reference serif)",
+      "The logo is centred on the same x=68% headline axis, so the right column reads as one vertical column of type",
+      "The ribbon pour column and the gift-bag body share a vertical centre at x=29%",
+      "Bottom kicker is centred on the canvas centre axis at x=50%, independent of the headline axis",
+      "Headline block bottom (61.5%) and gift-bag top-of-handles (~65%) leave an unoccupied horizontal band shared across both columns"
+    ],
+    "whitespace": [
+      "Entire right column above y=29% is empty white (x 45-100%, y 0-29%) — roughly 16% of canvas height",
+      "Full-width empty band between the bag base (y=82%) and the kicker cap-top (y=92%) — a 10% breathing gap",
+      "Empty white block right of and below the bag (x 45-100%, y 62-92%), broken only by the small logo at y 71-76.5% — still the largest single void",
+      "Left edge is deliberately bled: the shoe is cropped off-canvas at x=0, so there is no left margin",
+      "~5.5% clear gap between the headline's right edge (89.5%) and the right canvas edge"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 9,
+      "w": 42,
+      "h": 73
+    },
+    "kind": "photographic-still-life",
+    "subject": "A glossy deep-purple patent-leather women's court shoe, angled toe-up to the upper right, whose slim stiletto heel tapers downward and becomes three falling strands of muted antique-gold satin ribbon that spill into the open mouth of a squat matte purple gift bag; ribbon overflows the rim, runs down one side of the bag and pools at its base beside a small clear glass perfume bottle. The bag is completely plain and unprinted — flat matte Kapruka purple #4B2386, white twisted-rope handles, blank front face left clear for the logo to be placed in Canva afterwards.",
+    "composition": "Shoe enters from the top-left corner and is cropped by the left canvas edge, filling the diagonal from (0,50%) to (36%,10%); the heel tapers into a ribbon column centred at x=29% that falls into the bag below; the bag stands upright bottom-left, occupying x 15-41%, y 65-82%, with a faint contact shadow. Together they form one continuous top-left-to-bottom-centre diagonal that leaves the right half empty for type.",
+    "camera": "Straight-on, near eye-level product view with a slight high angle on the bag mouth showing a sliver of the opening; long-lens feel (100mm) with no perspective distortion, f/11, everything in sharp focus front to back, no depth-of-field falloff.",
+    "lighting": "Soft broad key from the upper left with a bright specular highlight running the length of the shoe's vamp and a second sharp highlight on the heel; a cooler fill from the right separates the bag from the white ground; shadows are extremely soft and almost absent, producing a cut-out-on-white studio look.",
+    "palette": [
+      "#FFFFFF",
+      "#340A5C",
+      "#4B2386",
+      "#241044",
+      "#D9A441",
+      "#F6C96A",
+      "#F2F2F2"
+    ],
+    "negative_space": [
+      "x 45-100%, y 0-29% (white above the headline)",
+      "x 45-100%, y 62-92% (white right of and below the bag, holding only the logo)",
+      "x 0-100%, y 82-92% (full-width band above the kicker)"
+    ],
+    "prompt": "A 4:5 portrait studio still life on a pure white seamless background, shot as a real product photograph, never a 3D render. Left third: a glossy deep-purple patent-leather women's court shoe enters from the top-left corner, cropped by the left edge, angled toe-up to the upper right, filling the diagonal from the left edge at 50% height up to 36% width at 10% height. Its slim stiletto heel tapers downward and becomes three falling strands of muted antique-gold satin ribbon, centred at 29% width, pouring into the open mouth of a squat matte purple gift bag standing upright between 15-41% width and 65-82% height. The bag is completely plain: flat matte purple, white twisted-rope handles, blank smooth front face, no printing or marking of any kind. Ribbon overflows the rim, runs down one side and pools at the base beside a small clear glass perfume bottle. Straight-on near eye-level view, long lens, no perspective distortion, sharp front to back. Soft broad key from the upper left, one bright specular highlight along the shoe's vamp, cooler fill from the right, very soft real contact shadows. Keep these areas plain empty white and completely uncluttered: x 46-90% / y 29-62%; x 58-78% / y 71-77%; x 7-93% / y 92-97%. Real leather grain, real satin sheen, real glass, fine natural film grain, no plastic sheen. Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage or UI anywhere in the image, including on the bag, the shoe and the bottle.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 60.5,
+        "y": 36.5,
+        "w": 15.5,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 400,
+        "size_px": 66,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1.5,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "WORLD",
+      "box": {
+        "x": 47.5,
+        "y": 40,
+        "w": 42,
+        "h": 6.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 400,
+        "size_px": 124,
+        "cap_height_px": 88,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "IN A",
+      "box": {
+        "x": 61,
+        "y": 51,
+        "w": 16.5,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 400,
+        "size_px": 66,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1.5,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "Gift Bag",
+      "box": {
+        "x": 46.5,
+        "y": 55.5,
+        "w": 43.5,
+        "h": 6
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 400,
+        "size_px": 118,
+        "cap_height_px": 84,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "title",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "logo",
+      "role": "logo",
+      "text": "Kapruka",
+      "on": "light",
+      "box": {
+        "x": 58,
+        "y": 71,
+        "w": 20,
+        "h": 5.5
+      },
+      "font": null,
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "A world of choices, delivered across Sri Lanka.",
+      "box": {
+        "x": 7,
+        "y": 93,
+        "w": 86,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 51,
+        "cap_height_px": 36,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e6",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5",
+    "e6"
+  ],
+  "why_it_works": [
+    "The four-line title lockup keeps the reference's film-poster rhythm, so the same two-beat read (big word, small word, big word) lands before anything is parsed.",
+    "The hard left/right split is untouched — object on the left diagonal, centred type on the right — letting both halves stay large and uncrowded on white.",
+    "Colour is still rationed to exactly two: Retail Purple for the two display lines and the kicker, muted Luxury Gold for the two small connector words, which keeps the frame legible at thumbnail size.",
+    "The pour reads as one continuous diagonal from a fashion product into a Kapruka gift bag, so the picture says 'anything becomes a gift' before the headline is read."
+  ],
+  "changes": [
+    "Copy rewritten to the same four-line grammar and the same bottom kicker job: 'THE / WORLD / IN A / Gift Bag' (3/5/4/8 chars vs 3/5/4/7) and a 47-char kicker vs 44 — both inside ±15%.",
+    "Kicker now carries the brand tagline 'A world of choices' plus the island-wide delivery fact, keeping one headline block + one support line (Core Rule 16) and no tagline under the logo (Core Rule 19).",
+    "Type family moved to Poppins (brand headline face, on the Canva list) for every element; size, weight, case, line-height, tracking, alignment and line counts kept exactly as measured.",
+    "Colour mapped by role, not by hue: the reference's black display lines become Retail Purple #340A5C, its two red accent words become muted Luxury Gold #D9A441, and the red kicker becomes #340A5C so the two-colour rationing survives on white.",
+    "Scene subject swapped to Kapruka's own world — a deep-purple patent court shoe (fashion) pouring through three gold satin ribbon strands into a gift bag, with a perfume bottle at the base so the breadth line is backed by two departments, not one (Core Rule 12).",
+    "Scene kind moved from 3D render to photographic still life with real leather, satin and glass, per the brand guidelines' ban on glossy 3D renders — composition, crop, camera and light direction are unchanged.",
+    "The devil-tail arrow ornament and the drip-tip accent marks are removed; no ornaments or added shapes, and the three ribbon tips now live inside the scene description only.",
+    "One Kapruka logo added in the calmest void (x 58-78%, y 71-76.5%), centred on the headline axis; the bag is painted plain and blank so its own logo is placed in Canva, not by the image model."
+  ],
+  "claims_used": [
+    "'A world of choices' — the approved default brand-level tagline (1-foundation/references/brand-assets/_brand-assets.md, human decision 2026-07-18); supported as a breadth claim by the catalogue spread named in CLAUDE.md Core Rule 12, and shown in frame by two departments (footwear + a beauty item).",
+    "'delivered across Sri Lanka' — island-wide delivery, anywhere in Sri Lanka (01-business-context.md §1, Confirmed Proof approved for ad use 2026-07-04).",
+    "'THE WORLD IN A Gift Bag' — a breadth statement about the range, not a service promise; it restates the approved tagline and names no date, speed, price, offer or coverage beyond what is confirmed above.",
+    "No speed, price, SKU or offer claim is made anywhere in the creative — same-day/next-day timings were deliberately left out because this is an evergreen brand frame and 01-business-context.md still bars product/offer advertising until the human flags one."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "red glossy stiletto high-heeled shoe",
+      "box": {
+        "x": 5,
+        "y": 3.5,
+        "w": 52,
+        "h": 48.5
+      }
+    },
+    {
+      "what": "red three-pronged fork stand",
+      "box": {
+        "x": 24.5,
+        "y": 49,
+        "w": 18,
+        "h": 21
+      }
+    },
+    {
+      "what": "chocolate cake with melted chocolate drips, puddle, and shadow",
+      "box": {
+        "x": 0,
+        "y": 67.5,
+        "w": 58.5,
+        "h": 29
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 3.5,
+    "w": 58.5,
+    "h": 93
+  },
+  "notes": "",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

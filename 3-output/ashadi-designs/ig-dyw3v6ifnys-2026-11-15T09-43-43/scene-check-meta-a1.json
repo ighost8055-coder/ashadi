@@ -1,0 +1,47 @@
+{
+  "text_or_logos": [
+    {
+      "what": "faint garbled pseudo-text on the watch dial (reads like a brand wordmark under the centre of the face)",
+      "box": {
+        "x": 18.5,
+        "y": 53,
+        "w": 4.5,
+        "h": 2
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [
+    {
+      "kind": "bag",
+      "face": {
+        "x": 17.5,
+        "y": 57,
+        "w": 30.5,
+        "h": 35
+      },
+      "surface": "dark",
+      "angle": "front"
+    },
+    {
+      "kind": "bag",
+      "face": {
+        "x": 0,
+        "y": 4,
+        "w": 27,
+        "h": 41
+      },
+      "surface": "dark",
+      "angle": "three-quarter"
+    }
+  ],
+  "notes": "The second packaging entry is the purple patent handbag (a product, tilted/pouring) — its broad front panel is a logo-capable dark surface, but a logo there would read as branding the product, not the packaging; the paper gift bag front panel is the clean intended slot. The gift bag's narrow left side panel (approx x 8-17.5%, y 57-88%) is largely covered by the gold pour and unusable. No letters, numbers, signage or labels anywhere else: perfume bottle glass is unlabelled, bag faces are blank matte purple, background is plain white. No AI badge or corner stamp in any corner. Anatomy/object integrity is clean — the melted-gold flow is the intended concept, not a render defect; watch crown, bracelet links and bottle stopper all render correctly. Minor: the gold pool's left lobe runs off the bottom-left frame edge (x 0-5%, y 88-100%), so the puddle is cropped.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

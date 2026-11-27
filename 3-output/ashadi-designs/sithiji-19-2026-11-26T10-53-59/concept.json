@@ -1,0 +1,45 @@
+{
+  "reference_idea": "Playfully exaggerate the dramatic emotional toll of not receiving flowers by framing real bouquets as the cure for a fictional 'cause of death: no flowers'.",
+  "reference_decoded": [
+    {
+      "element": "Top line: 'cause of death:'",
+      "stands_for": "A deadpan, mock-forensic setup borrowed from internet meme culture that sets up an exaggerated dramatic excuse."
+    },
+    {
+      "element": "Center cutout: ginger kitten lying flat on its back with eyes squinted shut",
+      "stands_for": "The dramatic, over-the-top recipient 'fainting' or 'dying' from a lack of affection or gifting."
+    },
+    {
+      "element": "Four surrounding flower bouquets (red roses in black box, purple orchids, pastel mixed lilies/roses, yellow sunflowers)",
+      "stands_for": "The actual retail product assortment offered as the immediate antidote/solution to the fictional emergency."
+    },
+    {
+      "element": "Bottom line: 'no flowers'",
+      "stands_for": "The comedic punchline revealing the trivial, relatable gifting omission behind the dramatic pose."
+    }
+  ],
+  "needs_to_know": "Familiarity with standard deadpan internet meme phrasing ('cause of death: [relatable minor disappointment]') and the humorous trope of dramatic collapse when a partner or loved one forgets to send flowers.",
+  "transferable": "yes",
+  "kapruka_concept": {
+    "one_line": "Turn the dramatic 'forgot to send flowers' meme into a clean, purple-framed gifting reminder featuring real Kapruka bouquets that rescue you from showing up empty-handed.",
+    "hook": "The universally understood relationship joke of dramatically 'fainting' or 'dying' when a special day passes without flowers—immediately relatable to both local partners and Sri Lankans abroad trying not to miss a milestone.",
+    "headline_lines": [
+      "CAUSE OF DEATH:",
+      "NO FLOWERS"
+    ],
+    "supporting_line": "Same-day flower delivery in Colombo. Next-day island-wide.",
+    "visual": "Solid Kapruka Retail Purple (#340A5C) background with generous open margin. In the center, a clean studio cutout of a sleepy ginger kitten lying flat on its back in a dramatic 'faint' pose, flanked cleanly by three real Kapruka fresh flower bouquets (a classic red rose bouquet, a mixed pastel lily and rose arrangement, and a bright sunflower bouquet) with zero third-party logos or competitor box branding.",
+    "product_role": "Kapruka Fresh Flowers (Gifting — Romantic & Occasion bouquets) serve as both the visual framing around the central joke and the exact deliverable product a sender can order immediately.",
+    "why_it_makes_sense": "The visual contrast between the dramatic, deadpan 'cause of death: no flowers' meme and real, vibrant Kapruka bouquets lands in under two seconds without needing heavy explanation. Pairing the playful hook with Kapruka's real delivery proof gives both local senders and overseas diaspora a fast, reliable way to avoid forgetting an important occasion."
+  },
+  "rejected": [
+    "Replacing the kitten with a photo of a sulking Sri Lankan person — rejected because real human acting in a deadpan meme looks staged and cheesy, whereas a sleepy kitten carries universal, lighthearted internet humor without risking awkward expressions.",
+    "Using 'cause of death: forgot the anniversary' with generic gift boxes — rejected because 'no flowers' directly ties the punchline to a single, visually unmistakable Kapruka hero category rather than a vague assortment.",
+    "Adding decorative sparkles, floating petals, or gold burst badges around the bouquets — rejected because the humor relies on stark, minimalist white/purple breathing room, and extra props violate Kapruka's clean-layout rules."
+  ],
+  "confidence": "high",
+  "warnings": [
+    "Confirm whether Meta ad policy or brand comfort prefers 'Cause of death: no flowers' verbatim or a softer phrasing like 'Emergency status: no flowers' if 'death' triggers ad-review flags, though 'cause of death:' is standard benign meme syntax.",
+    "Ensure the red rose bouquet used in the Kapruka version uses plain unbranded wrapping or Kapruka's own packaging rather than the 'Flower Aura' black box visible in the reference image."
+  ]
+}

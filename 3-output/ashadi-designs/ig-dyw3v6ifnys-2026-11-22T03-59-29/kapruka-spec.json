@@ -1,0 +1,247 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A minimalist two-column editorial product poster on a pure white ground, pairing a tall vertical studio arrangement of three real perfume bottles on the left with a stacked bold Inter title lockup in Kapruka purple on the right. A Kapruka logo anchors the top-right corner inside the 100px safe margin, and a single centered purple caption anchors the bottom edge, surrounded by generous white space.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.3,
+      "bottom": 8,
+      "left": 9.3
+    },
+    "alignment_axes": [
+      "SCENT (x=46.5%) and LINGERS (x=46.0%) share a near-aligned left edge around x=46.0%",
+      "Kapruka logo (right edge x=90.5%), SCENT (right edge x=89.5%), and LINGERS (right edge x=90.5%) align along the right safe margin around x=90.0%",
+      "Bottom caption is horizontally centered on the canvas (x=9.3% to x=90.7%, center axis x=50.0%)"
+    ],
+    "whitespace": [
+      "14.0% open white band above the perfume arrangement on the left, balanced by the Kapruka logo at top-right (y=7.5% to 12.0%)",
+      "5.0% horizontal gutter between the right edge of the perfume composition (x=41.0%) and the title lockup (x=46.0%)",
+      "33.0% open white space on the lower right between LINGERS (y=55.5%) and the bottom caption (y=88.5%)",
+      "6.0% vertical gap between the base of the perfume composition (y=82.5%) and the bottom caption (y=88.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 9.3,
+      "y": 14,
+      "w": 31.7,
+      "h": 68.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "Three real perfume bottles drawn exactly as in the attached product sheet — Hugo Boss Bottled Unlimited Edt Perfume 100ml, Dolce And Gabbana The Only One Edp Perfume For Women 100ml, and Hawas Elixir Perfume — arranged upright in a refined, staggered vertical column on subtle pure-white matte geometric risers against a pure white ground",
+    "composition": "Vertically stacked on the left third inside the 100px safe margin (x=9.3% to 41.0%, y=14.0% to 82.5%), maintaining the tall sculptural left-column silhouette of the reference while keeping every bottle unobstructed and front-facing",
+    "camera": "Eye-level studio product shot, crisp focus across all three bottles with deep depth of field",
+    "lighting": "Bright, clean studio lighting from the upper right creating sharp white specular highlights on the glass shoulders and caps, with soft diffuse contact shadows cast to the bottom-left",
+    "palette": [
+      "#FFFFFF",
+      "#1A1A1A",
+      "#D9A441",
+      "#C47B46",
+      "#E6E6E6"
+    ],
+    "negative_space": [
+      "x=41.0%, y=0.0%, w=59.0%, h=88.5%",
+      "x=0.0%, y=82.5%, w=100.0%, h=17.5%"
+    ],
+    "prompt": "Minimalist editorial studio product photograph on a pure flat #FFFFFF seamless white background, 4:5 portrait format, cutout-on-ground framing with no visible horizon line or frame border. Positioned strictly within the left column (x=9.3% to 41.0%, y=14.0% to 82.5%), three real perfume bottles are arranged in a tall, balanced, staggered vertical composition resting on subtle pure-white matte geometric studio risers so every bottle stands upright, unobstructed, and front-facing: Hugo Boss Bottled Unlimited Edt Perfume 100ml, Dolce And Gabbana The Only One Edp Perfume For Women 100ml, and Hawas Elixir Perfume. Each perfume bottle is drawn exactly as in the attached product sheet, preserving exact bottle shapes, proportions, glass tints, liquid colours, caps, finishes, and printed brand words spelled identically to the product sheet. Eye-level studio camera, razor-sharp focus across all three bottles, deep depth of field. Bright, clean studio lighting from the upper right produces crisp white specular highlights along the glass edges and caps, casting soft, realistic diffuse contact shadows toward the bottom-left. True photographic realism with authentic glass refraction, natural liquid depth, and zero plastic sheen or extra props. Keep all other areas completely empty, pure flat #FFFFFF white for later typography and logo placement: top-right logo area (x=71.0% to 90.5%, y=7.5% to 12.0%), right-column headline zone (x=46.0% to 90.5%, y=30.5% to 55.5%), and bottom tagline band (x=9.3% to 90.7%, y=88.5% to 92.0%). Zero added text, letters, numbers, logos, watermarks, price tags, or stickers anywhere outside the exact printed labels on the three bottles.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 71,
+        "y": 7.5,
+        "w": 19.5,
+        "h": 4.5
+      }
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 30.5,
+        "w": 12,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "SCENT",
+      "box": {
+        "x": 46.5,
+        "y": 35,
+        "w": 43,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 140,
+        "cap_height_px": 101,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "THAT",
+      "box": {
+        "x": 61,
+        "y": 44,
+        "w": 16,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "LINGERS",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 156,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Scents everybody wants, delivered island-wide.",
+      "box": {
+        "x": 9.3,
+        "y": 88.5,
+        "w": 81.4,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 46,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#6B3FA0",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5",
+    "logo"
+  ],
+  "why_it_works": [
+    "Preserves the reference's high-contrast minimalist two-column poster rhythm, crisp studio lighting, and generous white space while pivoting cleanly to Kapruka's real perfume line-up.",
+    "Two-tone Kapruka purple type hierarchy (#340A5C primary headlines paired with #6B3FA0 accent connectors and bottom caption) mirrors the reference's black-and-red editorial lockup on a pure white ground.",
+    "Exact character-matched headline lines and a concise conversational bottom caption keep the layout calm, uncluttered, and instantly readable in two seconds."
+  ],
+  "changes": [
+    "Replaced the Biscoff jar and stiletto-trident hero with a vertical studio composition of the three promoted real perfume bottles (Hugo Boss Bottled Unlimited, Dolce & Gabbana The Only One, Hawas Elixir) per the indirect reference and real-product rules.",
+    "Rewrote the 4-line headline lockup to 'THE / SCENT / THAT / LINGERS' (exact character counts per line) and the spoken bottom caption to 'Scents everybody wants, delivered island-wide.'",
+    "Switched all text layers from Times New Roman and VAG Rounded to Inter Bold (700) per the standing Inter-only rule.",
+    "Mapped reference black and crimson red typography to Kapruka Retail Purple (#340A5C) and legible light-ground accent purple (#6B3FA0).",
+    "Added the Kapruka logo in the calm top-right corner at y=7.5% (101px from top, within the 100px–110px standing rule).",
+    "Pulled the left scene edge, right edge of e4, and bottom caption inside the 100px safe margin on all four sides.",
+    "Removed the devil-tail V ornament to comply with the no-ornaments rule."
+  ],
+  "claims_used": [
+    "delivered island-wide — supported by 1-foundation/01-business-context.md §1 Confirmed Proof ('Island-wide delivery — anywhere in Sri Lanka.')"
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A two-column poster: a full-bleed-left 3D render (a deep-purple patent handbag whose strap melts into three golden strands pouring into a plain Kapruka gift bag) occupies the left ~36% from 10% to 82% height, while a flush-left/flush-right four-line title lockup sits in the right half between 31% and 55%. A single centred one-liner anchors the bottom at 92-96%, with a large deliberate field of empty white between the lockup and that line. One Kapruka logo sits in the empty top band, right-aligned to the lockup's right edge.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 6.6,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "GIFTS and ARRIVE share a left edge at x=46.8%",
+      "GIFTS (right 89.3%) and ARRIVE (right 90.4%) are optically justified to a shared right edge at x≈90%",
+      "THAT is centred on the GIFTS/ARRIVE block centre at x≈68.5%",
+      "THE is indented off that left edge, starting at x=50.5%",
+      "The logo is right-aligned to the same x≈90.6% axis as the lockup",
+      "The tagline is centred on the canvas vertical centreline (block centre x=50.2%)",
+      "The melting strap, the three golden strands and the gift bag body share a vertical axis at x≈24%",
+      "The render column (0–36.3%) and the type column (46.8–90.6%) are two hard vertical bands"
+    ],
+    "whitespace": [
+      "Empty white band across the full top (y 0–10%), now carrying only the logo at its right end",
+      "10.5% vertical white gutter between the render's right edge (x=36.3%) and the lockup's left edge (x=46.8%)",
+      "37% tall empty white field on the right half between the ARRIVE baseline (y=55%) and the tagline cap-top (y=92.3%)",
+      "10.3% white band between the gift-bag base (y=82%) and the tagline cap-top (y=92.3%)",
+      "No left margin — the handbag deliberately bleeds off the left edge; the tagline's 7% is the only true left margin"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36.3,
+      "h": 72
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy deep-purple patent-leather women's handbag, lying tilted with its body up at the top right of the column and its base running down to the left off the canvas edge. Its shoulder strap stretches downward and turns liquid, splitting into three smooth curved golden strands that plunge into the open mouth of a plain matte deep-purple Kapruka paper gift bag below, white twisted-rope handles, completely unprinted. Thick warm-gold liquid wells over the bag's rim, coats the top edge and runs down the left side in heavy drips, pooling in a small blob at the base. A steel wristwatch and a small clear perfume bottle rest half-submerged in the gold at the rim. The bag's front panel stays flat, clean and fully visible.",
+    "composition": "Single diagonal from upper-right (handbag body, x≈30%, y≈11%) down to lower-left, then a hard vertical turn at x≈24% where the strap becomes the pour, landing on the gift bag centred at x≈24%, y≈55–82%. Handbag occupies x 0–36.3%, y 10–45.6%; gift bag occupies x 13.9–34.8%, y 55.6–81.9%. The handbag is cropped hard by the left canvas edge; the gift bag is fully contained with a tiny contact shadow.",
+    "camera": "Slight below-eye-level product angle on the gift bag, near-eye-level on the handbag; long-lens / orthographic-feeling compression with no perspective distortion; everything in sharp focus front to back, no depth-of-field falloff.",
+    "lighting": "Studio product lighting — a broad soft key from the upper left plus a hard specular highlight raking the handbag's body and flap, and a second kicker on the right of the gift bag. Neutral white colour temperature; crisp mirror-gloss speculars on the purple patent, satin sheen on the gold, no cast shadow beyond a faint grey contact shadow under the gift bag.",
+    "palette": [
+      "#FFFFFF",
+      "#4B2386",
+      "#340A5C",
+      "#241044",
+      "#6B3DA3",
+      "#D9A441",
+      "#F6C96A",
+      "#B98A33",
+      "#C9C4BE",
+      "#EFEFEF"
+    ],
+    "negative_space": [
+      "Right half of the canvas, x 37–100% / y 56–92% — the largest calm field, nothing sits on it",
+      "Top band x 0–71% / y 0–10%",
+      "Lower-left block x 0–14% / y 46–92%",
+      "Gutter strip x 36–47% / y 10–92%"
+    ],
+    "prompt": "Photorealistic studio product render on a pure white seamless background, 4:5 portrait. In the left third: a deep-purple glossy patent-leather women's handbag lies tilted, its body at the upper right of that column, its base running down-left and cropped hard by the left frame edge. Its shoulder strap stretches downward, turns into thick molten golden liquid and splits into three smooth curved strands that pour into the open mouth of a matte deep-purple paper gift bag standing below with white twisted-rope handles. The bag is completely plain and unprinted, no pattern or marking of any kind, its front panel flat, clean and fully visible. Warm honey-gold liquid wells over the bag's rim, coats the top edge, runs down the left side in heavy drips and pools at the base; a steel wristwatch and a small clear perfume bottle rest half-submerged in the gold at the rim. Light: one broad soft key from upper left plus a hard specular raking the handbag and a kicker on the bag's right, neutral white, sharp front to back, no depth-of-field falloff, faint grey contact shadows only. Leave pure empty white, low detail and uncluttered: x 71-91% / y 3-9%, x 46-91% / y 31-55%, x 25-75% / y 92-96%, and the entire right half below y 56%. Absolutely no text, letters, numbers, words, logos, watermarks, labels, signage or UI anywhere, including on packaging, products and background. Real materials, one consistent light direction, real contact shadows, no plastic AI sheen.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 50.5,
+        "y": 31.2,
+        "w": 10.6,
+        "h": 2.9
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 56,
+        "cap_height_px": 39,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "GIFTS",
+      "box": {
+        "x": 46.8,
+        "y": 34.6,
+        "w": 42.5,
+        "h": 7.9
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 152,
+        "cap_height_px": 107,
+        "line_height": 1,
+        "letter_spacing_px": 5,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "THAT",
+      "box": {
+        "x": 60.7,
+        "y": 44.4,
+        "w": 15.6,
+        "h": 3.1
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 60,
+        "cap_height_px": 42,
+        "line_height": 1,
+        "letter_spacing_px": 3,
+        "case": "upper",
+        "italic": false,
+        "color": "#D9A441",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "ARRIVE",
+      "box": {
+        "x": 46.8,
+        "y": 49.1,
+        "w": 43.6,
+        "h": 5.9
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 114,
+        "cap_height_px": 80,
+        "line_height": 1,
+        "letter_spacing_px": 11,
+        "case": "upper",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "A world of choices",
+      "box": {
+        "x": 25.4,
+        "y": 92.3,
+        "w": 49.5,
+        "h": 3.7
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 54,
+        "cap_height_px": 39,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#340A5C",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 13.9,
+        "y": 55.6,
+        "w": 20.9,
+        "h": 26.3
+      },
+      "description": "Plain matte deep-purple Kapruka paper gift bag, standing open, shot straight on, with white twisted-rope handles. Completely unprinted — no logo, no wordmark, no text, no smile arc, no pattern — front face flat and clearly visible. Warm gold liquid overflows the rim, coats the top edge and runs down the left side; a steel wristwatch and a small clear perfume bottle sit half-submerged in the gold at the rim.",
+      "confidence": "high"
+    },
+    {
+      "id": "e7",
+      "type": "image",
+      "role": "logo",
+      "on": "light",
+      "box": {
+        "x": 71.6,
+        "y": 3.5,
+        "w": 19,
+        "h": 4.9
+      },
+      "description": "One Kapruka logo — purple wordmark with yellow smile for a light ground — placed in the empty top band, right-aligned to the lockup's x≈90.6% axis. Nothing beneath it: no tagline, no divider, no descriptor.",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "e6",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5",
+    "e7"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e6",
+    "e4",
+    "e5",
+    "e1",
+    "e3",
+    "e7"
+  ],
+  "why_it_works": [
+    "A single unbroken diagonal — handbag body → strap → pour → gift bag — carries the eye down the left column and hands it off to the headline at the exact height where the pour lands.",
+    "The four-line title lockup does all the comprehension work in one second; the picture only has to supply the gift and the Kapruka bag for the idea to close.",
+    "Nothing competes: pure white ground, one purple, one gold — and a 37% empty field under the title that makes the tagline read as the closing line rather than as body copy."
+  ],
+  "changes": [
+    "Copy rebuilt line-for-line at matching character counts: THE (3→3) · DEVIL→GIFTS (5→5) · EATS→THAT (4→4) · Biscoff→ARRIVE (7→6). Plain spoken, no wordplay, no invented fact.",
+    "Bottom line: the reference's 44-character film quote becomes the brand tagline 'A world of choices' (18 chars). This deliberately breaks the ±15% character limit — the tagline rule forbids extending it into a longer sentence, so the box is narrowed and re-centred on the same x=50.2% axis at the same 54px size and same y-band.",
+    "Typeface: Playfair Display serif → Poppins Bold (700) throughout, per brand guidelines (rounded bold sans; serif is banned brand-wide). Letter-spacing raised to 5px on GIFTS and 11px on ARRIVE so both still optically justify to the shared x≈90% right edge; THE and THAT keep natural 3px tracking, so their boxes are narrower than the reference's wider serif caps.",
+    "Colour mapped by role: near-black headline words → Retail Purple #340A5C; the two small red connector words → Luxury Gold #D9A441 (not #FFC107 — bright yellow type on a white ground is illegible and the rulebook forbids rescuing it with a stroke); red bottom line → #340A5C for the same reason; caramel pour → warm/luxury gold; red patent → deep-purple patent.",
+    "Logo added (reference had none): one Kapruka logo in the calmest corner, the empty top band, right-aligned to the existing x≈90.6% alignment axis so it reinforces the grid rather than inventing a new one. It consumes a little of the declared 10% top white band — unavoidable, as the reference reserved no logo space.",
+    "Ornaments dropped: the devil-tail arrow off the 'I' is removed (no added ornament shapes). The three-strand pour is kept because it is the reference's visual device, not an ornament — it is modelled in the render, not drawn as a graphic.",
+    "Visual device kept exactly — one object melting and pouring into another — rebuilt with Kapruka subjects: a real sellable handbag whose strap melts into gold and pours into a Kapruka gift bag. Composition, crop, camera, light and cutout-on-white framing are unchanged.",
+    "Packaging painted plain and blank: the Kapruka bag is unprinted matte purple with white rope handles and a clean flat front face so the real logo can be placed in Canva; scene.attach is empty, and the gold drips are routed down the bag's left side to keep that face clear."
+  ],
+  "claims_used": [
+    "'THE GIFTS THAT ARRIVE' — the arrival claim rests on the confirmed moat in 01-business-context.md §1: 'Reliable, island-wide delivery … on a date the buyer chooses, backed by 23+ years', and the CONFIRMED PROOF block (approved for ad use 2026-07-04): island-wide delivery, same-day within the Colombo region, next-day island-wide, millions of gifts delivered. No date, speed or route is stated in frame, so nothing is promised beyond what that block supports.",
+    "'A world of choices' — the approved brand-level tagline per 1-foundation/references/brand-assets/_brand-assets.md ('Palette + tagline — RESOLVED, human decision 2026-07-18'). Its breadth is earned inside the frame by spanning three departments — fashion (handbag), watches (wristwatch), beauty (perfume) — per Core Rule 12, and by 01-business-context.md §1 ('Sri Lanka's largest locally-owned e-commerce and gifting platform', three business lines).",
+    "No price, offer, SKU, delivery date, speed or percentage appears anywhere in the creative — 01-business-context.md §2 bars product/offer advertising until the human flags one."
+  ]
+}

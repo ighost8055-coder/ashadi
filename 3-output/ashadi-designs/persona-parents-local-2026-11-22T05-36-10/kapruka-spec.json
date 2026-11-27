@@ -1,0 +1,178 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#340A5C",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A deep Kapruka-purple poster: a bold white headline at the top with one yellow accent word, one hero product group centred below it, a short supporting line near the bottom, logo top centre.",
+  "grid": {
+    "margins_pct": {
+      "top": 7.5,
+      "right": 9.5,
+      "bottom": 7.5,
+      "left": 9.5
+    },
+    "alignment_axes": [
+      "everything is centred on the page"
+    ],
+    "whitespace": [
+      "clear purple space around the hero"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 15,
+      "y": 34,
+      "w": 70,
+      "h": 50
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "Eye-level 4:5 portrait studio product photograph on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside the centered inset hero area (x=15% to 85%, y=32% to 84%), a clean horizontal cluster of the three real women's fragrance products drawn exactly as they appear on the attached product sheet — matching identical bottle shapes, caps, colours, glass textures, boxes, and printed typography: on the left, the round pink glass Bvlgari Rose Goldea Blossom Delight bottle with its clear circular cap alongside its blush-pink box; in the center, the rectangular peach-amber glass Dolce And Gabbana The Only One bottle; on the right, the bright yellow pebble-shaped Bleu Blanc Tara Vous bottle beside its yellow-and-white floral box. The bottles stand upright on an invisible seamless surface with soft, natural contact shadows strictly contained inside x=15% to 85% and y=32% to 84%. Even, crisp studio lighting highlights the clear glass and gold-toned details without harsh glare. Contains no logos, typography, text, or props.",
+    "composition": "centred hero group",
+    "camera": "eye-level studio product shot",
+    "lighting": "soft key light from the upper right, gentle rim light, soft contact shadow",
+    "palette": [
+      "#340A5C",
+      "#FFFFFF",
+      "#FFC107"
+    ],
+    "negative_space": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 32
+      },
+      {
+        "x": 0,
+        "y": 86,
+        "w": 100,
+        "h": 14
+      }
+    ],
+    "prompt": "Eye-level 4:5 portrait studio product photograph on a pure flat #FFFFFF seamless white background, cutout-on-ground framing with no frame border, no horizon, no panel seams, and no visible picture edge. Positioned strictly inside the centered inset hero area (x=15% to 85%, y=32% to 84%), a clean horizontal cluster of the three real women's fragrance products drawn exactly as they appear on the attached product sheet — matching identical bottle shapes, caps, colours, glass textures, boxes, and printed typography: on the left, the round pink glass Bvlgari Rose Goldea Blossom Delight bottle with its clear circular cap alongside its blush-pink box; in the center, the rectangular peach-amber glass Dolce And Gabbana The Only One bottle; on the right, the bright yellow pebble-shaped Bleu Blanc Tara Vous bottle beside its yellow-and-white floral box. The bottles stand upright on an invisible seamless surface with soft, natural contact shadows strictly contained inside x=15% to 85% and y=32% to 84%. Even, crisp studio lighting highlights the clear glass and gold-toned details without harsh glare. Contains no logos, typography, text, or props.",
+    "attach": []
+  },
+  "elements": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "role": "logo",
+      "on": "dark",
+      "box": {
+        "x": 36,
+        "y": 7.5,
+        "w": 28,
+        "h": 5
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "A scent she will love",
+      "box": {
+        "x": 9.5,
+        "y": 16,
+        "w": 81,
+        "h": 6
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 76,
+        "cap_height_px": 55,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "just because",
+      "box": {
+        "x": 9.5,
+        "y": 23,
+        "w": 81,
+        "h": 7
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 88,
+        "cap_height_px": 64,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFC107",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "tagline",
+      "text": "Delivered to her door anywhere in SL.",
+      "box": {
+        "x": 9.5,
+        "y": 87,
+        "w": 81,
+        "h": 4
+      },
+      "font": {
+        "family_guess": "Inter",
+        "category": "sans-serif",
+        "weight": 700,
+        "size_px": 44,
+        "cap_height_px": 32,
+        "line_height": 1.1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#FFFFFF",
+        "align": "center",
+        "valign": "middle"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [],
+  "z_order": [
+    "scene",
+    "logo",
+    "e1",
+    "e2",
+    "e3"
+  ],
+  "hierarchy": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "logo"
+  ],
+  "changes": [
+    "no reference: built from the strategist brief (Adult children in Sri Lanka sending a meaningful fragrance to their mother without waiting for a special holiday or making a long trip across town.)"
+  ],
+  "claims_used": []
+}

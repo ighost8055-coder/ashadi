@@ -1,0 +1,55 @@
+{
+  "reference_idea": "This treat is so tempting that even the most feared, hardest-to-please judge of taste gives in to it.",
+  "reference_decoded": [
+    {
+      "element": "Glossy red stiletto on white",
+      "stands_for": "The poster for 'The Devil Wears Prada': fashion, power, and its ruthless editor as the judge of taste"
+    },
+    {
+      "element": "The stiletto heel melting into a red devil's pitchfork",
+      "stands_for": "The 'devil' herself, with her weapon turned into a fork"
+    },
+    {
+      "element": "Pitchfork prongs dipped into an overflowing Biscoff jar",
+      "stands_for": "The judge caught in the act of indulging. The spread dripping down the jar shows how much she wants it"
+    },
+    {
+      "element": "THE / DEVIL / EATS / BISCOFF (film-title serif, small red words, big black words)",
+      "stands_for": "The film title with one word swapped ('Wears Prada' becomes 'Eats Biscoff'), so the product takes the place of the luxury label"
+    },
+    {
+      "element": "\"Don't be silly Andrea, everybody wants this.\"",
+      "stands_for": "A twist on the film's line 'everybody wants to be us', spoken by the editor to her assistant. It is the brand's claim: everyone wants this product"
+    },
+    {
+      "element": "Clean white background, lots of empty space",
+      "stands_for": "Copies the film poster's look so the parody is recognised at once"
+    }
+  ],
+  "needs_to_know": "The 2006 film 'The Devil Wears Prada': its red-stiletto poster, its title, the character Andrea and the editor's 'everybody wants to be us' line. Without the film, it is just a shoe in a jar of spread.",
+  "transferable": "partly",
+  "kapruka_concept": {
+    "one_line": "Amma says 'don't buy me anything' every single year, and she is the first one into the cake when it arrives.",
+    "hook": "Almost every Sri Lankan family has heard this. A parent (usually Amma) insists 'mata monawath epa, salli nasthi karanna epa' (don't get me anything, don't waste money), then quietly loves the gift. It is a shared joke here and in diaspora homes, and it is a universal truth that fits a Sri Lankan setting. Like the reference, it shows the strictest critic caving, without needing anyone to know a film.",
+    "headline_lines": [
+      "“Don’t buy me anything.”",
+      "— Amma, every year"
+    ],
+    "supporting_line": "Send it anyway. Delivered island-wide by Kapruka.",
+    "visual": "A real, candid moment in a Sri Lankan home living room in daylight. A mother in her late 50s holds up one hand in a firm 'no, no, no, why did you spend money' gesture, frowning at someone just off-frame (the child who sent or brought it). Her other hand already holds a dessert fork pressed into an open cake, and one slice is clearly gone. Her lips may show a smudge of icing. The open Kapruka cake box sits under the cake, lid pushed back. Meaning of each object: the raised hand is the refusal; the fork in the cake is the giving in (the reference's pitchfork, turned into an everyday fork); the missing slice is proof she has already started; the Kapruka cake box shows where the gift came from. Nothing else on the table. No props, no balloons, no decoration.",
+    "product_role": "Cake (one of Kapruka's top gifting categories) is the punchline. The refused gift is the thing she can't stop eating, delivered in Kapruka's real cake box.",
+    "why_it_makes_sense": "The picture shows the contradiction (one hand saying no, the other already eating) and the headline quotes the line every child has heard, so words and picture tell the same joke in two seconds. The supporting line turns that recognition into the action: she will say no, send it anyway, and Kapruka delivers it anywhere on the island."
+  },
+  "rejected": [
+    "A direct parody of the film poster: a heel or devil holding a Kapruka product with a 'The ___ Eats ___' title. Dropped because it relies on a film title the Sri Lankan audience may not know and copies the props (stiletto, pitchfork) instead of the idea.",
+    "Parodying a well-known Sri Lankan teledrama villain or strict-mother-in-law character. Dropped because it depends on a specific show or trademark and makes an elder into a villain, which clashes with the happy gifting mood.",
+    "'The aunty who criticises every wedding cake' caught eating a Kapruka cake. Strong recognition, but it frames the recipient as a critic, not someone loved, so it can't be sent as a gift. The 'Amma says don't buy me anything' version keeps the same 'critic caves' mechanism inside a real gifting relationship."
+  ],
+  "confidence": "high",
+  "warnings": [
+    "Please confirm the exact wording a Sri Lankan viewer would recognise (English 'Don't buy me anything' versus Sinhala 'Mata monawath epa' or a Tamil equivalent). A local-language version may land harder for Local→Local; the English version suits the diaspora version.",
+    "Tone: Amma must look caught and playful, not greedy or mocked. Keep it warm and bright so it stays happy, never sad or gloomy (Core Rule 14).",
+    "The supporting line only claims island-wide delivery, which 01-business-context.md supports. For a diaspora version, 'Send it from anywhere in the world' is also supported. Do not add same-day wording unless the ad is Colombo-specific.",
+    "If an image is generated, the Kapruka cake box must match the real cake-box asset, with no invented text on it (Core Rule 19), and the cake should match a real Kapruka listing photo."
+  ]
+}

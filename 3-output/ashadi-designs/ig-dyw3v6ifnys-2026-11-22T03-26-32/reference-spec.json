@@ -1,0 +1,229 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A minimalist movie-poster parody layout on a pure white background, pairing a tall vertical visual on the left (a red stiletto shoe with a pitchfork heel dipping into an overflowing jar of spread) with a stacked serif title lockup on the middle-right. A single-line red sans-serif tagline spans the bottom width to anchor the composition.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 7,
+      "bottom": 4,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL (x=46.5%) and BISCOFF (x=46.0%) share a vertical left alignment axis at ~46% and a right edge at ~90%",
+      "Bottom tagline is horizontally centered on the canvas (x=7.0% to 93.0%, center x=50.0%)"
+    ],
+    "whitespace": [
+      "10% horizontal gutter between the right edge of the shoe/jar scene (x=36.0%) and the title lockup (x=46.0%)",
+      "30.5% open white space above the title lockup on the right half",
+      "37% vertical empty space between the bottom of BISCOFF (y=55.5%) and the bottom tagline (y=92.5%)",
+      "10% vertical gap between the bottom of the jar drip (y=82.5%) and the bottom tagline (y=92.5%)"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 36,
+      "h": 72.5
+    },
+    "kind": "photo",
+    "framing": "cutout-on-ground",
+    "subject": "A glossy red high-heeled stiletto shoe entering from the left edge, whose heel terminates in a three-pronged red pitchfork dipping into an open glass jar of smooth caramelized brown spread, with thick spread overflowing and dripping down the right side of the jar.",
+    "composition": "Tall vertical composite anchored on the left third; the shoe bleeds off the left canvas edge at y=42%-52% while its pointed toe rises to y=10%, and the jar sits upright beneath the heel from y=55.5% to y=82.5%.",
+    "camera": "Eye-level studio product shot, crisp focus front-to-back with deep depth of field.",
+    "lighting": "Bright, clean studio lighting from the right and front-right, creating sharp white specular highlights on the red patent shoe and glossy brown spread, with a soft contact shadow cast to the left of the jar base.",
+    "palette": [
+      "#C40C10",
+      "#7A0406",
+      "#B56A2B",
+      "#6E3A12",
+      "#D91C24",
+      "#FFFFFF"
+    ],
+    "negative_space": [
+      "x=36.0%, y=0.0%, w=64.0%, h=30.5%",
+      "x=36.0%, y=55.5%, w=64.0%, h=37.0%"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51.5,
+        "y": 30.5,
+        "w": 12,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 64,
+        "cap_height_px": 47,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#A81318",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 46.5,
+        "y": 34.5,
+        "w": 43,
+        "h": 8
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 152,
+        "cap_height_px": 108,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61,
+        "y": 43.5,
+        "w": 16,
+        "h": 4
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 74,
+        "cap_height_px": 54,
+        "line_height": 1,
+        "letter_spacing_px": 2,
+        "case": "upper",
+        "italic": false,
+        "color": "#A81318",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 46,
+        "y": 47,
+        "w": 44.5,
+        "h": 8.5
+      },
+      "font": {
+        "family_guess": "Adobe Garamond Pro",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 158,
+        "cap_height_px": 115,
+        "line_height": 1,
+        "letter_spacing_px": 1,
+        "case": "upper",
+        "italic": false,
+        "color": "#000000",
+        "align": "left",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 7,
+        "y": 92.5,
+        "w": 86,
+        "h": 3.5
+      },
+      "font": {
+        "family_guess": "Poppins",
+        "category": "geometric sans",
+        "weight": 700,
+        "size_px": 46,
+        "cap_height_px": 34,
+        "line_height": 1.1,
+        "letter_spacing_px": -0.5,
+        "case": "none",
+        "italic": false,
+        "color": "#C61A27",
+        "align": "center",
+        "valign": "top"
+      },
+      "highlights": [],
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "Pointed devil-tail arrow tip extending upward and right from the top-right serif of the letter 'V' in 'DEVIL'",
+      "box": {
+        "x": 73.5,
+        "y": 31.5,
+        "w": 4,
+        "h": 4
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5"
+  ],
+  "hierarchy": [
+    "scene",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "e5"
+  ],
+  "why_it_works": [
+    "Instant cultural recognition: faithfully replicates the iconic 'The Devil Wears Prada' poster grid, typography, and red-on-white minimalism.",
+    "Clever visual integration seamlessly connects the pitchfork stiletto heel directly into the overflowing jar of spread.",
+    "Generous white space isolates the two focal points so the visual punchline and headline read effortlessly in under two seconds."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "text_or_logos": [],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "white plate with the cake, the cut slice, the crumbs and the three forks (one connected group)",
+      "box": {
+        "x": 0,
+        "y": 22.5,
+        "w": 73.5,
+        "h": 58
+      }
+    },
+    {
+      "what": "plate (incl. faint shadow at its lower rim)",
+      "box": {
+        "x": 0,
+        "y": 52.5,
+        "w": 73.5,
+        "h": 28
+      }
+    },
+    {
+      "what": "round chocolate-glazed cake, main body",
+      "box": {
+        "x": 17,
+        "y": 45,
+        "w": 44.5,
+        "h": 28.5
+      }
+    },
+    {
+      "what": "cut slice of cake with left fork in it",
+      "box": {
+        "x": 7.5,
+        "y": 56,
+        "w": 27.5,
+        "h": 21
+      }
+    },
+    {
+      "what": "left fork (top of the handle at the left frame edge)",
+      "box": {
+        "x": 0,
+        "y": 27.5,
+        "w": 22.5,
+        "h": 31.5
+      }
+    },
+    {
+      "what": "middle fork",
+      "box": {
+        "x": 22.5,
+        "y": 22.5,
+        "w": 7,
+        "h": 34.5
+      }
+    },
+    {
+      "what": "right fork",
+      "box": {
+        "x": 34.5,
+        "y": 28,
+        "w": 21.5,
+        "h": 27.5
+      }
+    },
+    {
+      "what": "crumbs scattered on the plate",
+      "box": {
+        "x": 3.5,
+        "y": 65.5,
+        "w": 60,
+        "h": 12
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 0,
+    "y": 22.5,
+    "w": 73.5,
+    "h": 58
+  },
+  "notes": "No text, logos, watermark or packaging found. The plate is cut off at the left edge, and the left fork's handle touches that edge too. All three forks look physically correct (4 tines each) and the cake looks believable. The glaze is very glossy and smooth, so it reads a little studio-perfect. The top ~22% and the bottom ~19% of the frame, plus the right ~26%, are empty flat purple. That space is available for Canva text and the logo.",
+  "size": {
+    "w": 1408,
+    "h": 1760
+  }
+}

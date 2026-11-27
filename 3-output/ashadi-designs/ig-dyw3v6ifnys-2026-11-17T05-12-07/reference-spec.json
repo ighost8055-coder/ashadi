@@ -1,0 +1,306 @@
+{
+  "canvas": {
+    "w": 1080,
+    "h": 1350,
+    "aspect": "4:5",
+    "background": "#FFFFFF",
+    "background_kind": "flat"
+  },
+  "layout_summary": "A tall two-column poster on pure white: the left column is a single vertical 'melt' column — a glossy red stiletto up top whose heel liquefies into Biscoff spread and pours down into a jar at the bottom — while the empty right half carries a centred, four-line movie-poster serif title lockup. A full-width red bold sans caption sits alone across the very bottom, far below everything else.",
+  "grid": {
+    "margins_pct": {
+      "top": 10,
+      "right": 6.5,
+      "bottom": 4.5,
+      "left": 0
+    },
+    "alignment_axes": [
+      "DEVIL and BISCOFF share a left edge at x=47.0% (the title block's left rail)",
+      "DEVIL (right edge 89.0%) and BISCOFF (right edge 90.5%) share a near-identical right rail at x≈89-90.5% — the two long lines are optically justified to the same width",
+      "THE, DEVIL, EATS, BISCOFF are stacked on one optical centre axis at x≈68.0% (EATS centre 69.3%, DEVIL centre 68.0%); THE is deliberately kicked left of it at centre 57.7%, tucked over the D-E",
+      "The bottom caption is centred on the canvas centre line x=50.0% (box 6.9%→93.4%)",
+      "The shoe heel, the caramel pour and the jar all hang on one vertical axis at x≈24.0%",
+      "Jar right edge (34.6%) and shoe toe right edge (35.2%) share a soft right rail at x≈35%, leaving a clean 11.5% channel before the title starts"
+    ],
+    "whitespace": [
+      "Entire top-right quadrant empty: x 36→100%, y 0→31% (≈31% of canvas height of untouched white above the title)",
+      "11.5% vertical empty channel between the product column (ends x=35.2%) and the title block (starts x=46.9%)",
+      "Large empty lower-right field: x 36→100%, y 55→92% — nothing between the BISCOFF baseline and the caption on that side",
+      "9.4% empty band across the full width between the jar's bottom drip (y=83%) and the caption cap-top (y=92.4%)",
+      "4.5% bottom margin below the caption descender; 10% white above the shoe's toe"
+    ]
+  },
+  "scene": {
+    "present": true,
+    "box": {
+      "x": 0,
+      "y": 10,
+      "w": 35.5,
+      "h": 73
+    },
+    "kind": "3d-render",
+    "framing": "cutout-on-ground",
+    "subject": "A high-gloss patent red stiletto court shoe, angled toe-up toward the top-right, cropped off the left edge of the frame. Its slim stiletto heel does not end in a point — it liquefies, stretching downward into a long viscous rope of caramel-brown cookie spread that splits into three thin strands, each tapering into a small barbed trident-like tip. The strands plunge into the open mouth of a squat cylindrical glass jar whose rim is overflowing with the same thick caramel spread, which slumps over the shoulder of the jar, runs in heavy ribbons down one side, and pools into a small puddle with a trailing drip at the jar's base. The jar carries a glossy red wraparound label with white elements and a small gold oval band, flanked by clear glass windows showing the spread inside; embossed caramel-coloured biscuit motifs sit at the lower corners of the label. No background, no surface, no horizon — all three objects float directly on flat white.",
+    "composition": "Strict left-column stack occupying only the left third of the frame. Shoe fills y 10→45% and bleeds off the left edge (roughly 20% of the shoe is cropped away); the melting heel/pour bridges y 45→55%; the jar anchors the bottom at y 55.5→82%, a touch smaller than the shoe so the shoe reads as the hero. The pour is the spine connecting the two — one continuous top-to-bottom vertical gesture with no horizontal spread. Right two-thirds of the frame left completely empty for type.",
+    "camera": "Eye-level to very slightly above, straight-on product view; moderate telephoto feel (~85-105mm) with near-zero perspective distortion and no converging verticals. Everything in sharp focus front to back — no depth of field falloff, no bokeh; a rendered catalogue/CGI look rather than a photographed one.",
+    "lighting": "Bright, high-key, essentially shadowless against the white — no cast shadow on the ground plane. A large soft key from the upper left plus a second fill from the upper right create long specular highlights down the shoe's instep and a hot rim on the heel. The spread is lit to read glossy and wet, with bright warm speculars on every ridge and dripping edge. Neutral-to-slightly-warm white light; colour clean and saturated but not blown.",
+    "palette": [
+      "#FFFFFF",
+      "#E01B16",
+      "#C10E0E",
+      "#8E0A08",
+      "#FF6A5A",
+      "#C4802E",
+      "#E0A24A",
+      "#A66220",
+      "#D92B2B",
+      "#C9A24C"
+    ],
+    "negative_space": [
+      "x 36→100%, y 0→31% — the white field the title's top line lands in",
+      "x 36→100%, y 55→92% — the white field below the title",
+      "x 0→100%, y 83→92% — the white band the caption floats above"
+    ]
+  },
+  "elements": [
+    {
+      "id": "e1",
+      "type": "text",
+      "role": "headline",
+      "text": "THE",
+      "box": {
+        "x": 51,
+        "y": 31,
+        "w": 13,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Bodoni",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 54,
+        "cap_height_px": 38,
+        "line_height": 1,
+        "letter_spacing_px": 6,
+        "case": "upper",
+        "italic": false,
+        "color": "#C41230",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e2",
+      "type": "text",
+      "role": "headline",
+      "text": "DEVIL",
+      "box": {
+        "x": 47,
+        "y": 34.5,
+        "w": 42,
+        "h": 7.5
+      },
+      "font": {
+        "family_guess": "Bodoni",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 147,
+        "cap_height_px": 103,
+        "line_height": 1,
+        "letter_spacing_px": 4,
+        "case": "upper",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e3",
+      "type": "text",
+      "role": "headline",
+      "text": "EATS",
+      "box": {
+        "x": 61.5,
+        "y": 44.5,
+        "w": 16,
+        "h": 3
+      },
+      "font": {
+        "family_guess": "Bodoni",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 56,
+        "cap_height_px": 40,
+        "line_height": 1,
+        "letter_spacing_px": 8,
+        "case": "upper",
+        "italic": false,
+        "color": "#C41230",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e4",
+      "type": "text",
+      "role": "headline",
+      "text": "BISCOFF",
+      "box": {
+        "x": 47,
+        "y": 48.5,
+        "w": 43.5,
+        "h": 6.5
+      },
+      "font": {
+        "family_guess": "Bodoni",
+        "category": "serif",
+        "weight": 400,
+        "size_px": 126,
+        "cap_height_px": 89,
+        "line_height": 1,
+        "letter_spacing_px": 5,
+        "case": "upper",
+        "italic": false,
+        "color": "#111111",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "high"
+    },
+    {
+      "id": "e5",
+      "type": "text",
+      "role": "tagline",
+      "text": "Don't be silly Andrea, everybody wants this.",
+      "box": {
+        "x": 6.9,
+        "y": 92.4,
+        "w": 86.5,
+        "h": 3.1
+      },
+      "font": {
+        "family_guess": "Gilroy ExtraBold",
+        "category": "geometric sans",
+        "weight": 800,
+        "size_px": 46,
+        "cap_height_px": 34,
+        "line_height": 1,
+        "letter_spacing_px": 0,
+        "case": "none",
+        "italic": false,
+        "color": "#CC2131",
+        "align": "center",
+        "valign": "bottom"
+      },
+      "highlights": [],
+      "confidence": "medium"
+    },
+    {
+      "id": "e6",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 14.4,
+        "y": 55.5,
+        "w": 20.8,
+        "h": 27.5
+      },
+      "description": "Squat cylindrical glass jar of smooth cookie spread, cut out on white, overflowing at the rim with thick caramel spread that slumps over the shoulder, ribbons down the right side and pools at the base with a trailing drip. Glossy red wraparound label with clear glass windows either side; embossed biscuit shapes at the label's lower corners. Bottom of the lowest drip reaches y≈83%.",
+      "confidence": "high"
+    },
+    {
+      "id": "e7",
+      "type": "image",
+      "role": "product-cutout",
+      "box": {
+        "x": 0,
+        "y": 10,
+        "w": 35.2,
+        "h": 45
+      },
+      "description": "Glossy patent red stiletto court shoe, toe pointing up and to the right, cropped off the left canvas edge. The heel melts into a rope of caramel spread that splits into three thin barbed strands descending to the jar mouth at y≈55%.",
+      "confidence": "high"
+    },
+    {
+      "id": "e8",
+      "type": "logo",
+      "brand": "Lotus (roundel on the jar label)",
+      "box": {
+        "x": 17.8,
+        "y": 65.8,
+        "w": 9.5,
+        "h": 3
+      },
+      "on": "dark",
+      "confidence": "high"
+    },
+    {
+      "id": "e9",
+      "type": "logo",
+      "brand": "Biscoff wordmark + 'Smooth' gold oval (printed on the jar label)",
+      "box": {
+        "x": 15.5,
+        "y": 69,
+        "w": 17,
+        "h": 8.5
+      },
+      "on": "dark",
+      "confidence": "high"
+    }
+  ],
+  "ornaments": [
+    {
+      "description": "The 'I' of DEVIL is replaced by a devil-tail device: a hairline stroke rises off the top of the stem and kinks up-and-right into a solid black triangular arrowhead, breaking above the cap line of the word. Same black as the type.",
+      "box": {
+        "x": 74,
+        "y": 31.3,
+        "w": 4.5,
+        "h": 4.5
+      }
+    },
+    {
+      "description": "Three slender caramel strands fall from the melted heel and taper into small barbed, trident/arrow-like tips just above the jar mouth — rendered in the spread, not drawn as graphics.",
+      "box": {
+        "x": 19,
+        "y": 47.5,
+        "w": 10.5,
+        "h": 8
+      }
+    }
+  ],
+  "z_order": [
+    "scene",
+    "e7",
+    "e6",
+    "e8",
+    "e9",
+    "e2",
+    "e4",
+    "e1",
+    "e3",
+    "ornament-arrow",
+    "e5"
+  ],
+  "hierarchy": [
+    "e7",
+    "e2",
+    "e6",
+    "e4",
+    "e3",
+    "e1",
+    "e5"
+  ],
+  "why_it_works": [
+    "One continuous top-to-bottom gesture — shoe melting into pour melting into jar — occupies a single narrow left column, so the entire right two-thirds stays empty and the title has nothing to fight.",
+    "The movie-poster title architecture (small red line, huge black line, small red line, huge black line) does all the pacing work with just size and two colours, and the arrow swapped into the 'I' delivers the devil idea without adding a single extra element.",
+    "The red of the shoe, the red of THE/EATS and the red caption triangulate across the frame, tying the picture to the type and pulling the eye down to the closing line through 9% of deliberate white."
+  ]
+}

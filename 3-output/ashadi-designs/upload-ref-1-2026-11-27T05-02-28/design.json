@@ -1,0 +1,12 @@
+{
+  "kind": "design",
+  "source": null,
+  "instruction": "Feed 4:5, 1080x1350. Background in Kapruka Purple #3C096C fading to #100223. Display two distinct watches vertically, each occupying separate halves of the frame resembling the image structure. First watch: positioned on top half, 45-55% frame width, set on a Cream #F5F4EB plinth. Second watch: positioned on bottom half, same width, also on a Cream plinth. Both watches have a soft contact shadow. Headline for top watch: “Minimalist Elegance” in Inter Black, white. Support line below: “Everyday Sophistication” in Inter Medium, white. Headline for bottom watch: “Chronograph Style” in Inter Black, white. Support line below: “Timeless Precision” in Inter Medium, white. Use a Gold #D9A441 fine line between watches. Lighting soft and warm to highlight premium quality. NEGATIVE: no price tags, no discount badges, no stars, no busy patterns, no buttons, no app UI, no second Kapruka logo, no alcohol imagery.",
+  "startedAt": "2026-11-27T05:02:28.146Z",
+  "variants": [],
+  "reference": [
+    "ref-01.png"
+  ],
+  "caption": null,
+  "error": "could not check the product photos for people (The Claude CLI could not do \"people-checker\" (people-checker exited 1: You've hit your 5-hour limit ) — try again"
+}

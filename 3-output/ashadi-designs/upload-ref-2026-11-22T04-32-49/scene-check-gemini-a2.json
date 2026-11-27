@@ -1,0 +1,167 @@
+{
+  "text_or_logos": [
+    {
+      "what": "DOLCE & GABBANA The Only One",
+      "box": {
+        "x": 49,
+        "y": 38,
+        "w": 12.5,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "BOSS HUGO BOSS (vertical on box)",
+      "box": {
+        "x": 23.5,
+        "y": 50,
+        "w": 6.5,
+        "h": 13
+      }
+    },
+    {
+      "what": "BOTTER UNLIMITE / garbled bottom text on BOSS box",
+      "box": {
+        "x": 20.5,
+        "y": 63.5,
+        "w": 11,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "BOSS HUGO BOSS UNLIMITED (vertical on bottle)",
+      "box": {
+        "x": 34,
+        "y": 51.5,
+        "w": 9,
+        "h": 14.5
+      }
+    },
+    {
+      "what": "Arabic script and HAWAS on bottle",
+      "box": {
+        "x": 53.5,
+        "y": 66,
+        "w": 7.5,
+        "h": 3.5
+      }
+    },
+    {
+      "what": "ELIXIR on bottle",
+      "box": {
+        "x": 55,
+        "y": 71.5,
+        "w": 4.5,
+        "h": 1.5
+      }
+    },
+    {
+      "what": "Rasasi Arabic logo on bottle",
+      "box": {
+        "x": 55.5,
+        "y": 77.5,
+        "w": 4,
+        "h": 1.5
+      }
+    },
+    {
+      "what": "Arabic script and HAWAS on box label",
+      "box": {
+        "x": 71,
+        "y": 60.5,
+        "w": 7.5,
+        "h": 4
+      }
+    },
+    {
+      "what": "ELIXIR on box",
+      "box": {
+        "x": 72.5,
+        "y": 69,
+        "w": 4.5,
+        "h": 1.5
+      }
+    },
+    {
+      "what": "Garbled bottom volume/product text on Hawas box",
+      "box": {
+        "x": 66.5,
+        "y": 78,
+        "w": 17,
+        "h": 2
+      }
+    }
+  ],
+  "watermark": {
+    "present": false,
+    "box": null,
+    "edge": "none"
+  },
+  "packaging": [],
+  "objects": [
+    {
+      "what": "Dolce & Gabbana perfume bottle",
+      "box": {
+        "x": 47.5,
+        "y": 26.5,
+        "w": 15.5,
+        "h": 23.5
+      }
+    },
+    {
+      "what": "Hugo Boss perfume box",
+      "box": {
+        "x": 15,
+        "y": 40.5,
+        "w": 19,
+        "h": 27.5
+      }
+    },
+    {
+      "what": "Hugo Boss perfume bottle",
+      "box": {
+        "x": 31,
+        "y": 42,
+        "w": 14.5,
+        "h": 27
+      }
+    },
+    {
+      "what": "Hawas Elixir perfume bottle",
+      "box": {
+        "x": 48,
+        "y": 55.5,
+        "w": 18.5,
+        "h": 26.5
+      }
+    },
+    {
+      "what": "Hawas Elixir perfume box",
+      "box": {
+        "x": 64.5,
+        "y": 52.5,
+        "w": 25.5,
+        "h": 29
+      }
+    },
+    {
+      "what": "Stepped purple display plinths with shadows",
+      "box": {
+        "x": 5.5,
+        "y": 48.5,
+        "w": 91,
+        "h": 45.5
+      }
+    }
+  ],
+  "objects_box": {
+    "x": 5.5,
+    "y": 26.5,
+    "w": 91,
+    "h": 67.5
+  },
+  "notes": "Product packaging contains garbled/misspelled AI text: 'BOTTER UNLIMITE' on the BOSS box instead of 'BOTTLED UNLIMITED', and slightly garbled small print ('3.38 FL.CC') along the bottom of the Hawas Elixir box.",
+  "size": {
+    "w": 818,
+    "h": 1024
+  }
+}
